@@ -148,7 +148,7 @@
 	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON';
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var password = "";
-	var urlapi = 'http://go-obat.com/markets/api/';	
+	var urlapi = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/';	
 
 	
 	$.ajaxSetup({
@@ -170,7 +170,7 @@
 		var html='';
 			for(i = 0; i < products.length; i++) {
 				var idProduct = products[""+i+""]["id"];
-				var setUrlProducts = "http://go-obat.com/markets/api/products/"+idProduct+"?output_format=JSON";
+				var setUrlProducts = "http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products/"+idProduct+"?output_format=JSON";
 				$.getJSON(setUrlProducts, 
 					function(setUrlProduct){
 					var Detailproductsname ='';
