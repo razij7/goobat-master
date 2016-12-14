@@ -116,7 +116,7 @@
 
     </div>
     <!-- /.container -->
-
+	
 
 </body>
 
@@ -145,11 +145,11 @@
 	*/
 	
 	var url = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products?output_format=JSON';
-	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON'
+	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON';
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var password = "";
-	var urlapi = 'http://go-obat.com/markets/api/'
-	
+	var urlapi = 'http://go-obat.com/markets/api/';	
+
 	
 	$.ajaxSetup({
 		cache: true ,
@@ -162,9 +162,33 @@
 			<!-- xhr.setRequestHeader('Authorization', '...'); -->
 		},
 	});
-
-	var objectName = 'zones';
-	postData(objectName);
-
+	
+	//GET PRODUCT IMAGE, SIZE UDAH BISA DIKECILIN
+	$.getJSON(url, 
+		function(datas){
+		var products = datas['products'];
+		var html='';
+			for(i = 0; i < products.length; i++) {
+				var idProduct = products[""+i+""]["id"];
+				var setUrlProducts = "http://go-obat.com/markets/api/products/"+idProduct+"?output_format=JSON";
+				$.getJSON(setUrlProducts, 
+					function(setUrlProduct){
+					var Detailproductsname ='';
+					var Detailproductsnamecategori ='';
+					var apiIdProduct = setUrlProduct["product"]["id"];
+					var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
+					var setUrlImageProduts = "http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default";
+					 Detailproductsname += '<tr id="" /><td><img src="'+setUrlImageProduts+'"></td><td>ID '+ setUrlProduct["product"]["id"] +' nama produk '+ setUrlProduct["product"]["name"] +' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+' id gambar= '+ setUrlProduct["product"]["associations"]["images"][0]["id"]+'</td></tr>';
+					 Detailproductsnamecategori += ' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+'';
+					 Detailproductsname += '<div class="col-md-3 col-sm-6 hero-feature"><div class="thumbnail"><img src="'+setUrlImageProduts+'" alt=""><div class="caption">'+ setUrlProduct["product"]["id"] +'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><p><a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a></p></div></div></div>';
+					 $('#Detailproductsname').append(Detailproductsname); 
+					$('#categories').append(Detailproductsnamecategori);
+				});
+				html += '<div id="div'+ products[""+i+""]["id"] +'" />'+ products[""+i+""]["id"] +'</div>';	
+			}
+		//$('#products').append(html);
+		
+	});
+	
 	$.ajaxSetup({ cache: true });
 </script>

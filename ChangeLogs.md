@@ -16,3 +16,24 @@
 	- tipe data harus text
 	
 ## controller untuk POST form carts, 7/12/2016 12:05
+
+## Update, Image, Form, dll 13/12/2016 16:24
+- index.html
+	- product image udah bisa kebaca dengan size kecil, yg skrg dipake "small_default", tipe2nya ada di ../images/products
+	- untuk ganti tipenya, tinggal ditambahin nama tipe tsb di akhir link
+	- contoh :
+		- var setUrlImageProduts = "http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/images/products/"+apiIdProduct+
+			"/"+apiIdImage+"/small_default";
+		
+- post.js
+	- fungsi "postData" diganti jadi "create"
+	- tambahan fungsi "readId"
+		return data berupa file xml
+	- tambahan fungsi "updateId"
+	- untuk sementara masih dalam bentuk fungsi2, saya masih mempelajari OOPnya dulu
+	
+- Note:
+	- http://bootsnipp.com/forms
+		- website form builder, biar cepet bikin formnya, bikin form di web tsb, kemudian htmlnya bisa diambil lalu dicopas ke kodingan,
+			tinggal sinkronisasi dengan jquerynya
+	
