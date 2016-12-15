@@ -11,8 +11,9 @@ var auth = class auth{
     doLogin(u,p) {
 		//return this.uname+' ini '+this.upass;
 		//var username = u;
-        $.getScript("../../controller/employees.js").done(function( script, textStatus , username) {
-			console.log( script+textStatus+username+p );
+        $.getScript("../../controller/employees.js").done(function( script, textStatus) {
+			//console.log( script+textStatus+username+p );
+			Employees.getEmployees(items);
 		  })
 		  .fail(function( jqxhr, settings, exception ) {
 			$( "div.log" ).text( "Triggered ajaxError handler." );

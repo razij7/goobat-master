@@ -92,15 +92,42 @@
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../controller/Auth.js"></script>
 <script src="../../js/webservice.js"></script>
+<script src="../../js/md5.min.js"></script>
+
 
 <script type="text/javascript">
-console.log(window.location.origin);
+<!-- console.log(window.location.origin); -->
+
+	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON'
+	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+	var password = "";
+	var urlapi = 'http://go-obat.com/markets/api/'
+	
+	
+	$.ajaxSetup({
+		cache: true ,
+		beforeSend: function(xhr) {
+		   xhr.setRequestHeader('Authorization', ("Basic "
+                        .concat(btoa(key))));
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+			
+			<!-- xhr.setRequestHeader('Authorization', '...'); -->
+		},
+	});
+
 	function doLogin(){
 
 		var username = $('#username').val();
 		var password = $('#password').val();
-
-var login = new Auth(username,password);
-console.log(login.doLogin());
+		
+		<!-- var employees = {username:'bagus',password:'bagus'}; -->
+		var hash = md5(password, "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d");
+		console.log(hash);
+		var login = new Auth(username,hash);
+		login.doLogin(username,hash);
 	}
+
+	$.ajaxSetup({ cache: true });
+	
 </script>
