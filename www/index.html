@@ -116,7 +116,7 @@
 
     </div>
     <!-- /.container -->
-	
+	<img src = 'img/logo.PNG'></img>
 
 </body>
 
@@ -162,9 +162,11 @@
 			<!-- xhr.setRequestHeader('Authorization', '...'); -->
 		},
 	});
-	
+	//webService.updateId('customers','78');
+	//var tes = Webservice.readId('customers','74');
+	//console.log(tes);
 	//GET PRODUCT IMAGE, SIZE UDAH BISA DIKECILIN
-	$.getJSON(url, 
+	/*$.getJSON(url, 
 		function(datas){
 		var products = datas['products'];
 		var html='';
@@ -180,7 +182,7 @@
 					var setUrlImageProduts = "http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default";
 					 Detailproductsname += '<tr id="" /><td><img src="'+setUrlImageProduts+'"></td><td>ID '+ setUrlProduct["product"]["id"] +' nama produk '+ setUrlProduct["product"]["name"] +' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+' id gambar= '+ setUrlProduct["product"]["associations"]["images"][0]["id"]+'</td></tr>';
 					 Detailproductsnamecategori += ' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+'';
-					 Detailproductsname += '<div class="col-md-3 col-sm-6 hero-feature"><div class="thumbnail"><img src="'+setUrlImageProduts+'" alt=""><div class="caption">'+ setUrlProduct["product"]["id"] +'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><p><a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a></p></div></div></div>';
+					 Detailproductsname += '<div class="col-md-3 col-sm-6 hero-feature"><div class="thumbnail"><img src="img/logo.PNG" alt=""><div class="caption">'+ setUrlProduct["product"]["id"] +'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><p><a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a></p></div></div></div>';
 					 $('#Detailproductsname').append(Detailproductsname); 
 					$('#categories').append(Detailproductsnamecategori);
 				});
@@ -188,7 +190,7 @@
 			}
 		//$('#products').append(html);
 		
-	});
+	});*/
 	
 	$.ajaxSetup({ cache: true });
 </script>

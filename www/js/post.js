@@ -9,9 +9,9 @@ function xmlToString(xmlData){
     return xmlString;
 }
 	
-function codeReturn(name){
+function codeReturn(objectName){
 	var code;
-	switch(name){
+	switch(objectName){
 		case 'orders':
 			code = 0; 
 			break;

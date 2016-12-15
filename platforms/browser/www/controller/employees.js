@@ -1,4 +1,4 @@
-var Employees = {
+var employees = {
     // Application Constructor
     initialize: function() {
         this.getEmployees();

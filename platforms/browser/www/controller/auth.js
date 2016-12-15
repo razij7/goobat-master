@@ -1,4 +1,4 @@
-var Auth = class Auth{
+var auth = class auth{
     // Application Constructor
 	constructor(x, y) {
     this.uname = x;

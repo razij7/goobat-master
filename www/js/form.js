@@ -150,14 +150,14 @@ quantity = 1;
 
 
 //customers
-/*
-id_default_group = 3;
-id_lang = 2;
-passwd = 'tesaja';
-lastname = 'jamil';
-firstname = 'raziz';
-email = 'razijamil@improva.co.id';
-*/
+
+//id_default_group = 3;
+//id_lang = 2;
+//passwd = 'tesaja';
+lastname = 'Aja';
+//firstname = 'Razi';
+//email = 'razijamil@improva.co.id';
+
 
 
 /*addresses -- lastname dan firstname harus di get dari customer sesuai id customer
