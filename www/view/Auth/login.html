@@ -87,7 +87,6 @@
 
 <script src="../../js/form.js"></script>
 <script src="../../js/array.js"></script>
-<script src="../../js/post.js"></script>
 <script src="../../js/jquery.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../controller/Auth.js"></script>
@@ -101,7 +100,7 @@
 	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON'
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var password = "";
-	var urlapi = 'http://go-obat.com/markets/api/'
+	var urlapi = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/';
 	
 	
 	$.ajaxSetup({
@@ -122,9 +121,9 @@
 		var password = $('#password').val();
 		
 		<!-- var employees = {username:'bagus',password:'bagus'}; -->
-		var hash = md5(password, "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d");
+		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
 		console.log(hash);
-		var login = new Auth(username,hash);
+		var login = new auth(username,hash);
 		login.doLogin(username,hash);
 	}
 

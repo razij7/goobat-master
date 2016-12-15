@@ -60,6 +60,9 @@ var webService = {
 			case 'zones': 
 				code = 4; 
 				break;
+			case 'employees':
+				code = 5;
+				break;
 		}
 		return code;
 	},
@@ -115,6 +118,42 @@ var webService = {
 			});
 		},
 		'xml');
+	},
+	
+	readJson: function(objectName){
+		var result;
+		$.ajax({
+			url: urlapi + objectName + '?output_format=JSON',
+			type: 'get',
+			dataType: 'json',
+			async : false,
+			success: function(tempXml){
+				console.log("Read success!");
+				result = tempXml;
+			},
+			error: function(){
+				console.log("Read  error!");
+			}
+		});
+		return result;
+	},
+	
+	readIdJson: function(objectName,id){
+		var result;
+		$.ajax({
+			url: urlapi + objectName + '/' + id + '?output_format=JSON',
+			type: 'get',
+			dataType: 'json',
+			async : false,
+			success: function(tempXml){
+				console.log("Read success!");
+				result = tempXml;
+			},
+			error: function(){
+				console.log("Read  error!");
+			}
+		});
+		return result;
 	},
 	
 	readId: function(objectName,id){
