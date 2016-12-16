@@ -115,6 +115,17 @@ var stats_date_to = '';
 var stats_compare_from = '';
 var stats_compare_to = '';
 var id_profile = '';
+var bo_color = '';
+var default_tab = '';
+var bo_theme = '';
+var bo_css = '';
+var bo_width = '';
+var bo_menu = '';
+var stats_compare_option = '';
+var preselect_date_range = '';
+var id_last_order = '';
+var id_last_customer_message = '';
+var id_last_customer = '';
 
 /*orders
 id_address_delivery = 55;
@@ -154,7 +165,7 @@ quantity = 1;
 //id_default_group = 3;
 //id_lang = 2;
 //passwd = 'tesaja';
-lastname = 'Aja';
+//lastname = 'Aja';
 //firstname = 'Razi';
 //email = 'razijamil@improva.co.id';
 
@@ -173,3 +184,11 @@ postcode = 13210;
 city = 'Jakarta Timur';
 phone = 109109;
 */
+
+//employees
+id_lang = 2; 
+passwd = 'asdasd';
+lastname = 'J';
+firstname = 'R';
+email = 'razijamilf@gmail.com'
+id_profile = 3;

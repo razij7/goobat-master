@@ -136,7 +136,11 @@ objectData[3] = 	[id,
 					date_add,
 					date_upd];
 					
-/*objectData[4] = 	[id,
+objectData[4]	=	[id,
+					name,
+					active];
+					
+objectData[5] = 	[id,
 					id_lang,
 					last_passwd_gen,
 					stats_date_from,
@@ -161,7 +165,3 @@ objectData[3] = 	[id,
 					id_last_order,
 					id_last_customer_message,
 					id_last_customer];
-*/
-objectData[5]	=	[id,
-					name,
-					active];

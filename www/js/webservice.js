@@ -70,7 +70,7 @@ var webService = {
 	create: function(objectName){
 		$.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
-			var objectCode = codeReturn(objectName);
+			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
 			var lastArray = childLength - 1;
