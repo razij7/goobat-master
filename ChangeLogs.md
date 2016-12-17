@@ -36,4 +36,6 @@
 	- http://bootsnipp.com/forms
 		- website form builder, biar cepet bikin formnya, bikin form di web tsb, kemudian htmlnya bisa diambil lalu dicopas ke kodingan,
 			tinggal sinkronisasi dengan jquerynya
-	
+
+## Rollback script
+- https://github.com/{username}/{projectname}/archive/{sha}.zip
