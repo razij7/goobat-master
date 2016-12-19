@@ -134,7 +134,7 @@
 </body>
 
 </html>
-<script type="text/javascript" src="cordova.js"></script>
+
 <script src="js/form.js"></script>
 <script src="js/array.js"></script>
 <script src="../../js/webservice.js"></script>
@@ -156,7 +156,7 @@
 	**
 	*/
 	
-	//var url = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products?output_format=JSON';
+
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
@@ -180,7 +180,7 @@
 			type: 'get',
 			dataType: 'json',
 			success: function(dataJsonId){
-				console.log("ReadIdJson success!");
+			
 				var apiIdProduct = dataJsonId.product.id;
 				var apiIdImage = dataJsonId.product.id_default_image;
 				var apiIdCategory = dataJsonId.product.id_category_default;
@@ -203,6 +203,8 @@
 			}
 		});
 	}
-	
+	$("#carts").click(function(){
+		alert("The paragraph was clicked.");
+	});
 	$.ajaxSetup({ cache: true });
 </script>
