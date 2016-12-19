@@ -128,11 +128,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				console.log("Read success!");
+				console.log("ReadJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				console.log("Read  error!");
+				console.log("ReadJson  error!");
 			}
 		});
 		return result;
@@ -146,11 +146,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				console.log("Read success!");
+				console.log("ReadIdJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				console.log("Read  error!");
+				console.log("ReadIdJson error!");
 			}
 		});
 		return result;

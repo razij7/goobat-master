@@ -36,12 +36,12 @@
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
                     <li>
-						<!-- <a href="view/auth/login.html">Login</a> -->
-						<a href="android_asset/www/view/auth/login.html">Login</a>
+						<a href="view/auth/login.html">Login</a>
+						<!-- <a href="android_asset/www/view/auth/login.html">Login</a> -->
                     </li>
                     <li>
-						<!-- <a href="view/auth/register.html">Register</a> -->
-						<a href="android_asset/www/view/auth/register.html">Register</a>
+						<a href="view/auth/register.html">Register</a>
+						<!-- <a href="android_asset/www/view/auth/register.html">Register</a> -->
                     </li>
                     <!-- <li><a href="contact.html">Contact</a> -->
                     <!-- </li> -->
@@ -156,9 +156,9 @@
 	**
 	*/
 	
-	var url = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products?output_format=JSON';
-	
+	//var url = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products?output_format=JSON';
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
 		cache: true ,
 		beforeSend: function(xhr) {
@@ -171,31 +171,38 @@
 		},
 	});
 	//webService.productImage();
-	$.getJSON(url, 
-			function(datas){
-				var products = datas['products'];
-				var html='';
-				for(i = 0; i < products.length; i++) {
-					var idProduct = products[""+i+""]["id"];
-					var setUrlProducts = "http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/products/"+idProduct+"?output_format=JSON";
-					$.getJSON(setUrlProducts, 
-						function(setUrlProduct){
-							var Detailproductsname ='';
-							var Detailproductsnamecategori ='';
-							var apiIdProduct = setUrlProduct["product"]["id"];
-							var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
-							var setUrlImageProduts = "http://go-obat.com/markets/api/images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key=ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-							//Detailproductsname += '<tr id="" /><td><img src="'+setUrlImageProduts+'"></td><td>ID '+ setUrlProduct["product"]["id"] +' nama produk '+ setUrlProduct["product"]["name"] +' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+' id gambar= '+ setUrlProduct["product"]["associations"]["images"][0]["id"]+'</td></tr>';
-							Detailproductsnamecategori += ' id kategori = '+ setUrlProduct["product"]["associations"]["categories"][0]["id"]+'';
-							Detailproductsname += '<div class="col-md-3 col-sm-6 hero-feature"><div class="thumbnail"><img style="width:10em; height:10em;" src="'+setUrlImageProduts+'" alt=""><div class="caption">'+ setUrlProduct["product"]["id"] +'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><p><a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a></p></div></div></div>';
-							$('#Detailproductsname').append(Detailproductsname); 
-							$('#categories').append(Detailproductsnamecategori);
-						}
-					);
-					html += '<div id="div'+ products[""+i+""]["id"] +'" />'+ products[""+i+""]["id"] +'</div>';	
-				}
+	
+	var objectName = 'products';
+	var dataJson = webService.readJson(objectName);
+	for(i=0;i<dataJson.products.length;i++){
+		$.ajax({
+			url: urlapi + objectName + '/' + dataJson.products[i].id + '?output_format=JSON',
+			type: 'get',
+			dataType: 'json',
+			success: function(dataJsonId){
+				console.log("ReadIdJson success!");
+				var apiIdProduct = dataJsonId.product.id;
+				var apiIdImage = dataJsonId.product.id_default_image;
+				var apiIdCategory = dataJsonId.product.id_category_default;
+				var Detailproductsnamecategori ='';
+				var setUrlImageProduts = urlapi+'images/products/'+apiIdProduct+'/'+apiIdImage+'/small_default?ws_key='+key;
+				var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
+				var thumbnail ='<div class="thumbnail">';
+				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
+				var classCaption ='<div class="caption">'+ apiIdProduct;
+				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
+				var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a href="#" class="btn btn-default">More Info</a></p>';
+				var divEnd1 ='</div></div></div>';
+				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
+				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
+				$("#Detailproductsname").append(alls);
+				//$('#categories').append(Detailproductsnamecategori);
+			},
+			error: function(){
+				console.log("ReadIdJson error!");
 			}
-		);
+		});
+	}
 	
 	$.ajaxSetup({ cache: true });
 </script>
