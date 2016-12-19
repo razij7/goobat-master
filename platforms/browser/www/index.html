@@ -171,8 +171,13 @@
 		},
 	});
 	//webService.productImage();
-	var urlRoot = fileSystem.root.toInternalURL();
-	console.log(urlRoot);
+	document.addEventListener("deviceready", onDeviceReady, false);
+	
+	function onDeviceReady() {
+    console.log(cordova.file);
+	alert(cordova.file.applicationDirectory);
+	}
+	
 	/*
 	var objectName = 'products';
 	var dataJson = webService.readJson(objectName);
