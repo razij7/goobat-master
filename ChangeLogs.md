@@ -37,5 +37,13 @@
 		- website form builder, biar cepet bikin formnya, bikin form di web tsb, kemudian htmlnya bisa diambil lalu dicopas ke kodingan,
 			tinggal sinkronisasi dengan jquerynya
 			
+## Display image ternyata belom bisa (SOLVED)
+  - harus pake ws_key='KEY' di akhir link untuk menampilkan gambar 
+  
 ## Log apk error di build phonegap (SOLVED)
   - Pastikan meta header default bawaan phonegap
+  
+## Link login/register error (SOLVED)
+  - Ternyata karena salah nama link root folder yang harusnya 'A' jadi 'a'
+  
+## Fungsi untuk ambil gambar di edit dikit
