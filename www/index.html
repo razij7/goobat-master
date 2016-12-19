@@ -184,38 +184,37 @@
 
 	
 	var objectName = 'products';
-	var dataJson = webService.readJson(objectName);
-	for(i=0;i<dataJson.products.length;i++){
-		$.ajax({
-			url: urlapi + objectName + '/' + dataJson.products[i].id + '?output_format=JSON',
-			type: 'get',
-			dataType: 'json',
-			success: function(dataJsonId){
-			
-				var apiIdProduct = dataJsonId.product.id;
-				var apiIdImage = dataJsonId.product.id_default_image;
-				var apiIdCategory = dataJsonId.product.id_category_default;
-				var Detailproductsnamecategori ='';
-				$("#detailProduct").attr("href","view/orders/index.html");
+	$.getJSON(urlapi + objectName + '?output_format=JSON', 
+		function(datas){
+			var products = datas['products'];
+			var html='';
+			for(i = 0; i < products.length; i++) {
+				var idProduct = products[""+i+""]["id"];
+				var setUrlProducts = urlapi+objectName+"/"+idProduct+"?output_format=JSON";
+				$.getJSON(setUrlProducts, 
+					function(setUrlProduct){
+						var Detailproductsname ='';
+						var Detailproductsnamecategori ='';
+						var apiIdProduct = setUrlProduct["product"]["id"];
+						var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
+						var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
+						var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
+						var thumbnail ='<div class="thumbnail">';
+						var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
+						var classCaption ='<div class="caption">'+ apiIdProduct;
+						var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
+						var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a href="#" class="btn btn-default">More Info</a></p>';
+						var divEnd1 ='</div></div></div>';
+						var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
+						//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
+						$("#Detailproductsname").append(alls);
+						//$('#categories').append(Detailproductsnamecategori);
+					}
+				);
 				
-				var setUrlImageProduts = urlapi+'images/products/'+apiIdProduct+'/'+apiIdImage+'/small_default?ws_key='+key;
-				var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
-				var thumbnail ='<div class="thumbnail">';
-				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
-				var classCaption ='<div class="caption">'+ apiIdProduct;
-				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-				var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a  href = "view/orders/index.html?id='+apiIdProduct+'" id="detailProduct"  class="btn btn-default">More Info</a></p>';
-				var divEnd1 ='</div></div></div>';
-				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
-				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
-				$("#Detailproductsname").append(alls);
-				//$('#categories').append(Detailproductsnamecategori);
-			},
-			error: function(){
-				console.log("ReadIdJson error!");
 			}
-		});
-	}
+		}
+	);
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");
 	});
