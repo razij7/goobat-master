@@ -171,17 +171,9 @@
 		},
 	});
 	//webService.productImage();
-var tes;
-	document.addEventListener("deviceready", onDeviceReady, false);
-	
-	function onDeviceReady() {
-    console.log(cordova.file);
-	tes = cordova.file.applicationDirectory;
-	alert(cordova.file.applicationDirectory);
-	}
-	console.log(tes);
 	$("#login").attr("href","view/Auth/login.html");
-	//href="view/auth/register.html"
+	$("#register").attr("href","view/Auth/register.html");
+
 	/*
 	var objectName = 'products';
 	var dataJson = webService.readJson(objectName);
