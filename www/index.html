@@ -36,12 +36,12 @@
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
                     <li>
-						<!-- <a href="/view/auth/login.html">Login</a> -->
-						<a href="/android_asset/www/view/auth/login.html">Login</a>
+						<a id = "login" >Login</a>
+						<!-- <a href="/android_asset/www/view/auth/login.html">Login</a> -->
                     </li>
                     <li>
-						<!-- <a href="/view/auth/register.html">Register</a> -->
-						<a href="/android_asset/www/view/auth/register.html">Register</a>
+						<a id = "register" >Register</a>
+						<!-- <a href="/android_asset/www/view/auth/register.html">Register</a> -->
                     </li>
                     <!-- <li><a href="contact.html">Contact</a> -->
                     <!-- </li> -->
@@ -171,13 +171,17 @@
 		},
 	});
 	//webService.productImage();
+var tes;
 	document.addEventListener("deviceready", onDeviceReady, false);
 	
 	function onDeviceReady() {
     console.log(cordova.file);
+	tes = cordova.file.applicationDirectory;
 	alert(cordova.file.applicationDirectory);
 	}
-	
+	console.log(tes);
+	$("#login").attr("href",tes+"view/auth/login.html");
+	//href="view/auth/register.html"
 	/*
 	var objectName = 'products';
 	var dataJson = webService.readJson(objectName);
@@ -192,6 +196,8 @@
 				var apiIdImage = dataJsonId.product.id_default_image;
 				var apiIdCategory = dataJsonId.product.id_category_default;
 				var Detailproductsnamecategori ='';
+				
+				
 				var setUrlImageProduts = urlapi+'images/products/'+apiIdProduct+'/'+apiIdImage+'/small_default?ws_key='+key;
 				var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
 				var thumbnail ='<div class="thumbnail">';
