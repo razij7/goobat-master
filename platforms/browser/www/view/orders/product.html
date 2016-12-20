@@ -61,13 +61,9 @@
 
 <script src="../../js/webservice.js"></script>
  <script type="text/javascript">
- var data = webService.readIdJson('products','189').product;
- 
- $("#name").prepend(data.name);
- webService.readIdJson('stock_availables','929');
 
- var stockAvailables = webService.readIdJson('stock_availables','828').stock_available;
- var qty = stockAvailables.quantity;
+
+ 
 
 
 $_GET('id','id_supplier');
@@ -92,7 +88,15 @@ function $_GET(param) {
 
 var idProduct = $_GET().id;
 var idSupplier = $_GET().id_supplier;
-console.log(idProduct+'   '+idSupplier);
+
+ var data = webService.readIdJson('products',idProduct).product;
+
+ var idStock = data.associations.stock_availables["0"].id
+ $("#name").prepend(data.name);
+
+var stockAvailables = webService.readIdJson('stock_availables',idStock).stock_available;
+var qty = stockAvailables.quantity;
+
 
 
 var currentURL = window.location.href;
