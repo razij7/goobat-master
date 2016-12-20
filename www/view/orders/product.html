@@ -23,7 +23,7 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="box">
-							<h1 class="text-center">White Blouse Armani</h1>
+							<h1 class="text-center" id='name'></h1>
 							<p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
 							</p>
 							<p class="price">$124.00</p>
@@ -134,4 +134,13 @@
 			
 	</div>
 </div>
-         
+<script src="../../js/webservice.js"></script>
+ <script type="text/javascript">
+ var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+
+ var data = webService.readIdJson('products','189').product;
+ 
+ $("#name").prepend(data.name);
+ 
+ </script>
