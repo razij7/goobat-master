@@ -1,7 +1,6 @@
 var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	
-
 var webService = {
     // Application Constructor
     initialize: function() {
@@ -60,7 +59,7 @@ var webService = {
 				code = 5;
 				break;
 			case 'stock_availables':
-				code = 6s;
+				code = 6;
 				break;
 		}
 		return code;

@@ -126,6 +126,8 @@ var preselect_date_range = '';
 var id_last_order = '';
 var id_last_customer_message = '';
 var id_last_customer = '';
+var depends_on_stock = '';
+var out_of_stock = '';
 
 /*orders
 id_address_delivery = 55;
