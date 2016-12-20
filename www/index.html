@@ -161,8 +161,9 @@
 	/* @var
 	**
 	*/
+	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
 		cache: true ,
 		beforeSend: function(xhr) {
@@ -177,8 +178,8 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	//webService.productImage();
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
-
-
+	
+	
 	
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
@@ -193,7 +194,6 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 						var Detailproductsname ='';
 						var Detailproductsnamecategori ='';
 						var apiIdProduct = setUrlProduct["product"]["id"];
-						var apiIdSupplier = setUrlProduct["product"]["id_supplier"];
 						var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
 						var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
 						var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
@@ -201,9 +201,9 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 						var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 						var classCaption ='<div class="caption">'+ apiIdProduct;
 						var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-						var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'" id="detailProduct" class="btn btn-default">More Info</a></p>';
+						var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a href="view/orders/index.html?id='+apiIdProduct+'" id="detailProduct" class="btn btn-default">More Info</a></p>';
 						var divEnd1 ='</div></div></div>';
-						var    = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
+						var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
 						//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
 						$("#Detailproductsname").append(alls);
 						//$('#categories').append(Detailproductsnamecategori);
@@ -213,7 +213,6 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 			}
 		}
 	);
-	
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");
 	});
