@@ -123,7 +123,7 @@ $( "#addtoCart" ).click(function() {
 		objectData[1][22] = 1;
 		console.log(objectData[5][7]);
 		webService.create('carts');
-		console.log(objectData);
+		console.log(objectData);	
 		
 	});
 	var idCustomer = 68;
@@ -139,5 +139,8 @@ $( "#addtoCart" ).click(function() {
 			break;
 		}
 	}
-	console.log(idAddress);
+	
+	var addressCustomer = webService.readIdJson('addresses',idAddress).address;
+	console.log(addressCustomer.city);
+	$("#details").prepend( addressCustomer.city);
  </script>
