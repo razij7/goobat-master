@@ -1,6 +1,4 @@
- <div id="content">
-		<div class="container">
-			<div class="col-md-9">
+
 
 				<div class="row" id="productMain">
 					<div class="col-sm-6">
@@ -58,82 +56,9 @@
 				</div>
 
 
-				<div class="box" id="details">
-					<p>
-						<h4>Product details</h4>
-						<p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-						<h4>Material & care</h4>
-						<ul>
-							<li>Polyester</li>
-							<li>Machine wash</li>
-						</ul>
-						<h4>Size & Fit</h4>
-						<ul>
-							<li>Regular fit</li>
-							<li>The model (height 5'8" and chest 33") is wearing a size S</li>
-						</ul>
-
-						<blockquote>
-							<p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
-							</p>
-						</blockquote>
-
-						<hr>
-						<div class="social">
-							<h4>Show it to your friends</h4>
-							<p>
-								<a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-								<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-							</p>
-						</div>
-				</div>
-
-				<div class="row same-height-row">
-					<div class="col-md-3 col-sm-6">
-						<div class="box same-height">
-							<h3>You may also like these products</h3>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-sm-6">
-						<div class="product same-height">
-							<div class="flip-container">
-								<div class="flipper">
-									<div class="front">
-										<a href="detail.html">
-											<img src="img/product2.jpg" alt="" class="img-responsive">
-										</a>
-									</div>
-									<div class="back">
-										<a href="detail.html">
-											<img src="img/product2_2.jpg" alt="" class="img-responsive">
-										</a>
-									</div>
-								</div>
-							</div>
-							<a href="detail.html" class="invisible">
-								<img src="img/product2.jpg" alt="" class="img-responsive">
-							</a>
-							<div class="text">
-								<h3>Fur coat</h3>
-								<p class="price">$143</p>
-							</div>
-						</div>
-						<!-- /.product -->
-					</div>
-
-
-				</div>
-
-
-			</div>
+				
                 <!-- /.col-md-9 -->
-        </div>
-			
-	</div>
-</div>
+
 <script src="../../js/webservice.js"></script>
  <script type="text/javascript">
  var data = webService.readIdJson('products','189').product;
@@ -143,7 +68,35 @@
 
  var stockAvailables = webService.readIdJson('stock_availables','828').stock_available;
  var qty = stockAvailables.quantity;
-console.log(stockAvailables);
+
+
+$_GET('id','id_supplier');
+function $_GET(param) {
+	var vars = {};
+	http://192.168.1.153:3000/view/orders/index.html?id=189&id_supplier=0
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			vars[key] = value !== undefined ? value : '';
+			
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	
+	return vars;
+}
+<!-- console.log($_GET().id+' '+$_GET().id_supplier); -->
+
+var idProduct = $_GET().id;
+var idSupplier = $_GET().id_supplier;
+console.log(idProduct+'   '+idSupplier);
+
+
+var currentURL = window.location.href;
+
  
  if (qty < 1){
  console.log('stok tidak tersedia');
