@@ -129,25 +129,54 @@ var id_last_customer = '';
 var depends_on_stock = '';
 var out_of_stock = '';
 
-/*orders
-id_address_delivery = 55;
-id_address_invoice = 55;
-id_cart = 185;
+//orders
+id_address_delivery = 61;
+id_address_invoice = 61;
+id_cart = 211;
 id_currency = 2;
 id_lang = 2;
-id_customer = 59;
+id_customer = 68;
 id_carrier = 3;
-current_state = 16;
+current_state = 2;
 module = 'bca';
+invoice_number = 7;
+delivery_number = 6;
+valid = 1;
+id_shop_group = 1;
+id_shop = 1;
+secure_key = '934e8540bf319a616de539a37c63797b';
 payment = 'BCA';
-total_paid = 208000;
-total_paid_real = 208000;
-total_products = 1;
-total_products_wt = 1;
-conversion_rate = '';
-product_id = 139;
+recyclable = 0;
+gift = 0;
+mobile_theme = 0;
+total_discounts = 0;
+total_discounts_tax_incl = 0;
+total_discounts_tax_excl = 0;
+total_paid = 308000;
+total_paid_tax_incl = 308000;
+total_paid_tax_excl = 308000;
+total_paid_real = 308000;
+total_products = 300000;
+total_products_wt = 300000;
+total_shipping = 8000;
+total_shipping_tax_incl = 8000;
+total_shipping_tax_excl = 8000;
+carrier_tax_rate = 0;
+total_wrapping = 0;
+total_wrapping_tax_incl = 0;
+total_wrapping_tax_excl = 0;
+round_mode = 2;
+round_type = 2;
+conversion_rate = 1;
+reference = 000000053;
+product_id = 190;
+product_attribute_id = 0;
 product_quantity = 1;
-*/
+product_name = 'Obat Baru';
+product_price = 300000;
+unit_price_tax_incl = 300000;
+unit_price_tax_excl = 300000;
+
 
 /*carts
 id_address_delivery = 55;

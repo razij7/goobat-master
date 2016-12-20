@@ -178,7 +178,52 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
 	
-	
+	//webService.create('orders');
+	var idCustomer = 68;
+	var idAddress;
+	var objectName = 'addresses';
+	var check = false;
+	dataJson = webService.readJson(objectName);
+	function myCallback(result){
+		if (result){
+			console.log(result);
+			check = true;
+		}
+		return check;
+	}
+	function foo(tes){
+		for(i=0;i<dataJson.addresses.length;i++){
+			urlAll = urlapi + objectName + '/' + dataJson.addresses[i].id + '?output_format=JSON';
+			var check = false;
+			$.ajax({
+				url: urlAll,
+				type: 'get',
+				dataType: 'json',
+				success: function(dataIdJson){
+					console.log("ReadIdJson success!");
+					if (dataIdJson.address.id_customer == idCustomer){
+						idAddress = dataIdJson.address.id;
+						//console.log(idAddress);
+						console.log("AAAAAAAAA");
+						myCallback(idAddress);
+						//i = dataJson.addresses.length;
+						
+					}
+					//console.log(dataIdJson.address.id_customer);
+					
+				},
+				error: function(){
+					console.log("ReadIdJson error!");
+				}
+			});
+			if (check==true){
+				break;
+			}
+		}
+	}
+	foo(myCallback);
+	//}
+	//}
 	/*
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
