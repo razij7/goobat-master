@@ -126,5 +126,18 @@ $( "#addtoCart" ).click(function() {
 		console.log(objectData);
 		
 	});
- 
+	var idCustomer = 68;
+	var idAddress;
+	dataJson = webService.readJson('addresses');
+	console.log(dataJson);
+	dataIdJson = webService.readIdJson('addresses','2');
+	console.log(dataIdJson);
+	for(i=0;i<dataJson.addresses.length;i++){
+		dataIdJson = webService.readIdJson('addresses',dataJson.addresses[i].id);
+		if (dataIdJson.address.id_customer == idCustomer){
+			idAddress = dataIdJson.address.id;
+			break;
+		}
+	}
+	console.log(idAddress);
  </script>
