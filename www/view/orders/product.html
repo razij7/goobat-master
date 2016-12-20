@@ -88,7 +88,7 @@ function $_GET(param) {
 
 var idProduct = $_GET().id;
 var idSupplier = $_GET().id_supplier;
-
+var description = $_GET().description;
  var data = webService.readIdJson('products',idProduct).product;
 
  var idStock = data.associations.stock_availables["0"].id
@@ -96,7 +96,7 @@ var idSupplier = $_GET().id_supplier;
 
 var stockAvailables = webService.readIdJson('stock_availables',idStock).stock_available;
 var qty = stockAvailables.quantity;
-
+console.log(data.description);
 
 
 var currentURL = window.location.href;
@@ -109,6 +109,22 @@ var currentURL = window.location.href;
  }else{
   console.log('stok tersedia');
   $("#addtoCart").prepend('<i class="fa fa-shopping-cart"></i> Add to cart</a> ');
+ 
  }
+  $("#details").prepend( data.description);
+$( "#addtoCart" ).click(function() {
+
+		objectData[1][1] = 55;
+		objectData[1][2] = 55;
+		objectData[1][3] = 2;
+		objectData[1][4] = 68;
+		objectData[1][6] = 2;
+		objectData[1][19] = idProduct;
+		objectData[1][22] = 1;
+		console.log(objectData[5][7]);
+		webService.create('carts');
+		console.log(objectData);
+		
+	});
  
  </script>
