@@ -29,8 +29,8 @@
 							<p class="price">$124.00</p>
 
 							<p class="text-center buttons">
-								<a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
-								<a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
+								<a href="#" class="btn btn-primary" id='addtoCart'>
+								<a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
 							</p>
 
 
@@ -136,11 +136,22 @@
 </div>
 <script src="../../js/webservice.js"></script>
  <script type="text/javascript">
- var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
- var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
-
  var data = webService.readIdJson('products','189').product;
  
  $("#name").prepend(data.name);
+ webService.readIdJson('stock_availables','929');
+
+ var stockAvailables = webService.readIdJson('stock_availables','828').stock_available;
+ var qty = stockAvailables.quantity;
+console.log(stockAvailables);
+ 
+ if (qty < 1){
+ console.log('stok tidak tersedia');
+ $("#addtoCart").attr("disabled","disabled");
+ $("#addtoCart").prepend('<i class="fa fa-exclamation-triangle"></i>Kosong</a> ');
+ }else{
+  console.log('stok tersedia');
+  $("#addtoCart").prepend('<i class="fa fa-shopping-cart"></i> Add to cart</a> ');
+ }
  
  </script>

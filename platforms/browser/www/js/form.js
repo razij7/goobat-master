@@ -126,6 +126,8 @@ var preselect_date_range = '';
 var id_last_order = '';
 var id_last_customer_message = '';
 var id_last_customer = '';
+var depends_on_stock = '';
+var out_of_stock = '';
 
 /*orders
 id_address_delivery = 55;
@@ -231,5 +233,19 @@ objectData[5][10] = 'razijamilf@gmail.com';
 objectData[5][13] = 3;
 */
 
+//FORM stock_availables
 
+/*
+id_product = 187;
+id_product_attribute = 0;
+quantity = 1;
+depends_on_stock = 0;
+out_of_stock = 2;
+
+objectData[6][1] = 187;
+objectData[6][2] = 0;
+objectData[6][5] = 1;
+objectData[6][6] = 0;
+objectData[6][7] = 2;
+*/
 
