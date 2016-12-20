@@ -54,7 +54,7 @@ var webService = {
 			case 'customers': 
 				code = 2; 
 				break;
-			case 'products': 
+			case 'addresses': 
 				code = 3; 
 				break;
 			case 'zones': 

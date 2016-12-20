@@ -156,22 +156,39 @@ id_lang = 2;
 id_product = 139;
 quantity = 1;
 //id_guests = 0 karena id guest tergantung dari visit user ke web, 0 karena customer blm daftar
+
+objectData[1][1] = 55;
+objectData[1][2] = 55;
+objectData[1][3] = 2;
+objectData[1][4] = 59;
+objectData[1][6] = 2;
+objectData[1][19] = 139;
+objectData[1][22] = 1;
 */
 
 
 
-//customers
+//FORM customers
 
-//id_default_group = 3;
-//id_lang = 2;
-//passwd = 'tesaja';
-//lastname = 'Aja';
-//firstname = 'Razi';
-//email = 'razijamil@improva.co.id';
+/*
+id_default_group = 3;
+id_lang = 2;
+passwd = 'tesaja';
+lastname = 'Aja';
+firstname = 'Razi';
+email = 'razijamil@improva.co.id';
 
+objectData[2][1] = 3;
+objectData[2][2] = 2;
+objectData[2][8] = 'tesaja';
+objectData[2][9] = 'Aja';
+objectData[2][10] = 'Razi';
+objectData[2][11] = 'razijamil@improva.co.id';
+*/
 
+//FORM addresses -- lastname dan firstname harus di get dari customer sesuai id customer
 
-/*addresses -- lastname dan firstname harus di get dari customer sesuai id customer
+/*
 id_customer = 59;
 id_country = 111;
 id_state = 11;
@@ -183,12 +200,36 @@ address1 = 'Pulomas Utara no 42';
 postcode = 13210;
 city = 'Jakarta Timur';
 phone = 109109;
-*/
 
-//employees
+objectData[3][1] = 59;
+objectData[3][5] = 111;
+objectData[3][6] = 11;
+objectData[3][7] = 'Home';
+objectData[3][8] = 'PT Improva';
+objectData[3][9] = 'jamil';
+objectData[3][10] = 'raziz';
+objectData[3][12] = 'Pulomas Utara no 42';
+objectData[3][14] = 13210;
+objectData[3][15] = 'Jakarta Timur';
+objectData[3][17] = 109109;
+*/
+//FORM EMPLOYEES
+
+/*
 id_lang = 2; 
 passwd = 'asdasd';
 lastname = 'J';
 firstname = 'R';
 email = 'razijamilf@gmail.com'
 id_profile = 3;
+
+objectData[5][1] = 2;
+objectData[5][7] = 'asdasd';
+objectData[5][8] = 'J';
+objectData[5][9] = 'R';
+objectData[5][10] = 'razijamilf@gmail.com';
+objectData[5][13] = 3;
+*/
+
+
+
