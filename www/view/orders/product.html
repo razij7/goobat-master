@@ -3,7 +3,7 @@
 				<div class="row" id="productMain">
 					<div class="col-sm-6">
 						<div id="mainImage">
-							<img src="../../img/logo.jpg" alt="" class="img-responsive">
+							<img id="imgProduct"  alt="" class="img-responsive">
 						</div>
 
 						<div class="ribbon sale">
@@ -21,10 +21,14 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="box">
-							<h1 class="text-center" id='name'></h1>
-							<p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
+							<span class="text-center" id='name'></span>
+							
+							<p class="price" >
+								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+								<link itemprop="availability" href="https://schema.org/InStock">
+								<span id="our_price_display" class="price" itemprop="price" ></span>
+								<meta itemprop="priceCurrency" content="IDR"></p>
 							</p>
-							<p class="price">$124.00</p>
 
 							<p class="text-center buttons">
 								<a href="#" class="btn btn-primary" id='addtoCart'>
@@ -34,23 +38,23 @@
 
 						</div>
 
-						<div class="row" id="thumbs">
-							<div class="col-xs-4">
-								<a href="../../img/logo.jpg" class="thumb">
-									<img src="../../img/logo.jpg" alt="" class="img-responsive">
-								</a>
-							</div>
-							<div class="col-xs-4">
-								<a href="../../img/logo.jpg" class="thumb">
-									<img src="../../img/logo.jpg" alt="" class="img-responsive">
-								</a>
-							</div>
-							<div class="col-xs-4">
-								<a href="../../img/logo.jpg" class="thumb">
-									<img src="../../img/logo.jpg" alt="" class="img-responsive">
-								</a>
-							</div>
-						</div>
+						<!-- <div class="row" id="thumbs"> -->
+							<!-- <div class="col-xs-4"> -->
+								<!-- <a href="../../img/logo.jpg" class="thumb"> -->
+									<!-- <img src="../../img/logo.jpg" alt="" class="img-responsive"> -->
+								<!-- </a> -->
+							<!-- </div> -->
+							<!-- <div class="col-xs-4"> -->
+								<!-- <a href="../../img/logo.jpg" class="thumb"> -->
+									<!-- <img src="../../img/logo.jpg" alt="" class="img-responsive"> -->
+								<!-- </a> -->
+							<!-- </div> -->
+							<!-- <div class="col-xs-4"> -->
+								<!-- <a href="../../img/logo.jpg" class="thumb"> -->
+									<!-- <img src="../../img/logo.jpg" alt="" class="img-responsive"> -->
+								<!-- </a> -->
+							<!-- </div> -->
+						<!-- </div> -->
 					</div>
 
 				</div>
@@ -89,14 +93,14 @@ function $_GET(param) {
 var idProduct = $_GET().id;
 var idSupplier = $_GET().id_supplier;
 var description = $_GET().description;
- var data = webService.readIdJson('products',idProduct).product;
+ var detailProduct = webService.readIdJson('products',idProduct).product;
 
- var idStock = data.associations.stock_availables["0"].id
- $("#name").prepend(data.name);
+ var idStock = detailProduct.associations.stock_availables["0"].id
+ $("#name").prepend(detailProduct.name);
 
 var stockAvailables = webService.readIdJson('stock_availables',idStock).stock_available;
 var qty = stockAvailables.quantity;
-console.log(data.description);
+console.log(detailProduct.description);
 
 
 var currentURL = window.location.href;
@@ -111,7 +115,12 @@ var currentURL = window.location.href;
   $("#addtoCart").prepend('<i class="fa fa-shopping-cart"></i> Add to cart</a> ');
  
  }
-  $("#details").prepend( data.description);
+ 
+   $("#stock").prepend( qty );
+  $("#description").prepend( detailProduct.description);
+  $("#our_price_display").prepend( detailProduct.price);
+   $("#reference").prepend( detailProduct.reference);
+
 $( "#addtoCart" ).click(function() {
 
 		objectData[1][1] = 55;
@@ -143,4 +152,13 @@ $( "#addtoCart" ).click(function() {
 	var addressCustomer = webService.readIdJson('addresses',idAddress).address;
 	console.log(addressCustomer.city);
 	$("#details").prepend( addressCustomer.city);
+	
+	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	var apiIdImage = detailProduct.associations.images["0"].id;
+	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
+	console.log(loadImg);
+	$("#imgProduct").attr("src",loadImg);
+	$("#our_price_display").attr("content",detailProduct.price);
+	
+		
  </script>
