@@ -64,7 +64,6 @@
 						</ul>
 						<h4>Size & Fit</h4>
 						<ul>
-							<li>Regular fit</li>
 							<li>The model (height 5'8" and chest 33") is wearing a size S</li>
 						</ul>
 
@@ -84,44 +83,7 @@
 							</p>
 						</div>
 				</div>
-
-				<!-- <div class="row same-height-row"> -->
-					<!-- <div class="col-md-3 col-sm-6"> -->
-						<!-- <div class="box same-height"> -->
-							<!-- <h3>You may also like these products</h3> -->
-						<!-- </div> -->
-					<!-- </div> -->
-
-					<!-- <div class="col-md-3 col-sm-6"> -->
-						<!-- <div class="product same-height"> -->
-							<!-- <div class="flip-container"> -->
-								<!-- <div class="flipper"> -->
-									<!-- <div class="front"> -->
-										<!-- <a href="detail.html"> -->
-											<!-- <img src="img/product2.jpg" alt="" class="img-responsive"> -->
-										<!-- </a> -->
-									<!-- </div> -->
-									<!-- <div class="back"> -->
-										<!-- <a href="detail.html"> -->
-											<!-- <img src="img/product2_2.jpg" alt="" class="img-responsive"> -->
-										<!-- </a> -->
-									<!-- </div> -->
-								<!-- </div> -->
-							<!-- </div> -->
-							<!-- <a href="detail.html" class="invisible"> -->
-								<!-- <img src="img/product2.jpg" alt="" class="img-responsive"> -->
-							<!-- </a> -->
-							<!-- <div class="text"> -->
-								<!-- <h3>Fur coat</h3> -->
-								<!-- <p class="price">$143</p> -->
-							<!-- </div> -->
-						<!-- </div> -->
-						<!-- <!-- /.product --> 
-					<!-- </div> -->
-
-
-				<!-- </div> -->
-
+				
 
 			</div>
 				</div>
@@ -136,7 +98,7 @@
 <script src="../../js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../../js/bootstrap.min.js"></script>
-
+<script src="../../js/js/jquery-1.11.0.min.js"></script>
     <script src="../../js/js/bootstrap.min.js"></script>
     <script src="../../js/js/jquery.cookie.js"></script>
     <script src="../../js/js/waypoints.min.js"></script>
@@ -152,7 +114,19 @@
 
 </html>
 <script type="text/javascript">
-
+var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	$.ajaxSetup({
+		cache: true ,
+		beforeSend: function(xhr) {
+		   xhr.setRequestHeader('Authorization', ("Basic "
+                        .concat(btoa(key))));
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+			
+			<!-- xhr.setRequestHeader('Authorization', '...'); -->
+		},
+	});
 	$('#product').load("product.html");
 	
 	$.ajaxSetup({ cache: true });
