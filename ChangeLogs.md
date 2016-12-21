@@ -47,3 +47,5 @@
   - Ternyata karena salah nama link root folder yang harusnya 'A' jadi 'a'
   
 ## Fungsi untuk ambil gambar di edit dikit
+
+## updateId untuk nambah produk ke cart, tinggal di tes
