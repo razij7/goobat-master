@@ -220,21 +220,21 @@ var webService = {
 			// }			
 		// }
 		
-		var textData = webService.xmlToString(tempXml); 
+		// var textData = webService.xmlToString(tempXml); 
 		//console.log(textData);
-		$.ajax({
-			url: urlapi + objectName + '/' + id,
-			type: 'put',
-			dataType: 'text',
-			async : false,
-			success: function(){
-				console.log("Update success!");
-			},
-			error: function(){
-				console.log("Update error!");
-			}
-		});
-	}
+		// $.ajax({
+			// url: urlapi + objectName + '/' + id,
+			// type: 'put',
+			// dataType: 'text',
+			// async : false,
+			// success: function(){
+				// console.log("Update success!");
+			// },
+			// error: function(){
+				// console.log("Update error!");
+			// }
+		// });
+	// }
 	
 	
 };
