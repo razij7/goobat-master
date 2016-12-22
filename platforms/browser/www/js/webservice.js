@@ -110,7 +110,7 @@ var webService = {
 				data : textData,
 				async : false,
 				success: function(){
-					console.log("Create success!");
+					console.log("Data berhasil di simpan");
 					alert('Data berhasil di simpan');
 				},
 				error: function(){

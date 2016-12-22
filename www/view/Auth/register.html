@@ -347,9 +347,113 @@
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
 		console.log(objectData[5][7]);
-		webService.create('employees');
+		var objectName = 'employees';
+		$.get( urlapi + "employees" + "?schema=blank",
+		function(tempXml) {
+		var code;
+		switch('employees'){
+			case 'orders':
+				code = 0; 
+				break;
+			case 'carts': 
+				code = 1; 
+				break;
+			case 'customers': 
+				code = 2; 
+				break;
+			case 'addresses': 
+				code = 3; 
+				break;
+			case 'zones': 
+				code = 4; 
+				break;
+			case 'employees':
+				code = 5;
+				break;
+			case 'stock_availables':
+				code = 6;
+				break;
+		};
+			var objectCode = code;
+			var objectChildren = $(tempXml).children().children()[0];
+			var childLength = objectChildren.children.length;
+			var lastArray = childLength - 1;
+			var associationExistence = 0;
+				
+			if ( objectChildren.children[lastArray].nodeName == 'associations' ){
+				var associationChildren = objectChildren.children[lastArray].children[0].children[0];
+				var associationLength = associationChildren.children.length;
+				associationExistence = 1;
+			}	
+			for ( i = 0 ; i < childLength ; i++ ){
+				if ( i == lastArray && associationExistence == 1 ){
+					for ( j = 0 ; j < associationLength ; j++ ){
+						if ( associationChildren.children[j].nodeName == 'id' ){
+							switch(objectName){
+								case 'customers' : 
+									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
+									break;
+								case 'orders' : 
+								//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+									
+									break;
+							}
+							continue;
+						}
+						associationChildren.children[j].innerHTML = objectData[objectCode][i+j];
+					}
+				}
+				else{
+					objectChildren.children[i].innerHTML = objectData[objectCode][i];
+				}
+			}
+			var textData = webService.xmlToString(tempXml); 
+			console.log(textData);
+			$.ajax({
+				url: urlapi + objectName,
+				type: 'post',
+				dataType: 'text',
+				data : textData,
+				async : false,
+				success: function(){
+					console.log("Data berhasil di simpan");
+					alert('Data berhasil di simpan');
+				},
+				error: function(){
+					console.log("Create error!");
+				}
+			});
+			
+		},
+		'xml');
 		alert(webService.create('employees'));
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	$( "#signup" ).click(function() {
 		
 
