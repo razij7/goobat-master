@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
     <title>Go-Obat</title>
 
-	
+
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/animate.min.css" rel="stylesheet">
@@ -72,7 +72,7 @@
                         <p style="color:red"> *Kolom wajib diisi</p>
                         <hr>
 
- <form  method="post">
+ <form  action="javascript:signup()">
                             <div class="form-group">
                                 <label for="name">Nama Depan</label>
                                 <input type="text" class="form-control" id="firstname">
@@ -90,7 +90,8 @@
                                 <input type="password" class="form-control" id='password'>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Register</button>
+							 <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                                <button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Register</button>
                             </div>
 </form>
                     </div>
@@ -337,16 +338,15 @@
 		},
 	});
 	
-	
-	$( "#signup" ).click(function() {
-
-		objectData[5][1] = 2; 
-		objectData[5][7] = $('#password').val();
+	function signup(){
+			objectData[5][1] = 2; 
+		objectData[5][7] = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val();
 		objectData[5][8] = $('#lastname').val();
 		objectData[5][9] = $('#firstname').val();
 		objectData[5][10] = $('#email').val();
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
+
 		objectData[5][1] = 2;
 	objectData[5][7] = 'asdasda';
 	objectData[5][8] = 'zzz';
@@ -376,7 +376,9 @@
 									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
 									break;
 								case 'orders' : 
+
 									//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+
 									
 									break;
 							}
@@ -391,6 +393,7 @@
 			}
 			var textData = webService.xmlToString(tempXml); 
 			console.log(tempXml);
+
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
@@ -398,16 +401,31 @@
 				data : textData,
 				async : false,
 				success: function(){
+
 					console.log("Create success!");
+
 				},
 				error: function(){
 					console.log("Create error!");
 				}
 			});
+
 		},
 		'xml');
 	console.log("A");
 	alert("B");
+
+		
+	}
+	
+	
+	
+	
+	
+	$( "#signup" ).click(function() {
+		
+
+
 		
 	});
 
