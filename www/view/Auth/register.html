@@ -392,8 +392,7 @@
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
-			console.log(tempXml);
-
+			alert(textData);
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
@@ -401,11 +400,12 @@
 				data : textData,
 				async : false,
 				success: function(){
-
+					alert('Create Success');
 					console.log("Create success!");
 
 				},
 				error: function(){
+					alert('Create Error');
 					console.log("Create error!");
 				}
 			});
