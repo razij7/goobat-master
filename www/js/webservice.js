@@ -179,19 +179,14 @@ var webService = {
 		var objectCode = webService.codeReturn(objectName);
 		var objectChildren = $(tempXml).children().children()[0];
 		var rowNode = tempXml.getElementsByTagName('cart_row');
-		//var objectChildren = tempXml.getElementsByTagName('cart')[0];
-		
-		console.log(objectChildren);
 		var childLength = objectChildren.children.length;
 		
 		for ( i = 0 ; i < childLength ; i++ ){	
 			if ( objectData[objectCode][i] !== '' ){ //ada data ga?
 				if(objectName == 'carts' && i == 19){ //carts bukan? id_product bukan?
 					for(j=0;j<rowNode.length;j++){//cek satu2
-						if ( rowNode[j].children[0].innerHTML == objectData[objectCode][19]){//id_product sama ga?
+						if ( rowNode[j].children[0].textContent == objectData[objectCode][19]){//id_product sama ga?
 							rowNode[j].children[3].innerHTML = objectData[objectCode][22];//input ke qty
-							console.log("A")
-							console.log(tempXml);
 							break;//keluar dari looping
 						}
 						else{//id product beda
@@ -227,8 +222,6 @@ var webService = {
 			}			
 		}
 		var textData = webService.xmlToString(tempXml);
-		console.log(textData);
-		//console.log(textData);
 		$.ajax({
 			url: urlapi + objectName + '/' + id,
 			type: 'put',

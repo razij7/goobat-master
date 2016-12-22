@@ -177,16 +177,23 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
 	
-	/*
-	objectData[1][19] = 188;
+	/**
+		Update Cart
+			Tambah produk
+			Ganti quantity
+			Data yang masuk harus :
+				id_product
+				id_product_attribute ( default 0 )
+				quantity 
+	**/
+	objectData[1][19] = 187;
 	objectData[1][20] = 0;
-	objectData[1][22] = 0;
+	objectData[1][22] = 15;
 	
 	var objectName = 'carts';
-	var id = 232;
-	
+	var id = 235;
 	webService.updateId(objectName,id);
-	*/
+	
 	
 	/*
 	var objectName = 'products';
