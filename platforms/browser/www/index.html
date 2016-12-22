@@ -177,9 +177,18 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
 	
-	//webService.create('orders');
+	/*
+	objectData[1][19] = 188;
+	objectData[1][20] = 0;
+	objectData[1][22] = 0;
 	
+	var objectName = 'carts';
+	var id = 232;
 	
+	webService.updateId(objectName,id);
+	*/
+	
+	/*
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
 		function(datas){
@@ -212,7 +221,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 				
 			}
 		}
-	);
+	);*/
 	
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");

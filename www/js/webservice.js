@@ -178,6 +178,7 @@ var webService = {
 		var tempXml = webService.readId(objectName, id);
 		var objectCode = webService.codeReturn(objectName);
 		var objectChildren = $(tempXml).children().children()[0];
+		var rowNode = tempXml.getElementsByTagName('cart_row');
 		//var objectChildren = tempXml.getElementsByTagName('cart')[0];
 		
 		console.log(objectChildren);
@@ -186,23 +187,30 @@ var webService = {
 		for ( i = 0 ; i < childLength ; i++ ){	
 			if ( objectData[objectCode][i] !== '' ){ //ada data ga?
 				if(objectName == 'carts' && i == 19){ //carts bukan? id_product bukan?
-					for(j=0;j<data.getElementsByTagName('cart_row').length;j++){//cek satu2
-						if ( data.getElementsByTagName('cart_row')[j].children[0].innerHTML == objectData[objectCode][19]){//id_product sama ga?
-							data.getElementsByTagName('cart_row')[j].children[3].innerHTML = objectData[objectCode][22];//input ke qty
+					for(j=0;j<rowNode.length;j++){//cek satu2
+						if ( rowNode[j].children[0].innerHTML == objectData[objectCode][19]){//id_product sama ga?
+							rowNode[j].children[3].innerHTML = objectData[objectCode][22];//input ke qty
+							console.log("A")
+							console.log(tempXml);
 							break;//keluar dari looping
 						}
 						else{//id product beda
-							if(data.getElementsByTagName('cart_row').length-j == 1){ //tadi data terakir?
+							if(rowNode.length-j == 1){ //tadi data terakir?
 								/* kalo data terakir, bikin element baru, nambah cart_row trus lgsg isi datanya*/
-								var newElement = data.createElement('cart_row');
-								var element[4] = ['id_product','id_product_attribute','id_address_delivery','quantity'];
-								data.getElementsByTagName('cart_rows')[0].appendChild(newElement);
-								for(k=0;k<4;k++){
-									data.getElementsByTagName('cart_row')[j+1].appendChild(element[k]);
-								}
-								/*Isi data element baru*/
-								data.getElementsByTagName('cart_row')[j+1].children[0].innerHTML = objectData[objectCode][19];
-								data.getElementsByTagName('cart_row')[j+1].children[3].innerHTML = objectData[objectCode][22];
+								var oldNode = rowNode[0];
+								var newNode = oldNode.cloneNode(true);
+								var urlTemp = 'http://go-obat.com/markets/api/products/';
+								tempXml.getElementsByTagName('cart_rows')[0].appendChild(newNode);
+								rowNode[j+1].children[0].innerHTML = objectData[objectCode][19];
+								rowNode[j+1].children[0].setAttribute('xlink:href',urlTemp+objectData[objectCode][19]);
+								rowNode[j+1].children[1].innerHTML = objectData[objectCode][20];
+								rowNode[j+1].children[1].setAttribute('xlink:href',urlTemp+objectData[objectCode][20]);
+								rowNode[j+1].children[2].innerHTML = objectChildren.children[1].innerHTML;
+								rowNode[j+1].children[2].setAttribute('xlink:href',urlTemp+objectChildren.children[1].innerHTML);
+								rowNode[j+1].children[3].innerHTML = objectData[objectCode][22];
+								console.log("B");
+								console.log(tempXml);
+								break;
 							}
 							else{//kalo bukan data terakir, lanjut looping j lagi cek yg selanjutnya id_product sama apa ga
 								continue;
@@ -218,13 +226,14 @@ var webService = {
 				}
 			}			
 		}
-		var textData = webService.xmlToString(tempXml); 
+		var textData = webService.xmlToString(tempXml);
+		console.log(textData);
 		//console.log(textData);
 		$.ajax({
 			url: urlapi + objectName + '/' + id,
 			type: 'put',
 			dataType: 'text',
-			async : false,
+			data : textData,
 			success: function(){
 				console.log("Update success!");
 			},

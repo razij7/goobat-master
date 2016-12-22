@@ -130,64 +130,73 @@ var depends_on_stock = '';
 var out_of_stock = '';
 
 //orders
+/*syarat orders :
+	secure key
+	id_cart
+	id_customer
+	id_address_delivery
+	id_address_invoice
+*/
+/*
 id_address_delivery = 61;
 id_address_invoice = 61;
-id_cart = 211;
+id_cart = 218;
 id_currency = 2;
 id_lang = 2;
 id_customer = 68;
-id_carrier = 3;
-current_state = 2;
+id_carrier = 0;
+current_state = 3;
 module = 'bca';
-invoice_number = 7;
-delivery_number = 6;
-valid = 1;
-id_shop_group = 1;
+//invoice_number = 8; //keisi sendiri
+//delivery_number = 7;
+valid = 0;//keisi sendiri
+id_shop_group = 0;//keisi sendiri
 id_shop = 1;
 secure_key = '934e8540bf319a616de539a37c63797b';
 payment = 'BCA';
-recyclable = 0;
-gift = 0;
-mobile_theme = 0;
-total_discounts = 0;
-total_discounts_tax_incl = 0;
-total_discounts_tax_excl = 0;
-total_paid = 308000;
-total_paid_tax_incl = 308000;
-total_paid_tax_excl = 308000;
-total_paid_real = 308000;
-total_products = 300000;
-total_products_wt = 300000;
-total_shipping = 8000;
-total_shipping_tax_incl = 8000;
-total_shipping_tax_excl = 8000;
-carrier_tax_rate = 0;
-total_wrapping = 0;
-total_wrapping_tax_incl = 0;
-total_wrapping_tax_excl = 0;
-round_mode = 2;
-round_type = 2;
+// recyclable = 0;//keisi sendiri
+// gift = 0;//keisi sendiri
+// mobile_theme = 0;//keisi sendiri
+total_discounts = 0;//ke float sendiri
+total_discounts_tax_incl = 0;//ke float sendiri
+total_discounts_tax_excl = 0;//ke float sendiri
+total_paid = 348000;//ke float sendiri
+total_paid_tax_incl = 348000;//ke float sendiri
+total_paid_tax_excl = 348000;//ke float sendiri
+total_paid_real = 0;//ke float sendiri
+total_products = 340000;//ke float sendiri
+total_products_wt = 340000//ke float sendiri
+total_shipping = 8000;//ke float sendiri
+total_shipping_tax_incl = 8000;//ke float sendiri
+total_shipping_tax_excl = 8000;//ke float sendiri
+// carrier_tax_rate = 0;//ke float dan keisi sendiri
+// total_wrapping = 0;//ke float dan keisi sendiri
+// total_wrapping_tax_incl = 0;//ke float dan keisi sendiri
+// total_wrapping_tax_excl = 0;//ke float dan keisi sendiri
+// round_mode = 2;//keisi sendiri
+// round_type = 2;//keisi sendiri
 conversion_rate = 1;
-reference = 000000053;
-product_id = 190;
-product_attribute_id = 0;
-product_quantity = 1;
-product_name = 'Obat Baru';
-product_price = 300000;
-unit_price_tax_incl = 300000;
-unit_price_tax_excl = 300000;
+//reference = '';//keisi sendiri
+//product_id = 187;//keisi sendiri
+//product_attribute_id = 0;//keisi sendiri
+//product_quantity = 1;//keisi sendiri
+// product_name = 'Resep Obat Alfa Customer Percobaan';//keisi sendiri
+// product_price = 340000;//keisi sendiri
+// unit_price_tax_incl = 340000;//keisi sendiri
+// unit_price_tax_excl = 340000;//keisi sendiri
+*/
 
+//carts
 
-/*carts
-id_address_delivery = 55;
-id_address_invoice = 55;
+id_address_delivery = 61;
+id_address_invoice = 61;
 id_currency = 2;
-id_customer = 59;
+id_customer = 68;
 id_lang = 2;
-id_product = 139;
+id_product = 187;
 quantity = 1;
 //id_guests = 0 karena id guest tergantung dari visit user ke web, 0 karena customer blm daftar
-
+/*
 objectData[1][1] = 55;
 objectData[1][2] = 55;
 objectData[1][3] = 2;
