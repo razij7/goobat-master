@@ -174,6 +174,7 @@ var webService = {
 		return result;
 	},
 	
+	/*
 	updateId: function(objectName,id){
 		var tempXml = webService.readId(objectName, id);
 		var objectCode = webService.codeReturn(objectName);
@@ -218,6 +219,7 @@ var webService = {
 				}
 			}			
 		}
+		*/
 		var textData = webService.xmlToString(tempXml); 
 		//console.log(textData);
 		$.ajax({
