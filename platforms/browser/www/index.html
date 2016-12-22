@@ -178,6 +178,32 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#register").attr("href","view/Auth/register.html");
 	
 	//webService.create('orders');
+	//var data = webService.readId('carts','217');
+	//console.log(data.getElementsByTagName('cart_rows'));
+	//console.log($(data).children().children()[0].children[19].children[0]);
+	objectData[1][19] = 2
+	var objectName = 'carts';
+	
+	/*
+	$.get(urlapi + objectName + "?schema=blank", 
+		function(data){
+			//var xmlDoc = data.responseXML;
+			//console.log(data.getElementsByTagName('cart'));
+			var ele = data.createElement('cart_row');
+			var ele1 = data.createElement('id_product');
+			var ele2 = data.createElement('id_product_attribute');
+			var ele3 = data.createElement('id_address_delivery');
+			var ele4 = data.createElement('quantity');
+			//console.log(ele);
+			data.getElementsByTagName('cart_rows')[0].appendChild(ele);
+			data.getElementsByTagName('cart_row')[1].appendChild(ele1);
+			data.getElementsByTagName('cart_row')[1].appendChild(ele2);
+			data.getElementsByTagName('cart_row')[1].appendChild(ele3);
+			data.getElementsByTagName('cart_row')[1].appendChild(ele4);
+			data.getElementsByTagName('cart_row')[1].children[0].innerHTML = 188;
+			console.log(data.getElementsByTagName('cart_row')[1]);
+		},
+		'xml');*/
 	
 	
 	var objectName = 'products';
