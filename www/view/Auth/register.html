@@ -353,9 +353,13 @@
 	objectData[5][9] = 'xxx';
 	objectData[5][10] = 'razijamilfariz6@gmail.com';
 	objectData[5][13] = 3;
+	alert(objectData[5]);
+			
 	var objectName = 'employees';
 	$.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
+		alert(objectData[5]);
+			
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
@@ -393,6 +397,8 @@
 			}
 			var textData = webService.xmlToString(tempXml); 
 			alert(textData);
+			alert(objectData[5]);
+			
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
