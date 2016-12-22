@@ -9,7 +9,6 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
     <title>Go-Obat</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -342,7 +341,7 @@
 	$( "#signup" ).click(function() {
 
 		objectData[5][1] = 2; 
-		objectData[5][7] = $('#password').val();
+		objectData[5][7] = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val();
 		objectData[5][8] = $('#lastname').val();
 		objectData[5][9] = $('#firstname').val();
 		objectData[5][10] = $('#email').val();
@@ -350,7 +349,7 @@
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
 		console.log(objectData[5][7]);
 		webService.create('employees');
-		console.log(objectData);
+		
 		
 	});
 

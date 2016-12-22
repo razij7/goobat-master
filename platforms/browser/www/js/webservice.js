@@ -88,7 +88,7 @@ var webService = {
 									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
 									break;
 								case 'orders' : 
-									//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+								//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
 									
 									break;
 							}
@@ -111,11 +111,13 @@ var webService = {
 				async : false,
 				success: function(){
 					console.log("Create success!");
+					alert('Data berhasil di simpan');
 				},
 				error: function(){
 					console.log("Create error!");
 				}
 			});
+			
 		},
 		'xml');
 	},
