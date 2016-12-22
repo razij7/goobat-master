@@ -392,8 +392,11 @@
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
-					alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
+					//alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
 				}
+				alert(tempXml);
+				var textData = webService.xmlToString(tempXml); 
+				alert(textData);
 			}
 			var textData = webService.xmlToString(tempXml); 
 			alert(textData);
