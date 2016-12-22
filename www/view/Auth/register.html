@@ -353,12 +353,10 @@
 	objectData[5][9] = 'xxx';
 	objectData[5][10] = 'razijamilfariz6@gmail.com';
 	objectData[5][13] = 3;
-	alert(objectData[5]);
 			
 	var objectName = 'employees';
 	$.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
-		alert(objectData[5]);
 			
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
@@ -373,6 +371,7 @@
 			}	
 			for ( i = 0 ; i < childLength ; i++ ){
 				if ( i == lastArray && associationExistence == 1 ){
+					alert('zzz');
 					for ( j = 0 ; j < associationLength ; j++ ){
 						if ( associationChildren.children[j].nodeName == 'id' ){
 							switch(objectName){
@@ -393,11 +392,11 @@
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
+					alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
 			alert(textData);
-			alert(objectData[5]);
 			
 			$.ajax({
 				url: urlapi + objectName,
