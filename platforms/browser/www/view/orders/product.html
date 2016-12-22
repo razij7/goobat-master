@@ -59,7 +59,7 @@
 									</div>
 
 									<p class="text-center">
-										<button class="btn btn-primary" id="addtoCart"><i class="fa fa-sign-in"></i> Log in</button>
+										<button class="btn btn-primary" id="addtoCart"><i class="fa fa-sign-in"></i>Masukan ke Keranjang</button>
 									</p>
 
 								<p class="text-center text-muted">Not registered yet?</p>
@@ -76,6 +76,18 @@
 				<script src="../../js/webservice.js"></script>
 
  <script type="text/javascript">
+ $.ajaxSetup({
+		cache: true ,
+		beforeSend: function(xhr) {
+		   xhr.setRequestHeader('Authorization', ("Basic "
+                        .concat(btoa(key))));
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+			
+			<!-- xhr.setRequestHeader('Authorization', '...'); -->
+		},
+	});
+ 
 	 /**
 		* get parameter product
 	    *
