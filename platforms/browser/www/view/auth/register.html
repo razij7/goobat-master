@@ -72,7 +72,7 @@
                         <p style="color:red"> *Kolom wajib diisi</p>
                         <hr>
 
- <form  method="post">
+ <form  action="javascript:signup()">
                             <div class="form-group">
                                 <label for="name">Nama Depan</label>
                                 <input type="text" class="form-control" id="firstname">
@@ -90,7 +90,8 @@
                                 <input type="password" class="form-control" id='password'>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Register</button>
+							 <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                                <button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Register</button>
                             </div>
 </form>
                     </div>
@@ -337,10 +338,8 @@
 		},
 	});
 	
-	
-	$( "#signup" ).click(function() {
-
-		objectData[5][1] = 2; 
+	function signup(){
+			objectData[5][1] = 2; 
 		objectData[5][7] = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val();
 		objectData[5][8] = $('#lastname').val();
 		objectData[5][9] = $('#firstname').val();
@@ -349,7 +348,11 @@
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
 		console.log(objectData[5][7]);
 		webService.create('employees');
+		alert(webService.create('employees'));
+	}
+	$( "#signup" ).click(function() {
 		
+
 		
 	});
 
