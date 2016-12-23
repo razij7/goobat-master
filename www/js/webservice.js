@@ -66,8 +66,10 @@ var webService = {
 	},
 	
 	create: function(objectName){
+		alert('START');
 		$.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
+			alert('a');
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
@@ -75,14 +77,20 @@ var webService = {
 			var associationExistence = 0;
 				
 			if ( objectChildren.children[lastArray].nodeName == 'associations' ){
+				alert('b');
 				var associationChildren = objectChildren.children[lastArray].children[0].children[0];
 				var associationLength = associationChildren.children.length;
 				associationExistence = 1;
 			}	
+			alert('c');
 			for ( i = 0 ; i < childLength ; i++ ){
+				alert('d');
 				if ( i == lastArray && associationExistence == 1 ){
+					alert('e');
 					for ( j = 0 ; j < associationLength ; j++ ){
+						alert('f');
 						if ( associationChildren.children[j].nodeName == 'id' ){
+							alert('g');
 							switch(objectName){
 								case 'customers' : 
 									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
@@ -92,17 +100,21 @@ var webService = {
 									
 									break;
 							}
+							alert('h');
 							continue;
 						}
 						associationChildren.children[j].innerHTML = objectData[objectCode][i+j];
+						alert('i '+associationChildren.children[j].innerHTML);
 					}
+					alert('j '+associationChildren.children[j].innerHTML);
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
+					alert('k '+associationChildren.children[j].innerHTML);
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
-			console.log(tempXml);
+			alert('l '+associationChildren.children[j].innerHTML);
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
@@ -110,10 +122,10 @@ var webService = {
 				data : textData,
 				async : false,
 				success: function(){
-					console.log("Create success!");
+					alert("Create success!");
 				},
 				error: function(){
-					console.log("Create error!");
+					alert("Create error!");
 				}
 			});
 		},
