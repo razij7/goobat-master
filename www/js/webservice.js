@@ -106,15 +106,15 @@ var webService = {
 						associationChildren.children[j].innerHTML = objectData[objectCode][i+j];
 						alert('i '+associationChildren.children[j].innerHTML);
 					}
-					alert('j '+associationChildren.children[j].innerHTML);
+					alert('j '+associationChildren.children[10].innerHTML);
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
-					alert('k '+associationChildren.children[j].innerHTML);
+					alert('k '+objectChildren.children[i].innerHTML);
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
-			alert('l '+associationChildren.children[j].innerHTML);
+			alert('l '+objectChildren.children[10].innerHTML);
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
