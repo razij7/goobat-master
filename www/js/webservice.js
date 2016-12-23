@@ -109,12 +109,12 @@ var webService = {
 					alert('j '+associationChildren.children[10].innerHTML);
 				}
 				else{
-					objectChildren.children[i].innerHTML = objectData[objectCode][i];
-					alert('k '+objectChildren.children[i].innerHTML);
+					objectChildren.children[i].textContent = objectData[objectCode][i];
+					alert('k '+objectChildren.children[i].textContent);
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
-			alert('l '+objectChildren.children[10].innerHTML);
+			alert(textData);
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
