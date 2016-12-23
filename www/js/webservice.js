@@ -66,10 +66,8 @@ var webService = {
 	},
 	
 	create: function(objectName){
-		alert('START');
 		$.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
-			alert('a');
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
@@ -77,44 +75,33 @@ var webService = {
 			var associationExistence = 0;
 				
 			if ( objectChildren.children[lastArray].nodeName == 'associations' ){
-				alert('b');
 				var associationChildren = objectChildren.children[lastArray].children[0].children[0];
 				var associationLength = associationChildren.children.length;
 				associationExistence = 1;
 			}	
-			alert('c');
 			for ( i = 0 ; i < childLength ; i++ ){
-				alert('d');
 				if ( i == lastArray && associationExistence == 1 ){
-					alert('e');
 					for ( j = 0 ; j < associationLength ; j++ ){
-						alert('f');
 						if ( associationChildren.children[j].nodeName == 'id' ){
-							alert('g');
 							switch(objectName){
 								case 'customers' : 
-									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
+									associationChildren.children[j].textContent = objectChildren.children[1].textContent; 
 									break;
 								case 'orders' : 
-									//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+									//associationChildren.children[j].textContent = objectChildren.children[0].textContent; 
 									
 									break;
 							}
-							alert('h');
 							continue;
 						}
-						associationChildren.children[j].innerHTML = objectData[objectCode][i+j];
-						alert('i '+associationChildren.children[j].innerHTML);
+						associationChildren.children[j].textContent = objectData[objectCode][i+j];
 					}
-					alert('j '+associationChildren.children[10].innerHTML);
 				}
 				else{
 					objectChildren.children[i].textContent = objectData[objectCode][i];
-					alert('k '+objectChildren.children[i].textContent);
 				}
 			}
 			var textData = webService.xmlToString(tempXml); 
-			alert(textData);
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
@@ -140,11 +127,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				console.log("ReadJson success!");
+				alert("ReadJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				console.log("ReadJson  error!");
+				alert("ReadJson  error!");
 			}
 		});
 		return result;
@@ -158,11 +145,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				console.log("ReadIdJson success!");
+				alert("ReadIdJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				console.log("ReadIdJson error!");
+				alert("ReadIdJson error!");
 			}
 		});
 		return result;
@@ -176,11 +163,11 @@ var webService = {
 			dataType: 'xml',
 			async : false,
 			success: function(tempXml){
-				console.log("Read id success!");
+				alert("Read id success!");
 				result = tempXml;
 			},
 			error: function(){
-				console.log("Read id error!");
+				alert("Read id error!");
 			}
 		});
 		return result;
@@ -198,7 +185,7 @@ var webService = {
 				if(objectName == 'carts' && i == 19){ //carts bukan? id_product bukan?
 					for(j=0;j<rowNode.length;j++){//cek satu2
 						if ( rowNode[j].children[0].textContent == objectData[objectCode][19]){//id_product sama ga?
-							rowNode[j].children[3].innerHTML = objectData[objectCode][22];//input ke qty
+							rowNode[j].children[3].textContent = objectData[objectCode][22];//input ke qty
 							break;//keluar dari looping
 						}
 						else{//id product beda
@@ -208,15 +195,15 @@ var webService = {
 								var newNode = oldNode.cloneNode(true);
 								var urlTemp = 'http://go-obat.com/markets/api/products/';
 								tempXml.getElementsByTagName('cart_rows')[0].appendChild(newNode);
-								rowNode[j+1].children[0].innerHTML = objectData[objectCode][19];
+								rowNode[j+1].children[0].textContent = objectData[objectCode][19];
 								rowNode[j+1].children[0].setAttribute('xlink:href',urlTemp+objectData[objectCode][19]);
-								rowNode[j+1].children[1].innerHTML = objectData[objectCode][20];
+								rowNode[j+1].children[1].textContent = objectData[objectCode][20];
 								rowNode[j+1].children[1].setAttribute('xlink:href',urlTemp+objectData[objectCode][20]);
-								rowNode[j+1].children[2].innerHTML = objectChildren.children[1].innerHTML;
-								rowNode[j+1].children[2].setAttribute('xlink:href',urlTemp+objectChildren.children[1].innerHTML);
-								rowNode[j+1].children[3].innerHTML = objectData[objectCode][22];
-								console.log("B");
-								console.log(tempXml);
+								rowNode[j+1].children[2].textContent = objectChildren.children[1].textContent;
+								rowNode[j+1].children[2].setAttribute('xlink:href',urlTemp+objectChildren.children[1].textContent);
+								rowNode[j+1].children[3].textContent = objectData[objectCode][22];
+								alert("B");
+								alert(tempXml);
 								break;
 							}
 							else{//kalo bukan data terakir, lanjut looping j lagi cek yg selanjutnya id_product sama apa ga
@@ -224,12 +211,12 @@ var webService = {
 							}
 						}
 					}
-					//if(data.getElementsByTagName('id_product')[0].innerHTML == objectData[objectCode][i]){
+					//if(data.getElementsByTagName('id_product')[0].textContent == objectData[objectCode][i]){
 						
 					//}
 				}
 				else{
-					objectChildren.children[i].innerHTML = objectData[objectCode][i];	
+					objectChildren.children[i].textContent = objectData[objectCode][i];	
 				}
 			}			
 		}
@@ -240,10 +227,10 @@ var webService = {
 			dataType: 'text',
 			data : textData,
 			success: function(){
-				console.log("Update success!");
+				alert("Update success!");
 			},
 			error: function(){
-				console.log("Update error!");
+				alert("Update error!");
 			}
 		});
 	}

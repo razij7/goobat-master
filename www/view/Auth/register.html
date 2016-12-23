@@ -339,24 +339,15 @@
 	});
 	
 	function signup(){
-			objectData[5][1] = 2; 
+		objectData[5][1] = 2; 
 		objectData[5][7] = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val();
 		objectData[5][8] = $('#lastname').val();
 		objectData[5][9] = $('#firstname').val();
 		objectData[5][10] = $('#email').val();
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
-
-		objectData[5][1] = 2;
-	objectData[5][7] = 'asdasda';
-	objectData[5][8] = 'zzz';
-	objectData[5][9] = 'xxx';
-	objectData[5][10] = 'razijamilfariz6@gmail.com';
-	objectData[5][13] = 3;
-			
-	var objectName = 'employees';
-	webService.create(objectName);
-	alert('END');	
+		var objectName = 'employees';
+		webService.create(objectName);
 	}
 	
 	
