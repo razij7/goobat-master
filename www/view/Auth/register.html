@@ -339,42 +339,21 @@
 	});
 	
 	function signup(){
-			objectData[5][1] = 2; 
+		
+		objectData[5][1] = 2; 
 		objectData[5][7] = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val();
 		objectData[5][8] = $('#lastname').val();
 		objectData[5][9] = $('#firstname').val();
 		objectData[5][10] = $('#email').val();
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
+		
 		console.log(objectData[5][7]);
 		var objectName = 'employees';
 		$.get( urlapi + "employees" + "?schema=blank",
 		function(tempXml) {
-		var code;
-		switch('employees'){
-			case 'orders':
-				code = 0; 
-				break;
-			case 'carts': 
-				code = 1; 
-				break;
-			case 'customers': 
-				code = 2; 
-				break;
-			case 'addresses': 
-				code = 3; 
-				break;
-			case 'zones': 
-				code = 4; 
-				break;
-			case 'employees':
-				code = 5;
-				break;
-			case 'stock_availables':
-				code = 6;
-				break;
-		};
-			var objectCode = code;
+
+			var objectCode = objectName;
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
 			var lastArray = childLength - 1;
@@ -426,32 +405,9 @@
 			
 		},
 		'xml');
-		alert(objectName);
+		alert(objectData[5][8]);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	$( "#signup" ).click(function() {
