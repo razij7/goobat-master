@@ -347,83 +347,16 @@
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
 
-		<!-- objectData[5][1] = 2; -->
-	<!-- objectData[5][7] = 'asdasda'; -->
-	<!-- objectData[5][8] = 'zzz'; -->
-	<!-- objectData[5][9] = 'xxx'; -->
-	<!-- objectData[5][10] = 'razijamilfariz6@gmail.com'; -->
-	<!-- objectData[5][13] = 3; -->
+		objectData[5][1] = 2;
+	objectData[5][7] = 'asdasda';
+	objectData[5][8] = 'zzz';
+	objectData[5][9] = 'xxx';
+	objectData[5][10] = 'razijamilfariz6@gmail.com';
+	objectData[5][13] = 3;
 			
 	var objectName = 'employees';
-	$.get( urlapi + objectName + "?schema=blank",
-		function(tempXml) {
-			
-			var objectCode = webService.codeReturn(objectName);
-			var objectChildren = $(tempXml).children().children()[0];
-			var childLength = objectChildren.children.length;
-			var lastArray = chstence = 0;
-				ildLength - 1;
-			var associationExi
-			if ( objectChildren.children[lastArray].nodeName == 'associations' ){
-				var associationChildren = objectChildren.children[lastArray].children[0].children[0];
-				var associationLength = associationChildren.children.length;
-				associationExistence = 1;
-			}	
-			for ( i = 0 ; i < childLength ; i++ ){
-				if ( i == lastArray && associationExistence == 1 ){
-					alert('zzz');
-					for ( j = 0 ; j < associationLength ; j++ ){
-						if ( associationChildren.children[j].nodeName == 'id' ){
-							switch(objectName){
-								case 'customers' : 
-									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
-									break;
-								case 'orders' : 
-
-									//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
-
-									
-									break;
-							}
-							continue;
-						}
-						associationChildren.children[j].innerHTML = objectData[objectCode][i+j];
-					}
-				}
-				else{
-					objectChildren.children[i].innerHTML = objectData[objectCode][i];
-					alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
-					
-				}
-				var textDataTemp = webService.xmlToString(tempXml); 
-				//alert(textDataTemp);
-			}
-			var textData = webService.xmlToString(tempXml); 
-			//alert(textData);
-			
-			$.ajax({
-				url: urlapi + objectName,
-				type: 'post',
-				dataType: 'text',
-				data : textData,
-				async : false,
-				success: function(){
-					alert('Create Success');
-					console.log("Create success!");
-
-				},
-				error: function(){
-					alert('Create Error');
-					console.log("Create error!");
-				}
-			});
-
-		},
-		'xml');
-	console.log("A");
-	alert(objectData[5][8]);
-
-		
+	webservice.create(objectName);
+	alert('END');	
 	}
 	
 	
