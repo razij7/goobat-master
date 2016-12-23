@@ -361,9 +361,9 @@
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
-			var lastArray = childLength - 1;
-			var associationExistence = 0;
-				
+			var lastArray = chstence = 0;
+				ildLength - 1;
+			var associationExi
 			if ( objectChildren.children[lastArray].nodeName == 'associations' ){
 				var associationChildren = objectChildren.children[lastArray].children[0].children[0];
 				var associationLength = associationChildren.children.length;
@@ -392,13 +392,14 @@
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
-					//alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
+					alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
+					
 				}
 				var textDataTemp = webService.xmlToString(tempXml); 
-				alert(textDataTemp);
+				//alert(textDataTemp);
 			}
 			var textData = webService.xmlToString(tempXml); 
-			alert(textData);
+			//alert(textData);
 			
 			$.ajax({
 				url: urlapi + objectName,
