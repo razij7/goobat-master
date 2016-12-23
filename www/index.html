@@ -240,6 +240,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
 		function(datas){
+		alert('a');
 			var products = datas['products'];
 			var html='';
 			for(i = 0; i < products.length; i++) {
