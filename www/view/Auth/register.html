@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -347,6 +347,7 @@
 		objectData[5][10] = $('#email').val();
 		objectData[5][13] = 3;
 		//console.log("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+$('#password').val());
+<<<<<<< HEAD
 		
 		console.log(objectData[5][7]);
 		var objectName = 'employees';
@@ -354,6 +355,21 @@
 		function(tempXml) {
 
 			var objectCode = objectName;
+=======
+
+		objectData[5][1] = 2;
+	objectData[5][7] = 'asdasda';
+	objectData[5][8] = 'zzz';
+	objectData[5][9] = 'xxx';
+	objectData[5][10] = 'razijamilfariz6@gmail.com';
+	objectData[5][13] = 3;
+			
+	var objectName = 'employees';
+	$.get( urlapi + objectName + "?schema=blank",
+		function(tempXml) {
+			
+			var objectCode = webService.codeReturn(objectName);
+>>>>>>> fa56696a3d4ca79458fe3a8909df58c228c63108
 			var objectChildren = $(tempXml).children().children()[0];
 			var childLength = objectChildren.children.length;
 			var lastArray = childLength - 1;
@@ -366,6 +382,7 @@
 			}	
 			for ( i = 0 ; i < childLength ; i++ ){
 				if ( i == lastArray && associationExistence == 1 ){
+					alert('zzz');
 					for ( j = 0 ; j < associationLength ; j++ ){
 						if ( associationChildren.children[j].nodeName == 'id' ){
 							switch(objectName){
@@ -373,7 +390,9 @@
 									associationChildren.children[j].innerHTML = objectChildren.children[1].innerHTML; 
 									break;
 								case 'orders' : 
-								//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+
+									//associationChildren.children[j].innerHTML = objectChildren.children[0].innerHTML; 
+
 									
 									break;
 							}
@@ -384,10 +403,14 @@
 				}
 				else{
 					objectChildren.children[i].innerHTML = objectData[objectCode][i];
+					//alert(objectChildren.children[i].innerHTML+objectData[objectCode][i]);
 				}
+				var textDataTemp = webService.xmlToString(tempXml); 
+				alert(textDataTemp);
 			}
 			var textData = webService.xmlToString(tempXml); 
-			console.log(textData);
+			alert(textData);
+			
 			$.ajax({
 				url: urlapi + objectName,
 				type: 'post',
@@ -395,23 +418,38 @@
 				data : textData,
 				async : false,
 				success: function(){
-					console.log("Data berhasil di simpan");
-					alert('Data berhasil di simpan');
+					alert('Create Success');
+					console.log("Create success!");
+
 				},
 				error: function(){
+					alert('Create Error');
 					console.log("Create error!");
 				}
 			});
-			
+
 		},
 		'xml');
+<<<<<<< HEAD
 		alert(objectData[5][8]);
+=======
+	console.log("A");
+	alert("B");
+
+>>>>>>> fa56696a3d4ca79458fe3a8909df58c228c63108
 		
 	}
 	
 	
+<<<<<<< HEAD
+=======
+	
+	
+	
+>>>>>>> fa56696a3d4ca79458fe3a8909df58c228c63108
 	$( "#signup" ).click(function() {
 		
+
 
 		
 	});

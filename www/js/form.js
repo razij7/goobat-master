@@ -137,6 +137,7 @@ var out_of_stock = '';
 	id_address_delivery
 	id_address_invoice
 */
+/*
 id_address_delivery = 61;
 id_address_invoice = 61;
 id_cart = 218;
@@ -183,10 +184,10 @@ conversion_rate = 1;
 // product_price = 340000;//keisi sendiri
 // unit_price_tax_incl = 340000;//keisi sendiri
 // unit_price_tax_excl = 340000;//keisi sendiri
-
+*/
 
 //carts
-/*
+
 id_address_delivery = 61;
 id_address_invoice = 61;
 id_currency = 2;
@@ -195,7 +196,7 @@ id_lang = 2;
 id_product = 187;
 quantity = 1;
 //id_guests = 0 karena id guest tergantung dari visit user ke web, 0 karena customer blm daftar
-
+/*
 objectData[1][1] = 55;
 objectData[1][2] = 55;
 objectData[1][3] = 2;
