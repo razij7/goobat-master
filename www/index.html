@@ -236,7 +236,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	//}
 	alert(idAddress);
 	*/
-	/*
+	
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
 		function(datas){
@@ -253,7 +253,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 						var apiIdSupplier = setUrlProduct["product"]["id_supplier"];
 						var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
 						var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
-						var div1 ='<div class="col-md-3 col-sm-6 hero-feature">';
+						var div1 ='<div class="col-xs-6 col-md-3">';
 						var thumbnail ='<div class="thumbnail">';
 						var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 						var classCaption ='<div class="caption">'+ apiIdProduct;
@@ -270,7 +270,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 			}
 		}
 	);
-	*/
+
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");
 	});
