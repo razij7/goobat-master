@@ -49,3 +49,20 @@
 ## Fungsi untuk ambil gambar di edit dikit
 
 ## updateId untuk nambah produk ke cart, tinggal di tes
+
+## 12/23/2016 error ( SOLVED ), update cart, search method
+  
+  - error : 
+	- di android ga bisa create tapi di desktop bisa, data ga keinput
+	- solved, ganti innerHTML jadi textContent
+  
+  - update cart : 
+	- Tambah produk OK
+	- Ganti quantity OK
+		- Sempet error karena ngebandingin innerHTML sama integer, sedangkan isi innerHTML bukan integer doang
+		- Solved karena innerHTML diganti textContent
+ 
+  - search method :
+    - bisa search id_customer di dalem addresses
+	- bisa search email and password, login kalo salah berarti salah kombinasi
+	- pake ?filter[key]=value
