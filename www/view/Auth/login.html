@@ -295,15 +295,17 @@
 	});
 
 	function doLogin(){
-
+	
 		var username = $('#username').val();
 		var password = $('#password').val();
-		
-		<!-- var employees = {username:'bagus',password:'bagus'}; -->
 		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
-		console.log(hash);
-		var login = new auth(username,hash);
-		login.doLogin(username,hash);
+		
+		var filterArray = ['email',username,'passwd',hash];
+		var idEmployee = webService.search('customers',filterArray);
+		var login = new auth(username,password);
+		//var tes = webService.readIdJson('customers',idEmployee);
+		//console.log(tes);
+		login.get(idEmployee);
 	}
 
 	$.ajaxSetup({ cache: true });

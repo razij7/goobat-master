@@ -88,14 +88,14 @@ var webService = {
 			success: function(tempXml){
 				if($(tempXml).children().children()[0].children.length > 0){
 					result = $(tempXml).children().children()[0].children[0].id;
-					alert("Search success!");
+					// alert("Search success!");
 				}
 				else{
-					alert('Not Found');
+					// alert('Not Found');
 				}	
 			},
 			error: function(){
-				alert("Search error!");
+				// alert("Search error!");
 			}
 		});
 		return result;
@@ -181,11 +181,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				alert("ReadIdJson success!");
+				// alert("ReadIdJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				alert("ReadIdJson error!");
+				// alert("ReadIdJson error!");
 			}
 		});
 		return result;
@@ -263,10 +263,10 @@ var webService = {
 			dataType: 'text',
 			data : textData,
 			success: function(){
-				alert("Update success!");
+				// alert("Update success!");
 			},
 			error: function(){
-				alert("Update error!");
+				// alert("Update error!");
 			}
 		});
 	}

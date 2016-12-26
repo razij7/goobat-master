@@ -20,4 +20,16 @@ var auth = class auth{
 			$( "div.log" ).text( "Triggered ajaxError handler." );
 		});
     }
+	get(id){
+		var id = id;
+		var filterArray = ['id_customer',id];
+		var getAddresses = webService.search('addresses',filterArray);
+		var auth = [id,getAddresses];
+		auth(auth);
+		window.location.replace("../../index.html?idCustomer="+id+"&idAddress="+getAddresses);
+	}
+	auth(auth){
+		
+		return auth;
+	}
 };

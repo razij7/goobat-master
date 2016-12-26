@@ -22,6 +22,18 @@ var webService = {
 		return xmlString;
 	},
 	
+	filterGenerator: function(filterArray){
+		var filterUrl = '';
+		for(i=0;i<filterArray.length;i=i+2){
+			var filterStr = 'filter['+filterArray[i]+']='+filterArray[i+1];
+			filterUrl += filterStr;
+			if (filterArray.length > 2 && filterArray.length-i != 2){
+				filterUrl += '&';
+			}
+		}
+		return filterUrl
+	},
+	
 	outputFormat: function(format){
 		switch(format){
 			case 'json':
@@ -63,6 +75,30 @@ var webService = {
 				break;
 		}
 		return code;
+	},
+	
+	search: function(objectName,filterArray){
+		var filterUrl = webService.filterGenerator(filterArray);
+		var result = '';
+		$.ajax({
+			url: urlapi + objectName + '/?' + filterUrl,
+			type: 'get',
+			dataType: 'xml',
+			async : false,
+			success: function(tempXml){
+				if($(tempXml).children().children()[0].children.length > 0){
+					result = $(tempXml).children().children()[0].children[0].id;
+					// alert("Search success!");
+				}
+				else{
+					// alert('Not Found');
+				}	
+			},
+			error: function(){
+				// alert("Search error!");
+			}
+		});
+		return result;
 	},
 	
 	create: function(objectName){
@@ -128,10 +164,10 @@ var webService = {
 			async : false,
 			success: function(tempXml){
 				alert("ReadJson success!");
-				//result = tempXml;
+				result = tempXml;
 			},
 			error: function(){
-				//alert("ReadJson  error!");
+				alert("ReadJson  error!");
 			}
 		});
 		return result;
@@ -145,11 +181,11 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				//alert("ReadIdJson success!");
+				// alert("ReadIdJson success!");
 				result = tempXml;
 			},
 			error: function(){
-			//	alert("ReadIdJson error!");
+				// alert("ReadIdJson error!");
 			}
 		});
 		return result;
@@ -163,11 +199,11 @@ var webService = {
 			dataType: 'xml',
 			async : false,
 			success: function(tempXml){
-				//alert("Read id success!");
+				alert("Read id success!");
 				result = tempXml;
 			},
 			error: function(){
-				//alert("Read id error!");
+				alert("Read id error!");
 			}
 		});
 		return result;
@@ -227,10 +263,10 @@ var webService = {
 			dataType: 'text',
 			data : textData,
 			success: function(){
-				alert("Update success!");
+				// alert("Update success!");
 			},
 			error: function(){
-				alert("Update error!");
+				// alert("Update error!");
 			}
 		});
 	}

@@ -1,5 +1,3 @@
-
-
 				<div class="row" id="productMain">
 					<div class="col-sm-6">
 						<div id="mainImage">
@@ -21,7 +19,25 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="box">
-							<span class="text-center productName" id='productName'></span>
+							<p class="productName" >
+							<span class="text-center" id='productName'></span>
+							</p>
+							<p class="productReference" >
+							<span class="text-center"><h4>Kode SKU</h4></span>
+							<ul>
+								<li id='reference'></li>
+							</ul>
+							</p>
+							<p class="productStock" >
+							<span class="text-center"><h	4>Stok tersedia</h4></span>
+							<ul>
+								<li id='stock'></li>
+							</ul>
+							</p>
+							<p class="descriptionShort" >
+							<span class="text-center"><h4>Deskripsi singkat</h4></span>
+							<span class="text-center" id='description_short'></span>
+							</p>
 							
 							<p class="price" >
 								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
@@ -50,21 +66,14 @@
 								<h4 class="modal-title productName" id="productName"></h4>
 							</div>
 							<div class="modal-body">
-							  
-									<div class="form-group">
-										<input type="text" class="form-control" id="email-modal" placeholder="email">
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control" id="password-modal" placeholder="password">
-									</div>
+							
+									<p class="text-center">
+										<h4 class="modal-title qtr">Jumlah</h4>
+									</p>
 
 									<p class="text-center">
 										<button class="btn btn-primary" id="addtoCart"><i class="fa fa-sign-in"></i>Masukan ke Keranjang</button>
 									</p>
-
-								<p class="text-center text-muted">Not registered yet?</p>
-								<p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-
 							</div>
 						</div>
 					</div>
@@ -167,6 +176,9 @@
 	$(".description").prepend(product.description);
 	$("#stock").prepend( qty )
 	$("#our_price_display").prepend( product.price);
+	
+	$("#description_short").prepend( product.description_short);
+	
 	$("#reference").prepend( product.reference);
 	
   
@@ -187,19 +199,6 @@
 	/**
 	* Search email and password
 	  Comment kalo ga kepake
-	*/
-	/*
-	var objectName = 'employees';
-	emailValue = 'yudiandri@spektrainfotek.com';
-	passwdValue = md5('gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6dadmin123');
-	var filterArray = ['email',emailValue,'passwd',passwdValue];
-	*/
-	/**
-	========================================================================================
-	*/
-	/*
-	var idEmployee = webService.search(objectName,filterArray);
-	console.log(idEmployee);
 	*/
 	
 	

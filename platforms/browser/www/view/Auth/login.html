@@ -227,10 +227,14 @@
         <div id="copyright">
             <div class="container">
                 <div class="col-md-6">
-                    <p class="pull-left">© 2016, Go-Obat</p>
+                    <p class="pull-left">© 2015 Your name goes here.</p>
 
                 </div>
-               
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious.com</a>
+                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    </p>
+                </div>
             </div>
         </div>
         <!-- *** COPYRIGHT END *** -->
@@ -291,15 +295,17 @@
 	});
 
 	function doLogin(){
-
+	
 		var username = $('#username').val();
 		var password = $('#password').val();
-		
-		<!-- var employees = {username:'bagus',password:'bagus'}; -->
 		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
-		console.log(hash);
-		var login = new auth(username,hash);
-		login.doLogin(username,hash);
+		
+		var filterArray = ['email',username,'passwd',hash];
+		var idEmployee = webService.search('customers',filterArray);
+		var login = new auth(username,password);
+		//var tes = webService.readIdJson('customers',idEmployee);
+		//console.log(tes);
+		login.get(idEmployee);
 	}
 
 	$.ajaxSetup({ cache: true });
