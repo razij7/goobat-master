@@ -73,6 +73,24 @@ var webService = {
 			case 'stock_availables':
 				code = 6;
 				break;
+			case 'order_carriers':
+				code = 7;
+				break;
+			case 'order_details':
+				code = 8;
+				break;
+			case 'order_histories':
+				code = 9;
+				break;
+			case 'order_owners':
+				code = 10;
+				break;				
+			case 'order_invoices':
+				code = 11;
+				break;			
+			case 'order_payments':
+				code = 12;
+				break;
 		}
 		return code;
 	},

@@ -174,3 +174,102 @@ objectData[6] = 	[id,
 					quantity,
 					depends_on_stock,
 					out_of_stock];
+					
+objectData[7] = 	[id,
+					id_order, //order.id
+					id_carrier, //order.id_carrier
+					id_order_invoice , //order.invoice_number
+					weight , //order.associations.order_rows.order_row.product_quantity * product.weight
+					shipping_cost_tax_excl, //order.total_shipping_tax_excl ?
+					shipping_cost_tax_incl , //order.total_shipping_tax_incl ?
+					tracking_number , //order.shipping_number
+					date_add ];
+
+objectData[8] = 	[id,
+					id_order ,//order.id
+					product_id ,//order.associations.order_rows.order_row[i].product_id
+					product_attribute_id ,//order.associations.order_rows.order_row[i].product_attribute_id
+					product_quantity_reinjected ,//default 0
+					group_reduction ,//default 0.00
+					discount_quantity_applied ,//default 0
+					download_hash ,//default ''
+					download_deadline ,//default 0000-00-00 00:00:00
+					id_order_invoice ,//order.invoice_number
+					id_warehouse ,//default 0 
+					id_shop ,//order.id_shop
+					product_name ,//order.associations.order_rows.order_row[i].product_name
+					product_quantity ,//order.associations.order_rows.order_row[i].product_quantity
+					product_quantity_in_stock , //stock_availables ?
+					product_quantity_return , //default 0
+					product_quantity_refunded , //default 0
+					product_price ,//order.associations.order_rows.order_row[i].product_price
+					reduction_percent , //default 0.00
+					reduction_amount , //default 0.00000
+					reduction_amount_tax_incl,//default 0.00000
+					reduction_amount_tax_excl,//default 0.00000
+					product_quantity_discount,//default 0.00000
+					product_ean13,//default ''
+					product_upc,//default ''
+					product_reference,//default ''
+					product_supplier_reference,//default ''
+					product_weight,//product.weight
+					tax_computation_method,
+					id_tax_rules_group,
+					ecotax,
+					ecotax_tax_rate,
+					download_nb,
+					unit_price_tax_incl,//order.associations.order_rows.order_row[i].unit_price_tax_incl
+					unit_price_tax_excl ,//order.associations.order_rows.order_row[i].unit_price_tax_excl
+					total_price_tax_incl,
+					total_price_tax_excl,
+					total_shipping_price_tax_excl,
+					total_shipping_price_tax_incl,
+					purchase_supplier_price,
+					original_product_price,
+					original_wholesale_price];
+					
+objectData[9] = 	[id,
+					id_employee  ,// default 0
+					id_order_state  ,//order.current_state
+					id_order  ,//order.id
+					date_add];
+					
+objectData[10] = 	[id,
+					id_owner   ,
+					id_order   ,//order.id
+					date_add];
+					
+objectData[11] = 	[id,
+					id_order ,//order.id
+					number  ,//order.invoice_number
+					delivery_number  ,
+					delivery_date  ,
+					total_discount_tax_excl ,
+					total_discount_tax_incl ,
+					total_paid_tax_excl ,//order.total_paid_tax_excl
+					total_paid_tax_incl ,//order.total_paid_tax_incl
+					total_products ,//order.total_product
+					total_products_wt ,//order.total_product_wt
+					total_shipping_tax_excl ,//order.total_shipping_tax_excl
+					total_shipping_tax_incl ,//order.total_shipping_tax_iincl
+					shipping_tax_computation_method ,
+					total_wrapping_tax_excl ,
+					total_wrapping_tax_incl ,
+					shop_address  ,//default goobat<br />Indonesia
+					invoice_address  ,
+					delivery_address  ,
+					note  ,
+					date_add];
+					
+objectData[12] = 	[id,
+					order_reference  ,//order.reference
+					id_currency   ,//order.id_currency
+					amount   ,//order.total_paid ?
+					payment_method   ,//order.payment
+					conversion_rate  ,//order.conversion_rate
+					transaction_id  ,
+					card_number  ,
+					card_brand  ,
+					card_expiration  ,
+					card_holder  ,
+					date_add];

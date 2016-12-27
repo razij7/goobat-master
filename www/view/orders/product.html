@@ -29,7 +29,11 @@
 							</ul>
 							</p>
 							<p class="productStock" >
-							<span class="text-center"><h	4>Stok tersedia</h4></span>
+							<span class="text-center"><h4>Stok tersedia</h4></span>
+							<ul>
+								<li id='stock'></li>
+							</ul>
+							<span class="text-center" id="idCustomer"><h4>idCustomer</h4></span>
 							<ul>
 								<li id='stock'></li>
 							</ul>
@@ -104,7 +108,7 @@
 		* @return vars
 	*/
 	
-    $_GET('id','id_supplier');
+    $_GET('id','id_supplier','idCustomer');
 
     function $_GET(param) {
         var vars = {};
@@ -129,6 +133,7 @@
     
 	var idProduct = $_GET().id;
     var idSupplier = $_GET().id_supplier;
+    var idCustomer = $_GET().idCustomer;
 	
     /**
 	    * Create var product to get details product with @param $id 
@@ -173,6 +178,7 @@
 	*/
 	
 	$(".productName").prepend(product.name);
+	$("#idCustomer").prepend(idCustomer);
 	$(".description").prepend(product.description);
 	$("#stock").prepend( qty )
 	$("#our_price_display").prepend( product.price);

@@ -148,6 +148,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/md5.min.js"></script>
+<script src="../controller/auth.js"></script>
 <script type="text/javascript">
 	/* Load webservice
 	**console.log(Webservice.outputFormat('schema1'));
@@ -158,8 +159,9 @@
 	** PRIVATE
 	*/
 	
-	/* @var
-	**
+	/** Get parameter @param 
+	** 	console.log($_GET().idAddress);
+	**  console.log($_GET().idCustomer);
 	*/
 
     function $_GET(param) {
@@ -178,12 +180,13 @@
 		
 		return vars;
 	}
-	console.log($_GET().idCustomer);
+
 	var idCustomer = $_GET().idCustomer;
-	console.log($_GET().idAddress);
+	var idCustomer = $_GET().idAddress;
+
 	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
 		cache: true ,
 		beforeSend: function(xhr) {
@@ -198,6 +201,14 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
 	
+	/** Return jumlah produk yang udah ada di dalem cart
+	//=======CONTOH PROGRAM====================
+	var dataXml = webService.readId('carts',235);
+	var carts = $(dataXml).children().children()[0];
+	var rowLength = carts.children[19].children[0].children.length;
+	console.log(rowLength);
+	**/
+	
 	/**
 		Update Cart
 			Tambah produk
@@ -206,8 +217,8 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 				id_product
 				id_product_attribute ( default 0 )
 				quantity 
-	**/
-	/*
+	
+	//========CONTOH PROGRAM========================
 	objectData[1][19] = 187;
 	objectData[1][20] = 0;
 	objectData[1][22] = 15;
@@ -215,49 +226,8 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	var objectName = 'carts';
 	var id = 235;
 	webService.updateId(objectName,id);
-	*/
-	/*
-	emailValue = 'asdsadas';
-	passwdValue = 'asdas';
-	var filterArray = ['email',emailValue,'passwd',passwdValue];
-	*/
 	
-	
-	/*
-	dataJson = webService.readJson(objectName);
-	
-	for(i=0;i<dataJson.addresses.length;i++){
-		dataIdJson = webService.readIdJson(objectName,dataJson.addresses[i].id);
-		if (dataIdJson.address.id_customer == idCustomer){
-			idAddress = dataIdJson.address.id;
-			alert('address found');
-			break;
-		}
-	}
-	alert(idAddress);
-	*/
-	/*
-	for(i=0;i<dataJson.addresses.length;i++){
-		var id = dataJson.addresses[0].id;
-		$.ajax({
-			url: urlapi + objectName + '/' + id + '?output_format=JSON',
-			type: 'get',
-			dataType: 'json',
-			success: function(dataIdJson){
-				console.log(dataIdJson);
-				if (dataIdJson.address.id_customer == idCustomer){
-					idAddress = dataIdJson.address.id;
-					alert('address found');
-				}
-			},
-			error: function(){
-				console.log("ReadIdJson error!");
-			}
-		});
-		
-	//}
-	alert(idAddress);
-	*/
+	**/
 	
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
@@ -280,7 +250,7 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 						var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 						var classCaption ='<div class="caption">'+ apiIdProduct;
 						var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-						var p2 = '<p><button class="btn btn-primary" id="carts" >Buy Now!</button><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" id="detailProduct" class="btn btn-default">More Info</a></p>';
+						var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
 						var divEnd1 ='</div></div></div>';
 						var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
 						//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';

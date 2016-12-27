@@ -128,6 +128,57 @@ var id_last_customer_message = '';
 var id_last_customer = '';
 var depends_on_stock = '';
 var out_of_stock = '';
+var id_order = '';
+var id_order_invoice = '';
+var weight = '';
+var shipping_cost_tax_excl = '';
+var shipping_cost_tax_incl  = '';
+var tracking_number = '';
+var product_quantity_reinjected = '';
+var group_reduction = '';
+var discount_quantity_applied = '';
+var download_hash = '';
+var download_deadline = '';
+var product_quantity_in_stock = '';
+var product_quantity_return = '';
+var product_quantity_refunded = '';
+var reduction_percent = '';
+var reduction_amount = '';
+var reduction_amount_tax_incl = '';
+var reduction_amount_tax_excl = '';
+var product_quantity_discount = '';
+var product_supplier_reference = '';
+var product_weight = '';
+var tax_computation_method = '';
+var id_tax_rules_group = '';
+var ecotax = '';
+var ecotax_tax_rate = '';
+var download_nb = '';
+var total_price_tax_incl = '';
+var total_price_tax_excl = '';
+var total_shipping_price_tax_excl = '';
+var total_shipping_price_tax_incl = '';
+var purchase_supplier_price = '';
+var original_product_price = '';
+var original_wholesale_price = '';
+var id_employee = '';
+var id_order_state = '';
+var id_owner = '';
+var number = '';
+var total_discount_tax_excl = '';
+var total_discount_tax_incl = '';
+var shipping_tax_computation_method = '';
+var shop_address = '';
+var invoice_address = '';
+var delivery_address = '';
+var order_reference = '';
+var amount = '';
+var payment_method = '';
+var transaction_id = '';
+var card_number = '';
+var card_brand = '';
+var card_expiration = '';
+var card_holder = '';
 
 //orders
 /*syarat orders :
@@ -287,3 +338,45 @@ objectData[6][6] = 0;
 objectData[6][7] = 2;
 */
 
+//FORM order_carriers
+/*
+objectData[7][1] = 12;
+objectData[7][2] = 4;
+*/
+//FORM order_details
+/*
+objectData[8][1] = 11;
+	objectData[8][10] = 0;
+	objectData[8][11] = 1;
+	objectData[8][12] = 'CENDO CATARLENT EYE DROPS 5 ML';
+	objectData[8][13] = 2;
+	objectData[8][17] = 30300.000000;
+	webService.create('order_details');
+*/
+
+//FORM order_histories
+/*
+	objectData[9][2] = 12;
+	objectData[9][3] = 12;
+	webService.create('order_histories');
+*/
+//FORM order_owners <------------ MASIH ERROR
+/*
+objectData[10][2] = 12;
+	
+	webService.create('order_owners');
+*/
+//FORM order_invoices
+/*
+objectData[11][1] = 11;
+	objectData[11][2] = 0;
+	
+	webService.create('order_invoices');
+*/
+//FORM order_payments
+/*
+objectData[12][2] = 11;
+	objectData[12][3] = 0;
+	
+	webService.create('order_payments');
+*/
