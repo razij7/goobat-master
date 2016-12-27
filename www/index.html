@@ -198,6 +198,14 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
 	
+	/** Return jumlah produk yang udah ada di dalem cart
+	//=======CONTOH PROGRAM====================
+	var dataXml = webService.readId('carts',235);
+	var carts = $(dataXml).children().children()[0];
+	var rowLength = carts.children[19].children[0].children.length;
+	console.log(rowLength);
+	**/
+	
 	/**
 		Update Cart
 			Tambah produk
@@ -206,8 +214,8 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 				id_product
 				id_product_attribute ( default 0 )
 				quantity 
-	**/
-	/*
+	
+	//========CONTOH PROGRAM========================
 	objectData[1][19] = 187;
 	objectData[1][20] = 0;
 	objectData[1][22] = 15;
@@ -215,49 +223,8 @@ var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	var objectName = 'carts';
 	var id = 235;
 	webService.updateId(objectName,id);
-	*/
-	/*
-	emailValue = 'asdsadas';
-	passwdValue = 'asdas';
-	var filterArray = ['email',emailValue,'passwd',passwdValue];
-	*/
 	
-	
-	/*
-	dataJson = webService.readJson(objectName);
-	
-	for(i=0;i<dataJson.addresses.length;i++){
-		dataIdJson = webService.readIdJson(objectName,dataJson.addresses[i].id);
-		if (dataIdJson.address.id_customer == idCustomer){
-			idAddress = dataIdJson.address.id;
-			alert('address found');
-			break;
-		}
-	}
-	alert(idAddress);
-	*/
-	/*
-	for(i=0;i<dataJson.addresses.length;i++){
-		var id = dataJson.addresses[0].id;
-		$.ajax({
-			url: urlapi + objectName + '/' + id + '?output_format=JSON',
-			type: 'get',
-			dataType: 'json',
-			success: function(dataIdJson){
-				console.log(dataIdJson);
-				if (dataIdJson.address.id_customer == idCustomer){
-					idAddress = dataIdJson.address.id;
-					alert('address found');
-				}
-			},
-			error: function(){
-				console.log("ReadIdJson error!");
-			}
-		});
-		
-	//}
-	alert(idAddress);
-	*/
+	**/
 	
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
