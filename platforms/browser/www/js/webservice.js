@@ -110,10 +110,12 @@ var webService = {
 				}
 				else{
 					// alert('Not Found');
+					result = 0;
 				}	
 			},
 			error: function(){
 				// alert("Search error!");
+				result = 0;
 			}
 		});
 		return result;
