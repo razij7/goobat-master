@@ -25,8 +25,7 @@ var auth = class auth{
 		var filterArray = ['id_customer',id];
 		var getAddresses = webService.search('addresses',filterArray);
 		var auth = [id,getAddresses];
-		
+		alert('berhasil');
 		window.location.replace("../../index.html?idCustomer="+id+"&idAddress="+getAddresses);
 	}
-	
 };
