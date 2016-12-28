@@ -172,16 +172,19 @@
 			//location.reload();
 		}else{
 			var filterArray = ['email',username,'passwd',hash];
-			var idEmployee = webService.search('customers',filterArray);
-		
-			if(idEmployee == 0 ){
+			idCustomer = webService.search('customers',filterArray);
+			if(idCustomer == 0 ){
 					//alert(idEmployee);
 			}else{
-				var filterArray = ['id_customer',idEmployee];
-				var getAddresses = webService.search('addresses',filterArray);
-				var auth = [idEmployee,getAddresses];
+				var filterArray = ['id_customer',idCustomer];
+				var idAddress = webService.search('addresses',filterArray);
+				localStorage.setItem('idCustomer',idCustomer);
+				localStorage.setItem('idAddress',idAddress);
+				
+			//	var auth = [idCustomer,idAddress];
 			//	alert(auth);
-				window.location.replace("../../index.html?idCustomer="+idEmployee+"&idAddress="+getAddresses);
+			//window.location.replace("../../index.html?idCustomer="+idCustomer+"&idAddress="+idAddress);
+			window.location.replace("../../index.html");
 			}
 			
 			

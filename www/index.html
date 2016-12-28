@@ -164,6 +164,7 @@
 	**  console.log($_GET().idCustomer);
 	*/
 
+							
     function $_GET(param) {
         var vars = {};
 
@@ -183,7 +184,10 @@
 
 	var idCustomer = $_GET().idCustomer;
 	var idCustomer = $_GET().idAddress;
-
+	//localStorage.removeItem('storagetemp'); 
+	//localStorage.clear();							
+	alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
+	
 	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';

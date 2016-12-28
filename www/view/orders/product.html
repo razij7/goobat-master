@@ -204,6 +204,7 @@
 	var apiIdImage = product.associations.images["0"].id;
 	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
 	console.log(loadImg);
+	alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
 	$(".imgProduct").attr("src",loadImg);
 	$("#our_price_display").attr("content",product.price);
 	
