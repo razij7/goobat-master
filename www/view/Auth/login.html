@@ -165,7 +165,23 @@
 		
 		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
 		
-		
+		if(username == '' || password == ''){
+			$("#pesan").prepend("Email dan password harus diisi.");
+		}
+		else{
+			var filterArray = ['email',username,'passwd',hash];
+			idCustomer = webService.search('customers',filterArray);
+			if ( idCustomer == 0 ){
+				$("#pesan").prepend("Kombinasi salah!");
+			}else{
+				var filterArray = ['id_customer',idCustomer];
+				var idAddress = webService.search('addresses',filterArray);
+				localStorage.setItem('idCustomer',idCustomer);
+				localStorage.setItem('idAddress',idAddress);		
+				window.location.replace("../../index.html");
+			}
+		}
+		/*
 		if (username == '' & password ==''){
 			//alert("Email dan Sandi yang anda masukan salah!!!");
 			$("#pesan").prepend("Kombinasi Email dan Sandi yang anda masukan salah!!!");
@@ -189,7 +205,7 @@
 			
 			
 		}
-		
+		*/
 
 	}
 
