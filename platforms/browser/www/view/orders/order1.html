@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <title>Go-Obat</title>
+
+    <link href="../../css/font-awesome.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/owl.carousel.css" rel="stylesheet">
+    <link href="../../css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="../../css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="../../css/custom.css" rel="stylesheet">
+
+    <script src="../../js/js/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+
+
+</head>
+
+<body>
+    <!-- *** TOPBAR ***
+ _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="../../index.html" class="glyphicon glyphicon-chevron-left" > Kembali ke Beranda</a>
+            </div>
+           
+        </div>
+
+
+    </div>
+
+
+    <div id="all">
+		 <div id="content">
+			<div class="container">
+				<div class="col-md-9">
+					<div id="product">
+					</div>
+					<div id="order1">
+					</div>
+					<div class="box" id="details">
+					<p>
+						<h4 ><b>Informasi lebih lanjut</b></h4>
+						<div class="description"></div>
+						
+
+						<blockquote>
+							<p><em> Tanya jawab apotek</em>
+							</p>
+						</blockquote>
+
+						<hr>
+						<div class="social">
+							<h4>Show it to your friends</h4>
+							<p>
+								<a href="https://www.facebook.com/muhamadbagussantoso" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+								<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+								<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+								<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+							</p>
+						</div>
+				</div>
+				
+
+			</div>
+				</div>
+				
+			</div>
+		</div>
+		
+    </div>
+
+
+	<script src="../../js/webservice.js"></script>
+	
+	<script src="../../controller/auth.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/js/bootstrap.min.js"></script>
+    <script src="../../js/js/jquery.cookie.js"></script>
+    <script src="../../js/js/waypoints.min.js"></script>
+    <script src="../../js/js/modernizr.js"></script>
+    <script src="../../js/js/bootstrap-hover-dropdown.js"></script>
+    <script src="../../js/js/owl.carousel.min.js"></script>
+    <script src="../../js/js/front.js"></script>
+	<script src="../../js/md5.min.js"></script>
+	<script src="../../js/form.js"></script>
+	<script src="../../js/array.js"></script>
+
+</body>
+
+</html>
+<script type="text/javascript">
+var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	$.ajaxSetup({
+		cache: true ,
+		beforeSend: function(xhr) {
+		   xhr.setRequestHeader('Authorization', ("Basic "
+                        .concat(btoa(key))));
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+			
+			<!-- xhr.setRequestHeader('Authorization', '...'); -->
+		},
+	});
+	
+	$('#product').load("product.html");
+	
+	$.ajaxSetup({ cache: true });
+</script>
