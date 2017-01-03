@@ -101,23 +101,25 @@
                     <div class="box">
                         <h1>Login</h1>
 
-                        <p class="lead">Already our customer?</p>
-                        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-                            mi vitae est. Mauris placerat eleifend leo.</p>
+                        <p class="lead">OTENTIKASI</p>
+                        <p class="text-muted">Silahkan Login</p>
 
                         <hr>
 
-                        <form action="customer-orders.html" method="post">
+                        <form action="javascript:doLogin(this)">
+							<div class="form-group" >
+								<label id='pesan' style="color:red"></label>
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" id="username" placeholder="Masukan alamat email" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="sandi" placeholder="Masukan kata sandiri" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                                <input type="submit" class="btn btn-primary"></input>
                             </div>
                         </form>
                     </div>
@@ -128,146 +130,6 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
-
-
-        <!-- *** FOOTER ***
- _________________________________________________________ -->
-        <div id="footer" data-animate="fadeInUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <h4>Pages</h4>
-
-                        <ul>
-                            <li><a href="text.html">About us</a>
-                            </li>
-                            <li><a href="text.html">Terms and conditions</a>
-                            </li>
-                            <li><a href="faq.html">FAQ</a>
-                            </li>
-                            <li><a href="contact.html">Contact us</a>
-                            </li>
-                        </ul>
-
-                        <hr>
-
-                        <h4>User section</h4>
-
-                        <ul>
-                            <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                            </li>
-                            <li><a href="register.html">Regiter</a>
-                            </li>
-                        </ul>
-
-                        <hr class="hidden-md hidden-lg hidden-sm">
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <h4>Top categories</h4>
-
-                        <h5>Men</h5>
-
-                        <ul>
-                            <li><a href="category.html">T-shirts</a>
-                            </li>
-                            <li><a href="category.html">Shirts</a>
-                            </li>
-                            <li><a href="category.html">Accessories</a>
-                            </li>
-                        </ul>
-
-                        <h5>Ladies</h5>
-                        <ul>
-                            <li><a href="category.html">T-shirts</a>
-                            </li>
-                            <li><a href="category.html">Skirts</a>
-                            </li>
-                            <li><a href="category.html">Pants</a>
-                            </li>
-                            <li><a href="category.html">Accessories</a>
-                            </li>
-                        </ul>
-
-                        <hr class="hidden-md hidden-lg">
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <h4>Where to find us</h4>
-
-                        <p><strong>Obaju Ltd.</strong>
-                            <br>13/25 New Avenue
-                            <br>New Heaven
-                            <br>45Y 73J
-                            <br>England
-                            <br>
-                            <strong>Great Britain</strong>
-                        </p>
-
-                        <a href="contact.html">Go to contact page</a>
-
-                        <hr class="hidden-md hidden-lg">
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <h4>Get the news</h4>
-
-                        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-
-                        <form>
-                            <div class="input-group">
-
-                                <input type="text" class="form-control">
-
-                                <span class="input-group-btn">
-
-			    <button class="btn btn-default" type="button">Subscribe!</button>
-
-			</span>
-
-                            </div>
-                            <!-- /input-group -->
-                        </form>
-
-                        <hr>
-
-                        <h4>Stay in touch</h4>
-
-                        <p class="social">
-                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
-                        </p>
-
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#footer -->
-
-        <!-- *** FOOTER END *** -->
-
-
-
 
         <!-- *** COPYRIGHT ***
  _________________________________________________________ -->
@@ -314,7 +176,7 @@
 	<script src="../../js/md5.min.js"></script>
 	<script src="../../js/form.js"></script>
 	<script src="../../js/array.js"></script>
-
+	<script src="../../controller/auth.js"></script>
 </body>
 
 </html>
@@ -350,14 +212,51 @@
 	
 	
 	
+	function $_GET(param) {
+			var vars = {};
+
+			window.location.href.replace( location.hash, '' ).replace( 
+				/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+				function( m, key, value ) { // callback
+					vars[key] = value !== undefined ? value : '';
+				}
+			);
+
+			if ( param ) {
+				return vars[param] ? vars[param] : null;	
+			}
+			
+			return vars;
+	}
 	
+	function doLogin(){
 	
-	$( "#signup" ).click(function() {
+		var username = $('#username').val();
+		var password = $('#sandi').val();
 		
-
-
+		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
 		
-	});
+		console.log(username+'    '+hash+'           '+password);
+			var filterArray = ['email',username,'passwd',hash];
+			idCustomer = webService.search('customers',filterArray);
+			if ( idCustomer == 0 ){
+				$("#pesan").prepend("Kombinasi salah!");
+				setTimeout(function(){
+				   window.location.reload(1);
+				}, 2000);
 
+			}else{
+				var filterArray = ['id_customer',idCustomer];
+				var idAddress = webService.search('addresses',filterArray);
+				localStorage.setItem('idCustomer',idCustomer);
+				localStorage.setItem('idAddress',idAddress);
+				if($_GET().back == 1){
+						window.history.back();
+					
+				}
+				window.location.replace("../../index.html");
+			}
+
+	}
 	$.ajaxSetup({ cache: true });
 </script>

@@ -97,7 +97,7 @@ var webService = {
 	
 	search: function(objectName,filterArray){
 		var filterUrl = webService.filterGenerator(filterArray);
-		var result = 0;
+		var result = [0];
 		$.ajax({
 			url: urlapi + objectName + '/?' + filterUrl,
 			type: 'get',
@@ -105,8 +105,11 @@ var webService = {
 			async : false,
 			success: function(tempXml){
 				if($(tempXml).children().children()[0].children.length > 0){
-					result = $(tempXml).children().children()[0].children[0].id;
+					
 					// alert("Search success!");
+					for(i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
+						result[i] = $(tempXml).children().children()[0].children[i].id;
+					}
 				}
 			},
 			error: function(){
