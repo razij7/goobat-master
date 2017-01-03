@@ -51,7 +51,7 @@
 							</p>
 
 							<p class="text-center buttons">
-								<a href="#" class="btn btn-primary" id="modalAddtoCart" data-toggle="modal" data-target="#addtoCart-modal">
+								<a href="#" class="btn btn-primary" id="modalAddtoCart" data-toggle="modal" >
 								<a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
 							</p>
 						</div>
@@ -71,8 +71,26 @@
 									</p>
 									<p class="text-center" id='confirm' aria-hidden="true">
 									<button class="btn btn-primary" data-dismiss="modal" ><i class="fa fa-sign-in"></i>Lanjut belanja</button>
-		<a class="btn btn-primary" id="addtoCart" ><i class="fa fa-sign-in"></i>Lanjutkan pembayaran</a>
+									<a class="btn btn-primary" id="addtoCart" ><i class="fa fa-sign-in"></i>Lanjutkan pembayaran</a>
 									</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal fade" id="loginPopup" tabindex="-1" role="dialog" aria-labelledby="addtoCart" aria-hidden="true">
+					<div class="modal-dialog modal-sm">
+	
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							</div>
+							<div class="modal-body">
+									<p class="text-center">
+										<h4 class="modal-title qtr">Login</h4>
+										<iframe src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>
+									</p>
+									
 							</div>
 						</div>
 					</div>
@@ -128,7 +146,7 @@
     
 	var idProduct = $_GET().id;
     var idSupplier = $_GET().id_supplier;
-    var idCustomer = $_GET().idCustomer;
+    
 	
     /**
 	    * Create var product to get details product with @param $id 
@@ -165,6 +183,15 @@
 		$("#modalAddtoCart").prepend('<i class="fa fa-shopping-cart"></i> Masukan ke keranjang</a> ');
 	}
 	
+	var idCustomer = localStorage.getItem('idCustomer');
+	
+	switch (idCustomer) {
+		case null:
+			$("#modalAddtoCart").attr("href","../Auth/register.html?back=1");
+			break; 
+		default: 
+			$("#modalAddtoCart").attr("data-target","#addtoCart-modal");
+	}
  
 	/**
 		* prepend $result[], $qty, $product to HTML  
@@ -173,7 +200,7 @@
 	*/
 	
 	$(".productName").prepend(product.name);
-	$("#idCustomer").prepend(localStorage.getItem('idCustomer'));
+	$("#idCustomer").prepend(idCustomer);
 	$(".description").prepend(product.description);
 	$("#stock").prepend( qty )
 	$("#our_price_display").prepend( product.price);
@@ -204,18 +231,17 @@
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	var apiIdImage = product.associations.images["0"].id;
 	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
-	console.log(loadImg);
 	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
 	$(".imgProduct").attr("src",loadImg);
 	$("#our_price_display").attr("content",product.price);
 	
 	//localStorage.getItem('idCustomer')+
-
+	console.log(localStorage.getItem('idCustomer'));
 	/**
 	    * select product, customer, addresse, currency, languages (default 2 indonesia), currency(default 2 IDR)
 	*/
 	
-		$( "#modalAddtoCart" ).click(function() {
+	$( "#modalAddtoCart" ).click(function() {
 
 		objectData[1][1] = localStorage.getItem('idAddress'); 
 		objectData[1][2] = localStorage.getItem('idAddress');
@@ -224,17 +250,15 @@
 		objectData[1][6] = 2;
 		objectData[1][19] = idProduct;
 		objectData[1][22] = qty;
+		alert(idCustomer);
 		$("#addtoCart").attr("href","orders.html?idProduct="+objectData[1][19]+"&step=1");
-		$("#confirm").collapse('show');
-		//console.log(objectData[5][7]);
-		webService.create('carts');
-		//console.log(objectData);	
-		//alert('sukses'+objectData);
-		
-	});
-	$("#addtoCart-modal").on("hidden.bs.modal", function () {
-    // put your default event here
-	$("#confirm").collapse('hide');
+		if (idCustomer != 0 || idCustomer != null){
+			//$("#addtoCart-modal").collapse('show');
+		}else{
+			alert('form login');
+		}
 	
-});
+		webService.create('carts');
+	});
+
  </script>
