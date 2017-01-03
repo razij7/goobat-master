@@ -269,7 +269,7 @@
 
  var idcart= carts[carts.length-1];
  var getcart = webService.readIdJson('carts',idcart);
- alert(getcart);
+alert(getcart.cart.associations.cart_rows.length);
  
  
  
