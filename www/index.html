@@ -249,13 +249,13 @@
 	}
 	$("#amount").append(cartLength);
 	
-	
+	alert("A");
 	var filterArray = ['active',1];
 	var idProducts = webService.search('products',filterArray);
 	alert(idProducts);
 	
 	var objectName = 'products';
-	for(i=0;i<idProducts.length;i++){
+	for(i=0;i<20;i++){
 		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
@@ -279,7 +279,7 @@
 			}
 		);
 	}
-		
+		alert("E");
 	/*
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
