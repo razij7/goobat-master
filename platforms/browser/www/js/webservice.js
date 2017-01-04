@@ -23,6 +23,7 @@ var webService = {
 	},
 	
 	filterGenerator: function(filterArray){
+		alert("filterStart");
 		var filterUrl = '';
 		for(i=0;i<filterArray.length;i=i+2){
 			var filterStr = 'filter['+filterArray[i]+']='+filterArray[i+1];
@@ -31,7 +32,8 @@ var webService = {
 				filterUrl += '&';
 			}
 		}
-		return filterUrl
+		alert("filterEnd");
+		return filterUrl;
 	},
 	
 	outputFormat: function(format){
@@ -96,6 +98,7 @@ var webService = {
 	},
 	
 	search: function(objectName,filterArray){
+		alert("searchStart");
 		var filterUrl = webService.filterGenerator(filterArray);
 		var result = [0];
 		$.ajax({
@@ -117,6 +120,7 @@ var webService = {
 				result = 0;
 			}
 		});
+		alert("searchEnd");
 		return result;
 	},
 	
