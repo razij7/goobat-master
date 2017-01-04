@@ -23,7 +23,6 @@ var webService = {
 	},
 	
 	filterGenerator: function(filterArray){
-		alert("filterStart");
 		var filterUrl = '';
 		for(i=0;i<filterArray.length;i=i+2){
 			var filterStr = 'filter['+filterArray[i]+']='+filterArray[i+1];
@@ -32,7 +31,6 @@ var webService = {
 				filterUrl += '&';
 			}
 		}
-		alert("filterEnd");
 		return filterUrl;
 	},
 	
@@ -98,7 +96,6 @@ var webService = {
 	},
 	
 	search: function(objectName,filterArray){
-		alert("searchStart");
 		var filterUrl = webService.filterGenerator(filterArray);
 		var result = [0];
 		$.ajax({
@@ -108,19 +105,15 @@ var webService = {
 			async : false,
 			success: function(tempXml){
 				if($(tempXml).children().children()[0].children.length > 0){
-					
-					 alert("Search success!");
-					for(i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
+					 for(i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
 						result[i] = $(tempXml).children().children()[0].children[i].id;
 					}
 				}
 			},
 			error: function(){
-				 alert("Search error!");
-				result = 0;
+				 result = 0;
 			}
 		});
-		alert("searchEnd");
 		return result;
 	},
 	
@@ -168,10 +161,8 @@ var webService = {
 				data : textData,
 				async : false,
 				success: function(){
-					//alert("Create success!");
 				},
 				error: function(){
-				//	alert("Create error!");
 				}
 			});
 		},
@@ -186,11 +177,9 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				alert("ReadJson success!");
 				result = tempXml;
 			},
 			error: function(){
-			//	alert("ReadJson  error!");
 			}
 		});
 		return result;
@@ -204,11 +193,9 @@ var webService = {
 			dataType: 'json',
 			async : false,
 			success: function(tempXml){
-				// alert("ReadIdJson success!");
 				result = tempXml;
 			},
 			error: function(){
-				// alert("ReadIdJson error!");
 			}
 		});
 		return result;
@@ -222,11 +209,9 @@ var webService = {
 			dataType: 'xml',
 			async : false,
 			success: function(tempXml){
-				alert("Read id success!");
 				result = tempXml;
 			},
 			error: function(){
-				alert("Read id error!");
 			}
 		});
 		return result;
@@ -261,8 +246,6 @@ var webService = {
 								rowNode[j+1].children[2].textContent = objectChildren.children[1].textContent;
 								rowNode[j+1].children[2].setAttribute('xlink:href',urlTemp+objectChildren.children[1].textContent);
 								rowNode[j+1].children[3].textContent = objectData[objectCode][22];
-								alert("B");
-								alert(tempXml);
 								break;
 							}
 							else{//kalo bukan data terakir, lanjut looping j lagi cek yg selanjutnya id_product sama apa ga
@@ -286,10 +269,8 @@ var webService = {
 			dataType: 'text',
 			data : textData,
 			success: function(){
-				// alert("Update success!");
 			},
 			error: function(){
-				// alert("Update error!");
 			}
 		});
 	}

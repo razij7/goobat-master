@@ -67,7 +67,11 @@
 	- bisa search email and password, login kalo salah berarti salah kombinasi
 	- pake ?filter[key]=value
 	
-## 1/4/2016 Cart
+## 1/4/2017 Cart
 	- Tampil jumlah produk di cart di index.html
 	- ga ada cart, create
 	- ada cart, update
+
+## 1/4/2017 Error di android ga ngebaca webService.search ( InsyaAllah Fixed )
+	- webservice.js ga kebaca yang diindex
+	- harusnya lgsg js/webservice.js tapi malah ../../webservice.js

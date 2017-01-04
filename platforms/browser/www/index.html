@@ -187,7 +187,6 @@
 	var idCustomer = $_GET().idAddress;
 	//localStorage.removeItem('storagetemp'); 
 	//localStorage.clear();							
-	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
 	
 	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
@@ -233,18 +232,13 @@
 	webService.updateId(objectName,id);
 	
 	**/
-	var idC = localStorage.getItem('idCustomer');
+	var idCustomer = localStorage.getItem('idCustomer');
 	var cartLength = 0;
-	alert(idC);
-	if(idC > 0){
-		var filterArray = ['id_customer',idC];
-		alert(idC);
+	if(idCustomer > 0){
+		var filterArray = ['id_customer',idCustomer];
 		var carts = webService.search('carts', filterArray);
-		alert(carts);
 		var idCart = carts[carts.length-1];
 		localStorage.setItem('idCart',idCart);
-		alert("id cart ="+idCart);
- 
 		if (idCart != 0){
 			var getCart = webService.readId('carts',idCart);
 			var cart = $(getCart).children().children()[0].children[19].children[0].children;
@@ -253,13 +247,12 @@
 	}
 	$(".amount").append(cartLength);
 	
-	alert("A");
-	//var filterArray = ['active',1];
-	//var idProducts = webService.search('products',filterArray);
+	var filterArray = ['active',1];
+	var idProducts = webService.search('products',filterArray);
 	
 	var objectName = 'products';
-	for(i=0;i<5;i++){
-		var setURL = urlapi + objectName + "/" + 446 + '?output_format=JSON';	
+	for(i=0;i<idProducts.length;i++){
+		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
 				var Detailproductsname ='';
@@ -273,7 +266,7 @@
 				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 				var classCaption ='<div class="caption">'+ apiIdProduct;
 				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idC+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
+				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
 				var divEnd1 ='</div></div></div>';
 				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
 				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
@@ -282,7 +275,7 @@
 			}
 		);
 	}
-		alert("E");
+		
 	/*
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
@@ -319,7 +312,6 @@
 	);*/
 	
 	$("#carts").click(function(){
-		alert("The paragraph was clicked.");
 	});
 	$.ajaxSetup({ cache: true });
 </script>
