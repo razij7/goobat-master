@@ -1,127 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <title>Go-Obat</title>
+<div class="col-md-12">
+	<ul class="breadcrumb">
+		<li><a href="#">Berand</a>
+		</li>
+		<li>01. Rekap</li>
+	</ul>
+</div>
 
-    <link href="../../css/font-awesome.css" rel="stylesheet">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/animate.min.css" rel="stylesheet">
-    <link href="../../css/owl.carousel.css" rel="stylesheet">
-    <link href="../../css/owl.theme.css" rel="stylesheet">
+<div class="col-md-9" id="basket">
 
-    <!-- theme stylesheet -->
-    <link href="../../css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+	<div class="box">
 
-    <!-- your stylesheet with modifications -->
-    <link href="../../css/custom.css" rel="stylesheet">
+		<form method="post" action="checkout1.html">
 
-    <script src="../../js/js/respond.min.js"></script>
-
-    <link rel="shortcut icon" href="favicon.png">
-
-
-
-</head>
-
-<body>
-    <!-- *** TOPBAR ***
- _________________________________________________________ -->
-    <div id="top">
-        <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="../../index.html" class="glyphicon glyphicon-chevron-left" > Kembali ke Beranda</a>
-            </div>
-           
-        </div>
-
-
-    </div>
-
-
-    <div id="all">
-		 <div id="content">
-			<div class="container">
-				<div class="col-md-9">
-					<div id="product">
-					</div>
-					<div id="order1">
-					</div>
-					<div class="box" id="details">
-					<p>
-						<h4 ><b>Informasi lebih lanjut</b></h4>
-						<div class="description"></div>
+			<h1>REKAPITULASI TROLI BELANJA</h1>
+			<p class="text-muted">You currently have 3 item(s) in your cart.</p>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr><center>
+							<th style="text-align: center;">Product</th>
+							<th colspan="2" style="text-align: center;"><center>Deskripsi</center></th>
+							<th style="text-align: center;">Ketersediaan</th>
+							<th style="text-align: center;">Harga Satuan</th>
+							<th style="text-align: center;">Jumlah</th>
+							<th colspan="2" style="text-align: center;">Total</th>
+							<center>
+						</tr>
+					</thead>
+					<tbody id='products'>
 						
-
-						<blockquote>
-							<p><em> Tanya jawab apotek</em>
-							</p>
-						</blockquote>
-
-						<hr>
-						<div class="social">
-							<h4>Show it to your friends</h4>
-							<p>
-								<a href="https://www.facebook.com/muhamadbagussantoso" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-								<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-							</p>
-						</div>
-				</div>
-				
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="5">Total</th>
+							<th colspan="2">$446.00</th>
+						</tr>
+					</tfoot>
+				</table>
 
 			</div>
+			<!-- /.table-responsive -->
+
+			<div class="box-footer">
+				<div class="pull-left">
+					<a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
 				</div>
-				
+				<div class="pull-right">
+					<button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
+					<button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>
+					</button>
+				</div>
 			</div>
+
+		</form>
+
+	</div>
+	<!-- /.box -->
+
+</div>
+<!-- /.col-md-9 -->
+
+<div class="col-md-3">
+	<div class="box" id="order-summary">
+		<div class="box-header">
+			<h3>Order summary</h3>
 		</div>
+		<p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+		<div class="table-responsive">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>Order subtotal</td>
+						<th>Rp 10000</th>
+					</tr>
+					<tr>
+						<td>Shipping and handling</td>
+						<th>$10.00</th>
+					</tr>
+					<tr>
+						<td>Tax</td>
+						<th>$0.00</th>
+					</tr>
+					<tr class="total">
+						<td>Total</td>
+						<th>$456.00</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+	
+<script>
+	for (i=0 ; i<getcart.cart.associations.cart_rows.length ; i++){
+		var product = webService.readIdJson("products",getcart.cart.associations.cart_rows[i].id_product).product;
+		IdImage = product.associations.images["0"].id;
+		getImgProduct = urlapi+"images/products/"+product.id+"/"+IdImage+"/cart_default";
 		
-    </div>
-
-
-	<script src="../../js/webservice.js"></script>
-	
-	<script src="../../controller/auth.js"></script>
-	<script src="../../js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../../js/bootstrap.min.js"></script>
-	<script src="../../js/js/jquery-1.11.0.min.js"></script>
-    <script src="../../js/js/bootstrap.min.js"></script>
-    <script src="../../js/js/jquery.cookie.js"></script>
-    <script src="../../js/js/waypoints.min.js"></script>
-    <script src="../../js/js/modernizr.js"></script>
-    <script src="../../js/js/bootstrap-hover-dropdown.js"></script>
-    <script src="../../js/js/owl.carousel.min.js"></script>
-    <script src="../../js/js/front.js"></script>
-	<script src="../../js/md5.min.js"></script>
-	<script src="../../js/form.js"></script>
-	<script src="../../js/array.js"></script>
-
-</body>
-
-</html>
-<script type="text/javascript">
-var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
-	$.ajaxSetup({
-		cache: true ,
-		beforeSend: function(xhr) {
-		   xhr.setRequestHeader('Authorization', ("Basic "
-                        .concat(btoa(key))));
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
-			
-			<!-- xhr.setRequestHeader('Authorization', '...'); -->
-		},
-	});
-	
-	$('#product').load("product.html");
-	
-	$.ajaxSetup({ cache: true });
+		qty = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
+		console.log(qty);
+		if(qty > 0){
+			qty = "Stok Ada";
+		}else{
+			qty = "Stok Kosong";
+		}
+		var tr = "<tr><center>";
+		 imgProduct = "<td id='imgsProduct'><img src='"+getImgProduct+"'></img></td>";
+		 nameProduct = "<td colspan='2' id='productName' style='text-align: center;'><b><h5>"+product.name+"</h5></b> <br> SKU :"+product.reference+"<br> Satuan Produk : "+product.unity+"</td>";
+		 qty ="<td  style='text-align: center;'>"+qty+"</td>";
+		 price ="<td  style='text-align: center;'>"+product.price+"</td>";
+		 total ="<td  style='text-align: center;'>"+product.price*1+"</td>";
+		 sum ="<td  style='text-align: center;'>"+product.price*1+"</td>";
+		ntr = "</center></tr>";
+		 all = tr+imgProduct+nameProduct+qty+price+total+sum+ntr;
+		$("#products").append(all);
+	}
 </script>
