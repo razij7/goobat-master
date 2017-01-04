@@ -250,13 +250,13 @@
 	$("#amount").append(cartLength);
 	
 	alert("A");
-	var filterArray = ['active',1];
-	var idProducts = webService.search('products',filterArray);
+	//var filterArray = ['active',1];
+	//var idProducts = webService.search('products',filterArray);
 	alert(idProducts);
 	
 	var objectName = 'products';
-	for(i=0;i<20;i++){
-		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
+	for(i=0;i<5;i++){
+		var setURL = urlapi + objectName + "/" + 1 + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
 				var Detailproductsname ='';
