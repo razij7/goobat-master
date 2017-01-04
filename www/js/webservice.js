@@ -106,14 +106,14 @@ var webService = {
 			success: function(tempXml){
 				if($(tempXml).children().children()[0].children.length > 0){
 					
-					// alert("Search success!");
+					 alert("Search success!");
 					for(i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
 						result[i] = $(tempXml).children().children()[0].children[i].id;
 					}
 				}
 			},
 			error: function(){
-				// alert("Search error!");
+				 alert("Search error!");
 				result = 0;
 			}
 		});
