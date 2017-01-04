@@ -241,10 +241,6 @@
 			idCustomer = webService.search('customers',filterArray);
 			if ( idCustomer == 0 ){
 				$("#pesan").prepend("Kombinasi salah!");
-				setTimeout(function(){
-				   window.location.reload(1);
-				}, 2000);
-
 			}else{
 				var filterArray = ['id_customer',idCustomer];
 				var idAddress = webService.search('addresses',filterArray);

@@ -114,7 +114,7 @@ var webService = {
 			},
 			error: function(){
 				// alert("Search error!");
-				result = -1;
+				result = 0;
 			}
 		});
 		return result;
@@ -164,10 +164,10 @@ var webService = {
 				data : textData,
 				async : false,
 				success: function(){
-					alert("Create success!");
+					//alert("Create success!");
 				},
 				error: function(){
-					alert("Create error!");
+				//	alert("Create error!");
 				}
 			});
 		},
@@ -186,7 +186,7 @@ var webService = {
 				result = tempXml;
 			},
 			error: function(){
-				alert("ReadJson  error!");
+			//	alert("ReadJson  error!");
 			}
 		});
 		return result;
