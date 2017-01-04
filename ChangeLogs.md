@@ -66,3 +66,8 @@
     - bisa search id_customer di dalem addresses
 	- bisa search email and password, login kalo salah berarti salah kombinasi
 	- pake ?filter[key]=value
+	
+## 1/4/2016 Cart
+	- Tampil jumlah produk di cart di index.html
+	- ga ada cart, create
+	- ada cart, update
