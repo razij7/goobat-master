@@ -74,7 +74,9 @@
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-                    
+                    <a class="btn btn-default navbar-toggle" href="basket.html">
+                        <i class="fa fa-shopping-cart"></i>  <span class="amount hidden-xs"></span>
+                    </a>
                 </div>
             </div>
             <!--/.navbar-header -->
@@ -93,7 +95,7 @@
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm" id="amount"></span></a>
+                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="amount hidden-sm"></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -102,6 +104,7 @@
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
+					 
                 </div>
 
             </div>
@@ -232,14 +235,15 @@
 	**/
 	var idCustomer = localStorage.getItem('idCustomer');
 	var cartLength = 0;
+	alert(idCustomer);
 	if(idCustomer > 0){
 		var filterArray = ['id_customer',idCustomer];
-		console.log(idCustomer);
+		alert(idCustomer);
 		var carts = webService.search('carts', filterArray);
-		console.log(carts);
+		alert(carts);
 		var idCart = carts[carts.length-1];
 		localStorage.setItem('idCart',idCart);
-		console.log("id cart ="+idCart);
+		alert("id cart ="+idCart);
  
 		if (idCart != 0){
 			var getCart = webService.readId('carts',idCart);
@@ -247,7 +251,7 @@
 			cartLength = cart.length;
 		}		
 	}
-	$("#amount").append(cartLength);
+	$(".amount").append(cartLength);
 	
 	alert("A");
 	//var filterArray = ['active',1];
