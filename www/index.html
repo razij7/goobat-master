@@ -233,12 +233,12 @@
 	webService.updateId(objectName,id);
 	
 	**/
-	var idCustomer = localStorage.getItem('idCustomer');
+	var idC = localStorage.getItem('idCustomer');
 	var cartLength = 0;
-	alert(idCustomer);
-	if(idCustomer > 0){
-		var filterArray = ['id_customer',idCustomer];
-		alert(idCustomer);
+	alert(idC);
+	if(idC > 0){
+		var filterArray = ['id_customer',idC];
+		alert(idC);
 		var carts = webService.search('carts', filterArray);
 		alert(carts);
 		var idCart = carts[carts.length-1];
@@ -273,7 +273,7 @@
 				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 				var classCaption ='<div class="caption">'+ apiIdProduct;
 				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
+				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idC+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
 				var divEnd1 ='</div></div></div>';
 				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
 				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
