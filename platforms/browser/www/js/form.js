@@ -238,7 +238,7 @@ conversion_rate = 1;
 */
 
 //carts
-/*
+
 id_address_delivery = 61;
 id_address_invoice = 61;
 id_currency = 2;
@@ -246,7 +246,6 @@ id_customer = 68;
 id_lang = 2;
 id_product = 187;
 quantity = 1;
-*/
 //id_guests = 0 karena id guest tergantung dari visit user ke web, 0 karena customer blm daftar
 /*
 objectData[1][1] = 55;

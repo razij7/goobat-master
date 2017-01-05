@@ -74,9 +74,7 @@
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-                    <a class="btn btn-default navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i>  <span class="amount hidden-xs"></span>
-                    </a>
+                    
                 </div>
             </div>
             <!--/.navbar-header -->
@@ -95,7 +93,7 @@
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="amount hidden-sm"></span></a>
+                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm" id="amount"></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -104,7 +102,6 @@
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-					 
                 </div>
 
             </div>
@@ -144,7 +141,7 @@
 
 <script src="js/form.js"></script>
 <script src="js/array.js"></script>
-<script src="js/webservice.js"></script>
+<script src="../../js/webservice.js"></script>
 <script src="js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -187,6 +184,7 @@
 	var idCustomer = $_GET().idAddress;
 	//localStorage.removeItem('storagetemp'); 
 	//localStorage.clear();							
+	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
 	
 	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
@@ -236,22 +234,28 @@
 	var cartLength = 0;
 	if(idCustomer > 0){
 		var filterArray = ['id_customer',idCustomer];
+		console.log(idCustomer);
 		var carts = webService.search('carts', filterArray);
+		console.log(carts);
 		var idCart = carts[carts.length-1];
 		localStorage.setItem('idCart',idCart);
+		console.log("id cart ="+idCart);
+ 
 		if (idCart != 0){
 			var getCart = webService.readId('carts',idCart);
 			var cart = $(getCart).children().children()[0].children[19].children[0].children;
 			cartLength = cart.length;
 		}		
 	}
-	$(".amount").append(cartLength);
+	$("#amount").append(cartLength);
+	
 	
 	var filterArray = ['active',1];
 	var idProducts = webService.search('products',filterArray);
+	alert(idProducts);
 	
 	var objectName = 'products';
-	for(i=0;i<20;i++){
+	for(i=0;i<idProducts.length;i++){
 		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
@@ -312,6 +316,7 @@
 	);*/
 	
 	$("#carts").click(function(){
+		alert("The paragraph was clicked.");
 	});
 	$.ajaxSetup({ cache: true });
 </script>

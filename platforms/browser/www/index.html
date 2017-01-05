@@ -75,7 +75,7 @@
                         <i class="fa fa-search"></i>
                     </button>
                     <a class="btn btn-default navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i>  <span class="amount hidden-xs"></span>
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
                     </a>
                 </div>
             </div>
@@ -95,7 +95,7 @@
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="amount hidden-sm"></span></a>
+                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -104,7 +104,6 @@
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-					 
                 </div>
 
             </div>
@@ -144,7 +143,7 @@
 
 <script src="js/form.js"></script>
 <script src="js/array.js"></script>
-<script src="js/webservice.js"></script>
+<script src="../../js/webservice.js"></script>
 <script src="js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -187,6 +186,7 @@
 	var idCustomer = $_GET().idAddress;
 	//localStorage.removeItem('storagetemp'); 
 	//localStorage.clear();							
+	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
 	
 	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
@@ -232,24 +232,10 @@
 	webService.updateId(objectName,id);
 	
 	**/
-	var idCustomer = localStorage.getItem('idCustomer');
-	var cartLength = 0;
-	if(idCustomer > 0){
-		var filterArray = ['id_customer',idCustomer];
-		var carts = webService.search('carts', filterArray);
-		var idCart = carts[carts.length-1];
-		localStorage.setItem('idCart',idCart);
-		if (idCart != 0){
-			var getCart = webService.readId('carts',idCart);
-			var cart = $(getCart).children().children()[0].children[19].children[0].children;
-			cartLength = cart.length;
-		}		
-	}
-	$(".amount").append(cartLength);
 	
 	var filterArray = ['active',1];
 	var idProducts = webService.search('products',filterArray);
-	
+	alert(idProducts);
 	var objectName = 'products';
 	for(i=0;i<20;i++){
 		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
@@ -258,8 +244,11 @@
 				var Detailproductsname ='';
 				var Detailproductsnamecategori ='';
 				var apiIdProduct = setUrlProduct["product"]["id"];
+				console.log(apiIdProduct);
 				var apiIdSupplier = setUrlProduct["product"]["id_supplier"];
+				console.log(apiIdSupplier);
 				var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
+				console.log(apiIdImage);
 				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
 				var div1 ='<div class="col-xs-6 col-md-3">';
 				var thumbnail ='<div class="thumbnail">';
@@ -275,8 +264,10 @@
 			}
 		);
 	}
-		
+	
 	/*
+		
+	
 	var objectName = 'products';
 	$.getJSON(urlapi + objectName + '?output_format=JSON', 
 		function(datas){
@@ -312,6 +303,7 @@
 	);*/
 	
 	$("#carts").click(function(){
+		alert("The paragraph was clicked.");
 	});
 	$.ajaxSetup({ cache: true });
 </script>

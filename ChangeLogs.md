@@ -75,3 +75,7 @@
 ## 1/4/2017 Error di android ga ngebaca webService.search ( InsyaAllah Fixed )
 	- webservice.js ga kebaca yang diindex
 	- harusnya lgsg js/webservice.js tapi malah ../../webservice.js
+	
+## 11/5/2017
+  ### Order product.html
+  -- input jumlah qty product
