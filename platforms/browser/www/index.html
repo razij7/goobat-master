@@ -251,7 +251,7 @@
 	var idProducts = webService.search('products',filterArray);
 	
 	var objectName = 'products';
-	for(i=0;i<idProducts.length;i++){
+	for(i=0;i<20;i++){
 		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
