@@ -19,41 +19,42 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="box">
-							<p class="productName" >
-							<span class="text-center" id='productName'></span>
-							</p>
-							<p class="productReference" >
-							<span class="text-center"><h4>Kode SKU</h4></span>
-							<ul>
-								<li id='reference'></li>
-							</ul>
-							</p>
-							<p class="productStock" >
-							<span class="text-center"><h4>Stok tersedia</h4></span>
-							<ul>
-								<li id='stock'></li>
-							</ul>
-							<span class="text-center" id="idCustomer"><h4>idCustomer</h4></span>
-							<ul>
-								<li id='stock'></li>
-							</ul>
-							</p>
-							<p class="descriptionShort" >
-							<span class="text-center"><h4>Deskripsi singkat</h4></span>
-							<span class="text-center" id='description_short'></span>
-							</p>
+							<p></p>
+							<div>
+								<span class="productName"></span>
+							</div>
+							<div id="productReference">
+								<div>  <span>Kode SKU : </span>
+								<span id="reference"></span> </div>
+								
+							</div>
+							<div>
+								<span > Deskripsi Singkat</span>
+								<span id='description_short'></span>
+							</div>
 							
-							<p class="price" >
+							<div>
+								<div><span>Stok Tersedia : </span>
+								<span id='quantity'></span></div>
+							</div>
+							<div><span>Jumlah Qty Barang : </span>
+								<input type="number" value="1" class="form-control" id="qtyProductCart">
+								
+							</div>
+							<div class="price">
+							
 								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
 								<link itemprop="availability" href="https://schema.org/InStock">
 								<span id="our_price_display" class="price" itemprop="price" ></span>
 								<meta itemprop="priceCurrency" content="IDR"></p>
-							</p>
 
-							<p class="text-center buttons">
-								<a href="#" class="btn btn-primary" id="modalAddtoCart" data-toggle="modal" >
+							</div>
+							<div>
+							<a href="#" class="btn btn-primary" id="modalAddtoCart" data-toggle="modal" >
 								<a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
-							</p>
+							</div>
+							
+					
 						</div>
 					</div>
 				<div class="modal fade" id="addtoCart-modal" tabindex="-1" role="dialog" aria-labelledby="addtoCart" aria-hidden="true">
@@ -67,7 +68,9 @@
 							</div>
 							<div class="modal-body">
 									<p class="text-center">
-										<h4 class="modal-title qtr">Jumlah</h4>
+									<div><span>Jumlah Qty Barang : </span><span id='qtyProductCart1'></span>
+									</div>
+								
 									</p>
 									<p class="text-center" id='confirm' aria-hidden="true">
 									<button class="btn btn-primary" data-dismiss="modal" ><i class="fa fa-sign-in"></i>Lanjut belanja</button>
@@ -179,8 +182,10 @@
         
 		$("#modalAddtoCart").attr("disabled","disabled");
 		$("#modalAddtoCart").prepend('<i class="fa fa-exclamation-triangle"></i>Kosong</a> ');
+		$("#quantity").prepend('Stok Kosong');
 	}else{
 		$("#modalAddtoCart").prepend('<i class="fa fa-shopping-cart"></i> Masukan ke keranjang</a> ');
+		$("#quantity").prepend(qty);
 	}
 	
 	var idCustomer = localStorage.getItem('idCustomer');
@@ -226,25 +231,24 @@
 	
 	<!-- var addressCustomer = webService.readIdJson('addresses',idAddress).address; -->
 	<!-- console.log(addressCustomer.id); -->
-	<!-- $("#details").prepend( addressCustomer.city); -->
+	<!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  -->
 	
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	var apiIdImage = product.associations.images["0"].id;
 	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
-	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
+
 	$(".imgProduct").attr("src",loadImg);
 	$("#our_price_display").attr("content",product.price);
-	
-	//localStorage.getItem('idCustomer')+
-	console.log(localStorage.getItem('idCustomer'));
+
 	/**
 	    * select product, customer, addresse, currency, languages (default 2 indonesia), currency(default 2 IDR)
 	*/
 	
 	$( "#modalAddtoCart" ).click(function() {
+	$("#qtyProductCart1").prepend( $("#qtyProductCart").val());
+	
 		var idCart = localStorage.getItem('idCart');
-		var objectName = 'carts';
-		alert("idCart = "+idCart);	
+		var objectName = 'carts';	
 		if (idCart == 0){
 			objectData[1][1] = localStorage.getItem('idAddress'); 
 			objectData[1][2] = localStorage.getItem('idAddress');
@@ -252,22 +256,17 @@
 			objectData[1][4] = localStorage.getItem('idCustomer');
 			objectData[1][6] = 2;
 			objectData[1][19] = idProduct;
-			objectData[1][22] = qty;			
-			webService.create(objectName);
+			objectData[1][22] = $("#qtyProductCart").val();		
+			 webService.create(objectName); 
 			
 		}
-		else{
-			alert(objectData[1][4]);
+		else{	
 			objectData[1][19] = idProduct;
 			objectData[1][20] = 0;
-			objectData[1][22] = qty;
+			objectData[1][22] = $("#qtyProductCart").val();
 			webService.updateId(objectName,idCart);
 		}
 		$("#addtoCart").attr("href","orders.html?step=1");
-		
-		
-	
-		
 	});
 
  </script>
