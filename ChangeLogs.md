@@ -76,6 +76,14 @@
 	- webservice.js ga kebaca yang diindex
 	- harusnya lgsg js/webservice.js tapi malah ../../webservice.js
 	
-## 11/5/2017
+## 1/5/2017
   ### Order product.html
   -- input jumlah qty product
+  
+## 1/5/2017 register2 dan savedSyntax
+  ### register dan register2.html
+    -- register form untuk register nama dll untuk login doang tanpa alamat
+	-- register2 form untuk registrasi alamat
+	  --- form provinsi jadinya pake htmlnya aja biar cepet
+  ### savedSyntax.txt
+    -- file untuk nyimpen syntax yang udah dibikin tapi belom kepake

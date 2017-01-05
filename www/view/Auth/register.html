@@ -74,13 +74,41 @@
 
  <form  action="javascript:signup()">
                             <div class="form-group">
-                                <label for="name">Nama Depan</label>
-                                <input type="text" class="form-control" id="firstname">
+								<label  for="gender">Gelar</label>
+								<div>
+									<label class="radio-inline" for="gender-0">
+										<input type="radio" name="gender" id="gender-0" value="1" checked="checked">
+										Mr.
+									</label> 
+									<label class="radio-inline" for="gender-1">
+										<input type="radio" name="gender" id="gender-1" value="2">
+										Mrs.
+									</label> 
+									<label class="radio-inline" for="gender-2">
+										<input type="radio" name="gender" id="gender-2" value="3">
+										Saudara
+									</label> 
+									<label class="radio-inline" for="gender-3">
+										<input type="radio" name="gender" id="gender-3" value="4">
+										Saudari
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+                                <label for="firstname">Nama Depan</label>
+                                <input type="text" class="form-control" id="firstName">
                             </div>
 							<div class="form-group">
-                                <label for="name">Nama Belakang</label>
-                                <input type="text" class="form-control" id="lastname">
+                                <label for="lastname">Nama Belakang</label>
+                                <input type="text" class="form-control" id="lastName">
                             </div>
+                            <!-- <div class="form-group">
+								<label for="DOB">DOB</label>
+								<select id="DOB" class="form-control">
+									<option value="1">Tes1</option>
+								</select>
+							</div> -->
+							
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" id="email">
@@ -89,9 +117,12 @@
                                 <label for="password" >Password</label>
                                 <input type="password" class="form-control" id='password'>
                             </div>
-                            <div class="text-center">
-							 <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-                                <button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Register</button>
+							<div class="form-group">
+                                <label for="cpassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="cpassword">
+                            </div>
+							<div class="text-center">
+								<button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Submit</button>
                             </div>
 </form>
                     </div>
@@ -177,6 +208,7 @@
 	<script src="../../js/form.js"></script>
 	<script src="../../js/array.js"></script>
 	<script src="../../controller/auth.js"></script>
+	
 </body>
 
 </html>
@@ -187,7 +219,25 @@
 	var password = "";
 	var urlapi = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/';	
 
-	
+	var sortSelect = function (select, attr, order) {
+		if(attr === 'text'){
+			if(order === 'asc'){
+				$(select).html($(select).children('option').sort(function (x, y) {
+					return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+				}));
+				$(select).get(0).selectedIndex = 0;
+				//e.preventDefault();
+			}// end asc
+			if(order === 'desc'){
+				$(select).html($(select).children('option').sort(function (y, x) {
+					return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+				}));
+				$(select).get(0).selectedIndex = 0;
+				//e.preventDefault();
+			}// end desc
+		}
+
+	};
 	$.ajaxSetup({
 		cache: true ,
 		beforeSend: function(xhr) {
@@ -199,15 +249,17 @@
 			<!-- xhr.setRequestHeader('Authorization', '...'); -->
 		},
 	});
+	
 	function signup(){
 		objectData[2][1] = 3;
 		objectData[2][2] = 2;
 		objectData[2][8] = $('#password').val();
-		objectData[2][9] = $('#lastname').val();
-		objectData[2][10] = $('#firstname').val();
-		objectData[2][11] = $('#email').val();
-		var objectName = 'customers';
-		webService.create(objectName);
+		objectData[2][11] = $('#lastName').val();
+		objectData[2][12] = $('#firstName').val();
+		objectData[2][13] = $('#email').val();
+		objectData[2][14] = $('#gender').val();
+		//objectData[2][13] = $('#DOB').val();
+		webService.create('customers');	
 	}
 	
 	
