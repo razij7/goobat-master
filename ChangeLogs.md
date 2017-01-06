@@ -87,3 +87,14 @@
 	  --- form provinsi jadinya pake htmlnya aja biar cepet
   ### savedSyntax.txt
     -- file untuk nyimpen syntax yang udah dibikin tapi belom kepake
+	
+## 1/6/2017 Error produk ilang OK & quantity udah nambah dari yang sebelomnya:
+  ### order1.html
+    -- Tambahan kodingan untuk cek apakah produk ada di database, kalau ga ada , langsung apus di cart
+	-- Ganti kodingan dari sync jadi async supaya nampilin gambar ga perlu nunggu looping selesai dulu
+	
+  ### savedSyntax.txt
+    -- Kodingan di order1.html yang lama dimasukin ke sini
+  
+  ### product.html
+    -- qty nambah dari yang sebelumnya
