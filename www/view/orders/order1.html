@@ -100,21 +100,56 @@
 		getImgProduct = urlapi+"images/products/"+product.id+"/"+IdImage+"/cart_default";
 		
 		qty = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
-		console.log(qty);
+		qty1 = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
+		
+		console.log(getImgProduct);
 		if(qty > 0){
 			qty = "Stok Ada";
 		}else{
 			qty = "Stok Kosong";
 		}
-		var tr = "<tr><center>";
-		 imgProduct = "<td id='imgsProduct'><img src='"+getImgProduct+"'></img></td>";
-		 nameProduct = "<td colspan='2' id='productName' style='text-align: center;'><b><h5>"+product.name+"</h5></b> <br> SKU :"+product.reference+"<br> Satuan Produk : "+product.unity+"</td>";
-		 qty ="<td  style='text-align: center;'>"+qty+"</td>";
-		 price ="<td  style='text-align: center;'>"+product.price+"</td>";
-		 total ="<td  style='text-align: center;'>"+product.price*1+"</td>";
-		 sum ="<td  style='text-align: center;'>"+product.price*1+"</td>";
-		ntr = "</center></tr>";
-		 all = tr+imgProduct+nameProduct+qty+price+total+sum+ntr;
-		$("#products").append(all);
+		<!-- var tr = "<tr><center>"; -->
+		 <!-- imgProduct = "<td id='imgsProduct'><img src='"+getImgProduct+"'></img></td>"; -->
+		 <!-- nameProduct = "<td colspan='2' id='productName' style='text-align: center;'><b><h5>"+product.name+"</h5></b> <br> SKU :"+product.reference+"<br> Satuan Produk : "+product.unity+"</td>"; -->
+		 <!-- qty ="<td  style='text-align: center;'>"+qty+"</td>"; -->
+		 <!-- price ="<td  style='text-align: center;'>"+product.price+"</td>"; -->
+		 <!-- total ="<td  style='text-align: center;'>"+product.price*1+"</td>"; -->
+		 <!-- sum ="<td  style='text-align: center;'>"+product.price*1+"</td>"; -->
+		<!-- ntr = "</center></tr>"; -->
+		 <!-- all = tr+imgProduct+nameProduct+qty+price+total+sum+ntr; -->
+		 var total = parseInt(product.price)*parseInt(qty1);
+		 var html = ""+
+		 "<tr>"+
+			"<td id='imgsProduct'>"+
+				"<img src='"+getImgProduct+"'></img>"+
+			"</td>"+
+			
+			"<td colspan='2' id='productName' style='text-align: center;'>"+
+				"<b><h5>"+product.name+"</h5></b>"+
+				"<br> SKU :"+product.reference+
+				"<br> Satuan Produk : "+product.unity+
+			"</td>"+
+			
+			"<td style='text-align: center;'>"+
+				qty+
+			"</td>"+
+			
+			"<td style='text-align: center;'>"+
+				"Rp. "+parseInt(product.price)+
+			"</td>"+
+			
+			"<td>"+
+				
+				"<input type='number' value='"+qty1+"' min='1' max='' class='form-control' ></input>"+
+			"</td>"+
+			
+			"<td style='text-align: center;' id='total'>"+
+				total+	
+			"</td>"+
+		 "</tr>"
+		 ;
+		 
+		$("#products").append(html); 
+		  
 	}
 </script>

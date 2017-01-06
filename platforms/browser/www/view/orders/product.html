@@ -256,7 +256,8 @@
 			objectData[1][4] = localStorage.getItem('idCustomer');
 			objectData[1][6] = 2;
 			objectData[1][19] = idProduct;
-			objectData[1][22] = $("#qtyProductCart").val();		
+			objectData[1][22] = $("#qtyProductCart").val();	
+			$("#addtoCart").attr("href","orders.html?step=1");			
 			 webService.create(objectName); 
 			
 		}
@@ -264,9 +265,11 @@
 			objectData[1][19] = idProduct;
 			objectData[1][20] = 0;
 			objectData[1][22] = $("#qtyProductCart").val();
+			
+			$("#addtoCart").attr("href","orders.html?step=1");
 			webService.updateId(objectName,idCart);
 		}
-		$("#addtoCart").attr("href","orders.html?step=1");
+
 	});
 
  </script>
