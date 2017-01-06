@@ -24,7 +24,7 @@ var webService = {
 	
 	filterGenerator: function(filterArray){
 		var filterUrl = '';
-		for(i=0;i<filterArray.length;i=i+2){
+		for(var i=0;i<filterArray.length;i=i+2){
 			var filterStr = 'filter['+filterArray[i]+']='+filterArray[i+1];
 			filterUrl += filterStr;
 			if (filterArray.length > 2 && filterArray.length-i != 2){
@@ -105,7 +105,7 @@ var webService = {
 			async : false,
 			success: function(tempXml){
 				if($(tempXml).children().children()[0].children.length > 0){
-					 for(i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
+					 for(var i=0 ; i< $(tempXml).children().children()[0].children.length ; i++){
 						result[i] = $(tempXml).children().children()[0].children[i].id;
 					}
 				}
@@ -245,7 +245,7 @@ var webService = {
 								rowNode[j+1].children[1].setAttribute('xlink:href',urlTemp+objectData[objectCode][20]);
 								rowNode[j+1].children[2].textContent = objectChildren.children[1].textContent;
 								rowNode[j+1].children[2].setAttribute('xlink:href',urlTemp+objectChildren.children[1].textContent);
-								rowNode[j+1].children[3].textContent = objectData[objectCode][22];
+								rowNode[j+1].children[3].textContent = rowNode[j+1].children[3].textContent+objectData[objectCode][22];
 								break;
 							}
 							else{//kalo bukan data terakir, lanjut looping j lagi cek yg selanjutnya id_product sama apa ga

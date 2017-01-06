@@ -132,20 +132,22 @@ window.location.href = "../Auth/register.html?back=1";
  var guest = 0;
  console.log("id customer ="+idCustomer);
  
- if(guest !=0){
- $("#order1").collapse('show');
- }else if(idCustomer!= 0){
- $("#order1").collapse('show');
- $('#order1').load("order1.html");
- }
+if(guest !=0){
+	$("#order1").collapse('show');
+}else if(idCustomer!= 0){
+	$("#order1").collapse('show');
+	$('#order1').load("order1.html");
+}
  
  
  var cart = ['id_customer',idCustomer];
 //var product = webService.readIdJson('products',idProduct).product;
  var carts = webService.search('carts', cart);
 
- var idcart= carts[carts.length-1];
- var getcart = webService.readIdJson('carts',idcart);
+ var idCart= carts[carts.length-1];
+ var xmlCart = webService.readId('carts',idCart);
+ var cartRow = $(xmlCart).children().children()[0].children[19].children[0].children;
+ 
 //alert(getcart.cart.associations.cart_rows.length);
  
  

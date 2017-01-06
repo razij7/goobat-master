@@ -94,6 +94,7 @@
 </div>
 	
 <script>
+<<<<<<< HEAD
 	for (i=0 ; i<getcart.cart.associations.cart_rows.length ; i++){
 		var product = webService.readIdJson("products",getcart.cart.associations.cart_rows[i].id_product).product;
 		IdImage = product.associations.images["0"].id;
@@ -151,5 +152,53 @@
 		 
 		$("#products").append(html); 
 		  
+=======
+	for (i=0 ; i<cartRow.length ; i++){
+		var filterArray = ['id',cartRow[i].children[0].textContent];
+		var check = webService.search('products',filterArray);
+		if(check[0] === 0){
+			cartRow[i].parentNode.removeChild(cartRow[i]);
+			var textData = webService.xmlToString(xmlCart);
+			$.ajax({
+				url: urlapi + 'carts' + '/' + idCart,
+				type: 'put',
+				dataType: 'text',
+				data : textData,
+				success: function(){
+				},
+				error: function(){
+				}
+			});
+			continue;
+		}
+		$.ajax({
+			url: urlapi + 'products' + '/' + cartRow[i].children[0].textContent + '?output_format=JSON',
+			type: 'get',
+			dataType: 'json',
+			success: function(tempJSON){
+				product = tempJSON.product;
+				IdImage = product.associations.images["0"].id;
+				getImgProduct = urlapi+"images/products/"+product.id+"/"+IdImage+"/cart_default";
+				qty = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
+				if(qty > 0){
+					qty = "Stok Ada";
+				}else{
+					qty = "Stok Kosong";
+				}
+				var tr = "<tr><center>";
+				imgProduct = "<td id='imgsProduct'><img src='"+getImgProduct+"'></img></td>";
+				nameProduct = "<td colspan='2' id='productName' style='text-align: center;'><b><h5>"+product.name+"</h5></b> <br> SKU :"+product.reference+"<br> Satuan Produk : "+product.unity+"</td>";
+				qty ="<td  style='text-align: center;'>"+qty+"</td>";
+				price ="<td  style='text-align: center;'>"+product.price+"</td>";
+				total ="<td  style='text-align: center;'>"+product.price*1+"</td>";
+				sum ="<td  style='text-align: center;'>"+product.price*1+"</td>";
+				ntr = "</center></tr>";
+				all = tr+imgProduct+nameProduct+qty+price+total+sum+ntr;
+				$("#products").append(all);
+				},
+				error: function(){
+				}
+			});	
+>>>>>>> eff6823a481601d3296d56414aa45acb52b32725
 	}
 </script>

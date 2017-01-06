@@ -34,7 +34,7 @@
          <div class="container">
             
             <div class="col-md-6" data-animate="fadeInDown">
-                <ul class="menu">
+				<ul id = "menu1" class="hide">
                     <li>
 						<a id = "login">Login</a>
 						<!-- <a href="/android_asset/www/view/auth/login.html">Login</a> -->
@@ -50,7 +50,11 @@
 						<a id = "detailProduct" >detailProduct</a>
 						<!-- <a href="/android_asset/www/view/auth/register.html">Register</a> -->
                     </li>
-					
+                </ul>
+				<ul id = "menu2" class="hide">
+                    <li>
+						<a id = "logout" href="index.html" >Log Out</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -148,45 +152,6 @@
 <script src="js/md5.min.js"></script>
 <script src="../controller/auth.js"></script>
 <script type="text/javascript">
-	/* Load webservice
-	**console.log(Webservice.outputFormat('schema1'));
-	*/
-	
-	/*
-	** GLOBAL
-	** PRIVATE
-	*/
-	
-	/** Get parameter @param 
-	** 	console.log($_GET().idAddress);
-	**  console.log($_GET().idCustomer);
-	*/
-
-							
-    function $_GET(param) {
-        var vars = {};
-
-        window.location.href.replace( location.hash, '' ).replace( 
-            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-			function( m, key, value ) { // callback
-				vars[key] = value !== undefined ? value : '';
-			}
-		);
-
-		if ( param ) {
-			return vars[param] ? vars[param] : null;	
-		}
-		
-		return vars;
-	}
-
-	var idCustomer = $_GET().idCustomer;
-	var idCustomer = $_GET().idAddress;
-	//localStorage.removeItem('storagetemp'); 
-	//localStorage.clear();							
-	//alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress'));
-	
-	
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
@@ -200,62 +165,36 @@
 			<!-- xhr.setRequestHeader('Authorization', '...'); -->
 		},
 	});
+	
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
-	
-	/** Return jumlah produk yang udah ada di dalem cart
-	//=======CONTOH PROGRAM====================
-	var dataXml = webService.readId('carts',235);
-	var carts = $(dataXml).children().children()[0];
-	var rowLength = carts.children[19].children[0].children.length;
-	console.log(rowLength);
-	**/
-	
-	/**
-		Update Cart
-			Tambah produk
-			Ganti quantity
-			Data yang masuk harus :
-				id_product
-				id_product_attribute ( default 0 )
-				quantity 
-	
-	//========CONTOH PROGRAM========================
-	objectData[1][19] = 187;
-	objectData[1][20] = 0;
-	objectData[1][22] = 15;
-	
-	var objectName = 'carts';
-	var id = 235;
-	webService.updateId(objectName,id);
-	
-	**/
+		
 	var idCustomer = localStorage.getItem('idCustomer');
 	var cartLength = 0;
 	if(idCustomer > 0){
+		$('#menu1').attr( 'class', 'hide' );
+		$('#menu2').attr( 'class', 'menu' );
 		var filterArray = ['id_customer',idCustomer];
-		console.log(idCustomer);
 		var carts = webService.search('carts', filterArray);
-		console.log(carts);
 		var idCart = carts[carts.length-1];
 		localStorage.setItem('idCart',idCart);
-		console.log("id cart ="+idCart);
- 
 		if (idCart != 0){
 			var getCart = webService.readId('carts',idCart);
 			var cart = $(getCart).children().children()[0].children[19].children[0].children;
 			cartLength = cart.length;
 		}		
 	}
+	else{
+		$('#menu1').attr( 'class', 'menu' );
+		$('#menu2').attr( 'class', 'hide' );
+	}
 	$("#amount").append(cartLength);
 	
 	
 	var filterArray = ['active',1];
 	var idProducts = webService.search('products',filterArray);
-	alert(idProducts);
-	
 	var objectName = 'products';
-	for(i=0;i<idProducts.length;i++){
+	for(i=0;i<10;i++){
 		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
 		$.getJSON(setURL, 
 			function(setUrlProduct){
@@ -279,41 +218,11 @@
 			}
 		);
 	}
-		
-	/*
-	var objectName = 'products';
-	$.getJSON(urlapi + objectName + '?output_format=JSON', 
-		function(datas){
-			var products = datas['products'];
-			var html='';
-			for(i = 0; i < products.length; i++) {
-				var idProduct = products[""+i+""]["id"];
-				var setUrlProducts = urlapi+objectName+"/"+idProduct+"?output_format=JSON";
-				$.getJSON(setUrlProducts, 
-					function(setUrlProduct){
-						var Detailproductsname ='';
-						var Detailproductsnamecategori ='';
-						var apiIdProduct = setUrlProduct["product"]["id"];
-						var apiIdSupplier = setUrlProduct["product"]["id_supplier"];
-						var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
-						var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
-						var div1 ='<div class="col-xs-6 col-md-3">';
-						var thumbnail ='<div class="thumbnail">';
-						var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
-						var classCaption ='<div class="caption">'+ apiIdProduct;
-						var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-						var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
-						var divEnd1 ='</div></div></div>';
-						var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
-						//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
-						$("#Detailproductsname").append(alls);
-						//$('#categories').append(Detailproductsnamecategori);
-					}
-				);
-				
-			}
-		}
-	);*/
+	
+	$( "#logout" ).click(function() {
+		alert ("logout");
+		localStorage.clear();
+	});
 	
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");
