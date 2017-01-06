@@ -132,12 +132,12 @@ window.location.href = "../Auth/register.html?back=1";
  var guest = 0;
  console.log("id customer ="+idCustomer);
  
- if(guest !=0){
- $("#order1").collapse('show');
- }else if(idCustomer!= 0){
- $("#order1").collapse('show');
- $('#order1').load("order1.html");
- }
+if(guest !=0){
+	$("#order1").collapse('show');
+}else if(idCustomer!= 0){
+	$("#order1").collapse('show');
+	$('#order1').load("order1.html");
+}
  
  
  var cart = ['id_customer',idCustomer];
