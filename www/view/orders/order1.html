@@ -1,6 +1,6 @@
 <div class="col-md-12">
 	<ul class="breadcrumb">
-		<li><a href="#">Berand</a>
+		<li><a href="#">Beranda</a>
 		</li>
 		<li>01. Rekap</li>
 	</ul>
@@ -13,7 +13,7 @@
 		<form method="post" action="checkout1.html">
 
 			<h1>REKAPITULASI TROLI BELANJA</h1>
-			<p class="text-muted">You currently have 3 item(s) in your cart.</p>
+			<p class="text-muted">You currently have <span class="hidden-sm" id="amount"></span> item(s) in your cart.</p>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -94,6 +94,7 @@
 </div>
 	
 <script>
+	$("#amount").append(cartRow.length);
 	for (i=0 ; i<cartRow.length ; i++){
 		var filterArray = ['id',cartRow[i].children[0].textContent];
 		var check = webService.search('products',filterArray);
@@ -112,55 +113,44 @@
 			});
 			continue;
 		}
-		$.ajax({
-			url: urlapi + 'products' + '/' + cartRow[i].children[0].textContent + '?output_format=JSON',
-			type: 'get',
-			dataType: 'json',
-			success: function(tempJSON){
-				product = tempJSON.product;
-				IdImage = product.associations.images["0"].id;
-				getImgProduct = urlapi+"images/products/"+product.id+"/"+IdImage+"/cart_default";
-				qty = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
-				qty1 = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
-				if(qty > 0){
-					qty = "Stok Ada";
-				}else{
-					qty = "Stok Kosong";
-				}
-				var total = parseInt(product.price)*parseInt(qty1);
-				var html = ""+
-				"<tr>"+
-					"<td id='imgsProduct'>"+
-						"<img src='"+getImgProduct+"'></img>"+
-					"</td>"+
+		var product = webService.readIdJson('products',cartRow[i].children[0].textContent).product;
+		IdImage = product.associations.images["0"].id;
+		getImgProduct = urlapi+"images/products/"+product.id+"/"+IdImage+"/cart_default";
+		qty1 = webService.readIdJson("stock_availables",product.associations.stock_availables["0"].id).stock_available.quantity;
+		if(qty1 > 0){
+			qty = "Stok Ada";
+		}else{
+			qty = "Stok Kosong";
+		}
+		var total = parseInt(product.price)*parseInt(qty1);
+		var html = ""+
+		"<tr>"+
+			"<td id='imgsProduct'>"+
+				"<img src='"+getImgProduct+"'></img>"+
+			"</td>"+
+			
+			"<td colspan='2' id='productName' style='text-align: center;'>"+
+				"<b><h5>"+product.name+"</h5></b>"+
+				"<br> SKU :"+product.reference+
+				"<br> Satuan Produk : "+product.unity+
+			"</td>"+
+			
+			"<td style='text-align: center;'>"+
+				qty+
+			"</td>"+
+			
+			"<td style='text-align: center;'>"+
+				"Rp. "+parseInt(product.price)+
+			"</td>"+
 					
-					"<td colspan='2' id='productName' style='text-align: center;'>"+
-						"<b><h5>"+product.name+"</h5></b>"+
-						"<br> SKU :"+product.reference+
-						"<br> Satuan Produk : "+product.unity+
-					"</td>"+
+			"<td>"+
+				"<input type='number' value='"+cartRow[i].children[3].textContent+"' min='1' max='"+qty1+"' class='form-control' ></input>"+
+			"</td>"+
 					
-					"<td style='text-align: center;'>"+
-						qty+
-					"</td>"+
-					
-					"<td style='text-align: center;'>"+
-						"Rp. "+parseInt(product.price)+
-					"</td>"+
-					
-					"<td>"+
-						
-						"<input type='number' value='"+qty1+"' min='1' max='' class='form-control' ></input>"+
-					"</td>"+
-					
-					"<td style='text-align: center;' id='total'>"+
-						total+	
-					"</td>"+
-				"</tr>";
-				$("#products").append(html); 
-			},
-			error: function(){
-			}
-		});	
+			"<td style='text-align: center;' id='total'>"+
+				total+	
+			"</td>"+
+		"</tr>";
+		$("#products").append(html); 
 	}
 </script>

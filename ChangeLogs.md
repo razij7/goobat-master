@@ -102,3 +102,9 @@
 ## 1/6/2017 Login dan Logout
  ### index.html
    -- Udah bisa login dan logout
+   
+## 1/9/2017 order1 dan index
+ ### order1.html
+   -- ganti dikit 
+ ### index.html
+   -- nambahin dikit supaya gambar cartnya bisa d klik
