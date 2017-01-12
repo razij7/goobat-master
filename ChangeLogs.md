@@ -108,3 +108,14 @@
    -- ganti dikit 
  ### index.html
    -- nambahin dikit supaya gambar cartnya bisa d klik
+   
+ ## 1/12/2017
+  ###Perbaikan alur langkah-langkah Order product (20%)
+  -- langkah 1 (80%)
+  -- langkah 2 (30%)
+   --- jika id addres kosong
+   ---- form input alamat 
+   --- jika id address ada
+   ---- tampilkan informasi alamat
+  -- langkah 3 (0%)
+  -- langkah 4 (0%)
