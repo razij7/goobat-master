@@ -48,15 +48,16 @@
             <div class="container">
 				<div class="col-md-9" id="checkout">
                     <div class="box">
-                            <h1>Checkout - Order review</h1>
+                            <h2>REKAPITULASI TROLI BELANJA</h2>
+							<p class="text-muted">Berikut daftar belanja Anda : <span class="hidden-sm" id="amount"></span> produk.</p>
                             <ul class="nav nav-pills nav-justified">
-								<li id="orderReview1" class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+								<li id="orderReview1" class="disabled"><a href="#"><i class="fa fa-eye"></i><br>01. Rekap</a>
                                 </li>
-                                <li id="address" class="disabled"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
+                                <li id="address" class="disabled"><a href="#"><i class="fa fa-map-marker"></i><br>03. Alamat</a>
                                 </li>
-                                <li id="deliveriMethod" class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                <li id="deliveriMethod" class="disabled"><a href="#"><i class="fa fa-truck"></i><br>04. Pengiriman</a>
                                 </li>
-                                <li id="paymentMethod" class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+                                <li id="paymentMethod" class="disabled"><a href="#"><i class="fa fa-money"></i><br>05. Pembayaran</a>
                                 </li>
                                 <li id="orderReview2" class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
                                 </li>
@@ -203,6 +204,7 @@ if(guest !=0){
  var xmlCart = webService.readId('carts',idCart);
  var cartRow = $(xmlCart).children().children()[0].children[19].children[0].children;
  
+ $("#amount").append(cartRow.length);
 //alert(getcart.cart.associations.cart_rows.length);
  
  
@@ -303,26 +305,6 @@ if(guest !=0){
 	}
 	var step = $_GET().step;
 	
-	
-	
-	/**
-	* Search id_customer di addresses untuk return id_address
-	  Comment kalo ga kepake
-	*/
-	/*
-	var objectName = 'addresses';
-	var idCustomer = 35;
-	var filterArray = ['id_customer',idCustomer];
-	*/
-	/**
-	========================================================================================
-	*/
-	
-	var addressCustomer = webService.readIdJson('addresses',localStorage.getItem('idAddress')).address;
-	console.log(addressCustomer);
-	<!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  -->
-	
-	
 	switch (step) {
 		case '1':
 		case '1#':
@@ -338,7 +320,7 @@ if(guest !=0){
 			$("#selanjutnya").attr("href","?step=3");
 			$("#order1").collapse('hide');
 			$("#address").attr("class","active");
-			console.log('pembayaran	');
+			console.log('Alamat	');
 			break; 
 		case '3' || '3#':
 			$("#selanjutnya").attr("href","?step=4");

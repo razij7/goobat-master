@@ -1,1 +1,213 @@
-alamat
+<h2>Alamat Pengiriman</h2>
+<div id="formAddress"> form input
+<form  action="javascript:signup()">
+ 
+   
+							
+							
+                            <div class="form-group">
+								<label for="country">Negara</label>
+								<select id="country" class="form-control">
+									
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="state">Provinsi</label>
+								<select id="state" class="form-control">
+									<option value="">-</option> 
+									<option value="17">Bali</option>
+									<option value="16">Banten</option>
+									<option value="7">Bengkulu</option>
+									<option value="14">Daerah Istimewa Yogyakarta</option>
+									<option value="11">Daerah Khusus Ibukota Jakarta</option>
+									<option value="29">Gorontalo</option>
+									<option value="5">Jambi</option>
+									<option value="12">Jawa Barat</option>
+									<option value="13">Jawa Tengah</option>
+									<option value="15">Jawa Timur</option>
+									<option value="20">Kalimantan Barat</option>
+									<option value="22">Kalimantan Selatan</option>
+									<option value="21">Kalimantan Tengah</option>
+									<option value="23">Kalimantan Timur</option>
+									<option value="24">Kalimantan Utara</option>
+									<option value="9">Kepulauan Bangka Belitung</option>
+									<option value="10">Kepulauan Riau</option>
+									<option value="8">Lampung</option>
+									<option value="31">Maluku</option>
+									<option value="32">Maluku Utara</option>
+									<option value="1">Nangroe Aceh Darussalam</option>
+									<option value="18">Nusa Tenggara Barat</option>
+									<option value="19">Nusa Tenggara Timur</option>
+									<option value="33">Papua</option>
+									<option value="34">Papua Barat</option>
+									<option value="4">Riau</option>
+									<option value="30">Sulawesi Barat</option>
+									<option value="27">Sulawesi Selatan</option>
+									<option value="26">Sulawesi Tengah</option>
+									<option value="28">Sulawesi Tenggara</option>
+									<option value="25">Sulawesi Utara</option>
+									<option value="3">Sumatera Barat</option>
+									<option value="6">Sumatera Selatan</option>
+									<option value="2">Sumatera Utara</option>
+								</select>
+							</div>
+                            <div class="form-group">
+                                <label for="city" >Kecamatan-Kotamadya/Kabupaten</label>
+                                <input type="text" class="form-control" id='city'>
+                            </div>
+							<div class="form-group">
+                                <label for="postCode">Kode Pos</label>
+                                <input type="text" class="form-control" id="postCode">
+                            </div>
+							<div class="form-group">
+                                <label for="address">Alamat</label>
+                                <input type="text" class="form-control" id="address">
+                            </div>
+							<div class="form-group">
+                                <label for="addressName">Sebagai Alamat</label>
+                                <input type="text" class="form-control" id="addressName">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Nomer Telepon</label>
+                                <input type="text" class="form-control" id="phone">
+                            </div>
+                            <div class="text-center">
+								<button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Submit</button>
+                            </div>
+</form>						
+
+</div>
+<div id="selectAddress">
+	<div class="box">
+		<div id='combo'> 
+			<select class="selectAddress">
+			  <option>Alamat Rumah</option>
+			  <option>Alamat Kantor</option>
+			  <option></option>
+			</select>
+		</div><p></p>
+		
+		
+		<div id='name'></div>
+		<div id='address1'></div>
+		<div id='city'></div>
+		<div id='postcode'></div>
+		<div id='zone'></div>
+		<div id='phone'></div>
+		<div id='phone_mobile'></div><p></p>
+		<div id='editAddress'>
+			<a id='btnEditAddress'>ubah alamat</a>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+	/**
+	* Search id_customer di addresses untuk return id_address
+	  Comment kalo ga kepake
+	*/
+	/*
+	var objectName = 'addresses';
+	var idCustomer = 35;
+	var filterArray = ['id_customer',idCustomer];
+	*/
+	/**
+	========================================================================================
+	*/
+	localStorage.removeItem('idAddress');
+	//localStorage.clear();
+
+//	localStorage.setItem('idAddress',);
+	 if ( localStorage.getItem('idAddress') == null){
+		console.log(localStorage.getItem('idAddress'));
+		$("#selectAddress").attr("class","hide");
+	 }else{
+		console.log(localStorage.getItem('idAddress'));
+		
+		var idAddress = localStorage.getItem('idAddress').split(",") // Delimiter is a string
+		for (var i = 0; i < idAddress.length; i++)
+		{
+			console.log(idAddress[i]);
+			var addressCustomer = webService.readIdJson('addresses',idAddress[i]).address;
+			idAddress = idAddress[i];
+			firstName		= addressCustomer.firstname;
+			lastName		= addressCustomer.lastname;
+			fullName		= firstName+' '+lastName;
+			address1		= addressCustomer.address1;
+			city			= addressCustomer.city;
+			postcode		= addressCustomer.postcode;
+			zone 			= webService.readIdJson('countries',addressCustomer.id_country).country.name;
+			phone			= addressCustomer.phone;
+			phone_mobile	= addressCustomer.phone_mobile;
+			
+			$("#formAddress").attr("class","hide");
+			$("#name").append(fullName);
+			$("#address1").append(address1);
+			$("#city").append(city);
+			$("#postcode").append(postcode);
+			$("#zone").append(zone);
+			$("#phone").append(phone);
+			$("#phone_mobile").append(phone_mobile);
+		}
+
+
+		<!-- for(i=0; i<localStorage.getItem('idAddress').length; i++){ -->
+						<!-- console.log(localStorage.getItem('idAddress')); -->
+		<!-- } -->
+		
+	}
+	console.log(addressCustomer);
+	<!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  -->
+	
+	
+	$( "#btnEditAddress" ).click(function() {
+		$("#btnEditAddress").attr("href","../Auth/register2.html?callback=order?step=2&idAddress="+idAddress);
+		//alert('aaa'+$_GET().step);
+	<!-- $("#qtyProductCart1").prepend( $("#qtyProductCart").val()); -->
+	
+		<!-- var idCart = localStorage.getItem('idCart'); -->
+		<!-- var objectName = 'addresses';	 -->
+		<!-- if (idCart == 0){ -->
+			
+			<!-- id_customer = 59; -->
+			<!-- id_country = 111; -->
+			<!-- id_state = 11; -->
+			<!-- alias = 'Home'; -->
+			<!-- company = 'PT Improva'; -->
+			<!-- lastname = 'jamil'; -->
+			<!-- firstname = 'raziz'; -->
+			<!-- address1 = 'Pulomas Utara no 42'; -->
+			<!-- postcode = 13210; -->
+			<!-- city = 'Jakarta Timur'; -->
+			<!-- phone = 109109; -->
+		
+			<!-- objectData[3][1] = 59;  -->
+			<!-- objectData[3][5] = 111; -->
+			<!-- objectData[3][6] = 11; -->
+			<!-- objectData[3][7] = 'Home'; -->
+			<!-- objectData[3][8] = 'PT Improva'; -->
+			<!-- objectData[3][9] = 'jamil'; -->
+			<!-- objectData[3][10] = 'raziz'; -->
+			<!-- objectData[3][12] = 'Pulomas Utara no 42'; -->
+			<!-- objectData[3][14] = 13210; -->
+			<!-- objectData[3][15] = 'Jakarta Timur'; -->
+			<!-- objectData[3][17] = 109109; -->
+			
+			
+			<!-- webService.create(objectName); 	 -->
+		<!-- } -->
+		<!-- else{	 -->
+			<!-- objectData[1][19] = idProduct; -->
+			<!-- objectData[1][20] = 0; -->
+			<!-- objectData[1][22] = $("#qtyProductCart").val(); -->
+			
+			<!-- $("#addtoCart").attr("href","orders.html?step=1"); -->
+			<!-- webService.updateId(objectName,idCart); -->
+		<!-- } -->
+
+	});
+
+	
+	
+</script>
