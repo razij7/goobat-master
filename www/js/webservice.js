@@ -31,9 +31,8 @@ var webService = {
 				filterUrl += '&';
 			}
 		}
-		return filterUrl;
+		return filterUrl='?'+filterUrl;
 	},
-	
 	outputFormat: function(format){
 		switch(format){
 			case 'json':
@@ -99,7 +98,7 @@ var webService = {
 		var filterUrl = webService.filterGenerator(filterArray);
 		var result = [0];
 		$.ajax({
-			url: urlapi + objectName + '/?' + filterUrl,
+			url: urlapi + objectName + '/' + filterUrl,
 			type: 'get',
 			dataType: 'xml',
 			async : false,
@@ -115,6 +114,15 @@ var webService = {
 			}
 		});
 		return result;
+	},
+	
+	searchPromise: function(data){
+		var ids = [0];
+		object = $(data).children().children()[0].children;
+		for(var i=0 ; i< object.length ; i++){
+			ids[i] = object[i].id;
+		}
+		return ids;
 	},
 	
 	create: function(objectName){
@@ -217,6 +225,21 @@ var webService = {
 		return result;
 	},
 	
+	readPromiseJson: function(objectName,filter){
+		return $.ajax({
+			url: urlapi + objectName + '/' + filter + '&output_format=JSON',
+			type: 'get',
+			dataType: 'json'
+		});
+	},
+	
+	readPromiseXml: function(objectName,filter){
+		return $.ajax({
+			url: urlapi + objectName + '/' + filter,
+			type: 'get',
+			dataType: 'xml'
+		});
+	},
 	updateId: function(objectName,id){
 		var tempXml = webService.readId(objectName, id);
 		var objectCode = webService.codeReturn(objectName);

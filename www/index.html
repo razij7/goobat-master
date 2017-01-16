@@ -145,14 +145,16 @@
 
 <script src="js/form.js"></script>
 <script src="js/array.js"></script>
-<script src="../../js/webservice.js"></script>
+<script src="js/webservice.js"></script>
 <script src="js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/md5.min.js"></script>
-<script src="../controller/auth.js"></script>
+<script src="controller/auth.js"></script>
 <script type="text/javascript">
 	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+	var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY";
+	
 	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 	$.ajaxSetup({
 		cache: true ,
@@ -161,14 +163,56 @@
                         .concat(btoa(key))));
                     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+					xhr.setRequestHeader("key", "7f782820f5fded6e8b75e1374d813d3b");
+					xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+					
 			
 			<!-- xhr.setRequestHeader('Authorization', '...'); -->
 		},
 	});
-	
 	$("#login").attr("href","view/Auth/login.html");
 	$("#register").attr("href","view/Auth/register.html");
-		
+	$.ajax({
+			url: 'http://go-obat.com/2016/api/states/1?output_format=JSON',
+			type: 'get',
+			dataType: 'json',
+			success: function(tempXml){
+				console.log(tempXml);
+			},
+			error: function(){
+			}
+		});
+	
+	$.ajax({
+			url: 'http://api.rajaongkir.com/starter/city',
+			type: 'get',
+			dataType: 'json',
+			success: function(tempXml){
+				console.log(tempXml);
+			},
+			error: function(){
+			}
+		});
+	
+	/*
+		var Tes = { origin: '501',
+					destination: '114',
+					weight: 1700,
+					courier: 'jne'	
+				};
+		$.ajax({
+			url: 'http://api.rajaongkir.com/starter/cost',
+			type: 'post',
+			dataType: 'json',
+			data : Tes,
+			success: function(tempXml){
+				console.log(tempXml);
+			},
+			error: function(){
+			}
+		});
+	*/
+	/*
 	var idCustomer = localStorage.getItem('idCustomer');
 	var cartLength = 0;
 	if(idCustomer > 0){
@@ -218,7 +262,7 @@
 			}
 		);
 	}
-	
+	*/
 	$( "#logout" ).click(function() {
 		alert ("logout");
 		localStorage.clear();

@@ -115,9 +115,9 @@
 	/**
 	========================================================================================
 	*/
-	localStorage.removeItem('idAddress');
 	//localStorage.clear();
-
+	localStorage.removeItem('idAddress');
+console.log(localStorage.getItem('idAddress'));
 //	localStorage.setItem('idAddress',);
 	 if ( localStorage.getItem('idAddress') == null){
 		console.log(localStorage.getItem('idAddress'));
@@ -128,27 +128,38 @@
 		var idAddress = localStorage.getItem('idAddress').split(",") // Delimiter is a string
 		for (var i = 0; i < idAddress.length; i++)
 		{
-			console.log(idAddress[i]);
-			var addressCustomer = webService.readIdJson('addresses',idAddress[i]).address;
-			idAddress = idAddress[i];
-			firstName		= addressCustomer.firstname;
-			lastName		= addressCustomer.lastname;
-			fullName		= firstName+' '+lastName;
-			address1		= addressCustomer.address1;
-			city			= addressCustomer.city;
-			postcode		= addressCustomer.postcode;
-			zone 			= webService.readIdJson('countries',addressCustomer.id_country).country.name;
-			phone			= addressCustomer.phone;
-			phone_mobile	= addressCustomer.phone_mobile;
+			console.log(i);
+			//var addressCustomer = webService.readIdJson('addresses',idAddress[i]).address;
+			var promise1 = webService.readPromiseJson('addresses',idAddress[i]);
+			promise1.success(function(data){
+				var addressCustomer = data.address;
+				firstName		= addressCustomer.firstname;
+				lastName		= addressCustomer.lastname;
+				fullName		= firstName+' '+lastName;
+				address1		= addressCustomer.address1;
+				city			= addressCustomer.city;
+				postcode		= addressCustomer.postcode;
+				//zone 			= webService.readIdJson('countries',addressCustomer.id_country).country.name;
+				phone			= addressCustomer.phone;
+				phone_mobile	= addressCustomer.phone_mobile;
+				
+				$("#formAddress").attr("class","hide");
+				$("#name").append(fullName);
+				$("#address1").append(address1);
+				$("#city").append(city);
+				$("#postcode").append(postcode);
+				//$("#zone").append(zone);
+				$("#phone").append(phone);
+				$("#phone_mobile").append(phone_mobile);
+				
+				var promise2 = webService.readPromiseJson('countries',addressCustomer.id_country);
+				promise2.success(function(data){
+					zone = data.country.name;
+					$("#zone").append(zone);
+				});
+
+			});
 			
-			$("#formAddress").attr("class","hide");
-			$("#name").append(fullName);
-			$("#address1").append(address1);
-			$("#city").append(city);
-			$("#postcode").append(postcode);
-			$("#zone").append(zone);
-			$("#phone").append(phone);
-			$("#phone_mobile").append(phone_mobile);
 		}
 
 
@@ -157,12 +168,11 @@
 		<!-- } -->
 		
 	}
-	console.log(addressCustomer);
 	<!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  -->
 	
 	
 	$( "#btnEditAddress" ).click(function() {
-		$("#btnEditAddress").attr("href","../Auth/register2.html?callback=order?step=2&idAddress="+idAddress);
+		$("#btnEditAddress").attr("href","../Auth/register2.html?callback=order?step=2&idAddress="+idAddress[0]);
 		//alert('aaa'+$_GET().step);
 	<!-- $("#qtyProductCart1").prepend( $("#qtyProductCart").val()); -->
 	

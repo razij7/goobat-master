@@ -230,6 +230,7 @@ if(guest !=0){
 	*/
 	function step1(){
 		for (i=0 ; i<cartRow.length ; i++){
+			/*
 			var filterArray = ['id',cartRow[i].children[0].textContent];
 			var check = webService.search('products',filterArray);
 			if(check[0] === 0){
@@ -246,7 +247,8 @@ if(guest !=0){
 					}
 				});
 				continue;
-			}
+			}	
+			*/
 						
 			$.ajax({
 			url: urlapi + 'products' + '/' + cartRow[i].children[0].textContent + '?output_format=JSON',
