@@ -132,3 +132,9 @@
    --- Pilih kurir pengirian (0%)
  -- langkah 3 (1%)
  -- langkah 4 (1%)
+ 
+## 1/16/2017
+###Perubahan yang masih berantakan  :
+ -- Beberapa pake promise
+ -- shipping cost dari rajaongkir
+ -- webservice nambah fungsi promise
