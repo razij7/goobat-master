@@ -119,3 +119,16 @@
    ---- tampilkan informasi alamat
   -- langkah 3 (0%)
   -- langkah 4 (0%)
+
+## 1/16/2017  
+###Perbaikan alur langkah-langkah Order product (20%)
+ -- langkah 1 (80%)
+   --- Menampilkan gambar ws_key = key
+ -- langkah 2 (30%)
+   ---jika id addres kosong
+   ---- form input alamat (40%)
+   ---jika id address ada
+   ---- tampilkan informasi alamat (80%)
+   --- Pilih kurir pengirian (0%)
+ -- langkah 3 (1%)
+ -- langkah 4 (1%)
