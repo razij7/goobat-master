@@ -138,3 +138,6 @@
  -- Beberapa pake promise
  -- shipping cost dari rajaongkir
  -- webservice nambah fungsi promise
+ 
+## 1/19/2017
+### Tuker fungsi di index.html sama top.html
