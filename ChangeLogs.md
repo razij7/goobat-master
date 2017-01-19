@@ -141,3 +141,6 @@
  
 ## 1/19/2017
 ### Tuker fungsi di index.html sama top.html
+
+## 1/19/2017
+### Tambah contoh program get kecamatan,kota,provinsi,cost di index.html
