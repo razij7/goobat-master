@@ -1,6 +1,6 @@
 
 
-var urlOngkir = 'http://api.rajaongkir.com/starter/';
+var urlOngkir = 'http://pro.rajaongkir.com/api';
 var keyOngkir = "7f782820f5fded6e8b75e1374d813d3b";
 // var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 // var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
@@ -20,6 +20,7 @@ var webService = {
 				xhr.setRequestHeader('Authorization', ("Basic ".concat(btoa(key))));
 			   
 				xhr.setRequestHeader("key", keyOngkir);
+				xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 			},
 		});	
     },
