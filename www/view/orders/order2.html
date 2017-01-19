@@ -217,7 +217,37 @@ console.log(localStorage.getItem('idAddress'));
 		<!-- } -->
 
 	});
-
+	
+	$.ajax({
+			url: urlOngkir+'city',
+			type: 'get',
+			dataType: 'json',
+			success: function(data){
+				for (i=0; i<data.rajaongkir.results.length; i++){
+					console.log(data.rajaongkir.results[i]);
+				}
+			},
+			error: function(){
+			}
+		});
+	
+	/*var Tes = { origin: '501',
+					destination: '114',
+					weight: 1700,
+					courier: 'jne'	
+				};
+		$.ajax({
+			url: 'http://api.rajaongkir.com/starter/cost',
+			type: 'post',
+			dataType: 'json',
+			data : Tes,
+			success: function(tempXml){
+				console.log(tempXml);
+			},
+			error: function(){
+			}
+		});
+	*/
 	
 	
 </script>

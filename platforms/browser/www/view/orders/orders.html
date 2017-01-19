@@ -66,7 +66,7 @@
 					
 								</div>
 								<div id='order2'>
-								
+								</div>
 								<div id='order3'>
 								</div>
 								
@@ -168,21 +168,8 @@
 </html>
 <script src="../../js/webservice.js"></script>
  <script type="text/javascript">
- var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
-	$.ajaxSetup({
-		cache: true ,
-		beforeSend: function(xhr) {
-		   xhr.setRequestHeader('Authorization', ("Basic "
-                        .concat(btoa(key))));
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
-			
-			<!-- xhr.setRequestHeader('Authorization', '...'); -->
-		},
-	});
- 
- 
+webService.initialize();
+
  <!-- alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')); -->
 var idCustomer = localStorage.getItem('idCustomer'); 
 if( idCustomer == null){
@@ -331,13 +318,14 @@ if(guest !=0){
 			break; 
 		case '3' || '3#':		
 			$('#order3').load("order3.html");
-
+			$("#order1").collapse('hide');
+			$("#order2").collapse('hide');
+			$("#paymentMethod").attr("class","active");
 			$("#selanjutnya").attr("href","?step=4");
 			console.log('kirim');
 			break;
 		case '4' || '4#':		
 			$('#order4').load("order4.html");
-
 			$("#selanjutnya").attr("href","?step=5");
 			console.log('kirim');
 			break; 

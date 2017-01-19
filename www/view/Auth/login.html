@@ -135,22 +135,8 @@
 <script type="text/javascript" type="text/javascript">
 <!-- console.log(window.location.origin); -->
 
-	var urlCategories = 'http://go-obat.com/markets/api/categories?output_format=JSON'
-	var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";	
-	var urlapi = 'http://ARMMR8JEW5FLK7AS63FLHUU72I29QDXP@go-obat.com/markets/api/';
-
+	webService.initialize();
 	
-	$.ajaxSetup({
-		cache: true ,
-		beforeSend: function(xhr) {
-		   xhr.setRequestHeader('Authorization', ("Basic "
-                        .concat(btoa(key))));
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
-			
-			<!-- xhr.setRequestHeader('Authorization', '...'); -->
-		},
-	});
 	function $_GET(param) {
 			var vars = {};
 
@@ -173,8 +159,9 @@
 		var username = $('#username').val();
 		var password = $('#password').val();
 		
-		var hash = md5("gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d"+password);
-
+		var hash = md5(cookieKey+password);
+	
+	console.log(username+'  '+hash);
 			var filterArray = ['email',username,'passwd',hash];
 			idCustomer = webService.search('customers',filterArray);
 			if ( idCustomer[0] == 0 ){
@@ -183,9 +170,10 @@
 				var filterArray = ['id_customer',idCustomer];
 				var idAddress = webService.search('addresses',filterArray);
 							console.log(idAddress[0]);
-
+				
 				localStorage.setItem('idCustomer',idCustomer);
 				localStorage.setItem('idAddress',idAddress[0]);
+				console.log(localStorage.getItem('idCustomer'));
 				if($_GET().back == 1){
 						window.history.back();
 					

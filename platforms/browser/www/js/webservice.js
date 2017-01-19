@@ -1,10 +1,27 @@
-var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
-	
+
+
+var urlOngkir = 'http://api.rajaongkir.com/starter/';
+var keyOngkir = "7f782820f5fded6e8b75e1374d813d3b";
+// var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
+// var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+
+var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg";
+var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY";
+var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
+
+
+		
 var webService = {
     // Application Constructor
     initialize: function() {
-        this.doLogin();
+        $.ajaxSetup({
+			cache: true ,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader('Authorization', ("Basic ".concat(btoa(key))));
+			   
+				xhr.setRequestHeader("key", keyOngkir);
+			},
+		});	
     },
 
     schema: function(schema){
