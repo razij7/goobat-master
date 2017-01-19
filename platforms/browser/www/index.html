@@ -72,8 +72,17 @@
 	
 	console.log(localStorage.getItem('idCustomer'));
 	var idCustomer = localStorage.getItem('idCustomer');
+	if (idCustomer != null){
+	var cart = ['id_customer',idCustomer];
+	var carts = webService.search('carts', cart);
+	var idCart= carts[carts.length-1];
+	 var xmlCart = webService.readId('carts',idCart);
+	 var cartRow = $(xmlCart).children().children()[0].children[19].children[0].children;
+	var cartLength =cartRow.length;
 	
-	
+		localStorage.setItem('cartLength',cartLength);
+		console.log(localStorage.getItem('cartLength'));
+	}	
 	$('#navbar').load("view/templates/navbar.html");
 	$('#top').load("view/templates/top.html");
 	
