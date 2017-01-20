@@ -2,13 +2,10 @@
 <div id="formAddress"> form input
 <form  action="javascript:signup()">
  
-   
-							
-							
                             <div class="form-group">
 								<label for="country">Negara</label>
-								<select id="country" class="form-control">
-									
+								<select id="countries" class="form-control">
+									<option value="">-- Pilih Provinsi --</option> 
 								</select>
 							</div>
 							<div class="form-group">
@@ -19,7 +16,9 @@
 							</div>
                             <div class="form-group">
                                 <label for="city" >Kecamatan-Kotamadya/Kabupaten</label>
-                                <input type="text" class="form-control" id='city'>
+								<select id="city" class="form-control" onchange="getCity(this.value)">
+									<option value="">-- Pilih Kecamatan-Kotamadya/Kabupaten --</option> 
+								</select>
                             </div>
 							<div class="form-group">
                                 <label for="postCode">Kode Pos</label>
@@ -293,7 +292,8 @@
 	*/
 	
 	
-	
+	// Negara
+	$('#countries').append('<option value="'+localStorage.getItem('idCountries')+'">'+localStorage.getItem('countries')+'</option>');
 	
 	
 	
@@ -305,15 +305,32 @@
 		success: function(data){
 				var dataProvince = data.rajaongkir.results;
 				for(var i=0;i<dataProvince.length;i++){
-					console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
+					//console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
 					$('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>');
+					
 				}
 		},
 		error: function(){
 		}
 	});
-	
-	
+
+	$("#province").change(function(){
+
+		$('#city').empty();
+		$.ajax({
+			url: urlOngkir+'/api/city?province='+$(this).val(),
+			type: 'get',
+			dataType: 'json',
+			success: function(data){
+					var dataCity = data.rajaongkir.results;
+					for(var i=0;i<dataCity.length;i++){
+						$('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>');
+					}
+			},
+			error: function(){
+			}
+		});
+	});	
 	
 	
 	

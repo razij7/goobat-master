@@ -63,12 +63,9 @@
 	if (idCustomer != null){
 	
 		
-			var a = webService.readId('countries',111);
-			localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
-			
-		var a = webService.readIdJson('countries',111);
-		//console.log('countries '+a);
-
+		var a = webService.readId('countries',111);
+		localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
+		localStorage.setItem('idCountries',$(a)["0"].children["0"].children["0"].children["0"].textContent);
 		
 		var filterArray = ['id_customer',idCustomer];
 		var carts = webService.search('carts', filterArray);
