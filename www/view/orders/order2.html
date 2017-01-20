@@ -12,43 +12,9 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="state">Provinsi</label>
-								<select id="state" class="form-control">
-									<option value="">-</option> 
-									<option value="17">Bali</option>
-									<option value="16">Banten</option>
-									<option value="7">Bengkulu</option>
-									<option value="14">Daerah Istimewa Yogyakarta</option>
-									<option value="11">Daerah Khusus Ibukota Jakarta</option>
-									<option value="29">Gorontalo</option>
-									<option value="5">Jambi</option>
-									<option value="12">Jawa Barat</option>
-									<option value="13">Jawa Tengah</option>
-									<option value="15">Jawa Timur</option>
-									<option value="20">Kalimantan Barat</option>
-									<option value="22">Kalimantan Selatan</option>
-									<option value="21">Kalimantan Tengah</option>
-									<option value="23">Kalimantan Timur</option>
-									<option value="24">Kalimantan Utara</option>
-									<option value="9">Kepulauan Bangka Belitung</option>
-									<option value="10">Kepulauan Riau</option>
-									<option value="8">Lampung</option>
-									<option value="31">Maluku</option>
-									<option value="32">Maluku Utara</option>
-									<option value="1">Nangroe Aceh Darussalam</option>
-									<option value="18">Nusa Tenggara Barat</option>
-									<option value="19">Nusa Tenggara Timur</option>
-									<option value="33">Papua</option>
-									<option value="34">Papua Barat</option>
-									<option value="4">Riau</option>
-									<option value="30">Sulawesi Barat</option>
-									<option value="27">Sulawesi Selatan</option>
-									<option value="26">Sulawesi Tengah</option>
-									<option value="28">Sulawesi Tenggara</option>
-									<option value="25">Sulawesi Utara</option>
-									<option value="3">Sumatera Barat</option>
-									<option value="6">Sumatera Selatan</option>
-									<option value="2">Sumatera Utara</option>
+								<label for="province">Provinsi</label>
+								<select id="province" class="form-control">
+									<option value="">-- Pilih Provinsi --</option> 
 								</select>
 							</div>
                             <div class="form-group">
@@ -116,8 +82,10 @@
 	========================================================================================
 	*/
 	//localStorage.clear();
-	//localStorage.removeItem('idAddress');
-//console.log(localStorage.getItem('idAddress'));
+	localStorage.removeItem('idAddress');
+	
+	<!-- 68 -->
+<!-- console.log(localStorage.getItem('idAddress')); -->
 //	localStorage.setItem('idAddress',);
 	 if ( localStorage.getItem('idAddress') == null){
 		//console.log(localStorage.getItem('idAddress'));
@@ -328,7 +296,7 @@
 	
 	
 	
-	/*
+	
 	//PROVINSI
 	$.ajax({
 		url: urlOngkir+'/api/province',
@@ -337,13 +305,14 @@
 		success: function(data){
 				var dataProvince = data.rajaongkir.results;
 				for(var i=0;i<dataProvince.length;i++){
-					console.log(dataProvince[i].province);
+					console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
+					$('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>');
 				}
 		},
 		error: function(){
 		}
 	});
-	*/
+	
 	
 	
 	
