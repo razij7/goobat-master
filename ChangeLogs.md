@@ -149,3 +149,7 @@
 ###Carts
  -- Get total produk di carts
  -- LocalStorage carts cartRow_[i]
+ 
+## 1/20/2017
+###Navbar Trolli
+ -- Menampilkan jumlah produk pada tombol keranjang
