@@ -144,3 +144,8 @@
 
 ## 1/19/2017
 ### Tambah contoh program get kecamatan,kota,provinsi,cost di index.html
+
+## 1/20/2017
+###Carts
+ -- Get total produk di carts
+ -- LocalStorage carts cartRow_[i]
