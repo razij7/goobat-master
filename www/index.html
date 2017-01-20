@@ -59,6 +59,30 @@
 
 	webService.initialize();
 	var idCustomer = localStorage.getItem('idCustomer');
+
+	var a = webService.readId('countries',111);
+	localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
+
+	
+	if (idCustomer != null){
+		var filterArray = ['id_customer',idCustomer];
+		var carts = webService.search('carts', filterArray);
+	
+		var idCart = carts[carts.length-1];
+		
+		if (idCart != 0){
+			var getCart = webService.readId('carts',idCart);
+			var cart = $(getCart).children().children()[0].children[19].children[0].children;
+				$.each(cart, function(key, value) {
+					hasil = new Array();
+					hasil[key] = value;
+					localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
+				});
+
+			
+			localStorage.setItem('cartsLength',cart.length);
+		}	
+	}
 	
 	/*
 	//NAMPILIN ORIGIN, DESTINATION, KURIR DAN JASA YANG TERSEDIA, COST DAN ETD
