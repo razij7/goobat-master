@@ -241,11 +241,11 @@ logger.logLevel = function(level /* , ... */) {
 
         // log to the console
         switch (level) {
-            case logger.LOG:   originalConsole.log(message); break;
-            case logger.ERROR: originalConsole.log("ERROR: " + message); break;
-            case logger.WARN:  originalConsole.log("WARN: "  + message); break;
-            case logger.INFO:  originalConsole.log("INFO: "  + message); break;
-            case logger.DEBUG: originalConsole.log("DEBUG: " + message); break;
+            case logger.LOG:   originalconsole.log(message); break;
+            case logger.ERROR: originalconsole.log("ERROR: " + message); break;
+            case logger.WARN:  originalconsole.log("WARN: "  + message); break;
+            case logger.INFO:  originalconsole.log("INFO: "  + message); break;
+            case logger.DEBUG: originalconsole.log("DEBUG: " + message); break;
         }
     }
 };

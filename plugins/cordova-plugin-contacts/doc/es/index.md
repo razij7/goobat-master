@@ -244,8 +244,8 @@ El `Contact` objeto representa el contacto de un usuario. Contactos pueden ser c
 
         clon del clon de contacto objeto var = contact.clone();
         clone.name.givenName = "John";
-        Console.log ("contacto Original nombre =" + contact.name.givenName);
-        Console.log ("Cloned contacto nombre =" + clone.name.givenName);
+        console.log ("contacto Original nombre =" + contact.name.givenName);
+        console.log ("Cloned contacto nombre =" + clone.name.givenName);
     
 
 ### Quitar ejemplo

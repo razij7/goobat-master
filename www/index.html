@@ -60,17 +60,32 @@
 	webService.initialize();
 	var idCustomer = localStorage.getItem('idCustomer');
 
-	var a = webService.readId('countries',111);
-	localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
-
+	
+console.log(idCustomer	);
 	
 	if (idCustomer != null){
+	
+		
+			var a = webService.readId('countries',111);
+			localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
+			
+		var a = webService.readIdJson('countries',111);
+		//console.log('countries '+a);
+
+		
 		var filterArray = ['id_customer',idCustomer];
 		var carts = webService.search('carts', filterArray);
 	
 		var idCart = carts[carts.length-1];
-		
-		if (idCart != 0){
+	
+		if (idCart == 'undefined'){	
+			idCart
+		}else if(idCart == 0){
+			idCart
+		}else if(idCart == 'null'){
+			idCart
+		}else{
+			console.log('ini idCart'+idCart);
 			var getCart = webService.readId('carts',idCart);
 			var cart = $(getCart).children().children()[0].children[19].children[0].children;
 				$.each(cart, function(key, value) {
@@ -81,191 +96,13 @@
 
 			
 			localStorage.setItem('cartsLength',cart.length);
-		}	
-	}
-	
-	/*
-	//NAMPILIN ORIGIN, DESTINATION, KURIR DAN JASA YANG TERSEDIA, COST DAN ETD
-	var Tes = { origin: '', // asal city/subdistrict
-				originType: '', // city/subdistrict
-				destination: '', // tujuan city/subdistrict
-				destinationType:'', // city/subdistrict
-				weight: 0, //berat barang
-				courier: ''	//kurir kode ( jne, pos, tiki, rpx, esl, pcp, pandu, wahana, sicepat, jnt, pahala, cahaya, sap, jet, indah, dse )
-				};
-	
-	//	Get kota & kecamatan untuk origin & destination
-	
-	idOriginCity = 1; //get kota origin
-	idOriginSubdistrict = 0; //get kecamatan origin ( 0 kalo ga ada kecamatan )
-	idDestinationCity = 501; // get kota destination
-	idDestinationSubdistrict = 0; // get kecamatan destination ( 0 kalo ga ada kecamatan )
-	
-	//=======================================================================================
-	
-	//Masukin data idOrigin & idDestination tergantung dari kecamatan ada apa ngga
-	
-	if(idOriginSubdistrict>0){
-		Tes.originType = 'subdistrict';
-		Tes.origin = idOriginSubdistrict;
-	}
-	else{
-		Tes.originType = 'city';
-		Tes.origin = idOriginCity;
-	}
-	
-	if(idDestinationSubdistrict>0){
-		Tes.destinationType = 'subdistrict';
-		Tes.destination = idDestinationSubdistrict;
-	}
-	else{
-		Tes.destinationType = 'city';
-		Tes.destination = idDestinationCity;
-	}
-	
-	//=======================================================================================
-	
-	
-	//Masukin data weight & courier ke array, courier tergantung kode yang disediakan diatas 
-	
-	Tes.weight = 100;
-	Tes.courier = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse';
-	
-	//=======================================================================================
-	
-	
-	//Nampilin kurir dan servis yang tersedia + cost + etd  
-	
-	$.ajax({
-		url: urlOngkir + '/cost',
-		type: 'post',
-		dataType: 'json',
-		data : Tes,
-		success: function(tempXml){
-			var ori = tempXml.rajaongkir.origin_details;
-			var dest = tempXml.rajaongkir.destination_details; 
-			var courier = tempXml.rajaongkir.results;
-			if(idOriginSubdistrict>0 && idDestinationSubdistrict>0){
-				console.log('Dari : '+ori.city+', '+ori.subdistrict_name+
-							'		Ke : '+dest.city+', '+dest.subdistrict_name);
-			}
-			else if(idOriginSubdistrict>0 && idDestinationSubdistrict==0){
-				console.log('Dari : '+ori.city+', '+ori.subdistrict_name+
-							'		Ke : '+dest.city_name);
-			}
-			else if(idOriginSubdistrict==0 && idDestinationSubdistrict>0){
-				console.log('Dari : '+ori.city_name+
-							'		Ke : '+dest.city+', '+dest.subdistrict_name);
-			}
-			else if(idOriginSubdistrict==0 && idDestinationSubdistrict==0){
-				console.log('Dari : '+ori.city_name+
-							'		Ke : '+dest.city_name);
-			}
-			console.log(tempXml);
-			for(var i=0;i<courier.length;i++){
-				if(courier[i].costs.length>0){
-					console.log(courier[i].name);
-					for(var j = 0;j<courier[i].costs.length;j++){
-						
-						console.log(j+1+'.	Service 	: '+courier[i].costs[j].service);
-						console.log('	Description : '+courier[i].costs[j].description);
-						console.log('	Cost		: '+courier[i].costs[j].cost[0].value);
-						console.log('	ETD			: '+courier[i].costs[j].cost[0].etd);
-					}
-				}	
-				else{
-					console.log('Jasa : '+courier[i].name+' Tidak Tersedia');
-				}
-				console.log(' ');
-			}
-		},
-		error: function(){
+			console.log(localStorage.getItem('idAddress'));	
 		}
-	});
+		
+		
+	}
 	
-	//=======================================================================================
-	*/
-	
-	
-	
-	
-	
-	/*
-	//PROVINSI
-	$.ajax({
-		url: urlOngkir+'/api/province',
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-				var dataProvince = data.rajaongkir.results;
-				for(var i=0;i<dataProvince.length;i++){
-					console.log(dataProvince[i].province);
-				}
-		},
-		error: function(){
-		}
-	});
-	*/
-	
-	
-	
-	
-	/*
-	//KOTA BERDASARKAN PROVINSI
-	var idProvince = 5;
-	$.ajax({
-		url: urlOngkir+'/api/city?province='+idProvince,
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-				var dataCity = data.rajaongkir.results;
-				for(var i=0;i<dataCity.length;i++){
-					console.log(dataCity[i].city_name);
-				}
-		},
-		error: function(){
-		}
-	});
-	*/
-	
-	
-	
-	
-	/*
-	//KECAMATAN BERDASARKAN CITY
-	var idCity = 5;
-	$.ajax({
-		url: urlOngkir+'/api/subdistrict?city='+idCity,
-		type: 'get',
-		dataType: 'json',
-		success: function(datadata){
-				var dataSubd = data.rajaongkir.results;
-				for(var i=0;i<dataSubd..length;i++){
-					console.log(dataSubd.[i].subdistrict_name);
-				}
-		},
-		error: function(){
-		}
-	});
-	*/			
-	
-	
-	/*
-	console.log(localStorage.getItem('idCustomer'));
-	var idCustomer = localStorage.getItem('idCustomer');
-	if (idCustomer != null){
-		var filterArray = ['id_customer',idCustomer];
-		var carts = webService.search('carts', filterArray);
-		var idCart = carts[carts.length-1];
-		localStorage.setItem('idCart',idCart);
-		if (idCart != 0){
-			var getCart = webService.readId('carts',idCart);
-			var cart = $(getCart).children().children()[0].children[19].children[0].children;
-			cartLength = cart.length;
-			localStorage.setItem('cartLength',cartLength);
-		}	
-	}	
-	*/
+
 	$('#navbar').load("view/templates/navbar.html");
 	$('#top').load("view/templates/top.html");
 	

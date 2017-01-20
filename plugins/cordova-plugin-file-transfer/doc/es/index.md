@@ -93,12 +93,12 @@ El `FileTransfer` objeto proporciona una manera de subir archivos mediante una s
 ### Ejemplo
 
     // !! Asume fileURL variable contiene una dirección URL válida a un archivo de texto en el dispositivo, / / por ejemplo, ganar var cdvfile://localhost/persistent/path/to/file.txt = function (r) {console.log ("código =" + r.responseCode);
-        Console.log ("respuesta =" + r.response);
-        Console.log ("Sent =" + r.bytesSent);}
+        console.log ("respuesta =" + r.response);
+        console.log ("Sent =" + r.bytesSent);}
     
     var fallar = function (error) {alert ("ha ocurrido un error: código =" + error.code);
-        Console.log ("error al cargar el origen" + error.source);
-        Console.log ("upload error objetivo" + error.target);}
+        console.log ("error al cargar el origen" + error.source);
+        console.log ("upload error objetivo" + error.target);}
     
     var opciones = new FileUploadOptions();
     options.fileKey = "file";
@@ -118,12 +118,12 @@ El `FileTransfer` objeto proporciona una manera de subir archivos mediante una s
 ### Ejemplo con cabeceras de subir y eventos de progreso (Android y iOS solamente)
 
     function win(r) {console.log ("código =" + r.responseCode);
-        Console.log ("respuesta =" + r.response);
-        Console.log ("Sent =" + r.bytesSent);}
+        console.log ("respuesta =" + r.response);
+        console.log ("Sent =" + r.bytesSent);}
     
     function fail(error) {alert ("ha ocurrido un error: código =" + error.code);
-        Console.log ("error al cargar el origen" + error.source);
-        Console.log ("upload error objetivo" + error.target);}
+        console.log ("error al cargar el origen" + error.source);
+        console.log ("upload error objetivo" + error.target);}
     
     var uri = encodeURI ("http://some.server.com/upload.php");
     
@@ -187,8 +187,8 @@ A `FileUploadResult` objeto se pasa a la devolución del éxito de la `FileTrans
     
     fileTransfer.download (uri, fileURL, function(entry) {console.log ("descarga completa:" + entry.toURL());
         }, function(error) {console.log ("error al descargar el origen" + error.source);
-            Console.log ("descargar error objetivo" + error.target);
-            Console.log ("código de error de carga" + error.code);
+            console.log ("descargar error objetivo" + error.target);
+            console.log ("código de error de carga" + error.code);
         }, falso, {encabezados: {"Autorización": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA =="}});
     
 
@@ -201,8 +201,8 @@ Aborta a una transferencia en curso. El callback onerror se pasa un objeto FileT
     // !! Asume fileURL variable contiene una dirección URL válida a un archivo de texto en el dispositivo, / / por ejemplo, ganar cdvfile://localhost/persistent/path/to/file.txt var function(r) = {console.log ("no se debe llamar.");}
     
     var fallar = function(error) {/ / error.code == FileTransferError.ABORT_ERR alert ("ha ocurrido un error: código =" + error.code);
-        Console.log ("error al cargar el origen" + error.source);
-        Console.log ("upload error objetivo" + error.target);}
+        console.log ("error al cargar el origen" + error.source);
+        console.log ("upload error objetivo" + error.target);}
     
     var opciones = new FileUploadOptions();
     options.fileKey="file";

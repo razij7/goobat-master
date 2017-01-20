@@ -21,7 +21,7 @@
 
 [![Build Status](https://travis-ci.org/apache/cordova-plugin-console.svg)](https://travis-ci.org/apache/cordova-plugin-console)
 
-이 플러그인을 console.log()로 수 유용 되도록 의미입니다. 그것은 iOS, 우분투, Windows Phone 8, 및 창에 대 한 추가 기능을 추가합니다. Console.log() 당신을 위해 작동 하는 어떻게 행복 한 경우에, 그때 당신은 아마 필요 하지 않습니다이 플러그인.
+이 플러그인을 console.log()로 수 유용 되도록 의미입니다. 그것은 iOS, 우분투, Windows Phone 8, 및 창에 대 한 추가 기능을 추가합니다. console.log() 당신을 위해 작동 하는 어떻게 행복 한 경우에, 그때 당신은 아마 필요 하지 않습니다이 플러그인.
 
 이 플러그인 글로벌 `console` 개체를 정의합니다.
 
@@ -40,4 +40,4 @@
 
 ### 안 드 로이드 단점
 
-안 드 로이드 이외의 일부 플랫폼에서 console.log() console.log ("1", "2", "3")와 같이 여러 인수에 작동할 것 이다. 그러나, 안 드 로이드는 첫 번째 인수에만 작동할 것 이다. Console.log() 후속 인수는 무시 됩니다. 이 플러그인의 원인이 되지 않습니다, 그리고 그것은 안 드 로이드 자체의 한계입니다.
+안 드 로이드 이외의 일부 플랫폼에서 console.log() console.log ("1", "2", "3")와 같이 여러 인수에 작동할 것 이다. 그러나, 안 드 로이드는 첫 번째 인수에만 작동할 것 이다. console.log() 후속 인수는 무시 됩니다. 이 플러그인의 원인이 되지 않습니다, 그리고 그것은 안 드 로이드 자체의 한계입니다.

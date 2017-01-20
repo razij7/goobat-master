@@ -93,12 +93,12 @@ Le `FileTransfer` objet fournit un moyen de télécharger des fichiers à l'aide
 ### Exemple
 
     // !! Suppose fileURL variable contient une URL valide dans un fichier texte sur le périphérique, / / par exemple, cdvfile://localhost/persistent/path/to/file.txt var win = function (r) {console.log ("Code =" + r.responseCode) ;
-        Console.log ("réponse =" + r.response) ;
-        Console.log ("envoyés =" + r.bytesSent);}
+        console.log ("réponse =" + r.response) ;
+        console.log ("envoyés =" + r.bytesSent);}
     
     échouer var = function (erreur) {alert ("une erreur est survenue : Code =" + error.code) ;
-        Console.log (« source de l'erreur de téléchargement » + error.source) ;
-        Console.log ("erreur de téléchargement cible" + error.target);}
+        console.log (« source de l'erreur de téléchargement » + error.source) ;
+        console.log ("erreur de téléchargement cible" + error.target);}
     
     options de var = new FileUploadOptions() ;
     options.fileKey = « fichier » ;
@@ -118,12 +118,12 @@ Le `FileTransfer` objet fournit un moyen de télécharger des fichiers à l'aide
 ### Exemple avec téléchargement du Header et des Progress Events (Android et iOS uniquement)
 
     function win(r) {console.log ("Code =" + r.responseCode) ;
-        Console.log ("réponse =" + r.response) ;
-        Console.log ("envoyés =" + r.bytesSent);}
+        console.log ("réponse =" + r.response) ;
+        console.log ("envoyés =" + r.bytesSent);}
     
     function fail(error) {alert ("une erreur est survenue : Code =" + error.code) ;
-        Console.log (« source de l'erreur de téléchargement » + error.source) ;
-        Console.log ("erreur de téléchargement cible" + error.target);}
+        console.log (« source de l'erreur de téléchargement » + error.source) ;
+        console.log ("erreur de téléchargement cible" + error.target);}
     
     var uri = encodeURI ("http://some.server.com/upload.php") ;
     
@@ -187,8 +187,8 @@ A `FileUploadResult` objet est passé au rappel de succès la `FileTransfer` de 
     
     fileTransfer.download (uri, fileURL, function(entry) {console.log ("téléchargement complet:" + entry.toURL()) ;
         }, function(error) {console.log (« source de l'erreur de téléchargement » + error.source) ;
-            Console.log (« erreur de téléchargement cible » + error.target) ;
-            Console.log (« code d'erreur de téléchargement » + error.code) ;
+            console.log (« erreur de téléchargement cible » + error.target) ;
+            console.log (« code d'erreur de téléchargement » + error.code) ;
         }, faux, {en-têtes: {« Autorisation »: « dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA base == "}}) ;
     
 
@@ -201,8 +201,8 @@ Abandonne un transfert en cours. Le rappel onerror est passé à un objet FileTr
     // !! Suppose fileURL variable contient une URL valide dans un fichier texte sur le périphérique, / / par exemple, cdvfile://localhost/persistent/path/to/file.txt var win = function(r) {console.log ("ne devrait pas être appelée.");}
     
     var fail = function(error) {/ / error.code == FileTransferError.ABORT_ERR alert ("une erreur est survenue : Code =" + error.code) ;
-        Console.log (« source de l'erreur de téléchargement » + error.source) ;
-        Console.log ("erreur de téléchargement cible" + error.target);}
+        console.log (« source de l'erreur de téléchargement » + error.source) ;
+        console.log ("erreur de téléchargement cible" + error.target);}
     
     options de var = new FileUploadOptions() ;
     options.fileKey="file" ;
