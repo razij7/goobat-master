@@ -15,9 +15,15 @@
 								</select>
 							</div>
                             <div class="form-group">
-                                <label for="city" >Kecamatan-Kotamadya/Kabupaten</label>
+                                <label for="city" >Kotamadya/Kabupaten</label>
 								<select id="city" class="form-control" onchange="getCity(this.value)">
-									<option value="">-- Pilih Kecamatan-Kotamadya/Kabupaten --</option> 
+									<option value="">-- Pilih Kotamadya/Kabupaten --</option> 
+								</select>
+                            </div>
+							<div class="form-group">
+                                <label for="subdistrict" >Kecamatan</label>
+								<select id="subdistrict" class="form-control" onchange="getCity(this.value)">
+									<option value="">-- Pilih Kecamatan --</option> 
 								</select>
                             </div>
 							<div class="form-group">
@@ -353,7 +359,24 @@
 	*/
 	
 	
-	
+	$("#city").change(function(){
+
+		$('#subdistrict').empty();
+		$.ajax({
+			url: urlOngkir+'/api/subdistrict?city='+$(this).val(),
+			type: 'get',
+			dataType: 'json',
+			success: function(data){
+					var dataSubdistrict = data.rajaongkir.results;
+					for(var i=0;i<dataSubdistrict.length;i++){
+					console.log(dataSubdistrict[i]);
+						$('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>');
+					}
+			},
+			error: function(){
+			}
+		});
+	});	
 	
 	/*
 	//KECAMATAN BERDASARKAN CITY
