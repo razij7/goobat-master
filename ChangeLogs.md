@@ -153,3 +153,11 @@
 ## 1/20/2017
 ###Navbar Trolli
  -- Menampilkan jumlah produk pada tombol keranjang
+ 
+## 1/22/2017
+###Tambah fungsi untuk get data dari rajaongkir :
+ --pake promise supaya tetep asynchronous
+ --webservice.readPromiseRajaongkir(objectName,id)
+    ---khusus untuk 'province' masukin id=0
+ --webService.readCostRajaongkir(array)
+    ---array = 6 data yg dibutuhkan, contoh ada di order2.html
