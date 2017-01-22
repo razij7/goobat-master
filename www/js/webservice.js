@@ -258,6 +258,39 @@ var webService = {
 			dataType: 'xml'
 		});
 	},
+	
+	readPromiseRajaongkir: function(objectName,id){
+		if(objectName == 'province'){
+			var urlObject = urlOngkir+'/province';
+		}
+		else if(objectName == 'city'){
+			var urlObject = urlOngkir+'/'+'city?province='+id;
+		}
+		else if(objectName == 'subdistrict'){
+			var urlObject = urlOngkir+'/'+'subdistrict?city='+id;
+		}
+		return $.ajax({
+			url: urlObject,
+			type: 'get',
+			dataType: 'json'
+		});
+	},
+	readCostRajaongkir: function(array){
+		var parameter = { origin: array[0], // asal city/subdistrict
+					originType: array[1], // city/subdistrict
+					destination: array[2], // tujuan city/subdistrict
+					destinationType:array[3], // city/subdistrict
+					weight: array[4],
+					courier: array[5] 
+					};
+		
+		return $.ajax({
+			url: urlOngkir + '/cost',
+			type: 'post',
+			dataType: 'json',
+			data : parameter
+		});
+	},
 	updateId: function(objectName,id){
 		var tempXml = webService.readId(objectName, id);
 		var objectCode = webService.codeReturn(objectName);

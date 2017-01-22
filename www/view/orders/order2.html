@@ -304,8 +304,8 @@
 	
 	
 	//PROVINSI
-	$.ajax({
-		url: urlOngkir+'/api/province',
+	/*$.ajax({
+		url: urlOngkir+'/province',
 		type: 'get',
 		dataType: 'json',
 		success: function(data){
@@ -318,13 +318,20 @@
 		},
 		error: function(){
 		}
+	});*/
+	var promise1 = webService.readPromiseRajaongkir('province',0);
+	promise1.success(function(data){
+		var dataProvince = data.rajaongkir.results;
+		for(var i=0;i<dataProvince.length;i++){
+			//console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
+			$('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>');
+		}
 	});
-
 	$("#province").change(function(){
 
 		$('#city').empty();
-		$.ajax({
-			url: urlOngkir+'/api/city?province='+$(this).val(),
+		/*$.ajax({
+			url: urlOngkir+'/city?province='+$(this).val(),
 			type: 'get',
 			dataType: 'json',
 			success: function(data){
@@ -334,6 +341,13 @@
 					}
 			},
 			error: function(){
+			}
+		});*/
+		var promise2 = webService.readPromiseRajaongkir('city',$(this).val());
+		promise2.success(function(data){
+			var dataCity = data.rajaongkir.results;
+			for(var i=0;i<dataCity.length;i++){
+				$('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>');
 			}
 		});
 	});	
@@ -362,8 +376,8 @@
 	$("#city").change(function(){
 
 		$('#subdistrict').empty();
-		$.ajax({
-			url: urlOngkir+'/api/subdistrict?city='+$(this).val(),
+		/*$.ajax({
+			url: urlOngkir+'/subdistrict?city='+$(this).val(),
 			type: 'get',
 			dataType: 'json',
 			success: function(data){
@@ -375,32 +389,59 @@
 			},
 			error: function(){
 			}
+		});*/
+		var promise3 = webService.readPromiseRajaongkir('subdistrict',$(this).val());
+		promise3.success(function(data){
+			var dataSubdistrict = data.rajaongkir.results;
+			for(var i=0;i<dataSubdistrict.length;i++){
+				$('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>');
+			}
 		});
+		
 	});	
 	$("#subdistrict").change(function(){
 
 		$('#postCode').empty();
-		var Tes = { origin: 456, // asal city/subdistrict
+		var dataRequired = [];
+		dataRequired[0] = 456;
+		dataRequired[1] = 'city';
+		dataRequired[2] = $(this).val();
+		dataRequired[3] = 'subdistrict';
+		dataRequired[4] = 1;
+		dataRequired[5] = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse';		
+		var promise4 = webService.readCostRajaongkir(dataRequired);
+		promise4.success(function(data){
+			console.log(data);
+		});
+		/*var Tes = { origin: 456, // asal city/subdistrict
 				originType: 'city', // city/subdistrict
 				destination: $(this).val(), // tujuan city/subdistrict
 				destinationType:'subdistrict', // city/subdistrict
 				
 				  weight: 1,
-				  courier: 'jne' 
+				  courier: 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse' 
 				};
-		console.log(Tes);
+		console.log($(Tes));
 		$.ajax({
 			url: urlOngkir + '/cost',
 			type: 'post',
 			dataType: 'json',
 			data : Tes,
 			success: function(tempXml){
+				
+				for(var i=0;i<tempXml.rajaongkir.results.length;i++){
+					console.log(tempXml.rajaongkir.results[i].name+' :');
+					for(var j=0;j<tempXml.rajaongkir.results[i].costs.length;j++){
+						console.log(tempXml.rajaongkir.results[i].costs[j].description);
+						console.log(tempXml.rajaongkir.results[i].costs[j].service);
+					}
+				}
 				console.log(tempXml);
 
 			},
 			error: function(){
 			}
-		});
+		});*/
 	});	
 	/*
 	//KECAMATAN BERDASARKAN CITY
