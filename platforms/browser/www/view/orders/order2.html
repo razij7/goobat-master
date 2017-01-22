@@ -16,13 +16,13 @@
 							</div>
                             <div class="form-group">
                                 <label for="city" >Kotamadya/Kabupaten</label>
-								<select id="city" class="form-control" onchange="getCity(this.value)">
+								<select id="city" class="form-control">
 									<option value="">-- Pilih Kotamadya/Kabupaten --</option> 
 								</select>
                             </div>
 							<div class="form-group">
                                 <label for="subdistrict" >Kecamatan</label>
-								<select id="subdistrict" class="form-control" onchange="getCity(this.value)">
+								<select id="subdistrict" class="form-control">
 									<option value="">-- Pilih Kecamatan --</option> 
 								</select>
                             </div>
@@ -369,7 +369,7 @@
 			success: function(data){
 					var dataSubdistrict = data.rajaongkir.results;
 					for(var i=0;i<dataSubdistrict.length;i++){
-					console.log(dataSubdistrict[i]);
+					//console.log(dataSubdistrict[i]);
 						$('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>');
 					}
 			},
@@ -377,7 +377,31 @@
 			}
 		});
 	});	
-	
+	$("#subdistrict").change(function(){
+
+		$('#postCode').empty();
+		var Tes = { origin: 456, // asal city/subdistrict
+				originType: 'city', // city/subdistrict
+				destination: $(this).val(), // tujuan city/subdistrict
+				destinationType:'subdistrict', // city/subdistrict
+				
+				  weight: 1,
+				  courier: 'jne' 
+				};
+		console.log(Tes);
+		$.ajax({
+			url: urlOngkir + '/cost',
+			type: 'post',
+			dataType: 'json',
+			data : Tes,
+			success: function(tempXml){
+				console.log(tempXml);
+
+			},
+			error: function(){
+			}
+		});
+	});	
 	/*
 	//KECAMATAN BERDASARKAN CITY
 	var idCity = 5;
