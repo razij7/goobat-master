@@ -161,3 +161,6 @@
     ---khusus untuk 'province' masukin id=0
  --webService.readCostRajaongkir(array)
     ---array = 6 data yg dibutuhkan, contoh ada di order2.html
+	
+## 1/23/2017
+###Index nyobain pake promise, Tes Apps
