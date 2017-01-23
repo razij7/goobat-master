@@ -174,11 +174,23 @@
 				localStorage.setItem('idCustomer',idCustomer);
 				localStorage.setItem('idAddress',idAddress[0]);
 				console.log(localStorage.getItem('idCustomer'));
+				var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
+				promise1.success(function(data){
+				
+					var customer = $(data).children().children()[0].children;
+					$.each(customer, function(key, value) {
+						hasil = new Array();
+						hasil[key] = value;
+						localStorage.setItem('customerData_'+key,hasil[''+key+''].textContent);
+						console.log(localStorage.getItem('customerData_'+key));
+					});
+				});
+				console.log(localStorage.getItem('customerData'));
 				if($_GET().back == 1){
 						window.history.back();
 					
 				}
-				window.location.replace("../../index.html");
+				//window.location.replace("../../index.html");
 			}
 
 	}

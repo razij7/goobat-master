@@ -98,10 +98,12 @@
 				var promise3 = webService.readPromiseXml('carts',idCart);
 				promise3.success(function(data){
 					var cart = $(data).children().children()[0].children[19].children[0].children;
+					console.log(cart);	
 					$.each(cart, function(key, value) {
 						hasil = new Array();
 						hasil[key] = value;
 						localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
+						console.log(localStorage.getItem('cartRow_'+key));	
 					});
 				
 				
@@ -140,6 +142,7 @@
 		
 		
 	}
+	
 		var filterArray2 = ['active',1];	
 		var promise4 = webService.readPromiseXml('products',webService.filterGenerator(filterArray2));
 		promise4.success(function(data){

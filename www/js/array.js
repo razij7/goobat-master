@@ -112,7 +112,7 @@ objectData[2] 	= 	[id,
 					date_add,
 					date_upd];
 
-objectData[3] = 	[id,
+objectData[3] = 	[id, //0
 					id_customer,
 					id_manufacturer,
 					id_supplier,
@@ -124,8 +124,8 @@ objectData[3] = 	[id,
 					lastname,
 					firstname,
 					vat_number,
-					address1,
-					address2,
+					address1, //12
+					address2, //13
 					postcode,
 					city,
 					other,
