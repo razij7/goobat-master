@@ -164,3 +164,6 @@
 	
 ## 1/23/2017
 ###Index nyobain pake promise, Tes Apps
+
+## 1/23/2017
+### nyimpen data customer di localStorage
