@@ -188,15 +188,7 @@ if(guest !=0){
 }
 
  
- var cart = ['id_customer',idCustomer];
-//var product = webService.readIdJson('products',idProduct).product;
- var carts = webService.search('carts', cart);
-
- var idCart= carts[carts.length-1];
- var xmlCart = webService.readId('carts',idCart);
- var cartRow = $(xmlCart).children().children()[0].children[19].children[0].children;
- 
- $("#amount").append(cartRow.length);
+ $("#amount").append(localStorage.getItem('cartsLength'));
 //alert(getcart.cart.associations.cart_rows.length);
  
  

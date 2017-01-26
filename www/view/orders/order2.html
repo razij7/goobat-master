@@ -61,7 +61,7 @@
 		
 		<div id='name'></div>
 		<div id='address1'></div>
-		<div id='city'></div>
+		<div id='city11'></div>
 		<div id='postcode'></div>
 		<div id='zone'></div>
 		<div id='phone'></div>
@@ -87,7 +87,7 @@
 	========================================================================================
 	*/
 	//localStorage.clear();
-	localStorage.removeItem('idAddress');
+	//localStorage.removeItem('idAddress');
 	
 	<!-- 68 -->
 <!-- console.log(localStorage.getItem('idAddress')); -->
@@ -99,12 +99,15 @@
 	//	console.log(localStorage.getItem('idAddress'));
 		
 		var idAddress = localStorage.getItem('idAddress').split(",") // Delimiter is a string
+		console.log(idAddress);
 		for (var i = 0; i < idAddress.length; i++)
 		{
 			//console.log(i);
 			//var addressCustomer = webService.readIdJson('addresses',idAddress[i]).address;
 			var promise1 = webService.readPromiseJson('addresses',idAddress[i]);
+			
 			promise1.success(function(data){
+			console.log(data);
 				var addressCustomer = data.address;
 				firstName		= addressCustomer.firstname;
 				lastName		= addressCustomer.lastname;
@@ -119,7 +122,7 @@
 				$("#formAddress").attr("class","hide");
 				$("#name").append(fullName);
 				$("#address1").append(address1);
-				$("#city").append(city);
+				$("#city11").append(city);
 				$("#postcode").append(postcode);
 				//$("#zone").append(zone);
 				$("#phone").append(phone);
