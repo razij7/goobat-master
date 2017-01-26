@@ -361,8 +361,9 @@
 		},
 	});
 	
-		zone 			= webService.readIdJson('countries',111).country.name;
-		$("#country").append('<option value="1">Indonesia</option>');
+	zone = webService.readIdJson('countries',111).country.name;
+	$("#country").append('<option value="1">Indonesia</option>');
+	
 	function signup(){	
 		objectData[3][1] = localStorage.getItem('idCustomer');
 		objectData[3][5] = 111;
