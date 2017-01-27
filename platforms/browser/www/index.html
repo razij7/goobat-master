@@ -38,8 +38,20 @@
     </div>
 
     <div id="all">
-        <div class="row text-center" id='Detailproductsname'>
-        </div>
+        <!-- <div class="row text-center" id='Detailproductsname'> -->
+        <!-- </div> -->
+		<div class="well well-sm">
+			<strong>Category Title</strong>
+			<div class="btn-group">
+				<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+				</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+					class="glyphicon glyphicon-th"></span>Grid</a>
+			</div>
+		</div>
+		
+		<div id="Detailproductsname" class="row list-group">
+		</div>
+
     </div>
 
 </body>
@@ -56,17 +68,12 @@
 
 <script src="js/webservice.js"></script>
 <script type="text/javascript">
+	$('#list').click(function(event){event.preventDefault();$('#Detailproductsname .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#Detailproductsname .item').removeClass('list-group-item');$('#Detailproductsname .item').addClass('grid-group-item');});
 
 	webService.initialize();
 	var idCustomer = localStorage.getItem('idCustomer');
-
 	if (idCustomer != null){
-	
-		/*
-		var a = webService.readId('countries',111);
-		localStorage.setItem('countries',$(a)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
-		localStorage.setItem('idCountries',$(a)["0"].children["0"].children["0"].children["0"].textContent);
-		*/
 		var promise1 = webService.readPromiseXml('countries',111);
 		promise1.success(function(data){
 			localStorage.setItem('countries',$(data)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
@@ -77,7 +84,6 @@
 		promise2.success(function(data){
 			var carts = webService.searchPromise(data);
 			var idCart = carts[carts.length-1];
-			console.log(idCart);
 			if (idCart == 'undefined'){	
 				idCart
 			}else if(idCart == 0){
@@ -85,16 +91,6 @@
 			}else if(idCart == 'null'){
 				idCart
 			}else{
-				console.log('ini idCart'+idCart);
-				/*
-				var getCart = webService.readId('carts',idCart);
-				var cart = $(getCart).children().children()[0].children[19].children[0].children;
-					$.each(cart, function(key, value) {
-						hasil = new Array();
-						hasil[key] = value;
-						localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
-					});
-				*/
 				var promise3 = webService.readPromiseXml('carts',idCart);
 				promise3.success(function(data){
 					var cart = $(data).children().children()[0].children[19].children[0].children;
@@ -104,49 +100,19 @@
 						hasil[key] = value;
 						localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
 						console.log(localStorage.getItem('cartRow_'+key));	
-					});
-				
-				
+					});		
 					localStorage.setItem('cartsLength',cart.length);
-					//console.log(localStorage.getItem('cartsLength'));	
+					$('#navbar').load("view/templates/navbar.html");
 				});
 			}
 		});
-		/*
-		var filterArray = ['id_customer',idCustomer];
-		var carts = webService.search('carts', filterArray);
-	
-		var idCart = carts[carts.length-1];
-	
-		if (idCart == 'undefined'){	
-			idCart
-		}else if(idCart == 0){
-			idCart
-		}else if(idCart == 'null'){
-			idCart
-		}else{
-			console.log('ini idCart'+idCart);
-			var getCart = webService.readId('carts',idCart);
-			var cart = $(getCart).children().children()[0].children[19].children[0].children;
-				$.each(cart, function(key, value) {
-					hasil = new Array();
-					hasil[key] = value;
-					localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
-				});
-
-			
-			localStorage.setItem('cartsLength',cart.length);
-			console.log(localStorage.getItem('cartsLength'));	
-		}
-		*/
-		
 		
 	}
 	
-		var filterArray2 = ['active',1];	
-		var promise4 = webService.readPromiseXml('products',webService.filterGenerator(filterArray2));
-		promise4.success(function(data){
-		var idProducts = webService.searchPromise(data);
+	var filterArray2 = ['active',1];	
+	var promise4 = webService.readPromiseXml('products',webService.filterGenerator(filterArray2));
+	promise4.success(function(data){
+	var idProducts = webService.searchPromise(data);
 		for(var i=0;i<10;i++){
 			var promise5 = webService.readPromiseJson('products',idProducts[i]);
 			promise5.success(function(data){
@@ -155,57 +121,32 @@
 				var apiIdProduct = data["product"]["id"];
 				var apiIdSupplier = data["product"]["id_supplier"];
 				var apiIdImage = data["product"]["associations"]["images"][0]["id"];
+				var div1 ='<div class="item  col-xs-6 col-md-3">';
+				var div2 ='<div class="thumbnail">';
 				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
-				var div1 ='<div class="col-xs-6 col-md-3">';
-				var thumbnail ='<div class="thumbnail">';
 				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
 				var classCaption ='<div class="caption">'+ apiIdProduct;
-				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
-				var divEnd1 ='</div></div></div>';
-				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
-				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
+				var contentCaption ='<h4 class="group inner list-group-item-heading">Product title</h4>';
+				var contentCaptionDescription ='<p class="group inner list-group-item-text">Product description.</p>';
+				var div3 ='<div class="row">';
+				var div31 ='<div class="col-xs-12 col-md-6">';
+				var contentDiv31 ='<p class="lead">$21.000</p>';
+				var endDiv31 ='</div>';
+				var div4 ='<div class="col-xs-12 col-md-6">';
+				var contentDiv4 ='<a class="btn btn-success" href="view/orders/index.html">Beli</a>';
+				var endDiv4 ='</div></div></div></div></div></div>';
+				
+				 
+				 alls = div1+div2+imgSrc+classCaption+contentCaption+contentCaptionDescription+div3+div31+contentDiv31+endDiv31+div4+contentDiv4+endDiv4;
+
 				$("#Detailproductsname").append(alls);
 				//$('#categories').append(Detailproductsnamecategori);
 			});
-		}
-		
+		}	
 	});
-	/*
-	var filterArray = ['active',1];
-	var idProducts = webService.search('products',filterArray);
-	var objectName = 'products';
-	for(i=0;i<10;i++){
-		var setURL = urlapi + objectName + "/" + idProducts[i] + '?output_format=JSON';	
-		$.getJSON(setURL, 
-			function(setUrlProduct){
-				var Detailproductsname ='';
-				var Detailproductsnamecategori ='';
-				var apiIdProduct = setUrlProduct["product"]["id"];
-				var apiIdSupplier = setUrlProduct["product"]["id_supplier"];
-				var apiIdImage = setUrlProduct["product"]["associations"]["images"][0]["id"];
-				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
-				var div1 ='<div class="col-xs-6 col-md-3">';
-				var thumbnail ='<div class="thumbnail">';
-				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
-				var classCaption ='<div class="caption">'+ apiIdProduct;
-				var p1 = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-				var p2 = '<p><a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'&idCustomer='+idCustomer+'" class="btn btn-primary" id="carts" >Beli</a><button  id="detailProduct" class="btn btn-default">Detail</button></p>';
-				var divEnd1 ='</div></div></div>';
-				var alls = div1+thumbnail+imgSrc+classCaption+p1+p2+divEnd1;
-				//Detailproductsnamecategori += ' id kategori = '+ apiIdCategory +'';
-				$("#Detailproductsname").append(alls);
-				//$('#categories').append(Detailproductsnamecategori);
-			}
-		);
-	}
-	*/
+
 	$('#navbar').load("view/templates/navbar.html");
 	$('#top').load("view/templates/top.html");
-	
-	
-	
-	
 	$("#carts").click(function(){
 		alert("The paragraph was clicked.");
 	});

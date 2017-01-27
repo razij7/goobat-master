@@ -139,60 +139,41 @@
 	
 	function $_GET(param) {
 			var vars = {};
-
 			window.location.href.replace( location.hash, '' ).replace( 
 				/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
 				function( m, key, value ) { // callback
 					vars[key] = value !== undefined ? value : '';
 				}
 			);
-
 			if ( param ) {
 				return vars[param] ? vars[param] : null;	
 			}
-			
 			return vars;
 	}
 	
 	function doLogin(){
-	
 		var username = $('#username').val();
-		var password = $('#password').val();
-		
+		var password = $('#password').val();	
 		var hash = md5(cookieKey+password);
-	
-	console.log(username+'  '+hash);
-			var filterArray = ['email',username,'passwd',hash];
-			idCustomer = webService.search('customers',filterArray);
-			if ( idCustomer[0] == 0 ){
-				$("#pesan").prepend("Kombinasi salah!");
-			}else{
-				var filterArray = ['id_customer',idCustomer];
-				var idAddress = webService.search('addresses',filterArray);
-							console.log(idAddress[0]);
-				
-				localStorage.setItem('idCustomer',idCustomer);
-				localStorage.setItem('idAddress',idAddress[0]);
-				console.log(localStorage.getItem('idCustomer'));
-				var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
-				promise1.success(function(data){
-				
-					var customer = $(data).children().children()[0].children;
-					$.each(customer, function(key, value) {
-						hasil = new Array();
-						hasil[key] = value;
-						localStorage.setItem('customerData_'+key,hasil[''+key+''].textContent);
-						console.log(localStorage.getItem('customerData_'+key));
-					});
-				});
-				console.log(localStorage.getItem('customerData'));
-				if($_GET().back == 1){
-						window.history.back();
-					
-				}
-				//window.location.replace("../../index.html");
+		var filterArray = ['email',username,'passwd',hash];
+		idCustomer = webService.search('customers',filterArray);
+		if ( idCustomer[0] == 0 ){
+			$("#pesan").prepend("Kombinasi salah!");
+		}else{
+			var filterArray = ['id_customer',idCustomer];
+			var idAddress = webService.search('addresses',filterArray);
+			localStorage.setItem('idCustomer',idCustomer);
+			localStorage.setItem('idAddress',idAddress[0]);
+			var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
+			promise1.success(function(data){			
+				var customer = $(data).children().children()[0].children;
+				localStorage.setItem('customerData',JSON.stringify(customer.customer));
+			});
+			if($_GET().back == 1){
+				window.history.back();	
 			}
-
+			window.location.replace("../../index.html");
+		}
 	}
 
 	$.ajaxSetup({ cache: true });

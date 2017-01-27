@@ -170,16 +170,11 @@
  <script type="text/javascript">
 webService.initialize();
 
- <!-- alert(localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')); -->
 var idCustomer = localStorage.getItem('idCustomer'); 
 if( idCustomer == null){
-window.location.href = "../Auth/register.html?back=1";
+	window.location.href = "../Auth/register.html?back=1";
 }
- <!-- var idCustomer = 0; -->
-// var idProduct = $_GET().idProduct;
- var guest = 0;
-// console.log("id customer ="+idCustomer);
- 
+var guest = 0;
 if(guest !=0){
 	$("#order1").collapse('show');
 }else if(idCustomer!= 0){
@@ -189,7 +184,6 @@ if(guest !=0){
 
  
  $("#amount").append(localStorage.getItem('cartsLength'));
-//alert(getcart.cart.associations.cart_rows.length);
  
  
     function $_GET(param) {
@@ -214,6 +208,7 @@ if(guest !=0){
 	*/
 	function step1(){
 		for (i=0 ; i<cartRow.length ; i++){
+			//Program Cek cart produk, kalo produk di cart ga ada di database, produk di cart di apus, kalo ada, lanjut
 			/*
 			var filterArray = ['id',cartRow[i].children[0].textContent];
 			var check = webService.search('products',filterArray);
