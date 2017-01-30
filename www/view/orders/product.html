@@ -102,9 +102,13 @@
 				</div>
 
 				
-				<script src="../../js/webservice.js"></script>
-
+<script src="../../js/webservice.js"></script>
  <script type="text/javascript">
+webService.initialize();
+ var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg";
+var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY";
+var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
+
  $.ajaxSetup({
 		cache: true ,
 		beforeSend: function(xhr) {
@@ -217,7 +221,7 @@
   
 
 	
-	var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
+	var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
 	var apiIdImage = product.associations.images["0"].id;
 	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
 
@@ -227,11 +231,12 @@
 	/**
 	    * select product, customer, addresse, currency, languages (default 2 indonesia), currency(default 2 IDR)
 	*/
-	
+	var idCart = localStorage.getItem('idCart');
+			console.log(idCart);
+
 	$( "#modalAddtoCart" ).click(function() {
 	$("#qtyProductCart1").prepend( $("#qtyProductCart").val());
-	
-		var idCart = localStorage.getItem('idCart');
+
 		var objectName = 'carts';	
 		if (idCart == 0){
 			objectData[1][1] = localStorage.getItem('idAddress'); 
@@ -241,7 +246,7 @@
 			objectData[1][6] = 2;
 			objectData[1][19] = idProduct;
 			objectData[1][22] = $("#qtyProductCart").val();	
-			
+			localStorage.setItem('qtyProductCart',objectData[1][22]);
 			$("#addtoCart").attr("href","orders.html?step=1");			
 			webService.create(objectName); 	
 		}
@@ -249,7 +254,7 @@
 			objectData[1][19] = idProduct;
 			objectData[1][20] = 0;
 			objectData[1][22] = $("#qtyProductCart").val();
-			
+			localStorage.setItem('qtyProductCart',objectData[1][22]);
 			$("#addtoCart").attr("href","orders.html?step=1");
 			webService.updateId(objectName,idCart);
 		}

@@ -41,7 +41,7 @@
         <!-- <div class="row text-center" id='Detailproductsname'> -->
         <!-- </div> -->
 		<div class="well well-sm">
-			<strong>Category Title</strong>
+			<strong>10 Produk</strong>
 			<div class="btn-group">
 				<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
 				</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
@@ -84,6 +84,8 @@
 		promise2.success(function(data){
 			var carts = webService.searchPromise(data);
 			var idCart = carts[carts.length-1];
+			localStorage.setItem('idCart',idCart);
+			
 			if (idCart == 'undefined'){	
 				idCart
 			}else if(idCart == 0){
@@ -116,6 +118,7 @@
 		for(var i=0;i<10;i++){
 			var promise5 = webService.readPromiseJson('products',idProducts[i]);
 			promise5.success(function(data){
+			console.log(data);
 				var Detailproductsname ='';
 				var Detailproductsnamecategori ='';
 				var apiIdProduct = data["product"]["id"];
@@ -123,17 +126,17 @@
 				var apiIdImage = data["product"]["associations"]["images"][0]["id"];
 				var div1 ='<div class="item  col-xs-6 col-md-3">';
 				var div2 ='<div class="thumbnail">';
-				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/small_default?ws_key="+key;
+				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/medium_default?ws_key="+key;
 				var imgSrc = '<img style="width:10em; height:10em;"src="'+setUrlImageProduts+'" alt="">';
-				var classCaption ='<div class="caption">'+ apiIdProduct;
-				var contentCaption ='<h4 class="group inner list-group-item-heading">Product title</h4>';
+				var classCaption ='<div class="caption">';
+				var contentCaption ='<span style="font-weight:bold" class="group inner list-group-item-heading">'+data["product"]["name"]+'</span>';
 				var contentCaptionDescription ='<p class="group inner list-group-item-text">Product description.</p>';
 				var div3 ='<div class="row">';
 				var div31 ='<div class="col-xs-12 col-md-6">';
 				var contentDiv31 ='<p class="lead">$21.000</p>';
 				var endDiv31 ='</div>';
 				var div4 ='<div class="col-xs-12 col-md-6">';
-				var contentDiv4 ='<a class="btn btn-success" href="view/orders/index.html">Beli</a>';
+				var contentDiv4 ='<a class="btn btn-success" href="view/orders/index.html?id='+apiIdProduct+'">Beli</a>';
 				var endDiv4 ='</div></div></div></div></div></div>';
 				
 				 
@@ -151,4 +154,5 @@
 		alert("The paragraph was clicked.");
 	});
 	$.ajaxSetup({ cache: true });
+	console.timeEnd(promise4);
 </script>

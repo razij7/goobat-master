@@ -99,29 +99,20 @@
 
                     <div class="box" id="order-summary">
                         <div class="box-header">
-                            <h3>Order summary</h3>
+                            <h3>Ringkasan</h3>
                         </div>
-                        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                        <!-- <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p> -->
 
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <td>Order subtotal</td>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Shipping and handling</td>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Tax</td>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total</td>
-                                        <th>$456.00</th>
-                                    </tr>
+								    <tr class="summary">
+										<td>Total:</td>
+										<td id="total_price"></td>
+										<td id="total_quantity"></td>
+										<td class="second"></td>
+										<td class="third"></td>
+									</tr>
                                 </tbody>
                             </table>
                         </div>
@@ -182,8 +173,15 @@ if(guest !=0){
 	$('#order1').load("order1.html");
 }
 
+ var cart = ['id_customer',idCustomer];		
+//var product = webService.readIdJson('products',idProduct).product;		
+ var carts = webService.search('carts', cart);		
+		
+  var idCart= carts[carts.length-1];		
+  var xmlCart = webService.readId('carts',idCart);		
+  var cartRow = $(xmlCart).children().children()[0].children[19].children[0].children;		
  
- $("#amount").append(localStorage.getItem('cartsLength'));
+ $("#amount").append(cartRow.length);
  
  
     function $_GET(param) {
@@ -245,7 +243,7 @@ if(guest !=0){
 				}else{
 					qty = "Stok Kosong";
 				}
-				var total = parseInt(product.price)*parseInt(qty1);
+				var total = parseInt(product.price);
 				var html = ""+
 				"<tr>"+
 					"<td id='imgsProduct'>"+
@@ -258,17 +256,17 @@ if(guest !=0){
 						"<br> Satuan Produk : "+product.unity+
 					"</td>"+
 					
-					"<td style='text-align: center;'>"+
+					"<td style='text-align: center;' class='quantity'>"+
 						qty+
 					"</td>"+
 					
-					"<td style='text-align: center;'>"+
+					"<td style='text-align: center;' class='price'>"+
 						"Rp. "+parseInt(product.price)+
 					"</td>"+
 					
 					"<td>"+
 						
-						"<input type='number' value='"+qty1+"' min='1' max='' class='form-control' ></input>"+
+						"<input type='number' value='' min='1' max='' class='form-control' ></input>"+
 					"</td>"+
 					
 					"<td style='text-align: center;' id='total'>"+
@@ -283,6 +281,16 @@ if(guest !=0){
 		});	
 
 		}
+		
+		var sum = 0;
+        var quantity = 0;
+        $('.price').each(function() {
+            sum += (parseInt($('.price').val(), 10)*parseInt($('.price').val(), 10));
+            quantity += parseInt($('.quantity').val(), 10);
+        });
+
+        $('#total_price').html(sum);
+        $('#total_quantity').html(quantity);
 	}
 	var step = $_GET().step;
 	
