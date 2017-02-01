@@ -245,7 +245,7 @@ if(guest !=0){
 				}
 				var total = parseInt(product.price);
 				var html = ""+
-				"<tr>"+
+				"<tr clas='rowCarts'>"+
 					"<td id='imgsProduct'>"+
 						"<img src='"+getImgProduct+"'></img>"+
 					"</td>"+
@@ -284,7 +284,7 @@ if(guest !=0){
 		
 		var sum = 0;
         var quantity = 0;
-        $('.price').each(function() {
+        $('.rowCarts').each(function() {
             sum += (parseInt($('.price').val(), 10)*parseInt($('.price').val(), 10));
             quantity += parseInt($('.quantity').val(), 10);
         });

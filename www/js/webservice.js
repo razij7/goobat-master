@@ -1,13 +1,13 @@
 
 
 var urlOngkir = 'http://pro.rajaongkir.com/api';
-var keyOngkir = "7f782820f5fded6e8b75e1374d813d3b";
+var keyOngkir = "f96a6be5226be3ba07ad5b766d0bd458";
 // var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
 // var urlapi = 'http://' + key + '@go-obat.com/markets/api/';
 
 var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg";
 var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY";
-var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
+var urlapi = 'http://'+key+'@go-obat.com/2016/api/';
 
 
 		
@@ -144,7 +144,7 @@ var webService = {
 	},
 	
 	create: function(objectName){
-		$.get( urlapi + objectName + "?schema=blank",
+		return $.get( urlapi + objectName + "?schema=blank",
 		function(tempXml) {
 			var objectCode = webService.codeReturn(objectName);
 			var objectChildren = $(tempXml).children().children()[0];
@@ -186,10 +186,7 @@ var webService = {
 				dataType: 'text',
 				data : textData,
 				async : false,
-				success: function(){
-				},
-				error: function(){
-				}
+				
 			});
 		},
 		'xml');
@@ -242,10 +239,9 @@ var webService = {
 		});
 		return result;
 	},
-	
-	readPromiseJson: function(objectName,filter){
+	readPromiseJson: function(objectName,filter,value){
 		return $.ajax({
-			url: urlapi + objectName + '/' + filter + '&output_format=JSON',
+			url: urlapi + objectName + '?filter['+filter+']='+value+'&output_format=JSON',
 			type: 'get',
 			dataType: 'json'
 		});

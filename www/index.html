@@ -75,10 +75,7 @@
 	var idCustomer = localStorage.getItem('idCustomer');
 	if (idCustomer != null){
 		var promise1 = webService.readPromiseXml('countries',111);
-		promise1.success(function(data){
-			localStorage.setItem('countries',$(data)["0"].children["0"].children["0"].children["11"].children["0"].textContent);
-			localStorage.setItem('idCountries',$(data)["0"].children["0"].children["0"].children["0"].textContent);
-		});
+		 
 		var filterArray1 = ['id_customer',idCustomer];
 		var promise2 = webService.readPromiseXml('carts',webService.filterGenerator(filterArray1));
 		promise2.success(function(data){
