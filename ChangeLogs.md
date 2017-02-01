@@ -167,3 +167,7 @@
 
 ## 1/23/2017
 ### nyimpen data customer di localStorage
+
+## 1/2/2017
+## Registrasi
+ -- keyDown event
