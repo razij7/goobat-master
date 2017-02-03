@@ -109,11 +109,11 @@
 	}
 	
 	var filterArray2 = ['active',1];	
-	var promise4 = webService.readPromiseXml('products',webService.filterGenerator(filterArray2));
+	var promise4 = webService.filterPromiseJson('products','active',1);
 	promise4.success(function(data){
-	var idProducts = webService.searchPromise(data);
-		for(var i=0;i<10;i++){
-			var promise5 = webService.readPromiseJson('products',idProducts[i]);
+		for(var i=0;i<10;i++){	
+		idProducts = $(data)["0"].products[""+i+""].id;
+			var promise5 = webService.readPromiseJson('products',idProducts);
 			promise5.success(function(data){
 			console.log(data);
 				var Detailproductsname ='';

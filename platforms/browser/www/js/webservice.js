@@ -239,13 +239,21 @@ var webService = {
 		});
 		return result;
 	},
-	readPromiseJson: function(objectName,filter,value){
+	readPromiseJson: function(objectName,filter){
+		return $.ajax({
+			url: urlapi + objectName + '/' + filter + '&output_format=JSON',
+			type: 'get',
+			dataType: 'json'
+		});
+	},
+	filterPromiseJson: function(objectName,filter,value){
 		return $.ajax({
 			url: urlapi + objectName + '?filter['+filter+']='+value+'&output_format=JSON',
 			type: 'get',
 			dataType: 'json'
 		});
 	},
+	
 	
 	readPromiseXml: function(objectName,filter){
 		return $.ajax({
