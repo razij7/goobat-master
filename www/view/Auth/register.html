@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,8 +6,9 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> --> 
     <title>Go-Obat</title>
+
 
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +22,7 @@
     <!-- your stylesheet with modifications -->
     <link href="../../css/custom.css" rel="stylesheet">
 
-    <script type="text/javascript" src="../../js/js/respond.min.js"></script>
+    <script src="../../js/js/respond.min.js"></script>
 
     <link rel="shortcut icon" href="favicon.png">
 
@@ -50,9 +51,18 @@
 
         <div id="content">
             <div class="container">
-				
-				
-				  <div class="col-md-6">
+
+                <div class="col-md-12">
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a>
+                        </li>
+                        <li>BUAT AKUN BARU</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-6">
                     <div class="box">
                         <h1>BUAT AKUN BARU</h1>
 
@@ -62,7 +72,7 @@
                         <p style="color:red"> *Kolom wajib diisi</p>
                         <hr>
 
- <form  action="javascript:signup()">
+						<form  action="javascript:signup()" id='formRegister'>
                             <div class="form-group">
 								<label  for="gender">Gelar</label>
 								<div>
@@ -86,29 +96,32 @@
 							</div>
 							<div class="form-group">
                                 <label for="firstname">Nama Depan</label>
-                                <input type="text" class="form-control" id="firstName" required>
+                                <input type="text" class="form-control" id="firstName" name='firstName' required>
+								<label id='messages'></label>
                             </div>
+							
 							<div class="form-group">
                                 <label for="lastname">Nama Belakang</label>
-                                <input type="text" class="form-control" id="lastName" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName"required>
+								<label id='messages'></label>
                             </div>
 						
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" required>
+                                <input type="text" class="form-control" id="email"  name="email" required>
+								<label id='messages'></label>
                             </div>
                             <div class="form-group">
                                 <label for="password" >Password</label>
-                                <input type="password" class="form-control" id='password' required>
+                                <input type="password" class="form-control" id='password' name='password' required>
+								<label id='messages'></label>
                             </div>
 							
 							<div class="text-center">
 								<button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Submit</button>
                             </div>
-</form>
                     </div>
                 </div>
-
 
                 <div class="col-md-6">
                     <div class="box">
@@ -129,7 +142,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Masukan kata sandiri" required>
+                                <input type="password" class="form-control" id="sandi" placeholder="Masukan kata sandiri" required>
                             </div>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-primary"></input>
@@ -144,14 +157,18 @@
         </div>
         <!-- /#content -->
 
-
         <!-- *** COPYRIGHT ***
  _________________________________________________________ -->
         <div id="copyright">
             <div class="container">
                 <div class="col-md-6">
-                    <p class="pull-left">© 2016 PT. Nutragen Global Esana</p>
+                    <p class="pull-left">© 2015 Your name goes here.</p>
 
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="https://bootstrapious.com/e-commerce-templates">Bootstrapious.com</a>
+                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    </p>
                 </div>
             </div>
         </div>
@@ -170,27 +187,29 @@
 	
 
 
-<script type="text/javascript" src="../../js/webservice.js"></script>
-<script type="text/javascript" src="../../js/jquery.js"></script>
+<script src="../../js/webservice.js"></script>
+<script src="../../js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="../../js/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../js/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../../js/js/waypoints.min.js"></script>
-    <script type="text/javascript" src="../../js/js/modernizr.js"></script>
-    <script type="text/javascript" src="../../js/js/bootstrap-hover-dropdown.js"></script>
-    <script type="text/javascript" src="../../js/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="../../js/js/front.js"></script>
-	<script type="text/javascript" src="../../js/md5.min.js"></script>
-	<script type="text/javascript" src="../../js/form.js"></script>
-	<script type="text/javascript" src="../../js/array.js"></script>
-	<script type="text/javascript" src="../../controller/auth.js"></script>
-
+    <script src="../../js/js/bootstrap.min.js"></script>
+    <script src="../../js/js/jquery.cookie.js"></script>
+    <script src="../../js/js/waypoints.min.js"></script>
+    <script src="../../js/js/modernizr.js"></script>
+    <script src="../../js/js/bootstrap-hover-dropdown.js"></script>
+    <script src="../../js/js/owl.carousel.min.js"></script>
+    <script src="../../js/js/front.js"></script>
+	<script src="../../js/md5.min.js"></script>
+	<script src="../../js/form.js"></script>
+	<script src="../../js/array.js"></script>
+	<script src="../../controller/auth.js"></script>
+	
+<script src="../../js/js/bootstrapValidator.min.js"></script>
+<script src="../../js/js/bootstrapValidator.js"></script>
+	
 </body>
 
 </html>
-
 <script type="text/javascript">
 	webService.initialize();
 	
@@ -225,7 +244,7 @@
 		if(keycode == '13'){
 			alert('You pressed a "enter" key in textbox');
 			value = $(this).val();
-			promise5 = webService.filterPromiseJson('customers','email',value);
+			promise5 = webService.filterPromiseJson ('customers','email',value);
 			promise5.success(function(data, statusText, err){
 				console.log($(data).length);
 				if ($(data).length > 0){
@@ -312,5 +331,123 @@
 			}
 
 	}
+	
+	
+    $('#formRegister').bootstrapValidator({
+        
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            firstName: {
+                validators: {
+                    stringLength: {
+                        min: 1,
+						max: 32,
+						message: 'minimal 1 maksimal 32'
+                    },
+                        notEmpty: {
+                        message: 'Nama depan harus di isi'
+                    }
+                }
+            },
+             lastName: {
+                validators: {
+                     stringLength: {
+                        min: 1,
+						max: 32,
+						message: 'minimal 1 maksimal 32'
+                    },
+                    notEmpty: {
+                        message: 'Nama belakang harus di isi'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Email harus di isi'
+                    },
+                    emailAddress: {
+                        message: 'Email salah'
+                    },
+					callback: {
+						message: 'Email sudah digunakan',
+                            callback: function(value) {
+							promise5 = webService.filterDisplayPromiseJson ('customers','email',value);
+							 promise5.success(function(data, statusText, err){
+							
+								if(data == 0){
+									return true;
+								}else{
+								//console.log(data.customers["0"].email);
+									var email111 = $(data)["0"].customers["0"].email;
+								}
+							
+								return 0;
+							});
+							
+							
+                                if (value == 1) {
+								
+                                    return false;
+                                }
+								
+                                return true;
+                            }
+                        }
+                }
+            },
+			password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Password harus di isi'
+                    },
+					stringLength: {
+                        min: 6,
+						max: 200,
+						message: 'minimal 6 maksimal 200'
+                    },
+                }
+            },
+           
+            comment: {
+                validators: {
+                      stringLength: {
+                        min: 10,
+                        max: 200,
+                        message:'Panjang karakter antara 1 sampai 200'
+                    },
+                    notEmpty: {
+                        message: 'Kolom harus di isi'
+                    }
+                    }
+                }
+            }
+        })
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#formRegister').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+		
+$( "button" ).click(function() {
+
+});
 	$.ajaxSetup({ cache: true });
 </script>

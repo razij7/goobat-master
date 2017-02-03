@@ -253,6 +253,13 @@ var webService = {
 			dataType: 'json'
 		});
 	},
+	filterDisplayPromiseJson: function(objectName,filter,value){
+		return $.ajax({
+			url: urlapi + objectName + '?display=['+filter+']&filter['+filter+']='+value+'&output_format=JSON',
+			type: 'get',
+			dataType: 'json'
+		});
+	},
 	
 	
 	readPromiseXml: function(objectName,filter){
