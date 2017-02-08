@@ -50,6 +50,65 @@
 
         <div id="content">
             <div class="container">
+				
+				
+				  <div class="col-md-6">
+                    <div class="box">
+                        <h1>BUAT AKUN BARU</h1>
+
+
+
+                        <p class="lead">Informasi Pribadi Anda</p>
+                        <p style="color:red"> *Kolom wajib diisi</p>
+                        <hr>
+
+ <form  action="javascript:signup()">
+                            <div class="form-group">
+								<label  for="gender">Gelar</label>
+								<div>
+									<label class="radio-inline" for="gender-0">
+										<input type="radio" name="gender" id="gender-0" value="1" checked="checked">
+										Mr.
+									</label> 
+									<label class="radio-inline" for="gender-1">
+										<input type="radio" name="gender" id="gender-1" value="2">
+										Mrs.
+									</label> 
+									<label class="radio-inline" for="gender-2">
+										<input type="radio" name="gender" id="gender-2" value="3">
+										Saudara
+									</label> 
+									<label class="radio-inline" for="gender-3">
+										<input type="radio" name="gender" id="gender-3" value="4">
+										Saudari
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+                                <label for="firstname">Nama Depan</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+							<div class="form-group">
+                                <label for="lastname">Nama Belakang</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+						
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" >Password</label>
+                                <input type="password" class="form-control" id='password' required>
+                            </div>
+							
+							<div class="text-center">
+								<button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Submit</button>
+                            </div>
+</form>
+                    </div>
+                </div>
+
 
                 <div class="col-md-6">
                     <div class="box">
