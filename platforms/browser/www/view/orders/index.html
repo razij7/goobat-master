@@ -1,125 +1,142 @@
-<!DOCTYPE html>
-<html>
-<head>
+
+<html lang="en">
+  <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+
     <title>Go-Obat</title>
 
-    <link href="../../css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/animate.min.css" rel="stylesheet">
-    <link href="../../css/owl.carousel.css" rel="stylesheet">
-    <link href="../../css/owl.theme.css" rel="stylesheet">
+    <link href="../../css/jasny-bootstrap.min.css" rel="stylesheet">
 
-    <!-- theme stylesheet -->
-    <link href="../../css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
-    <!-- your stylesheet with modifications -->
-    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../css/navmenu-reveal.css" rel="stylesheet">
+      <!-- your stylesheet with modifications -->
+   <link href="../../css/custom.css" rel="stylesheet">
 
     <script src="../../js/js/respond.min.js"></script>
+    
+  </head>
 
-    <link rel="shortcut icon" href="favicon.png">
+  <body>
+   
 
+    <div class="canvas">
+	
+	<div class='all'>
 
-
-</head>
-
-<body>
-    <!-- *** TOPBAR ***
- _________________________________________________________ -->
-    <div id="top">
-        <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="../../index.html" class="glyphicon glyphicon-chevron-left" > Kembali ke Beranda</a>
-            </div>
-           
-        </div>
-
-
-    </div>
-
-
-    <div id="all">
-		 <div id="content">
-			<div class="container">
-				<div class="col-md-9">
-					<div id="product">
-					</div>
-					<div class="box" id="details">
-					<p>
-						<h4 ><b>Informasi lebih lanjut</b></h4>
-						<div class="description"></div>
-						
-
-						<blockquote>
-							<p><em> Tanya jawab apotek</em>
-							</p>
-						</blockquote>
-
-						<hr>
-						<div class="social">
-							<h4>Show it to your friends</h4>
-							<p>
-								<a href="https://www.facebook.com/muhamadbagussantoso" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-								<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-							</p>
-						</div>
-				</div>
-				
-
-			</div>
-				</div>
-				
-			</div>
-		</div>
+      <div class="navbar navbar-default navbar-fixed-top">
+        <a type="button" class="navbar-toggle glyphicon glyphicon-arrow-left"  style="border:none;font-size: 3em;"  href="javascript:history.back()">
+        
+        </a>
 		
+				
+      </div>
+			
+
+			<div class="well-sm" id='product'>
+								
+			</div>
+			<div id='contentsliderpromo3'>
+			
+			</div>
+			<p>
+			<p>
+			<div class="well well-sm">
+				<strong>Produk terbaru</strong>
+				<div class="btn-group">
+					<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+					</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+						class="glyphicon glyphicon-th"></span>Grid</a>
+				</div>
+			</div>
+			<div id="Detailproductsname" class="row list-group">
+			</div>
+		
+	</div><!-- /.container -->
     </div>
 
+   <div id="footer">
+  <div class="col-xs-12 navbar-default navbar-fixed-bottom">
+  <div class="row" id="bottomNav">
+    <div class="col-xs-3 text-center "><a href="#" id='home'><i class="glyphicon glyphicon-home navbarButton" style="font-size: 2em;"></i></a></div>
+    <div class="col-xs-3 text-center "><a href="#"><i class="glyphicon glyphicon-shopping-cart navbarButton" style="font-size: 2em;"></i></a></div>
+    <div class="col-xs-3 text-center "><a href="#"><i class="glyphicon glyphicon-tasks navbarButton" style="font-size: 2em;"></i></a></div>
+    <div class="col-xs-3 text-center "><a href="#" id='login'><i class="glyphicon glyphicon-user navbarButton" style="font-size: 2em;"></i></a></div>
+  </div>
+
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
 	<script src="../../js/webservice.js"></script>
-	
-	<script src="../../controller/auth.js"></script>
-	<script src="../../js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../../js/bootstrap.min.js"></script>
 	<script src="../../js/js/jquery-1.11.0.min.js"></script>
-    <script src="../../js/js/bootstrap.min.js"></script>
-    <script src="../../js/js/jquery.cookie.js"></script>
-    <script src="../../js/js/waypoints.min.js"></script>
-    <script src="../../js/js/modernizr.js"></script>
-    <script src="../../js/js/bootstrap-hover-dropdown.js"></script>
-    <script src="../../js/js/owl.carousel.min.js"></script>
-    <script src="../../js/js/front.js"></script>
-	<script src="../../js/md5.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jasny-bootstrap.min.js"></script>
+    <script src="../../js/jssor.slider-22.1.9.mini.js" type="text/javascript"></script>
+	
 	<script src="../../js/form.js"></script>
 	<script src="../../js/array.js"></script>
+	<script src="../../js/jquery.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../js/md5.min.js"></script>
 
-</body>
-
+  </body>
 </html>
+<style>
+.navbarButton:link {
+    color: green;
+}
+
+/* visited link */
+.navbarButton:visited {
+    color: green;
+}
+
+/* mouse over link */
+.navbarButton:hover {
+    color: #22a488;
+}
+
+.navbarButton {
+    color: #ffd966;
+}
+
+
+</style>
 <script type="text/javascript">
-var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
-	$.ajaxSetup({
-		cache: true ,
-		beforeSend: function(xhr) {
-		   xhr.setRequestHeader('Authorization', ("Basic "
-                        .concat(btoa(key))));
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
-			
-			<!-- xhr.setRequestHeader('Authorization', '...'); -->
-		},
-	});
+    $_GET('id','id_supplier','idCustomer');
+
+    function $_GET(param) {
+        var vars = {};
+
+        window.location.href.replace( location.hash, '' ).replace( 
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+			function( m, key, value ) { // callback
+				vars[key] = value !== undefined ? value : '';
+			}
+		);
+
+		if ( param ) {
+			return vars[param] ? vars[param] : null;	
+		}
+		
+		return vars;
+	}
 	
+	/**
+	    * Declare @vars to $var
+	*/
+    
+	var idProduct = $_GET().id;
+    var idSupplier = $_GET().id_supplier;
+    
 	$('#product').load("product.html");
-	
-	$.ajaxSetup({ cache: true });
 </script>

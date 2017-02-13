@@ -1,7 +1,7 @@
 				<div class="row" id="productMain">
 					<div class="col-sm-6">
-						<div id="mainImage">
-							<img alt="" class="img-responsive imgProduct">
+						<div id="mainImage" style="text-align: center">
+							<img alt="" align="middle" class="imgProduct" style="width:50%;>
 						</div>
 
 						<div class="ribbon sale">
@@ -63,7 +63,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<img  alt="" class="img-responsive imgProduct"><p></p>
+								<img  alt="" class="imgProduct" ><p></p>
 								<h4 class="modal-title productName" id="productName"></h4>
 							</div>
 							<div class="modal-body">
@@ -105,21 +105,21 @@
 <script src="../../js/webservice.js"></script>
  <script type="text/javascript">
 webService.initialize();
- var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg";
-var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY";
-var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
+ <!-- var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg"; -->
+<!-- var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY"; -->
+<!-- var urlapi = 'http://' + key + '@go-obat.com/2016/api/'; -->
 
- $.ajaxSetup({
-		cache: true ,
-		beforeSend: function(xhr) {
-		   xhr.setRequestHeader('Authorization', ("Basic "
-                        .concat(btoa(key))));
-                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST");
+ <!-- $.ajaxSetup({ -->
+		<!-- cache: true , -->
+		<!-- beforeSend: function(xhr) { -->
+		   <!-- xhr.setRequestHeader('Authorization', ("Basic " -->
+                        <!-- .concat(btoa(key)))); -->
+                    <!-- xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); -->
+					<!-- xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST"); -->
 			
-			<!-- xhr.setRequestHeader('Authorization', '...'); -->
-		},
-	});
+			<!-- <!-- xhr.setRequestHeader('Authorization', '...'); --> -->
+		<!-- }, -->
+	<!-- }); -->
  
 	 /**
 		* get parameter product
@@ -128,33 +128,8 @@ var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
 		* @return vars
 	*/
 	
-    $_GET('id','id_supplier','idCustomer');
 
-    function $_GET(param) {
-        var vars = {};
-
-        window.location.href.replace( location.hash, '' ).replace( 
-            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-			function( m, key, value ) { // callback
-				vars[key] = value !== undefined ? value : '';
-			}
-		);
-
-		if ( param ) {
-			return vars[param] ? vars[param] : null;	
-		}
-		
-		return vars;
-	}
-	
-	/**
-	    * Declare @vars to $var
-	*/
-    
-	var idProduct = $_GET().id;
-    var idSupplier = $_GET().id_supplier;
-    
-	
+	console.log(idProduct);
     /**
 	    * Create var product to get details product with @param $id 
 	    * @param vars 
@@ -166,6 +141,7 @@ var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
 		* declared value id stock int $idStock
 	*/
 	var product = webService.readIdJson('products',idProduct).product;
+	console.log(product);
 	var idStock = product.associations.stock_availables["0"].id;
 	
 	/**
