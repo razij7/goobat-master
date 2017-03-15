@@ -249,7 +249,7 @@ var webService = {
 	},
 	filterPromiseJson: function(objectName,filter,value){
 		return $.ajax({
-			url: urlapi + objectName + '?filter['+filter+']='+value+'&sort=[id_DESC]&output_format=JSON',
+			url: urlapi + objectName + '?filter['+filter+']='+value+'&sort=[name_ASC]&output_format=JSON',
 			type: 'get',
 			dataType: 'json'
 		});

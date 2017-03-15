@@ -5,121 +5,71 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
-    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> --> -->
+
     <title>Go-Obat</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/jasny-bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/navmenu-reveal.css" rel="stylesheet">
-      <!-- your stylesheet with modifications -->
-   <link href="css/custom.css" rel="stylesheet">
-
-    <script src="js/js/respond.min.js"></script>
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="dist/js/jquery.min.js"></script>
+    
   </head>
 
   <body>
    
-		<div class="navmenu navmenu-default navmenu-fixed-left">
-		<a class="navmenu-brand" href="#">Brand</a>
-			<div class="col-sm-3 col-md-3">
-				<div class="nav navmenu-nav">
-					<a href="#SoftPc" class="" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-						<i class="fa fa-folder-o"></i> Программы для PC <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div>
-					</a>
-					<div class="collapse" id="SoftPc">
-						<div class="woll">
-							<div class="">
-								<a href="/soft/cd-dvd" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> CD/DVD диски</a>
-								<a href="/soft/audio-video" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Аудио/Видео</a>
-								<a href="/soft/security" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Безопасность</a>
-								<a href="/soft/internet" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Интернет</a>
-								<a href="/soft/system" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Система</a>
-								<a href="/soft/office" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Офис</a>
-							</div>
-						</div>
-					</div>
-            </div>
-        </div>
-       </div>
-    <div class="canvas">
-	
-	<div class='all'>
 
-      <div class="navbar navbar-default navbar-fixed-top">
-        <button type="button" class="navbar-toggle" style="border:none;" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-		
-				
-      </div>
-			<div id='contentslider'>
-			
-			</div>
-			<p>
-			<div class="well well-sm">
-				<strong>PRODUK TERFAVORIT</strong>
-				<strong align='center'>LIHAT SEMUA</strong>
-				
-			</div>
-			<div id='contentsliderpromo'>
-			
-			</div>
-			<p>
-
-			<div class="well well-sm">
-				<strong>PRODUK PROMO</strong>
-				<strong align='center'>LIHAT SEMUA</strong>
-				
-			</div>
-			<div id='contentsliderpromo3'>
-			
-			</div>
-			<p>
-			<p>
-			<div class="well well-sm">
-				<strong>Produk terbaru</strong>
-				<div class="btn-group">
-					<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-					</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-						class="glyphicon glyphicon-th"></span>Grid</a>
-				</div>
-			</div>
-			<div id="Detailproductsname" class="row list-group">
-			</div>
-		
-	</div><!-- /.container -->
-    </div>
-
-
-<div id="footer">
-		<div class="navbar navbar-default navbar-fixed-bottom">
-			<div class="panel panel-default">
-				<div class="panel-body col-xs-3 text-center"><center><a href="#" id='home'><i class="glyphicon glyphicon-home navbarButton text-center" style="border:none;font-size: 2em; "></i></a><br><span>Beranda</span></center></div>
-				<div class="panel-body col-xs-3 text-center"><center><a href="#"><i class="glyphicon glyphicon-shopping-cart navbarButton text-center" style="border:none;font-size: 2em;"></i></a><br><span>Keranjang</span></center></div>
-				<div class="panel-body col-xs-3 text-center"><center><a href="#"><i class="glyphicon glyphicon-tasks navbarButton text-center" style="border:none;font-size: 2em;"></i></a><br><span>Transaksi</span></center></div>
-				<div class="panel-body col-xs-3 text-center"><center><a href="#" id='login'><i class="glyphicon glyphicon-user navbarButton text-center" style="border:none;font-size: 2em;"></i></a><br><span>Profil</span></center></div>
-			</div>
-
+    <div data-role="page" id="beranda" data-url="demo-page">
+    <div data-role="header" data-position="fixed" >
+		<div class="ui-grid-b" style="height:2.5em">
+			<div class="ui-block-a"><a href="#left-panel" > <img src="img/ic_menu_black_24px.svg" class="ui-icon-nodisc" style="height:2.5em"> </img></a></div>
+			<div class="ui-block-b"><img  src="logo.png" class="ui-icon-nodisc" style="height:2.5em"></img></div>
+			<div class="ui-block-c"><a href="#right-panel" > <img  src="img/ic_search_black_24px.svg" class="ui-icon-nodisc" style="height:2.5em"  align="right"></img></a></div>
 		</div>
+    </div><!-- /header -->
+	
+    <div data-role="content" id='contentPageOne'>
+        <dl>
+            <dt>Swipe <span>verb</span></dt>
+            <dd><b>1.</b> to strike or move with a sweeping motion</dd>
+        </dl>
+        <a href="#detailProduct" >Back to demo intro</a>
+    </div><!-- /content -->
+    <div data-role="panel" id="left-panel" data-theme="c">
+        <p>Left reveal panel.</p>
+        <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+    </div><!-- /panel -->
+    <div data-role="panel" id="right-panel" data-display="push" data-position="right" data-theme="c">
+        <p>Right push panel.</p>
+        <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+    </div><!-- /panel -->
+	
+	 <div data-role="footer" data-id="foo1" data-position="fixed">
+		<div class="ui-grid-c" style="height:3em">
+			<div class="ui-block-a"><center><a href="#left-panel" > <img src="img/ic_home_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-b"><center><a href="#left-panel" > <img src="img/ic_add_shopping_cart_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-c"><center><a href="#left-panel" > <img src="img/ic_chat_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-d"><center><a href="#left-panel" > <img src="img/ic_person_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			
+		</div>
+	</div><!-- /footer -->
+
 	</div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+ 
+<div data-role="page" id="detailProduct">
+  <div data-role="header">
+    <h1>Header Text detail produk</h1>
+
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Page Two</p>
+    <a href="#pageone">Go Back to Page One</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div> 
 
 	<script src="js/webservice.js"></script>
 	<script src="js/js/jquery-1.11.0.min.js"></script>
@@ -130,7 +80,7 @@
 	<script src="js/form.js"></script>
 	<script src="js/array.js"></script>
 	<script src="js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
+
 	<script src="js/md5.min.js"></script>
 	<script src="controller/auth.js"></script>
 
@@ -154,7 +104,54 @@
 .navbarButton {
     color: #ffd966;
 }
+.list-group.panel > .list-group-item {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px
+}
+.list-group-submenu {
+  margin-left:20px;
+}
+html, body {
+  height: 100%;
+}
 
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+.navmenu {
+  z-index: 2;
+}
+
+.canvas {
+  position: relative;
+  left: 0;
+  z-index: 2;
+  min-height: 100%;
+  padding: 50px 0 0 0;
+  background: #fff;
+}
+
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+  .canvas {
+    padding: 0;
+  }
+}
 
 </style>
 <script type="text/javascript">
@@ -299,16 +296,31 @@ $(".navbarButton").hover(function(){
 				 
 				 alls = div1+div2+imgSrc+classCaption+contentCaption+contentCaptionDescription+div3+div31+contentDiv31+endDiv31+div4+contentDiv4+endDiv4;
 
-				$("#Detailproductsname").append(alls);
+				$("#contentPageOne").append(alls);
 				//$('#categories').append(Detailproductsnamecategori);
 			});
 		}	
 	});
 	
 	var filterArray2 = ['active',1];	
-	var categories = webService.filterPromiseJson('categories','active',1);
+	var categories = webService.filterPromiseJson('categories','level_depth',2);
 	categories.success(function(data){
-		//console.log($(data)["0"].categories.length);
+		
+		
+		for(i=0; i<$(data)["0"].categories.length;i++){
+			<!-- console.log($(data)["0"].categories[""+i+""].id); -->
+			id = $(data)["0"].categories[""+i+""].id;
+			<!-- console.log(id); -->
+			
+			var categoriesGet = webService.readIdJson('categories',id).category;
+			console.log(categoriesGet.name);
+			$("#categories").append('<a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">'+categoriesGet.name +'</a>');
+			
+			<!--  -->
+					<!-- <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Kategori</a> -->
+					
+		}
+		
 	});
 	
    $('#contentslider').load("view/templates/sliderProduct.html");
@@ -324,5 +336,18 @@ $(".navbarButton").hover(function(){
 	console.timeEnd(promise4);
 		
            
-    
+ $( document ).on( "pageinit", "#demo-page", function() {
+    $( document ).on( "swipeleft swiperight", "#demo-page", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft"  ) {
+                $( "#right-panel" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                $( "#left-panel" ).panel( "open" );
+            }
+        }
+    });
+});
     </script>
