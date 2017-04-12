@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,74 +7,19 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
     <title>Go-Obat</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/jasny-bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../css/navmenu-reveal.css" rel="stylesheet">
-      <!-- your stylesheet with modifications -->
-   <link href="../../css/custom.css" rel="stylesheet">
-
-    <script src="../../js/js/respond.min.js"></script>
-    
-  </head>
-
-  <body>
+	    <link href="../../css/custom.css" rel="stylesheet">
+</head>
+<body>
    
-
-    <div class="canvas">
-	
-	<div class='all'>
-
-      <div class="navbar navbar-default navbar-fixed-top">
-        <a type="button" class="navbar-toggle glyphicon glyphicon-arrow-left"  style="border:none;font-size: 3em;"  href="javascript:history.back()">
-        
-        </a>
-		
-				
-      </div>
-			
-
-			<div class="well-sm" id='product'>
-								
-			</div>
-			<div id='contentsliderpromo3'>
-			
-			</div>
-			<p>
-			<p>
-			<div class="well well-sm">
-				<strong>Produk terbaru</strong>
-				<div class="btn-group">
-					<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-					</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-						class="glyphicon glyphicon-th"></span>Grid</a>
-				</div>
-			</div>
-			<div id="Detailproductsname" class="row list-group">
-			</div>
-		
-	</div><!-- /.container -->
-    </div>
-
-   <div id="footer">
-  <div class="col-xs-12 navbar-default navbar-fixed-bottom">
-  <div class="row" id="bottomNav">
-    <div class="col-xs-3 text-center "><a href="#" id='home'><i class="glyphicon glyphicon-home navbarButton" style="font-size: 2em;"></i></a></div>
-    <div class="col-xs-3 text-center "><a href="#"><i class="glyphicon glyphicon-shopping-cart navbarButton" style="font-size: 2em;"></i></a></div>
-    <div class="col-xs-3 text-center "><a href="#"><i class="glyphicon glyphicon-tasks navbarButton" style="font-size: 2em;"></i></a></div>
-    <div class="col-xs-3 text-center "><a href="#" id='login'><i class="glyphicon glyphicon-user navbarButton" style="font-size: 2em;"></i></a></div>
-  </div>
-
-  </div>
+<div class="navbar-fixed-bottom">
+	<div class="parent">
+		<img src="../../img/ic_home_black_24px.svg" > </img>
+	</div> <div class="parent">
+		a
+	</div> <div class="parent">
+	a
+	</div>
 </div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
 
 	<script src="../../js/webservice.js"></script>
 	<script src="../../js/js/jquery-1.11.0.min.js"></script>
@@ -85,32 +30,14 @@
 	<script src="../../js/form.js"></script>
 	<script src="../../js/array.js"></script>
 	<script src="../../js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
+
 	<script src="../../js/md5.min.js"></script>
+	<script src="../../controller/auth.js"></script>
 
   </body>
 </html>
-<style>
-.navbarButton:link {
-    color: green;
-}
-
-/* visited link */
-.navbarButton:visited {
-    color: green;
-}
-
-/* mouse over link */
-.navbarButton:hover {
-    color: #22a488;
-}
-
-.navbarButton {
-    color: #ffd966;
-}
 
 
-</style>
 <script type="text/javascript">
     $_GET('id','id_supplier','idCustomer');
 
@@ -138,5 +65,5 @@
 	var idProduct = $_GET().id;
     var idSupplier = $_GET().id_supplier;
     
-	$('#product').load("product.html");
+	$('.product-container').load("product.html");
 </script>

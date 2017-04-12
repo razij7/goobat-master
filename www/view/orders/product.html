@@ -1,126 +1,73 @@
-				<div class="row" id="productMain">
-					<div class="col-sm-6">
-						<div id="mainImage" style="text-align: center">
-							<img alt="" align="middle" class="imgProduct" style="width:50%;>
-						</div>
+<style>
 
-						<div class="ribbon sale">
-							<div class="theribbon">SALE</div>
-							<div class="ribbon-background"></div>
-						</div>
-						<!-- /.ribbon -->
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+			 border-top-right-radius: 1em;
+      background: white;
+		}
+		ul.tabs li{
+			background: #999999;
+			color: #111111;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
 
-						<div class="ribbon new">
-							<div class="theribbon">NEW</div>
-							<div class="ribbon-background"></div>
-						</div>
-						<!-- /.ribbon -->
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
 
-					</div>
-					<div class="col-sm-6">
-						<div class="box">
-							<p></p>
-							<div>
-								<span class="productName"></span>
-							</div>
-							<div id="productReference">
-								<div>  <span>Kode SKU : </span>
-								<span id="reference"></span> </div>
-								
-							</div>
-							<div>
-								<span > Deskripsi Singkat</span>
-								<span id='description_short'></span>
-							</div>
-							
-							<div>
-								<div><span>Stok Tersedia : </span>
-								<span id='quantity'></span></div>
-							</div>
-							<div><span>Jumlah Qty Barang : </span>
-								<input type="number" value="1" class="form-control" id="qtyProductCart">
-								
-							</div>
-							<div class="price">
-							
-								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
-								<link itemprop="availability" href="https://schema.org/InStock">
-								<span id="our_price_display" class="price" itemprop="price" ></span>
-								<meta itemprop="priceCurrency" content="IDR"></p>
+		.tab-content{
+			display: none;
+			background: #ffffff;
+			padding: 15px;
+		}
 
-							</div>
-							<div>
-							<a href="#" class="btn btn-primary" id="modalAddtoCart" data-toggle="modal" >
-								<a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
-							</div>
-							
-					
-						</div>
-					</div>
-				<div class="modal fade" id="addtoCart-modal" tabindex="-1" role="dialog" aria-labelledby="addtoCart" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
+		.tab-content.current{
+			display: inherit;
+		}
+		.row{
+		background-color:black;
+		height:auto;
+		}
+</style>
 
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<img  alt="" class="imgProduct" ><p></p>
-								<h4 class="modal-title productName" id="productName"></h4>
-							</div>
-							<div class="modal-body">
-									<p class="text-center">
-									<div><span>Jumlah Qty Barang : </span><span id='qtyProductCart1'></span>
-									</div>
-								
-									</p>
-									<p class="text-center" id='confirm' aria-hidden="true">
-									<button class="btn btn-primary" data-dismiss="modal" ><i class="fa fa-sign-in"></i>Lanjut belanja</button>
-									<a class="btn btn-primary" id="addtoCart" ><i class="fa fa-sign-in"></i>Lanjutkan pembayaran</a>
-									</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="modal fade" id="loginPopup" tabindex="-1" role="dialog" aria-labelledby="addtoCart" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
-	
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							</div>
-							<div class="modal-body">
-									<p class="text-center">
-										<h4 class="modal-title qtr">Login</h4>
-										<iframe src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>
-									</p>
-									
-							</div>
-						</div>
-					</div>
-				</div>
+	<div class='' >
+		img
+	</div>
+<div class="product-container">
+asdsaf
+</div>	
 
-				</div>
-
-				
-<script src="../../js/webservice.js"></script>
- <script type="text/javascript">
-webService.initialize();
- <!-- var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg"; -->
-<!-- var key = "S9YJQ4ZVKBK7CZM5C8EM1YQ2QH87Z5IY"; -->
-<!-- var urlapi = 'http://' + key + '@go-obat.com/2016/api/'; -->
-
- <!-- $.ajaxSetup({ -->
-		<!-- cache: true , -->
-		<!-- beforeSend: function(xhr) { -->
-		   <!-- xhr.setRequestHeader('Authorization', ("Basic " -->
-                        <!-- .concat(btoa(key)))); -->
-                    <!-- xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); -->
-					<!-- xhr.setRequestHeader("Allow", "GET, HEAD, PUT, DELETE, POST"); -->
+	<div class="product-container-detail">
+	<!-- Tabs Button -->
+		<ul class="tabs">
+			<li class="tab-link current" data-tab="description">Tab One</li>
+			<li class="tab-link" data-tab="tab-2">Tab Two</li>
+			<li class="tab-link" data-tab="tab-3">Tab Three</li>
+		</ul>
+		
+	<!-- Tabs Content -->
+		<div id="description" class="tab-content current" >
 			
-			<!-- <!-- xhr.setRequestHeader('Authorization', '...'); --> -->
-		<!-- }, -->
-	<!-- }); -->
- 
+		</div>
+		<div id="tab-2" class="tab-content">
+			 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div id="tab-3" class="tab-content">
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+		</div>
+		
+
+	</div><!-- container -->
+
+<script src="../../js/webservice.js"></script>
+
+ <script type="text/javascript">
+	webService.initialize();
 	 /**
 		* get parameter product
 	    *
@@ -183,12 +130,22 @@ webService.initialize();
 		* Get id TagHTML example : <id="productName"> to javascript #productName
 		* Get class TagHTML example : <class="productName"> to javascript .productName
 	*/
-	
-	$(".productName").prepend(product.name);
+	var bilangan = parseInt(product.price);
+					
+				var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+						
+				if (ribuan) {
+					separator = sisa ? '.' : '';
+					rupiah += separator + ribuan.join('.');
+				}
+	$("#productName").prepend(product.name);
 	$("#idCustomer").prepend(idCustomer);
-	$(".description").prepend(product.description);
+	$("#description").prepend(product.description);
 	$("#stock").prepend( qty )
-	$("#our_price_display").prepend( product.price);
+	$("#our_price_display").prepend( rupiah);
 	
 	$("#description_short").prepend( product.description_short);
 	
@@ -197,11 +154,8 @@ webService.initialize();
   
 
 	
-	var urlapi = 'http://' + key + '@go-obat.com/2016/api/';
-	var apiIdImage = product.associations.images["0"].id;
-	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
-
-	$(".imgProduct").attr("src",loadImg);
+	
+	//$(".imgProduct").attr("src",loadImg);
 	$("#our_price_display").attr("content",product.price);
 
 	/**
@@ -236,5 +190,15 @@ webService.initialize();
 		}
 
 	});
+	
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
 
  </script>
