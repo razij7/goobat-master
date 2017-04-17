@@ -79,7 +79,6 @@
 	}
 	.container-products{
 		background:#333333;	
-		padding-top:5px;
 		width:25%;
 		float:left;
 		position:relative;
@@ -91,7 +90,6 @@
 	
 	.container-products{
 		background:#333333;
-		padding-top:5px;
 		width:33.33333333%;
 		float:left;
 		position:relative;
@@ -111,7 +109,6 @@
 @media (max-width:768px){
 	.container-products{
 		background:#333333;
-		padding-top:5px;
 		width:50%;
 		float:left;
 		position:relative;
