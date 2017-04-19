@@ -1,3 +1,23 @@
+.panel-panel-header{
+
+    width: auto;
+    height: 3em;
+    overflow: scroll;	
+	background-color:red;
+}.panel-categories{
+
+    width: auto;
+    height: 100%;
+    overflow: scroll;	
+	background-color:red;
+}
+#icon-menu-left{
+	height:2.8em;
+	padding-left:0.5em;
+	display: block;
+	vertical-align: middle;
+}
+
 div#left-panel {
     position: fixed;
 }
