@@ -1,3 +1,10 @@
+div#left-panel {
+    position: fixed;
+}
+a.list-group-item:hover {
+    background-color: #00b159;
+	color:#ffffff;
+}
 .container-body{
     background-color:white;
     position:relative;

@@ -145,17 +145,16 @@ color: inherit;
 			<div>
 				Semua Kategori
 			</div>
-			<div class="list-group">
-				<div class="list-group"><a href="#SoftPc" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-folder-o"></i> Программы для PC <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>
-				<div class="collapse" id="SoftPc">
-					<div class="woll">
-						<div class="list-group ssilka">
-							<a href="/soft/cd-dvd" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> CD/DVD диски</a>
-							<a href="/soft/audio-video" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Аудио/Видео</a>
-						</div>
-					</div>
-				</div>
-				</div>
+			<div class="list-group" id='categories'>
+				<!-- <div class="collapse" id="SoftPc"> -->
+					<!-- <div class="woll"> -->
+						<!-- <div class="list-group ssilka"> -->
+							<!-- <a href="/soft/cd-dvd" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> CD/DVD диски</a> -->
+							<!-- <a href="/soft/audio-video" class="list-group-item"><i class="fa fa-long-arrow-right"></i> <i class="fa fa-folder-open-o"></i> Аудио/Видео</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				
 			</div>
 		</div>
 	</div><!-- /panel -->
@@ -377,7 +376,7 @@ $(".navbarButton").hover(function(){
 			
 			var categoriesGet = webService.readIdJson('categories',id).category;
 			console.log(categoriesGet.name);
-			$("#categories").append('<a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">'+categoriesGet.name +'</a>');
+			$("#categories").append('<a href="#SoftPc" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +' <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>');
 			
 			<!--  -->
 					<!-- <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Kategori</a> -->
