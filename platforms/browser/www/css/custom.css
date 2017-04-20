@@ -1,22 +1,74 @@
+
 .panel-panel-header{
 
     width: auto;
     height: 3em;
-    overflow: scroll;	
-	background-color:red;
-}.panel-categories{
+	background-color:#ffffff;
+}
 
+.header-left-menu {
+	position:relative;
+	float: left;
+	display: flex;
+	/* Or whatever */
+	text-decoration: none;
+	
+	height: 100%;
+	vertical-align: middle;
+	background-color:#ffffff;
+	color:black;
+}
+.header-left-menu>object{
+	 display:block; 
+	 vertical-align: middle;
+	 margin: auto;
+	 font-weight: bold;
+}.header-left-menu>span{
+	 display:block; 
+	 vertical-align: middle;
+	 margin: auto;
+	 font-weight: bold;
+}
+.parent>#addTocart>span{
+	 color:#333333;
+	 display:block; 
+	 vertical-align: middle;
+	 margin: auto;
+	 font-weight: bold;
+}
+.icon-back-left-menu {
+	position:relative;
+	float: left;
+	display: flex;
+	/* Or whatever */
+	background-color: #ffffff;
+		padding-left:1em;
+	text-decoration: none;
+	width:33.33333333%;
+	height: 100%;
+	
+	vertical-align: middle;
+}
+.icon-back-left-menu>img {
+
+	width:33.33333333%;
+	height: 100%;
+	
+	vertical-align: middle;
+}.ui-block-c>img {
+
+	width:33.33333333%;
+	height: 100%;
+	
+	vertical-align: middle;
+}
+.panel-categories{
     width: auto;
     height: 100%;
     overflow: scroll;	
 	background-color:red;
 }
-#icon-menu-left{
-	height:2.8em;
-	padding-left:0.5em;
-	display: block;
-	vertical-align: middle;
-}
+
 
 div#left-panel {
     position: fixed;
@@ -74,7 +126,14 @@ a.list-group-item:hover {
    height: 3em; 
    text-align: center;
 }
-
+.navbar-fixed-top {
+   overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height:3em
+}
 .navbarBottom {
   float: left;
   display: flex;
@@ -95,8 +154,7 @@ a.list-group-item:hover {
 	text-decoration: none;
 	width:33.33333333%;
 	height: 100%;
-	
-	vertical-align: middle;
+
 }
 
 .parent>img{

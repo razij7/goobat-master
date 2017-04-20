@@ -124,15 +124,8 @@ color: inherit;
 
     <div data-role="page" id="beranda" data-url="demo-page" data-icon="gear" >
     <div data-role="header" data-position="fixed" >
-		<div class="ui-grid-b">
-			<div class="ui-block-a"><a href="#left-panel" > 
-			<object oa-reusable-svg
-						data="img/menu-button.svg"
-						type="image/svg+xml"
-					 width="30%"">
-					 </object>
-				
-			</a></div>
+		<div class="ui-grid-b" style="height:2.5em">
+			<div class="ui-block-a"><a href="#left-panel" > <img src="img/ic_menu_black_24px.svg" id="icon-menu-left"> </img></a></div>
 			<div class="ui-block-b"><img  src="logo.png" class="ui-icon-nodisc" style="height:2.5em"></img></div>
 			<div class="ui-block-c"><a href="#right-panel" > <img  src="img/ic_search_black_24px.svg" class="ui-icon-nodisc" style="height:2.5em"  align="right"></img></a></div>
 		</div>
@@ -148,13 +141,12 @@ color: inherit;
 			<div class="panel">
 				
 				<div class="panel-panel-header">
-					<div class="icon-back-left-menu">
-					<img src="img/left-arrow.svg" > </img>
-					</div>
-					<div class="header-left-menu">
 					
-					 <span>BERANDA</span>
-					</div>
+					<img src="img/left-arrow.svg"  id='icon-menu-left-back' > </img>
+					
+					<span style="float:left;z-index:3;text-align:center;vertical-align:middle">
+					 BERANDA
+					</span
 				</div>
 				<div style="color:#ffffff;padding-left:0.5em;">
 				<h6>SEMUA KATEGORRI</h6>
