@@ -84,6 +84,9 @@
 									</label>
 								</div>
 							</div>
+							 <div class="form-group" >
+								<label id='pesanReg' style="color:red"></label>
+                            </div> 
 							<div class="form-group">
                                 <label for="firstname">Nama Depan</label>
                                 <input type="text" class="form-control" id="firstName" required>
@@ -234,6 +237,40 @@
 			}
 			window.location.replace("../../index.html");
 		}
+	}
+	function signup(){
+		objectData[2][1] = 1;
+		objectData[2][2] = 2;
+		objectData[2][8] = $('#password1').val();
+		objectData[2][9] = $('#lastName').val();
+		objectData[2][10] = $('#firstName').val();
+		objectData[2][11] = $('#email').val();
+		//objectData[2][14] = $('#gender').val();
+		//objectData[2][13] = $('#DOB').val();
+		var filterArray = ['email',objectData[2][11]];
+		var idCustomer = webService.search('customers',filterArray);
+		if(idCustomer==0){
+			promise = webService.create('customers');	
+			promise.success(function(data){
+				console.log("Create Customer Success!");
+				$("#pesanReg").empty().prepend("Registrasi berhasil, mohon tunggu..");
+				
+				localStorage.setItem('idCustomer',idCustomer);
+				var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
+				promise1.success(function(data){			
+					var customer = $(data).children().children()[0].children;
+					localStorage.setItem('customerData',JSON.stringify(customer.customer));
+				});
+				if($_GET().back == 1){
+					window.history.back();	
+				}
+				window.location.replace("../../index.html");
+			});
+		}
+		else{
+			$("#pesanReg").empty().prepend("Email sudah terdaftar");
+		}
+
 	}
 
 	$.ajaxSetup({ cache: true });
