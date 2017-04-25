@@ -217,7 +217,7 @@ color: inherit;
 
 $("#home").attr("href","#");
 $("#login").attr("href","view/Auth/login.html");
-$("#detail-account").attr("href","view/account/login.html");
+$("#detail-account").attr("href","view/account/index.html");
 
 	
 $(".col-xs-3, .text-center").hover(function(){
@@ -366,7 +366,6 @@ $(".navbarButton").hover(function(){
 						+'</div>'
 					+'</div>';
 				$("#contentPageOne").append(row);
-				//$('#categories').append(Detailproductsnamecategori);
 			});
 		}	
 	});
@@ -377,18 +376,11 @@ $(".navbarButton").hover(function(){
 		
 		
 		for(i=0; i<$(data)["0"].categories.length;i++){
-			<!-- console.log($(data)["0"].categories[""+i+""].id); -->
 			id = $(data)["0"].categories[""+i+""].id;
-			<!-- console.log(id); -->
 			
 			var categoriesGet = webService.readIdJson('categories',id).category;
 			console.log(categoriesGet.name);
 			$("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>');
-			
-			<!-- $("#categories").append('<a href="view/categories/categories.html">'+categoriesGet.name +'</a>'); -->
-			<!--  -->
-					<!-- <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Kategori</a> -->
-					
 		}
 		
 	});
