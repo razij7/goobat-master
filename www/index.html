@@ -217,7 +217,7 @@ color: inherit;
 
 $("#home").attr("href","#");
 $("#login").attr("href","view/Auth/login.html");
-$("#detail-account").attr("href","view/account/index.html");
+$("#detail-account").attr("href","view/account/login.html");
 
 	
 $(".col-xs-3, .text-center").hover(function(){
@@ -383,8 +383,9 @@ $(".navbarButton").hover(function(){
 			
 			var categoriesGet = webService.readIdJson('categories',id).category;
 			console.log(categoriesGet.name);
-			$("#categories").append('<a href="#SoftPc" class="list-group-item" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +' <div style="margin-top:-2px;" class="pull-right"><i class="fa fa-sort-desc"></i></div></a>');
+			$("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>');
 			
+			<!-- $("#categories").append('<a href="view/categories/categories.html">'+categoriesGet.name +'</a>'); -->
 			<!--  -->
 					<!-- <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Kategori</a> -->
 					
