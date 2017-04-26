@@ -7,109 +7,6 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
     <title>Go-Obat</title>
-	
-<style>
-.navbarButton:link {
-    color: green;
-}
-
-/* visited link */
-.navbarButton:visited {
-    color: green;
-}
-
-/* mouse over link */
-.navbarButton:hover {
-    color: #22a488;
-}
-
-.navbarButton {
-    color: #ffd966;
-}
-.list-group.panel > .list-group-item {
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px
-}
-.list-group-submenu {
-  margin-left:20px;
-}
-html, body {
-  height: 100%;
-}
-
-.navbar-toggle {
-  float: left;
-  margin-left: 15px;
-}
-
-.navmenu {
-  z-index: 2;
-}
-
-.canvas {
-  position: relative;
-  left: 0;
-  z-index: 2;
-  min-height: 100%;
-  padding: 50px 0 0 0;
-  background: #fff;
-}
-
-@media (min-width: 0) {
-  .navbar-toggle {
-    display: block; /* force showing the toggle */
-  }
-}
-
-@media (min-width: 992px) {
-  body {
-    padding: 0;
-  }
-  .navbar {
-    right: auto;
-    background: none;
-    border: none;
-  }
-  .canvas {
-    padding: 0;
-  }
-}
-.cccc {
-    background-color: lightgray;
-    border: 1px solid black;
-    height: 100px;
-    font-weight: bold;
-    text-align: center;
-    padding: 30px;
-}
-a:link {
-text-decoration: none;
-color: inherit;
-    color: white;
-}
-
-/* visited link */
-a:visited {
-text-decoration: none;
-color: inherit;
-    color: white;
-}
-
-/* mouse over link */
-a:hover {
-text-decoration: none;
-color: inherit;
-    color: 	white;
-}
-
-/* selected link */
-a:active {
-    color: 	white;
-	text-decoration: none;
-color: inherit;
-}
-
-</style>
 
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -373,18 +270,36 @@ $(".navbarButton").hover(function(){
 	var filterArray2 = ['active',1];	
 	var categories = webService.filterPromiseJson('categories','level_depth',2);
 	categories.success(function(data){
-		
-		
-		for(i=0; i<$(data)["0"].categories.length;i++){
-			id = $(data)["0"].categories[""+i+""].id;
+		console.log(data.categories.length);
+		localStorage.setItem('categoriesLength',data.categories.length);
+		for(i=0; i<=data.categories.length;i++){
+			console.log();
+			categoriesId = data.categories[""+i+""].id;
 			
-			var categoriesGet = webService.readIdJson('categories',id).category;
-			console.log(categoriesGet.name);
-			$("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>');
+				localStorage.setItem('categoriesId_'+i,categoriesId);
+			
+			<!-- categoriesGet = webService.readIdJson('categories',id).category; -->
+			<!-- console.log(categoriesGet); -->
+			console.log(localStorage.getItem('categoriesId_'+i));
 		}
 		
+		<!-- for(i=0; i<$(data)["0"].categories.length;i++){ -->
+			<!-- id = $(data)["0"].categories[""+i+""].id; -->
+			
+			<!-- var categoriesGet = webService.readIdJson('categories',id).category; -->
+			<!-- console.log(categoriesGet.name); -->
+			<!-- $("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>'); -->
+		<!-- } -->
+		
 	});
-	
+	for(i=0; i<=localStorage.getItem('categoriesLength');i++){
+			id = localStorage.getItem('categoriesId_'+i);
+			console.log(id);
+			<!-- var categoriesGet = webService.readIdJson('categories',id).category; -->
+			<!-- console.log(categoriesGet.name); -->
+			<!-- $("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>'); -->
+		}
+	console.log("panjang"+localStorage.getItem('categoriesLength'));
    $('#contentslider').load("view/templates/sliderProduct.html");
    $('#contentsliderpromo').load("view/templates/standard.html");
    
