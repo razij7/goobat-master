@@ -19,13 +19,43 @@
     font-size: 1.5em;
 	 
 }
-.menu-navbar-fixed-top{
-	height:3em;
-	background-color:black;
+.header-navbar-col-4 {
+	position:relative;
+	float: left;
+	display: flex;
+	background-color: #F5F5DC;
+	text-decoration: none;
+	width:25%;
+	height: 3em;
+
 }
-.menu-navbar-fixed-bot{
+.header-navbar-col-4>span {
+     color:#333333;
+	 display:block; 
+	 vertical-align: middle;
+	 margin: auto;
+	 font-weight: bold;
+	 
+    font-size: 1.5em;
+	 
+}
+.menu-navbar-fixed-top{
+	z-index:1030;
 	height:3em;
 	background-color:black;
+	overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+.menu-navbar-fixed-bottom{
+	z-index:1030;
+	height:3em;
+	background-color:black;
+	overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 .container-body{
     background-color:black;
