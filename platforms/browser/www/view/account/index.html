@@ -13,6 +13,9 @@ Detail Akun
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript">
 	webService.initialize();
-	id = localStorage.getItem('idCustomer');
-	console.log(id);
+	var customerData = JSON.parse(localStorage.getItem('customerData'));
+	
+	console.log(customerData);
+	console.log('Full Name : ',customerData.firstName+' '+customerData.lastName);
+	
 </script>

@@ -219,19 +219,30 @@
 		var password = $('#password').val();	
 		var hash = md5(cookieKey+password);
 		var filterArray = ['email',username,'passwd',hash];
+		console.log("ASAD4");
 		idCustomer = webService.search('customers',filterArray);
 		if ( idCustomer[0] == 0 ){
+			console.log("ASAD3");
 			$("#pesan").empty().prepend("Kombinasi salah!");
 		}else{
+			console.log("ASAD1");
 			var filterArray = ['id_customer',idCustomer];
 			var idAddress = webService.search('addresses',filterArray);
 			localStorage.setItem('idCustomer',idCustomer);
 			localStorage.setItem('idAddress',idAddress[0]);
+			console.log("ASAD2");
 			var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
 			promise1.success(function(data){			
 				var customer = $(data).children().children()[0].children;
-				localStorage.setItem('customerData',JSON.stringify(customer.customer));
+				var customerData = { 'lastName' : customer[9].textContent,
+					'firstName' : customer[10].textContent,
+					'email' : customer[11].textContent,
+					'gender' : customer[12].textContent,
+					'DoB' : customer[13].textContent };
+					
+				localStorage.setItem('customerData',JSON.stringify(customerData));
 			});
+			
 			if($_GET().back == 1){
 				window.history.back();	
 			}
