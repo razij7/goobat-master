@@ -267,7 +267,6 @@ $(".navbarButton").hover(function(){
 		}	
 	});
 
-categoriesName = localStorage.getItem('categoriesName_1');
 	if(localStorage.getItem('categoriesLength')== null){
 		console.log('local null');
 		var filterArray2 = ['active',1];	
@@ -280,33 +279,27 @@ categoriesName = localStorage.getItem('categoriesName_1');
 				localStorage.setItem('categoriesId_'+i,categoriesId);
 				console.log(localStorage.getItem('categoriesId_'+i));
 			}
-		});
-	}else if(categoriesName==null){
-		for(i=0; i<localStorage.getItem('categoriesLength');i++){
+			for(i=0; i<localStorage.getItem('categoriesLength');i++){
 			id = localStorage.getItem('categoriesId_'+i);
 
 			var categoriesGet = webService.readIdJson('categories',id).category;
-			
 			localStorage.setItem('categoriesName_'+i,categoriesGet.name);
-			for(i=0; i<localStorage.getItem('categoriesLength');i++){
-			
 			categoriesName = localStorage.getItem('categoriesName_'+i);
-			console.log('ini sudah ada '+categoriesName);
+			console.log(categoriesName);
+			
 			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
-	
 		}
-		}
+		});
 	}else{
-	
 		for(i=0; i<localStorage.getItem('categoriesLength');i++){
-			
+
 			categoriesName = localStorage.getItem('categoriesName_'+i);
-			console.log('ini sudah ada '+categoriesName);
+			console.log(categoriesName);
+			
 			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
-	
 		}
 	}
-		
+	
 	
 		
 	console.log("panjang"+localStorage.getItem('categoriesLength')); 
