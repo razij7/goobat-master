@@ -241,8 +241,10 @@
 					'DoB' : customer[13].textContent };
 					
 				localStorage.setItem('customerData',JSON.stringify(customerData));
-			});
+				console.log(JSON.stringify(customerData));	
 			
+			});
+			console.log(JSON.parse(localStorage.getItem('customerData')));
 			if($_GET().back == 1){
 				window.history.back();	
 			}

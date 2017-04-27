@@ -19,7 +19,7 @@
   <body>
    
 
-    <div data-role="page" id="beranda" data-url="demo-page" data-icon="gear" >
+    <div data-role="page" id="beranda" data-icon="gear" >
     <div data-role="header" data-position="fixed" >
 		<div class="ui-grid-b">
 			<div class="ui-block-a"><a href="#left-panel" > 
@@ -266,40 +266,45 @@ $(".navbarButton").hover(function(){
 			});
 		}	
 	});
-	
-	var filterArray2 = ['active',1];	
-	var categories = webService.filterPromiseJson('categories','level_depth',2);
-	categories.success(function(data){
-		console.log(data.categories.length);
-		localStorage.setItem('categoriesLength',data.categories.length);
-		for(i=0; i<=data.categories.length;i++){
-			console.log();
-			categoriesId = data.categories[""+i+""].id;
-			
+
+categoriesName = localStorage.getItem('categoriesName_1');
+	if(localStorage.getItem('categoriesLength')== null){
+		console.log('local null');
+		var filterArray2 = ['active',1];	
+		var categories = webService.filterPromiseJson('categories','level_depth',2);
+		categories.success(function(data){
+			localStorage.setItem('categoriesLength',data.categories.length);
+
+			for(i=0; i<data.categories.length;i++){
+				categoriesId = data.categories[""+i+""].id;
 				localStorage.setItem('categoriesId_'+i,categoriesId);
-			
-			<!-- categoriesGet = webService.readIdJson('categories',id).category; -->
-			<!-- console.log(categoriesGet); -->
-			console.log(localStorage.getItem('categoriesId_'+i));
-		}
-		
-		<!-- for(i=0; i<$(data)["0"].categories.length;i++){ -->
-			<!-- id = $(data)["0"].categories[""+i+""].id; -->
-			
-			<!-- var categoriesGet = webService.readIdJson('categories',id).category; -->
-			<!-- console.log(categoriesGet.name); -->
-			<!-- $("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>'); -->
-		<!-- } -->
-		
-	});
-	for(i=0; i<=localStorage.getItem('categoriesLength');i++){
+				console.log(localStorage.getItem('categoriesId_'+i));
+			}
+		});
+	}else if(categoriesName==null){
+		for(i=0; i<localStorage.getItem('categoriesLength');i++){
 			id = localStorage.getItem('categoriesId_'+i);
-			console.log(id);
-			<!-- var categoriesGet = webService.readIdJson('categories',id).category; -->
-			<!-- console.log(categoriesGet.name); -->
-			<!-- $("#categories").append('<a href="view/categories/categories.html?id='+id+'" class="list-group-item" data-icon="gear" data-transition="slide"><i class="fa fa-folder-o"> </i>'+categoriesGet.name +'</a>'); -->
+
+			var categoriesGet = webService.readIdJson('categories',id).category;
+			
+			localStorage.setItem('categoriesName_'+i,categoriesGet.name);
+			console.log('ini kosong terus di isi '+localStorage.getItem('categoriesName_'+i));
+			$("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 		}
-	console.log("panjang"+localStorage.getItem('categoriesLength'));
+	}else{
+	
+		for(i=0; i<localStorage.getItem('categoriesLength');i++){
+			
+			categoriesName = localStorage.getItem('categoriesName_'+i);
+			console.log('ini sudah ada '+categoriesName);
+			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+	
+		}
+	}
+		
+	
+		
+	console.log("panjang"+localStorage.getItem('categoriesLength')); 
    $('#contentslider').load("view/templates/sliderProduct.html");
    $('#contentsliderpromo').load("view/templates/standard.html");
    
@@ -313,7 +318,7 @@ $(".navbarButton").hover(function(){
 	console.timeEnd(promise4);
 		
            
- $( document ).on( "pageinit", "#demo-page", function() {
+
     $( document ).on( "swipeleft swiperight", "#demo-page", function( e ) {
         // We check if there is no open panel on the page because otherwise
         // a swipe to close the left panel would also open the right panel (and v.v.).
@@ -334,5 +339,5 @@ $(".navbarButton").hover(function(){
     // Open Le current menu
     $("#left ul.nav li.parent.active > a > span.sign").find('i:first').addClass("icon-minus");
     $("#left ul.nav li.current").parents('ul.children').addClass("in");
-});
+
     </script>
