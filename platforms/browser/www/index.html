@@ -268,41 +268,34 @@ $(".navbarButton").hover(function(){
 	});
 
 	if(localStorage.getItem('categoriesLength')== null){
-		console.log('local null');
 		var filterArray2 = ['active',1];	
 		var categories = webService.filterPromiseJson('categories','level_depth',2);
 		categories.success(function(data){
 			localStorage.setItem('categoriesLength',data.categories.length);
-
 			for(i=0; i<data.categories.length;i++){
 				categoriesId = data.categories[""+i+""].id;
 				localStorage.setItem('categoriesId_'+i,categoriesId);
-				console.log(localStorage.getItem('categoriesId_'+i));
 			}
 			for(i=0; i<localStorage.getItem('categoriesLength');i++){
-			id = localStorage.getItem('categoriesId_'+i);
+				id = localStorage.getItem('categoriesId_'+i);
 
-			var categoriesGet = webService.readIdJson('categories',id).category;
-			localStorage.setItem('categoriesName_'+i,categoriesGet.name);
-			categoriesName = localStorage.getItem('categoriesName_'+i);
-			console.log(categoriesName);
-			
-			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
-		}
+				var categoriesGet = webService.readIdJson('categories',id).category;
+				localStorage.setItem('categoriesName_'+i,categoriesGet.name);
+				categoriesName = localStorage.getItem('categoriesName_'+i);
+				$("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+			}
 		});
 	}else{
 		for(i=0; i<localStorage.getItem('categoriesLength');i++){
-
 			categoriesName = localStorage.getItem('categoriesName_'+i);
-			console.log(categoriesName);
 			
+		console.log(categoriesName);
 			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 		}
 	}
 	
 	
-		
-	console.log("panjang"+localStorage.getItem('categoriesLength')); 
+	
    $('#contentslider').load("view/templates/sliderProduct.html");
    $('#contentsliderpromo').load("view/templates/standard.html");
    
