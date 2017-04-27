@@ -288,8 +288,13 @@ categoriesName = localStorage.getItem('categoriesName_1');
 			var categoriesGet = webService.readIdJson('categories',id).category;
 			
 			localStorage.setItem('categoriesName_'+i,categoriesGet.name);
-			console.log('ini kosong terus di isi '+localStorage.getItem('categoriesName_'+i));
-			$("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+			for(i=0; i<localStorage.getItem('categoriesLength');i++){
+			
+			categoriesName = localStorage.getItem('categoriesName_'+i);
+			console.log('ini sudah ada '+categoriesName);
+			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+	
+		}
 		}
 	}else{
 	
