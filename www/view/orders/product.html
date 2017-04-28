@@ -1,68 +1,43 @@
-<style>
-
-		ul.tabs{
-			margin: 0px;
-			padding: 0px;
-			list-style: none;
-			 border-top-right-radius: 1em;
-      background: white;
-		}
-		ul.tabs li{
-			background: #999999;
-			color: #111111;
-			display: inline-block;
-			padding: 10px 15px;
-			cursor: pointer;
-		}
-
-		ul.tabs li.current{
-			background: #ededed;
-			color: #222;
-		}
-
-		.tab-content{
-			display: none;
-			background: #ffffff;
-			padding: 15px;
-		}
-
-		.tab-content.current{
-			display: inherit;
-		}
-		.row{
-		background-color:black;
-		height:auto;
-		}
-</style>
-
-	<div class='' >
-		img
+	<div id="product-img">
+		<img class="show-product-img"	></img>
 	</div>
-<div class="product-container">
-asdsaf
-</div>	
-
-	<div class="product-container-detail">
-	<!-- Tabs Button -->
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="description">Tab One</li>
-			<li class="tab-link" data-tab="tab-2">Tab Two</li>
-			<li class="tab-link" data-tab="tab-3">Tab Three</li>
-		</ul>
-		
-	<!-- Tabs Content -->
-		<div id="description" class="tab-content current" >
+	<div id="description-product">
+		<div class="col-6" style="padding-left:1em;    padding-top: 0.5em;padding-bottom: 0.5em;">
+			<span id="product-name" style="color:#00b159"></span><br>
+			<span id="our_price_display" class="price" itemprop="price" ></span><br>
 			
 		</div>
-		<div id="tab-2" class="tab-content">
-			 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</div>
-		<div id="tab-3" class="tab-content">
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+		<div class="col-6" style="text-align:right;padding-right:1em">
+		<span>Rating Apotek</span><br>
+		<span>*****</span>
 		</div>
 		
+		
+	</div>
+<div class="container-product-tab">
+	<!-- Tabs Button -->
 
-	</div><!-- container -->
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'Ringkasan')" id="defaultOpen">Ringkasan</button>
+		<button class="tablinks" onclick="openCity(event, 'Detail')">Detail</button>
+		<button class="tablinks" onclick="openCity(event, 'Ulasan')">Ulasan</button>
+	</div>
+
+	<div id="Ringkasan" class="tabcontent">
+
+	</div>
+
+	<div id="Detail" class="tabcontent">
+
+	</div>
+
+	<div id="Ulasan" class="tabcontent">
+		<span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+		<h3>Ulasan</h3>
+		<p>Ulasan is the capital of Japan.</p>
+	</div>
+
+</div><!-- container -->
 
 <script src="../../js/webservice.js"></script>
 
@@ -74,7 +49,22 @@ asdsaf
 		* @param  int  $id, $id_supplier
 		* @return vars
 	*/
-	
+	function openCity(evt, cityName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
 
 	console.log(idProduct);
     /**
@@ -141,11 +131,14 @@ asdsaf
 					separator = sisa ? '.' : '';
 					rupiah += separator + ribuan.join('.');
 				}
-	$("#productName").prepend(product.name);
+	$("#product-name").prepend("<b>"+product.name+"</b>");
 	$("#idCustomer").prepend(idCustomer);
-	$("#description").prepend(product.description);
+	ringkasan = product.description_short;
+	$("#Ringkasan").append(ringkasan);
+	detail = product.description;
+	$("#Detail").append(detail);
 	$("#stock").prepend( qty )
-	$("#our_price_display").prepend( rupiah);
+	$("#our_price_display").prepend("Rp."+rupiah);
 	
 	$("#description_short").prepend( product.description_short);
 	
@@ -154,9 +147,11 @@ asdsaf
   
 
 	
-	
-	//$(".imgProduct").attr("src",loadImg);
-	$("#our_price_display").attr("content",product.price);
+	var apiIdImage = product.associations.images["0"].id;
+	var loadImg = urlapi+"images/products/"+idProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
+
+	$(".show-product-img").attr("src",loadImg);
+		$("#our_price_display").attr("RP",product.price);
 
 	/**
 	    * select product, customer, addresse, currency, languages (default 2 indonesia), currency(default 2 IDR)

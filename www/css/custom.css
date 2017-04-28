@@ -1,4 +1,16 @@
 /* =================================== Global ======================================= */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 .header-navbar-col-3 {
 	position:relative;
 	float: left;
@@ -17,6 +29,15 @@
 	 font-weight: bold;
 	 
     font-size: 1.5em;
+	 
+}
+.header-navbar-col-3>a>img {
+   width:33.33333333%;
+	height: 100%;
+	
+	vertical-align: middle;
+	padding-left:1em
+	
 	 
 }
 .header-navbar-col-4 {
@@ -42,7 +63,7 @@
 .menu-navbar-fixed-top{
 	z-index:1030;
 	height:3em;
-	background-color:black;
+	background-color:#F5F5DC;
 	overflow: hidden;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
@@ -203,17 +224,7 @@ a.list-group-item:hover {
     position: relative; 
 	height:2.5em;background-color:blue;border:1;	
 }
-.ProductDetail{
-	  position: relative; 
-	  background-color:#333333;
-	  color:#111111;
-}
-.product-container{
-	  position: relative; 
-	  color:#111111;
-	  background-color:red;
-	  height:100%
-}
+
 .header-rectangle>.header-icon { 
  position: absolute;
     left: 0;
@@ -300,6 +311,7 @@ text-align:center;
 	width:100%;
 	height:100%;
 	background-color:#ffbf00;
+	text-align: center;
 }
 .parent>#buy{
 	position:relative;
@@ -457,5 +469,94 @@ text-align:center;
 div#fa-heart:hover {
     background-color: none;
 }
+.ProductDetail{
+	  position: relative; 
+	  background-color:#333333;
+	  color:#111111;
+}
+.container-product{
+	padding-top:3em;
+	  position: relative; 
+	  color:#111111;
+	  background-color:red;
+	  height:100%
+}
+.container-product-tab{
+	position: relative;
+	  color:#111111;
+	  background-color:black;
+	  padding-left:0.5em;
+	  padding-right:0.5em;
+	  padding-bottom: 4em;
+	  padding-top: 0.5em;
+}
+#product-img{
+	background-color:white;
+	width:100%;
+	vertical-align: middle;
+	text-align:center;
+}
+.show-product-img{
+	width:20em;
+	vertical-align: middle;
+	text-align:center;
+}
+#description-product{
+	background-color:#F5F5DC;
+	width:100%;
+	    display: flex;
+}
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    background-color: black;
+    border-top-right-radius: 0.5em;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: Darkgray;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1em;
+    transition: 0.3s;
+    font-size: 17px;
+	
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: white;
+}
+button.tablinks {
+    width: 33.333%;
+    border-top-right-radius: 1em;
+	background-color:black
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 0.5em 0.5em;
+    border: 1px solid #ccc;
+    border-top: none;
+	background-color:white
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.topright:hover {color: red;}
 /* =================================== endproduct ======================================= */
 

@@ -7,8 +7,8 @@
         <param name="browser-package" value="Device" />
     </feature>
     <name>Go-Obat</name>
-    <description>Hello World sample application that responds to the deviceready event.</description>
-    <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
+    <description>Aplikasi siap</description>
+    <author email="info@go-obat.com" href="http://phonegap.com">Go-Obat</author>
     <content src="index.html" />
     <icon src="icon.png" />
     <access origin="*" />
