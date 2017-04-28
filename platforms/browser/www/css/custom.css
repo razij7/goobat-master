@@ -414,6 +414,7 @@ text-align:center;
 	
 	text-decoration: none;
 	width:25%;
+   height: 100%; 
 }
 
 #icon-home{
@@ -433,8 +434,23 @@ text-align:center;
 	
 	fill:#ffbf00;
 }
-
-
+.header-navbar-col-4>object{
+	text-align:center;
+	display: block;
+    margin: auto;
+	
+}
+.header-navbar-col-4>object:hover {
+    background-color: #00b159;
+  
+}
+.header-navbar-col-4.home{
+    background-color: #ffbf00;
+  
+}.header-navbar-col-4.home:hover{
+    background-color: #00b159;
+  
+}
 /* =================================== categorie ======================================= */
 
 /* =================================== product ======================================= */

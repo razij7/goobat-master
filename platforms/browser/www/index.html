@@ -26,7 +26,7 @@
 			<object oa-reusable-svg
 						data="img/menu-button.svg"
 						type="image/svg+xml"
-					 width="30%"">
+					 width="30%">
 					 </object>
 				
 			</a></div>
@@ -71,7 +71,7 @@
 			<div class="ui-block-a"><center><a href="#left-panel" > <img src="img/ic_home_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
 			<div class="ui-block-b"><center><a href="#left-panel" > <img src="img/ic_add_shopping_cart_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
 			<div class="ui-block-c"><center><a href="#left-panel" > <img src="img/ic_chat_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
-			<div class="ui-block-d"><center><a href="" id="detail-account"> <img src="img/ic_person_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-d"><center><a href="" id="detail-account" onclick="window.location.reload(true);"> <img src="img/ic_person_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
 			
 		</div>
 	</div><!-- /footer -->
@@ -116,7 +116,7 @@ $("#home").attr("href","#");
 $("#login").attr("href","view/Auth/login.html");
 $("#detail-account").attr("href","view/account/index.html");
 
-	
+localStorage.clear();	
 $(".col-xs-3, .text-center").hover(function(){
         $(this).css("background-color", "#ffd966");
         }, function(){
@@ -258,7 +258,7 @@ $(".navbarButton").hover(function(){
                             +'<img src="'+setUrlImageProduts+'" alt="">'
 						+'</a>'
 						+'<div class="caption-product-lists">'
-					        +'<a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'" data-icon="gear" data-transition="slide"><b>'+getNameProducts+'</b></a>'
+					        +'<a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'" target="_blank" data-icon="gear" data-transition="slide"><b>'+getNameProducts+'</b></a>'
 							+'<p>Harga Rp.'+rupiah+'</p>'
 						+'</div>'
 					+'</div>';
@@ -277,20 +277,20 @@ $(".navbarButton").hover(function(){
 				localStorage.setItem('categoriesId_'+i,categoriesId);
 			}
 			for(i=0; i<localStorage.getItem('categoriesLength');i++){
-				id = localStorage.getItem('categoriesId_'+i);
+				categoriesId = localStorage.getItem('categoriesId_'+i);
 
-				var categoriesGet = webService.readIdJson('categories',id).category;
+				var categoriesGet = webService.readIdJson('categories',categoriesId).category;
 				localStorage.setItem('categoriesName_'+i,categoriesGet.name);
 				categoriesName = localStorage.getItem('categoriesName_'+i);
-				$("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+				$("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 			}
 		});
 	}else{
 		for(i=0; i<localStorage.getItem('categoriesLength');i++){
 			categoriesName = localStorage.getItem('categoriesName_'+i);
-			
+				categoriesId = localStorage.getItem('categoriesId_'+i);
 		console.log(categoriesName);
-			 $("#categories").append('<a href="view/categories/categories.html" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+			 $("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 		}
 	}
 	
