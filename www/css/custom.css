@@ -28,7 +28,7 @@
 	 margin: auto;
 	 font-weight: bold;
 	 
-    font-size: 1.5em;
+    font-size: 1em;
 	 
 }
 .header-navbar-col-3>a>img {
@@ -464,6 +464,14 @@ text-align:center;
   
 }
 /* =================================== categorie ======================================= */
+.container-categorie{
+	padding-top:3em;
+	  position: relative; 
+	  color:#111111;
+	  background-color:red;
+	  height:100%
+}
+/* =================================== endcategorie ======================================= */
 
 /* =================================== product ======================================= */
 div#fa-heart:hover {

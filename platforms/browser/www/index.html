@@ -282,7 +282,7 @@ $(".navbarButton").hover(function(){
 				var categoriesGet = webService.readIdJson('categories',categoriesId).category;
 				localStorage.setItem('categoriesName_'+i,categoriesGet.name);
 				categoriesName = localStorage.getItem('categoriesName_'+i);
-				$("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+				$("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'&name='+categoriesName+'"  data-ajax="false" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 			}
 		});
 	}else{
@@ -290,7 +290,7 @@ $(".navbarButton").hover(function(){
 			categoriesName = localStorage.getItem('categoriesName_'+i);
 				categoriesId = localStorage.getItem('categoriesId_'+i);
 		console.log(categoriesName);
-			 $("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+			 $("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'&name='+categoriesName+'"  data-ajax="false" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
 		}
 	}
 	
