@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <title>Go-Obat</title>
+
+    <link href="../../css/font-awesome.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/owl.carousel.css" rel="stylesheet">
+    <link href="../../css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="../../css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="../../css/custom.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../js/js/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+
+
+</head>
+
+<body>
+    <!-- *** TOPBAR ***
+ _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="../../index.html" class="glyphicon glyphicon-chevron-left" > Kembali ke Beranda</a>
+            </div>
+           
+        </div>
+
+
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+
+
+    <div id="all">
+
+        <div id="content">
+            <div class="container">
+				
+				
+				  <div class="col-md-6">
+                    <div class="box">
+                        <h1>BUAT AKUN BARU</h1>
+
+
+
+                        <p class="lead">Informasi Pribadi Anda</p>
+                        <p style="color:red"> *Kolom wajib diisi</p>
+                        <hr>
+ 
+ <form  action="javascript:signup()">
+                            <div class="form-group">
+								<label  for="gender">Gelar</label>
+								<div>
+									<label class="radio-inline" for="gender-0">
+										<input type="radio" name="gender" id="gender-0" value="1" checked="checked">
+										Mr.
+									</label> 
+									<label class="radio-inline" for="gender-1">
+										<input type="radio" name="gender" id="gender-1" value="2">
+										Mrs.
+									</label> 
+									<label class="radio-inline" for="gender-2">
+										<input type="radio" name="gender" id="gender-2" value="3">
+										Saudara
+									</label> 
+									<label class="radio-inline" for="gender-3">
+										<input type="radio" name="gender" id="gender-3" value="4">
+										Saudari
+									</label>
+								</div>
+							</div>
+							 <div class="form-group" >
+								<label id='pesanReg' style="color:red"></label>
+                            </div> 
+							<div class="form-group">
+                                <label for="firstname">Nama Depan</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+							<div class="form-group">
+                                <label for="lastname">Nama Belakang</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+						
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" >Password</label>
+                                <input type="password" class="form-control" id='password1' required>
+                            </div>
+							
+							<div class="text-center">
+								<button	 class="btn btn-primary" id="signup"><i class="fa fa-user-md"></i> Submit</button>
+                            </div>
+</form>
+                     
+					 </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>Login</h1>
+
+                        <p class="lead">OTENTIKASI</p>
+                        <p class="text-muted">Silahkan Login</p>
+
+                        <hr>
+
+                        <form action="javascript:doLogin(this)">
+							<div class="form-group" >
+								<label id='pesan' style="color:red"></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="username" placeholder="Masukan alamat email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Masukan kata sandi" required>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-primary"></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2016 PT. Nutragen Global Esana</p>
+
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+
+	
+
+
+<script type="text/javascript" src="../../js/webservice.js"></script>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../../js/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../js/js/waypoints.min.js"></script>
+    <script type="text/javascript" src="../../js/js/modernizr.js"></script>
+    <script type="text/javascript" src="../../js/js/bootstrap-hover-dropdown.js"></script>
+    <script type="text/javascript" src="../../js/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../js/js/front.js"></script>
+	<script type="text/javascript" src="../../js/md5.min.js"></script>
+	<script type="text/javascript" src="../../js/form.js"></script>
+	<script type="text/javascript" src="../../js/array.js"></script>
+	<script type="text/javascript" src="../../controller/auth.js"></script>
+
+</body>
+
+</html>
+
+<script type="text/javascript" type="text/javascript">
+<!-- console.log(window.location.origin); -->
+
+	webService.initialize();
+	
+	function $_GET(param) {
+			var vars = {};
+			window.location.href.replace( location.hash, '' ).replace( 
+				/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+				function( m, key, value ) { // callback
+					vars[key] = value !== undefined ? value : '';
+				}
+			);
+			if ( param ) {
+				return vars[param] ? vars[param] : null;	
+			}
+			return vars;
+	}
+	
+	function doLogin(){
+		var username = $('#username').val();
+		var password = $('#password').val();	
+		var hash = md5(cookieKey+password);
+		var filterArray = ['email',username,'passwd',hash];
+		console.log("ASAD4");
+		idCustomer = webService.search('customers',filterArray);
+		if ( idCustomer[0] == 0 ){
+			$("#pesan").empty().prepend("Kombinasi salah!");
+		}else{
+
+			var filterArray = ['id_customer',idCustomer];
+			var idAddress = webService.search('addresses',filterArray);
+			localStorage.setItem('idCustomer',idCustomer);
+			localStorage.setItem('idAddress',idAddress[0]);
+			var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
+			promise1.success(function(data){			
+				var customer = $(data).children().children()[0].children;
+				var customerData = { 'lastName' : customer[9].textContent,
+					'firstName' : customer[10].textContent,
+					'email' : customer[11].textContent,
+					'gender' : customer[12].textContent,
+					'DoB' : customer[13].textContent };
+					
+				localStorage.setItem('customerData',JSON.stringify(customerData));
+				console.log(JSON.stringify(customerData));	
+			
+			});
+			customerData = JSON.parse(localStorage.getItem('customerData'));
+				
+			if(customerData == null || customerData == "undefined"){
+				console.log('anda belum login');
+			}else if($_GET().back == 1){
+				window.history.back();	
+			}else{
+				window.location.replace("../../index.html");
+			}
+		}
+	}
+	function signup(){
+		objectData[2][1] = 1;
+		objectData[2][2] = 2;
+		objectData[2][8] = $('#password1').val();
+		objectData[2][9] = $('#lastName').val();
+		objectData[2][10] = $('#firstName').val();
+		objectData[2][11] = $('#email').val();
+		//objectData[2][14] = $('#gender').val();
+		//objectData[2][13] = $('#DOB').val();
+		var filterArray = ['email',objectData[2][11]];
+		var idCustomer = webService.search('customers',filterArray);
+		if(idCustomer==0){
+			promise = webService.create('customers');	
+			promise.success(function(data){
+				console.log("Create Customer Success!");
+				$("#pesanReg").empty().prepend("Registrasi berhasil, mohon tunggu..");
+				
+				localStorage.setItem('idCustomer',idCustomer);
+				var promise1 = webService.readPromiseXml('customers',localStorage.getItem('idCustomer'));
+				promise1.success(function(data){			
+					var customer = $(data).children().children()[0].children;
+					localStorage.setItem('customerData',JSON.stringify(customer.customer));
+				});
+				if($_GET().back == 1){
+					window.history.back();	
+				}
+				window.location.replace("../../index.html");
+			});
+		}
+		else{
+			$("#pesanReg").empty().prepend("Email sudah terdaftar");
+		}
+
+	}
+
+	$.ajaxSetup({ cache: true });
+	
+</script>

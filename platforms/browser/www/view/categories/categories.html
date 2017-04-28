@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Go-Obat</title>
+      	<link rel="stylesheet" href="../../css/custom.css">
+	<link rel="stylesheet" href="../../css/jquery.mobile-1.4.5.min.css">
+	
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+	
+	
+
+		<div class="menu-navbar-fixed-top">
+			<div class="header-navbar-col-3">a</div>
+			<div class="header-navbar-col-3"><span id='categori-name'></span></div>
+			<div class="header-navbar-col-3">c</div>
+		</div>
+	    <div  id='contentPageOne'>
+        </div>
+		<div class="menu-navbar-fixed-bottom" data-position="fixed" >
+			<div class="header-navbar-col-4">a</div>
+			<div class="header-navbar-col-4">a</div>
+			<div class="header-navbar-col-4">a</div>
+			<div class="header-navbar-col-4">a</div>
+			
+		</div>
+
+	
+	
+
+
+</body>
+</html> 
+
+<script type="text/javascript" src="../../js/webservice.js"></script>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript">
+	webService.initialize();
+	
+	 $_GET('id','name');
+
+    function $_GET(param) {
+        var vars = {};
+
+        window.location.href.replace( location.hash, '' ).replace( 
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+			function( m, key, value ) { // callback
+				vars[key] = value !== undefined ? value : '';
+			}
+		);
+
+		if ( param ) {
+			return vars[param] ? vars[param] : null;	
+		}
+		
+		return vars;
+	}
+	
+	/**
+	    * Declare @vars to $var
+	*/
+    
+	 id = $_GET().id;
+	 name = $_GET().name;
+	
+	$("#categori-name").append(name);
+	
+	var filterArray2 = ['id_category_default',id];	
+	var promise4 = webService.filterPromiseJson('products','id_category_default',id);
+
+	promise4.success(function(data){
+		console.log($(data).length);	
+		if($(data).length == 0){
+			row=' <div class="container-products thumb">'
+				        +'<span style="color:white">kosong</span>'
+    
+					+'</div>';
+				$("#contentPageOne").append(row);
+		}else{
+				for(var i=0;i<data.products.length;i++){	
+		idProducts = $(data)["0"].products[""+i+""].id;
+		
+			var promise5 = webService.readPromiseJson('products',idProducts);
+			promise5.success(function(data){
+			var getNameProducts = data["product"]["name"];
+			var NameProducts = getNameProducts.substring(0, 27);
+			if (NameProducts.length == 27){
+				NameProducts = getNameProducts.substring(0, 27)+'...';
+			}
+				var Detailproductsname ='';
+				var Detailproductsnamecategori ='';
+				var apiIdProduct = data["product"]["id"];
+				var apiIdSupplier = data["product"]["id_supplier"];
+				var price = data["product"]["price"];
+				var bilangan = parseInt(price);
+					
+				var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+						
+				if (ribuan) {
+					separator = sisa ? '.' : '';
+					rupiah += separator + ribuan.join('.');
+				}
+
+					
+				var apiIdImage = data["product"]["associations"]["images"][0]["id"];
+
+				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
+				
+				row=' <div class="container-products thumb">'
+				        +'<a class="thumbnail" href="#">'
+                            +'<img src="'+setUrlImageProduts+'" alt="">'
+						+'</a>'
+						+'<div class="caption-product-lists">'
+					        +'<a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'" data-icon="gear" data-transition="slide"><b style="color:white">'+getNameProducts+'</b></a>'
+							+'<p>Harga Rp.'+rupiah+'</p>'
+						+'</div>'
+					+'</div>';
+				$("#contentPageOne").append(row);
+			});
+		}
+		}
+
+	});
+</script>

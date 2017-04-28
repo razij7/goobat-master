@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <title>Go-Obat</title>
+
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="dist/js/jquery.min.js"></script>
+</head>
+
+  <body>
+   
+
+    <div data-role="page" id="beranda" data-icon="gear" >
+    <div data-role="header" data-position="fixed" >
+		<div class="ui-grid-b">
+			<div class="ui-block-a"><a href="#left-panel" > 
+			<object oa-reusable-svg
+						data="img/menu-button.svg"
+						type="image/svg+xml"
+					 width="30%">
+					 </object>
+				
+			</a></div>
+			<div class="ui-block-b"><img  src="logo.png" class="ui-icon-nodisc" style="height:2.5em"></img></div>
+			<div class="ui-block-c"><a href="#right-panel" > <img  src="img/ic_search_black_24px.svg" class="ui-icon-nodisc" style="height:2.5em"  align="right"></img></a></div>
+		</div>
+    </div><!-- /header -->
+	
+    <div data-role="content" >
+	    <div class='row' id='contentPageOne'>
+        </div>
+	</div><!-- /content -->
+	<div class='row'>
+	<div data-role="panel" id="left-panel">
+	
+			<div class="panel">
+				
+				<div class="panel-panel-header">
+					<div class="icon-back-left-menu">
+					<img src="img/left-arrow.svg" > </img>
+					</div>
+					<div class="header-left-menu">
+					
+					 <span>BERANDA</span>
+					</div>
+				</div>
+				<div style="color:#ffffff;padding-left:0.5em;">
+				<h6>SEMUA KATEGORRI</h6>
+				</div>
+				<div class="panel-categories" id='categories'>
+				</div>
+			</div>
+		</div>
+	</div><!-- /panel -->
+    <div data-role="panel" id="right-panel" data-display="push" data-position="right" data-theme="c">
+        <p>Right push panel.</p>
+        <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+    </div><!-- /panel -->
+	
+	 <div data-role="footer" data-id="foo1" data-position="fixed">
+		<div class="ui-grid-c" style="height:3em">
+			<div class="ui-block-a"><center><a href="#left-panel" > <img src="img/ic_home_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-b"><center><a href="#left-panel" > <img src="img/ic_add_shopping_cart_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-c"><center><a href="#left-panel" > <img src="img/ic_chat_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			<div class="ui-block-d"><center><a href="" id="detail-account" onclick="window.location.reload(true);"> <img src="img/ic_person_black_24px.svg" class="ui-icon-nodisc" style="height:3em; width: 100%"> </img></a></center></div>
+			
+		</div>
+	</div><!-- /footer -->
+
+	</div>
+
+ 
+<div data-role="page" id="detailProduct">
+  <div data-role="header">
+    <h1>Header Text detail produk</h1>
+
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Page Two</p>
+    <a href="#pageone">Go Back to Page One</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div> 
+
+	<script src="js/webservice.js"></script>
+	<script src="js/js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
+    <script src="js/jssor.slider-22.1.9.mini.js" type="text/javascript"></script>
+	
+	<script src="js/form.js"></script>
+	<script src="js/array.js"></script>
+	<script src="js/jquery.js"></script>
+
+	<script src="js/md5.min.js"></script>
+	<script src="controller/auth.js"></script>
+
+  </body>
+</html>
+<script type="text/javascript">
+
+$("#home").attr("href","#");
+$("#login").attr("href","view/Auth/login.html");
+$("#detail-account").attr("href","view/account/index.html");
+
+localStorage.clear();	
+$(".col-xs-3, .text-center").hover(function(){
+        $(this).css("background-color", "#ffd966");
+        }, function(){
+        $(this).css("background-color", "#22a488");
+    });
+$(".navbarButton").hover(function(){
+        $(this).css("background-color", "#ffd966");
+        }, function(){
+        $(this).css("background-color", "#22a488");
+    });
+
+	$('body, .navbar-collapse form[role="search"] button[type="reset"]').on('click keyup', function(event) {
+			//console.log(event.currentTarget);
+			if (event.which == 27 && $('.navbar-collapse form[role="search"]').hasClass('active') ||
+				$(event.currentTarget).attr('type') == 'reset') {
+				closeSearch();
+			}
+		});
+
+		function closeSearch() {
+            var $form = $('.navbar-collapse form[role="search"].active')
+    		$form.find('input').val('');
+			$form.removeClass('active');
+		}
+
+		// Show Search if form is not active // event.preventDefault() is important, this prevents the form from submitting
+		$(document).on('click', '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function(event) {
+			event.preventDefault();
+			var $form = $(this).closest('form'),
+				$input = $form.find('input');
+			$form.addClass('active');
+			$input.focus();
+
+		});
+		// ONLY FOR DEMO // Please use $('form').submit(function(event)) to track from submission
+		// if your form is ajax remember to call `closeSearch()` to close the search container
+		$(document).on('click', '.navbar-collapse form[role="search"].active button[type="submit"]', function(event) {
+			event.preventDefault();
+			var $form = $(this).closest('form'),
+				$input = $form.find('input');
+			$('#showSearchTerm').text($input.val());
+            closeSearch()
+		});
+		
+		$('#list').click(function(event){event.preventDefault();$('#Detailproductsname .item').addClass('list-group-item');});
+		$('#grid').click(function(event){event.preventDefault();$('#Detailproductsname .item').removeClass('list-group-item');$('#Detailproductsname .item').addClass('grid-group-item');});
+		
+		webService.initialize();
+	var idCustomer = localStorage.getItem('idCustomer');
+	if (idCustomer != null){
+		var promise1 = webService.readPromiseXml('countries',111);
+		 
+		var filterArray1 = ['id_customer',idCustomer];
+		var promise2 = webService.readPromiseXml('carts',webService.filterGenerator(filterArray1));
+		promise2.success(function(data){
+			var carts = webService.searchPromise(data);
+			var idCart = carts[carts.length-1];
+			localStorage.setItem('idCart',idCart);
+			
+			if (idCart == 'undefined'){	
+				idCart
+			}else if(idCart == 0){
+				idCart
+			}else if(idCart == 'null'){
+				idCart
+			}else{
+				var promise3 = webService.readPromiseXml('carts',idCart);
+				promise3.success(function(data){
+					var cart = $(data).children().children()[0].children[19].children[0].children;
+					//console.log(cart);	
+					$.each(cart, function(key, value) {
+						hasil = new Array();
+						hasil[key] = value;
+						localStorage.setItem('cartRow_'+key,hasil[''+key+''].children[key].textContent);
+				//		console.log(localStorage.getItem('cartRow_'+key));	
+					});		
+					localStorage.setItem('cartsLength',cart.length);
+					$('#navbar').load("view/templates/navbar.html");
+				});
+			}
+		});
+		
+	}
+	
+	var filterArray2 = ['active',1];	
+	var promise4 = webService.filterPromiseJson('products','active',1);
+	promise4.success(function(data){
+		for(var i=0;i<100;i++){	
+		idProducts = $(data)["0"].products[""+i+""].id;
+			var promise5 = webService.readPromiseJson('products',idProducts);
+			promise5.success(function(data){
+			//console.log(data);
+			var getNameProducts = data["product"]["name"];
+			var NameProducts = getNameProducts.substring(0, 27);
+			if (NameProducts.length == 27){
+				NameProducts = getNameProducts.substring(0, 27)+'...';
+			}
+			//console.log(NameProducts.length);
+				var Detailproductsname ='';
+				var Detailproductsnamecategori ='';
+				var apiIdProduct = data["product"]["id"];
+				var apiIdSupplier = data["product"]["id_supplier"];
+				var price = data["product"]["price"];
+				var bilangan = parseInt(price);
+					
+				var	number_string = bilangan.toString(),
+					sisa 	= number_string.length % 3,
+					rupiah 	= number_string.substr(0, sisa),
+					ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+						
+				if (ribuan) {
+					separator = sisa ? '.' : '';
+					rupiah += separator + ribuan.join('.');
+				}
+
+					
+				var apiIdImage = data["product"]["associations"]["images"][0]["id"];
+
+				var div1 ='<div class="col-xs-6 col-md-4">';
+				var div2 ='<div class="thumbnail" style="margin:0px auto;" data-icon="gear" >';
+				var setUrlImageProduts = urlapi+"images/products/"+apiIdProduct+"/"+apiIdImage+"/large_default?ws_key="+key;
+				var imgSrc = '<img style="width:8em; height:8em;"src="'+setUrlImageProduts+'" alt="">';
+				var classCaption ='<div class="caption">';
+				var contentCaption ='<span style="font-weight:bold" class="group inner list-group-item-heading">'+NameProducts+'</span>';
+				var contentCaptionDescription ='<p class="group inner list-group-item-text"></p>';
+				var div3 ='<div class="row">';
+				var div31 ='<div>';
+				var contentDiv31 ='<p class="col-xs-6 col-md-4">Rp.'+rupiah+'</p>';
+				var endDiv31 ='</div>';
+				var div4 ='<div class="col-xs-6 col-md-4">';
+				var contentDiv4 ='<a class="btn btn-success" data-transition="slide" href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'">Beli</a>';
+				var endDiv4 ='</div></div></div></div></div></div>';
+				
+				 
+				 alls = div1+div2+imgSrc+classCaption+contentCaption+contentCaptionDescription+div3+div31+contentDiv31+endDiv31+div4+contentDiv4+endDiv4;
+
+				row=' <div class="container-products thumb">'
+				        +'<a class="thumbnail" href="#">'
+                            +'<img src="'+setUrlImageProduts+'" alt="">'
+						+'</a>'
+						+'<div class="caption-product-lists">'
+					        +'<a href="view/orders/index.html?id='+apiIdProduct+'&id_supplier='+apiIdSupplier+'" data-direction="reverse"	 data-icon="gear" data-transition="pop"><b>'+getNameProducts+'</b></a>'
+							+'<p>Harga Rp.'+rupiah+'</p>'
+						+'</div>'
+					+'</div>';
+				$("#contentPageOne").append(row);
+			});
+		}	
+	});
+
+	if(localStorage.getItem('categoriesLength')== null){
+		var filterArray2 = ['active',1];	
+		var categories = webService.filterPromiseJson('categories','level_depth',2);
+		categories.success(function(data){
+			localStorage.setItem('categoriesLength',data.categories.length);
+			for(i=0; i<data.categories.length;i++){
+				categoriesId = data.categories[""+i+""].id;
+				localStorage.setItem('categoriesId_'+i,categoriesId);
+			}
+			for(i=0; i<localStorage.getItem('categoriesLength');i++){
+				categoriesId = localStorage.getItem('categoriesId_'+i);
+
+				var categoriesGet = webService.readIdJson('categories',categoriesId).category;
+				localStorage.setItem('categoriesName_'+i,categoriesGet.name);
+				categoriesName = localStorage.getItem('categoriesName_'+i);
+				$("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+			}
+		});
+	}else{
+		for(i=0; i<localStorage.getItem('categoriesLength');i++){
+			categoriesName = localStorage.getItem('categoriesName_'+i);
+				categoriesId = localStorage.getItem('categoriesId_'+i);
+		console.log(categoriesName);
+			 $("#categories").append('<a href="view/categories/categories.html?id='+categoriesId+'" class="list-group-item" data-icon="gear" data-transition="slide">'+categoriesName+'</a>');
+		}
+	}
+	
+	
+	
+   $('#contentslider').load("view/templates/sliderProduct.html");
+   $('#contentsliderpromo').load("view/templates/standard.html");
+   
+   $('#contentsliderpromo3').load("view/templates/sliderProduct3.html");
+	$('#navbar').load("view/templates/navbar.html");
+	$('#top').load("view/templates/top.html");
+	$("#carts").click(function(){
+		alert("The paragraph was clicked.");
+	});
+	$.ajaxSetup({ cache: true });
+	console.timeEnd(promise4);
+		
+           
+
+    $( document ).on( "swipeleft swiperight", "#demo-page", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft"  ) {
+                $( "#right-panel" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                $( "#left-panel" ).panel( "open" );
+            }
+        }
+    });
+	
+	  $(document).on("click","#left ul.nav li.parent > a > span.sign", function(){          
+        $(this).find('i:first').toggleClass("icon-minus");      
+    }); 
+    
+    // Open Le current menu
+    $("#left ul.nav li.parent.active > a > span.sign").find('i:first').addClass("icon-minus");
+    $("#left ul.nav li.current").parents('ul.children').addClass("in");
+
+    </script>
