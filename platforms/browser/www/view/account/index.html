@@ -11,20 +11,32 @@
 <body>
 	
 	
-
 		<div class="menu-navbar-fixed-top">
 			<div class="header-navbar-col-3">
 					<a href="javascript:history.back()"><img src="../../img/left-arrow.svg"> </img></a>
 			</div>
 			<div class="header-navbar-col-3">
-					<span><h4>Akun Saya</h4></span>
+					<span>Akun Saya</span>
 			</div>
 			<div class="header-navbar-col-3">
-					<a href="javascript:history.back()"><img src="../../img/ic_search_black_24px.svg"> </img></a>
+				<a href="javascript:localStorage.clear();location.reload();"><img src="../../img/left-arrow.svg"> </img></a>
 			</div>
 		</div>
-	    <div  id='contentPageOne'>
+		
+	<div id="afterAuth">
+	    <div  class='container-account'>
+			<div class="col-3">
+
+			</div>
+			<div class="col-6" id="fullName">
+				
+			</div>
+			<div class="col-3">
+
+			</div>
         </div>
+	</div>
+
 		<div class="menu-navbar-fixed-bottom" data-position="fixed" >
 			<div class="header-navbar-col-4 home">
 					<object oa-reusable-svg
@@ -41,6 +53,7 @@
 
 	
 	
+	
 
 
 </body>
@@ -50,15 +63,22 @@
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript">
 	webService.initialize();	
-	
+
 	var customerData = JSON.parse(localStorage.getItem('customerData'));
 	console.log(customerData);
 	if(customerData == null || customerData == "undefined"){
+		 $("#afterAuth").hide();
 		console.log('anda belum login');
+		
+	window.location.replace("../Auth/login.html");
+		
 	}else{
-	
+	 $("#afterAuth").show();
 	console.log(customerData);
 	console.log('Full Name : ',customerData.firstName+' '+customerData.lastName);
+	fullName = customerData.firstName+' '+customerData.lastName;
+	$("#fullName").append(fullName);
 	}
-
+	
+	
 </script>

@@ -1,16 +1,84 @@
 /* =================================== Global ======================================= */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-1 {
+	width: 8.33%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-2 {
+	width: 16.66%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+}
+.col-3 {
+	width: 25%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-4 {
+	width: 33.33%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;}
+.col-5 {
+	width: 41.66%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;}
+.col-6 {
+	width: 50%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-7 {
+	width: 58.33%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;}
+.col-8 {
+	width: 66.66%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-9 {
+	width: 75%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-10 {
+	width: 83.33%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
+.col-11 {
+	width: 91.66%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;}
+.col-12 {
+	width: 100%;
+	position:relative;
+	float: left;
+	display: flex;
+	height:2em;
+	}
 .header-navbar-col-3 {
 	position:relative;
 	float: left;
@@ -463,6 +531,26 @@ text-align:center;
     background-color: #00b159;
   
 }
+.container-account{
+	 background-image: url("../img/account.jpg");
+	 background-size: 100%;
+    background-repeat: no-repeat;
+	background-color:red;
+	height: 10em;
+	margin-top: 3em;
+	
+	padding-top:3em;
+}
+.container-account>.col-3{
+
+	background-color:blue;
+
+}.container-account>.col-6{
+
+	background-color:green;
+
+}
+.
 /* =================================== categorie ======================================= */
 .container-categorie{
 	padding-top:3em;
@@ -567,4 +655,15 @@ div.tab button.active {
 
 .topright:hover {color: red;}
 /* =================================== endproduct ======================================= */
+/* =================================== Auth ======================================= */
+.container-login{
+	 background-size: 100%;
+    background-repeat: no-repeat;
+	margin-top: 3em;
+	
+	padding-top:3em;
+	padding-right:3em;
+	padding-left:3em;
+}
+/* =================================== endAuth ======================================= */
 
