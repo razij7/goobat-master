@@ -4,7 +4,7 @@ var urlOngkir = 'http://pro.rajaongkir.com/api';
 var keyOngkir = "f96a6be5226be3ba07ad5b766d0bd458";
 
 var key = "ARMMR8JEW5FLK7AS63FLHUU72I29QDXP";
-var urlapi = 'http://'+key+'@go-obat.com/markets/api/';
+var urlapi = 'http://'+key+'@go-obat.com/api/';
 var cookieKey = "gptxg2vzwk0t2jjx0yilim9ultkzcaxsb7ksw9lf9uka5g1rfm0hpk6d";
 
  // var cookieKey = "vfvkovmbihuaqhrlmw61vpesapcphdpmriqytzjvyy5t9le18tbgg1qg";
