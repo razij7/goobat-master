@@ -72,387 +72,387 @@
 	</div>
 </div>
 
-<script>
+<!-- <script> -->
 	
 
-	 if ( localStorage.getItem('idAddress') == null){
-		$("#selectAddress").attr("class","hide");
-	 }else{		
-		var idAddress = localStorage.getItem('idAddress').split(",") // Delimiter is a string
-		console.log(idAddress);
-		for (var i = 0; i < idAddress.length; i++)
-		{
-			var promise1 = webService.readPromiseJson('addresses',idAddress[i]);	
-			promise1.success(function(data){
-				var addressCustomer = data.address;
-				firstName		= addressCustomer.firstname;
-				lastName		= addressCustomer.lastname;
-				fullName		= firstName+' '+lastName;
-				address1		= addressCustomer.address1;
-				city			= addressCustomer.city;
-				postcode		= addressCustomer.postcode;
-				//zone 			= webService.readIdJson('countries',addressCustomer.id_country).country.name;
-				phone			= addressCustomer.phone;
-				phone_mobile	= addressCustomer.phone_mobile;	
+	 <!-- if ( localStorage.getItem('idAddress') == null){ -->
+		<!-- $("#selectAddress").attr("class","hide"); -->
+	 <!-- }else{		 -->
+		<!-- var idAddress = localStorage.getItem('idAddress').split(",") // Delimiter is a string -->
+		<!-- console.log(idAddress); -->
+		<!-- for (var i = 0; i < idAddress.length; i++) -->
+		<!-- { -->
+			<!-- var promise1 = webService.readPromiseJson('addresses',idAddress[i]);	 -->
+			<!-- promise1.success(function(data){ -->
+				<!-- var addressCustomer = data.address; -->
+				<!-- firstName		= addressCustomer.firstname; -->
+				<!-- lastName		= addressCustomer.lastname; -->
+				<!-- fullName		= firstName+' '+lastName; -->
+				<!-- address1		= addressCustomer.address1; -->
+				<!-- city			= addressCustomer.city; -->
+				<!-- postcode		= addressCustomer.postcode; -->
+				<!-- //zone 			= webService.readIdJson('countries',addressCustomer.id_country).country.name; -->
+				<!-- phone			= addressCustomer.phone; -->
+				<!-- phone_mobile	= addressCustomer.phone_mobile;	 -->
 				
-				$("#formAddress").attr("class","hide");
-				$("#name").append(fullName);
-				$("#address1").append(address1);
-				$("#city11").append(city);
-				$("#postcode").append(postcode);
-				//$("#zone").append(zone);
-				$("#phone").append(phone);
-				$("#phone_mobile").append(phone_mobile);
+				<!-- $("#formAddress").attr("class","hide"); -->
+				<!-- $("#name").append(fullName); -->
+				<!-- $("#address1").append(address1); -->
+				<!-- $("#city11").append(city); -->
+				<!-- $("#postcode").append(postcode); -->
+				<!-- //$("#zone").append(zone); -->
+				<!-- $("#phone").append(phone); -->
+				<!-- $("#phone_mobile").append(phone_mobile); -->
 					
-				var promise2 = webService.readPromiseJson('countries',addressCustomer.id_country);
-				promise2.success(function(data){
-					zone = data.country.name;
-					$("#zone").append(zone);
-				});
-			});
+				<!-- var promise2 = webService.readPromiseJson('countries',addressCustomer.id_country); -->
+				<!-- promise2.success(function(data){ -->
+					<!-- zone = data.country.name; -->
+					<!-- $("#zone").append(zone); -->
+				<!-- }); -->
+			<!-- }); -->
 			
-		}
+		<!-- } -->
 
 
-	}
-	<!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  -->
+	<!-- } -->
+	<!-- <!-- $("#details").prepend( addressCustomer.city); localStorage.getItem('idCustomer')+localStorage.getItem('idAddress')  --> -->
 	
 	
-	$( "#btnEditAddress" ).click(function() {
-		$("#btnEditAddress").attr("href","../Auth/register2.html?callback=order?step=2&idAddress="+idAddress[0]);
-		//alert('aaa'+$_GET().step);
-	<!-- $("#qtyProductCart1").prepend( $("#qtyProductCart").val()); -->
+	<!-- $( "#btnEditAddress" ).click(function() { -->
+		<!-- $("#btnEditAddress").attr("href","../Auth/register2.html?callback=order?step=2&idAddress="+idAddress[0]); -->
+		<!-- //alert('aaa'+$_GET().step); -->
+	<!-- <!-- $("#qtyProductCart1").prepend( $("#qtyProductCart").val()); --> -->
 	
-		<!-- var idCart = localStorage.getItem('idCart'); -->
-		<!-- var objectName = 'addresses';	 -->
-		<!-- if (idCart == 0){ -->
+		<!-- <!-- var idCart = localStorage.getItem('idCart'); --> -->
+		<!-- <!-- var objectName = 'addresses';	 --> -->
+		<!-- <!-- if (idCart == 0){ --> -->
 			
-			<!-- id_customer = 59; -->
-			<!-- id_country = 111; -->
-			<!-- id_state = 11; -->
-			<!-- alias = 'Home'; -->
-			<!-- company = 'PT Improva'; -->
-			<!-- lastname = 'jamil'; -->
-			<!-- firstname = 'raziz'; -->
-			<!-- address1 = 'Pulomas Utara no 42'; -->
-			<!-- postcode = 13210; -->
-			<!-- city = 'Jakarta Timur'; -->
-			<!-- phone = 109109; -->
+			<!-- <!-- id_customer = 59; --> -->
+			<!-- <!-- id_country = 111; --> -->
+			<!-- <!-- id_state = 11; --> -->
+			<!-- <!-- alias = 'Home'; --> -->
+			<!-- <!-- company = 'PT Improva'; --> -->
+			<!-- <!-- lastname = 'jamil'; --> -->
+			<!-- <!-- firstname = 'raziz'; --> -->
+			<!-- <!-- address1 = 'Pulomas Utara no 42'; --> -->
+			<!-- <!-- postcode = 13210; --> -->
+			<!-- <!-- city = 'Jakarta Timur'; --> -->
+			<!-- <!-- phone = 109109; --> -->
 		
-			<!-- objectData[3][1] = 59;  -->
-			<!-- objectData[3][5] = 111; -->
-			<!-- objectData[3][6] = 11; -->
-			<!-- objectData[3][7] = 'Home'; -->
-			<!-- objectData[3][8] = 'PT Improva'; -->
-			<!-- objectData[3][9] = 'jamil'; -->
-			<!-- objectData[3][10] = 'raziz'; -->
-			<!-- objectData[3][12] = 'Pulomas Utara no 42'; -->
-			<!-- objectData[3][14] = 13210; -->
-			<!-- objectData[3][15] = 'Jakarta Timur'; -->
-			<!-- objectData[3][17] = 109109; -->
+			<!-- <!-- objectData[3][1] = 59;  --> -->
+			<!-- <!-- objectData[3][5] = 111; --> -->
+			<!-- <!-- objectData[3][6] = 11; --> -->
+			<!-- <!-- objectData[3][7] = 'Home'; --> -->
+			<!-- <!-- objectData[3][8] = 'PT Improva'; --> -->
+			<!-- <!-- objectData[3][9] = 'jamil'; --> -->
+			<!-- <!-- objectData[3][10] = 'raziz'; --> -->
+			<!-- <!-- objectData[3][12] = 'Pulomas Utara no 42'; --> -->
+			<!-- <!-- objectData[3][14] = 13210; --> -->
+			<!-- <!-- objectData[3][15] = 'Jakarta Timur'; --> -->
+			<!-- <!-- objectData[3][17] = 109109; --> -->
 			
 			
-			<!-- webService.create(objectName); 	 -->
-		<!-- } -->
-		<!-- else{	 -->
-			<!-- objectData[1][19] = idProduct; -->
-			<!-- objectData[1][20] = 0; -->
-			<!-- objectData[1][22] = $("#qtyProductCart").val(); -->
+			<!-- <!-- webService.create(objectName); 	 --> -->
+		<!-- <!-- } --> -->
+		<!-- <!-- else{	 --> -->
+			<!-- <!-- objectData[1][19] = idProduct; --> -->
+			<!-- <!-- objectData[1][20] = 0; --> -->
+			<!-- <!-- objectData[1][22] = $("#qtyProductCart").val(); --> -->
 			
-			<!-- $("#addtoCart").attr("href","orders.html?step=1"); -->
-			<!-- webService.updateId(objectName,idCart); -->
-		<!-- } -->
+			<!-- <!-- $("#addtoCart").attr("href","orders.html?step=1"); --> -->
+			<!-- <!-- webService.updateId(objectName,idCart); --> -->
+		<!-- <!-- } --> -->
 
-	});
+	<!-- }); -->
 	
 	
 	
-	<!--===================================================== Ongkir ===================================================================-->
+	<!-- <!--===================================================== Ongkir ===================================================================--> -->
 	
-		/*
-	//NAMPILIN ORIGIN, DESTINATION, KURIR DAN JASA YANG TERSEDIA, COST DAN ETD
-	var Tes = { origin: '', // asal city/subdistrict
-				originType: '', // city/subdistrict
-				destination: '', // tujuan city/subdistrict
-				destinationType:'', // city/subdistrict
-				weight: 0, //berat barang
-				courier: ''	//kurir kode ( jne, pos, tiki, rpx, esl, pcp, pandu, wahana, sicepat, jnt, pahala, cahaya, sap, jet, indah, dse )
-				};
+		<!-- /* -->
+	<!-- //NAMPILIN ORIGIN, DESTINATION, KURIR DAN JASA YANG TERSEDIA, COST DAN ETD -->
+	<!-- var Tes = { origin: '', // asal city/subdistrict -->
+				<!-- originType: '', // city/subdistrict -->
+				<!-- destination: '', // tujuan city/subdistrict -->
+				<!-- destinationType:'', // city/subdistrict -->
+				<!-- weight: 0, //berat barang -->
+				<!-- courier: ''	//kurir kode ( jne, pos, tiki, rpx, esl, pcp, pandu, wahana, sicepat, jnt, pahala, cahaya, sap, jet, indah, dse ) -->
+				<!-- }; -->
 	
-	//	Get kota & kecamatan untuk origin & destination
+	<!-- //	Get kota & kecamatan untuk origin & destination -->
 	
-	idOriginCity = 1; //get kota origin
-	idOriginSubdistrict = 0; //get kecamatan origin ( 0 kalo ga ada kecamatan )
-	idDestinationCity = 501; // get kota destination
-	idDestinationSubdistrict = 0; // get kecamatan destination ( 0 kalo ga ada kecamatan )
+	<!-- idOriginCity = 1; //get kota origin -->
+	<!-- idOriginSubdistrict = 0; //get kecamatan origin ( 0 kalo ga ada kecamatan ) -->
+	<!-- idDestinationCity = 501; // get kota destination -->
+	<!-- idDestinationSubdistrict = 0; // get kecamatan destination ( 0 kalo ga ada kecamatan ) -->
 	
-	//=======================================================================================
+	<!-- //======================================================================================= -->
 	
-	//Masukin data idOrigin & idDestination tergantung dari kecamatan ada apa ngga
+	<!-- //Masukin data idOrigin & idDestination tergantung dari kecamatan ada apa ngga -->
 	
-	if(idOriginSubdistrict>0){
-		Tes.originType = 'subdistrict';
-		Tes.origin = idOriginSubdistrict;
-	}
-	else{
-		Tes.originType = 'city';
-		Tes.origin = idOriginCity;
-	}
+	<!-- if(idOriginSubdistrict>0){ -->
+		<!-- Tes.originType = 'subdistrict'; -->
+		<!-- Tes.origin = idOriginSubdistrict; -->
+	<!-- } -->
+	<!-- else{ -->
+		<!-- Tes.originType = 'city'; -->
+		<!-- Tes.origin = idOriginCity; -->
+	<!-- } -->
 	
-	if(idDestinationSubdistrict>0){
-		Tes.destinationType = 'subdistrict';
-		Tes.destination = idDestinationSubdistrict;
-	}
-	else{
-		Tes.destinationType = 'city';
-		Tes.destination = idDestinationCity;
-	}
+	<!-- if(idDestinationSubdistrict>0){ -->
+		<!-- Tes.destinationType = 'subdistrict'; -->
+		<!-- Tes.destination = idDestinationSubdistrict; -->
+	<!-- } -->
+	<!-- else{ -->
+		<!-- Tes.destinationType = 'city'; -->
+		<!-- Tes.destination = idDestinationCity; -->
+	<!-- } -->
 	
-	//=======================================================================================
-	
-	
-	//Masukin data weight & courier ke array, courier tergantung kode yang disediakan diatas 
-	
-	Tes.weight = 100;
-	Tes.courier = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse';
-	
-	//=======================================================================================
+	<!-- //======================================================================================= -->
 	
 	
-	//Nampilin kurir dan servis yang tersedia + cost + etd  
+	<!-- //Masukin data weight & courier ke array, courier tergantung kode yang disediakan diatas  -->
 	
-	$.ajax({
-		url: urlOngkir + '/cost',
-		type: 'post',
-		dataType: 'json',
-		data : Tes,
-		success: function(tempXml){
-			var ori = tempXml.rajaongkir.origin_details;
-			var dest = tempXml.rajaongkir.destination_details; 
-			var courier = tempXml.rajaongkir.results;
-			if(idOriginSubdistrict>0 && idDestinationSubdistrict>0){
-				console.log('Dari : '+ori.city+', '+ori.subdistrict_name+
-							'		Ke : '+dest.city+', '+dest.subdistrict_name);
-			}
-			else if(idOriginSubdistrict>0 && idDestinationSubdistrict==0){
-				console.log('Dari : '+ori.city+', '+ori.subdistrict_name+
-							'		Ke : '+dest.city_name);
-			}
-			else if(idOriginSubdistrict==0 && idDestinationSubdistrict>0){
-				console.log('Dari : '+ori.city_name+
-							'		Ke : '+dest.city+', '+dest.subdistrict_name);
-			}
-			else if(idOriginSubdistrict==0 && idDestinationSubdistrict==0){
-				console.log('Dari : '+ori.city_name+
-							'		Ke : '+dest.city_name);
-			}
-			console.log(tempXml);
-			for(var i=0;i<courier.length;i++){
-				if(courier[i].costs.length>0){
-					console.log(courier[i].name);
-					for(var j = 0;j<courier[i].costs.length;j++){
+	<!-- Tes.weight = 100; -->
+	<!-- Tes.courier = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse'; -->
+	
+	<!-- //======================================================================================= -->
+	
+	
+	<!-- //Nampilin kurir dan servis yang tersedia + cost + etd   -->
+	
+	<!-- $.ajax({ -->
+		<!-- url: urlOngkir + '/cost', -->
+		<!-- type: 'post', -->
+		<!-- dataType: 'json', -->
+		<!-- data : Tes, -->
+		<!-- success: function(tempXml){ -->
+			<!-- var ori = tempXml.rajaongkir.origin_details; -->
+			<!-- var dest = tempXml.rajaongkir.destination_details;  -->
+			<!-- var courier = tempXml.rajaongkir.results; -->
+			<!-- if(idOriginSubdistrict>0 && idDestinationSubdistrict>0){ -->
+				<!-- console.log('Dari : '+ori.city+', '+ori.subdistrict_name+ -->
+							<!-- '		Ke : '+dest.city+', '+dest.subdistrict_name); -->
+			<!-- } -->
+			<!-- else if(idOriginSubdistrict>0 && idDestinationSubdistrict==0){ -->
+				<!-- console.log('Dari : '+ori.city+', '+ori.subdistrict_name+ -->
+							<!-- '		Ke : '+dest.city_name); -->
+			<!-- } -->
+			<!-- else if(idOriginSubdistrict==0 && idDestinationSubdistrict>0){ -->
+				<!-- console.log('Dari : '+ori.city_name+ -->
+							<!-- '		Ke : '+dest.city+', '+dest.subdistrict_name); -->
+			<!-- } -->
+			<!-- else if(idOriginSubdistrict==0 && idDestinationSubdistrict==0){ -->
+				<!-- console.log('Dari : '+ori.city_name+ -->
+							<!-- '		Ke : '+dest.city_name); -->
+			<!-- } -->
+			<!-- console.log(tempXml); -->
+			<!-- for(var i=0;i<courier.length;i++){ -->
+				<!-- if(courier[i].costs.length>0){ -->
+					<!-- console.log(courier[i].name); -->
+					<!-- for(var j = 0;j<courier[i].costs.length;j++){ -->
 						
-						console.log(j+1+'.	Service 	: '+courier[i].costs[j].service);
-						console.log('	Description : '+courier[i].costs[j].description);
-						console.log('	Cost		: '+courier[i].costs[j].cost[0].value);
-						console.log('	ETD			: '+courier[i].costs[j].cost[0].etd);
-					}
-				}	
-				else{
-					console.log('Jasa : '+courier[i].name+' Tidak Tersedia');
-				}
-				console.log(' ');
-			}
-		},
-		error: function(){
-		}
-	});
+						<!-- console.log(j+1+'.	Service 	: '+courier[i].costs[j].service); -->
+						<!-- console.log('	Description : '+courier[i].costs[j].description); -->
+						<!-- console.log('	Cost		: '+courier[i].costs[j].cost[0].value); -->
+						<!-- console.log('	ETD			: '+courier[i].costs[j].cost[0].etd); -->
+					<!-- } -->
+				<!-- }	 -->
+				<!-- else{ -->
+					<!-- console.log('Jasa : '+courier[i].name+' Tidak Tersedia'); -->
+				<!-- } -->
+				<!-- console.log(' '); -->
+			<!-- } -->
+		<!-- }, -->
+		<!-- error: function(){ -->
+		<!-- } -->
+	<!-- }); -->
 	
-	//=======================================================================================
-	*/
-	
-	
-	// Negara
-	$('#countries').append('<option value="'+localStorage.getItem('idCountries')+'">'+localStorage.getItem('countries')+'</option>');
+	<!-- //======================================================================================= -->
+	<!-- */ -->
 	
 	
+	<!-- // Negara -->
+	<!-- $('#countries').append('<option value="'+localStorage.getItem('idCountries')+'">'+localStorage.getItem('countries')+'</option>'); -->
 	
-	//PROVINSI
-	/*$.ajax({
-		url: urlOngkir+'/province',
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-				var dataProvince = data.rajaongkir.results;
-				for(var i=0;i<dataProvince.length;i++){
-					//console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
-					$('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>');
+	
+	
+	<!-- //PROVINSI -->
+	<!-- /*$.ajax({ -->
+		<!-- url: urlOngkir+'/province', -->
+		<!-- type: 'get', -->
+		<!-- dataType: 'json', -->
+		<!-- success: function(data){ -->
+				<!-- var dataProvince = data.rajaongkir.results; -->
+				<!-- for(var i=0;i<dataProvince.length;i++){ -->
+					<!-- //console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province); -->
+					<!-- $('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>'); -->
 					
-				}
-		},
-		error: function(){
-		}
-	});*/
-	var promise1 = webService.readPromiseRajaongkir('province',0);
-	promise1.success(function(data){
-		var dataProvince = data.rajaongkir.results;
-		for(var i=0;i<dataProvince.length;i++){
-			//console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province);
-			$('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>');
-		}
-	});
-	$("#province").change(function(){
+				<!-- } -->
+		<!-- }, -->
+		<!-- error: function(){ -->
+		<!-- } -->
+	<!-- });*/ -->
+	<!-- var promise1 = webService.readPromiseRajaongkir('province',0); -->
+	<!-- promise1.success(function(data){ -->
+		<!-- var dataProvince = data.rajaongkir.results; -->
+		<!-- for(var i=0;i<dataProvince.length;i++){ -->
+			<!-- //console.log('id = '+ dataProvince[i].province_id+' nama='+dataProvince[i].province); -->
+			<!-- $('#province').append('<option value="'+dataProvince[i].province_id+'">'+dataProvince[i].province+'</option>'); -->
+		<!-- } -->
+	<!-- }); -->
+	<!-- $("#province").change(function(){ -->
 
-		$('#city').empty();
-		/*$.ajax({
-			url: urlOngkir+'/city?province='+$(this).val(),
-			type: 'get',
-			dataType: 'json',
-			success: function(data){
-					var dataCity = data.rajaongkir.results;
-					for(var i=0;i<dataCity.length;i++){
-						$('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>');
-					}
-			},
-			error: function(){
-			}
-		});*/
-		var promise2 = webService.readPromiseRajaongkir('city',$(this).val());
-		promise2.success(function(data){
-			var dataCity = data.rajaongkir.results;
-			for(var i=0;i<dataCity.length;i++){
-				$('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>');
-			}
-		});
-	});	
+		<!-- $('#city').empty(); -->
+		<!-- /*$.ajax({ -->
+			<!-- url: urlOngkir+'/city?province='+$(this).val(), -->
+			<!-- type: 'get', -->
+			<!-- dataType: 'json', -->
+			<!-- success: function(data){ -->
+					<!-- var dataCity = data.rajaongkir.results; -->
+					<!-- for(var i=0;i<dataCity.length;i++){ -->
+						<!-- $('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>'); -->
+					<!-- } -->
+			<!-- }, -->
+			<!-- error: function(){ -->
+			<!-- } -->
+		<!-- });*/ -->
+		<!-- var promise2 = webService.readPromiseRajaongkir('city',$(this).val()); -->
+		<!-- promise2.success(function(data){ -->
+			<!-- var dataCity = data.rajaongkir.results; -->
+			<!-- for(var i=0;i<dataCity.length;i++){ -->
+				<!-- $('#city').append('<option value="'+dataCity[i].city_id+'">'+dataCity[i].city_name+'</option>'); -->
+			<!-- } -->
+		<!-- }); -->
+	<!-- });	 -->
 	
 	
 	
-	/*
-	//KOTA BERDASARKAN PROVINSI
-	var idProvince = 5;
-	$.ajax({
-		url: urlOngkir+'/api/city?province='+idProvince,
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-				var dataCity = data.rajaongkir.results;
-				for(var i=0;i<dataCity.length;i++){
-					console.log(dataCity[i].city_name);
-				}
-		},
-		error: function(){
-		}
-	});
-	*/
+	<!-- /* -->
+	<!-- //KOTA BERDASARKAN PROVINSI -->
+	<!-- var idProvince = 5; -->
+	<!-- $.ajax({ -->
+		<!-- url: urlOngkir+'/api/city?province='+idProvince, -->
+		<!-- type: 'get', -->
+		<!-- dataType: 'json', -->
+		<!-- success: function(data){ -->
+				<!-- var dataCity = data.rajaongkir.results; -->
+				<!-- for(var i=0;i<dataCity.length;i++){ -->
+					<!-- console.log(dataCity[i].city_name); -->
+				<!-- } -->
+		<!-- }, -->
+		<!-- error: function(){ -->
+		<!-- } -->
+	<!-- }); -->
+	<!-- */ -->
 	
 	
-	$("#city").change(function(){
+	<!-- $("#city").change(function(){ -->
 
-		$('#subdistrict').empty();
-		/*$.ajax({
-			url: urlOngkir+'/subdistrict?city='+$(this).val(),
-			type: 'get',
-			dataType: 'json',
-			success: function(data){
-					var dataSubdistrict = data.rajaongkir.results;
-					for(var i=0;i<dataSubdistrict.length;i++){
-					//console.log(dataSubdistrict[i]);
-						$('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>');
-					}
-			},
-			error: function(){
-			}
-		});*/
-		var promise3 = webService.readPromiseRajaongkir('subdistrict',$(this).val());
-		promise3.success(function(data){
-			var dataSubdistrict = data.rajaongkir.results;
-			for(var i=0;i<dataSubdistrict.length;i++){
-				$('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>');
-			}
-		});
+		<!-- $('#subdistrict').empty(); -->
+		<!-- /*$.ajax({ -->
+			<!-- url: urlOngkir+'/subdistrict?city='+$(this).val(), -->
+			<!-- type: 'get', -->
+			<!-- dataType: 'json', -->
+			<!-- success: function(data){ -->
+					<!-- var dataSubdistrict = data.rajaongkir.results; -->
+					<!-- for(var i=0;i<dataSubdistrict.length;i++){ -->
+					<!-- //console.log(dataSubdistrict[i]); -->
+						<!-- $('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>'); -->
+					<!-- } -->
+			<!-- }, -->
+			<!-- error: function(){ -->
+			<!-- } -->
+		<!-- });*/ -->
+		<!-- var promise3 = webService.readPromiseRajaongkir('subdistrict',$(this).val()); -->
+		<!-- promise3.success(function(data){ -->
+			<!-- var dataSubdistrict = data.rajaongkir.results; -->
+			<!-- for(var i=0;i<dataSubdistrict.length;i++){ -->
+				<!-- $('#subdistrict').append('<option value="'+dataSubdistrict[i].subdistrict_id+'">'+dataSubdistrict[i].subdistrict_name+'</option>'); -->
+			<!-- } -->
+		<!-- }); -->
 		
-	});	
-	$("#subdistrict").change(function(){
+	<!-- });	 -->
+	<!-- $("#subdistrict").change(function(){ -->
 
-		$('#postCode').empty();
-		var dataRequired = [];
-		dataRequired[0] = 456;
-		dataRequired[1] = 'city';
-		dataRequired[2] = $(this).val();
-		dataRequired[3] = 'subdistrict';
-		dataRequired[4] = 1;
-		dataRequired[5] = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse';		
-		var promise4 = webService.readCostRajaongkir(dataRequired);
-		promise4.success(function(data){
-			console.log(data);
-		});
-		/*var Tes = { origin: 456, // asal city/subdistrict
-				originType: 'city', // city/subdistrict
-				destination: $(this).val(), // tujuan city/subdistrict
-				destinationType:'subdistrict', // city/subdistrict
+		<!-- $('#postCode').empty(); -->
+		<!-- var dataRequired = []; -->
+		<!-- dataRequired[0] = 456; -->
+		<!-- dataRequired[1] = 'city'; -->
+		<!-- dataRequired[2] = $(this).val(); -->
+		<!-- dataRequired[3] = 'subdistrict'; -->
+		<!-- dataRequired[4] = 1; -->
+		<!-- dataRequired[5] = 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse';		 -->
+		<!-- var promise4 = webService.readCostRajaongkir(dataRequired); -->
+		<!-- promise4.success(function(data){ -->
+			<!-- console.log(data); -->
+		<!-- }); -->
+		<!-- /*var Tes = { origin: 456, // asal city/subdistrict -->
+				<!-- originType: 'city', // city/subdistrict -->
+				<!-- destination: $(this).val(), // tujuan city/subdistrict -->
+				<!-- destinationType:'subdistrict', // city/subdistrict -->
 				
-				  weight: 1,
-				  courier: 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse' 
-				};
-		console.log($(Tes));
-		$.ajax({
-			url: urlOngkir + '/cost',
-			type: 'post',
-			dataType: 'json',
-			data : Tes,
-			success: function(tempXml){
+				  <!-- weight: 1, -->
+				  <!-- courier: 'jne:pos:tiki:rpx:esl:pcp:pandu:wahana:sicepat:jnt:pahala:cahaya:sap:jet:indah:dse'  -->
+				<!-- }; -->
+		<!-- console.log($(Tes)); -->
+		<!-- $.ajax({ -->
+			<!-- url: urlOngkir + '/cost', -->
+			<!-- type: 'post', -->
+			<!-- dataType: 'json', -->
+			<!-- data : Tes, -->
+			<!-- success: function(tempXml){ -->
 				
-				for(var i=0;i<tempXml.rajaongkir.results.length;i++){
-					console.log(tempXml.rajaongkir.results[i].name+' :');
-					for(var j=0;j<tempXml.rajaongkir.results[i].costs.length;j++){
-						console.log(tempXml.rajaongkir.results[i].costs[j].description);
-						console.log(tempXml.rajaongkir.results[i].costs[j].service);
-					}
-				}
-				console.log(tempXml);
+				<!-- for(var i=0;i<tempXml.rajaongkir.results.length;i++){ -->
+					<!-- console.log(tempXml.rajaongkir.results[i].name+' :'); -->
+					<!-- for(var j=0;j<tempXml.rajaongkir.results[i].costs.length;j++){ -->
+						<!-- console.log(tempXml.rajaongkir.results[i].costs[j].description); -->
+						<!-- console.log(tempXml.rajaongkir.results[i].costs[j].service); -->
+					<!-- } -->
+				<!-- } -->
+				<!-- console.log(tempXml); -->
 
-			},
-			error: function(){
-			}
-		});*/
-	});	
-	/*
-	//KECAMATAN BERDASARKAN CITY
-	var idCity = 5;
-	$.ajax({
-		url: urlOngkir+'/api/subdistrict?city='+idCity,
-		type: 'get',
-		dataType: 'json',
-		success: function(datadata){
-				var dataSubd = data.rajaongkir.results;
-				for(var i=0;i<dataSubd..length;i++){
-					console.log(dataSubd.[i].subdistrict_name);
-				}
-		},
-		error: function(){
-		}
-	});
-	*/			
+			<!-- }, -->
+			<!-- error: function(){ -->
+			<!-- } -->
+		<!-- });*/ -->
+	<!-- });	 -->
+	<!-- /* -->
+	<!-- //KECAMATAN BERDASARKAN CITY -->
+	<!-- var idCity = 5; -->
+	<!-- $.ajax({ -->
+		<!-- url: urlOngkir+'/api/subdistrict?city='+idCity, -->
+		<!-- type: 'get', -->
+		<!-- dataType: 'json', -->
+		<!-- success: function(datadata){ -->
+				<!-- var dataSubd = data.rajaongkir.results; -->
+				<!-- for(var i=0;i<dataSubd..length;i++){ -->
+					<!-- console.log(dataSubd.[i].subdistrict_name); -->
+				<!-- } -->
+		<!-- }, -->
+		<!-- error: function(){ -->
+		<!-- } -->
+	<!-- }); -->
+	<!-- */			 -->
 	
 	
-	/*
-	console.log(localStorage.getItem('idCustomer'));
-	var idCustomer = localStorage.getItem('idCustomer');
-	if (idCustomer != null){
-		var filterArray = ['id_customer',idCustomer];
-		var carts = webService.search('carts', filterArray);
-		var idCart = carts[carts.length-1];
-		localStorage.setItem('idCart',idCart);
-		if (idCart != 0){
-			var getCart = webService.readId('carts',idCart);
-			var cart = $(getCart).children().children()[0].children[19].children[0].children;
-			cartLength = cart.length;
-			localStorage.setItem('cartLength',cartLength);
-		}	
-	}	
-	*/
+	<!-- /* -->
+	<!-- console.log(localStorage.getItem('idCustomer')); -->
+	<!-- var idCustomer = localStorage.getItem('idCustomer'); -->
+	<!-- if (idCustomer != null){ -->
+		<!-- var filterArray = ['id_customer',idCustomer]; -->
+		<!-- var carts = webService.search('carts', filterArray); -->
+		<!-- var idCart = carts[carts.length-1]; -->
+		<!-- localStorage.setItem('idCart',idCart); -->
+		<!-- if (idCart != 0){ -->
+			<!-- var getCart = webService.readId('carts',idCart); -->
+			<!-- var cart = $(getCart).children().children()[0].children[19].children[0].children; -->
+			<!-- cartLength = cart.length; -->
+			<!-- localStorage.setItem('cartLength',cartLength); -->
+		<!-- }	 -->
+	<!-- }	 -->
+	<!-- */ -->
 	
 	
 	
-</script>
+<!-- </script> -->

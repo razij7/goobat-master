@@ -220,8 +220,9 @@ var webService = {
 			success: function(data){
 				result = data;
 			},
-			error: function(){
-			}
+			error: function(data){
+        alert('Request Status: ' + data.status + ' Status Text: ' + data.statusText + ' ' + data.responseText);
+    }
 		});
 		return result;
 	},

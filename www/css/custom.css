@@ -555,8 +555,16 @@ a.list-group-item:hover {
 /* =================================== product ======================================= */
 #btn-close{
 	background-color:#F5F5DC;
-	height:2.5em
+	height:2.5em;
+	text-align: right;
+
+}#btn-close>a>img{
+	padding-right:1em;
+	height: 2em;
+	
+	vertical-align: middle;
 }
+
 div#popupProduct {
     color: black;
 }
