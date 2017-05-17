@@ -23,7 +23,7 @@
     <div data-role="header" data-position="fixed" >
 		<div class="ui-grid-b">
 			<div class="ui-block-a"><a href="#left-panel" > 
-			<object oa-reusable-svg
+			<object oa-reusable-svg 
 						data="img/menu-button.svg"
 						type="image/svg+xml"
 					 width="30%">
@@ -74,7 +74,7 @@
 				
 				<div class="panel-panel-header">
 					<div class="icon-back-left-menu">
-					<img src="img/left-arrow.svg" > </img>
+					<img src="img/left-arrow.svg"  data-rel="close"> </img>
 					</div>
 					<div class="header-left-menu">
 					
@@ -373,6 +373,6 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
 </script>

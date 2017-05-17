@@ -213,7 +213,6 @@ h6 {
 .slideshow-container {
   max-width: 1000px;
   position: relative;
-  margin: auto;Caption Two
 }
 
 /* Caption text */
@@ -555,7 +554,7 @@ a.list-group-item:hover {
 /* =================================== product ======================================= */
 #btn-close{
 	background-color:#F5F5DC;
-	height:2.5em;
+	height:2em;
 	text-align: right;
 
 }#btn-close>a>img{
@@ -673,13 +672,15 @@ div#fa-heart:hover {
 	  padding-left:0.5em;
 	  padding-right:0.5em;
 	  padding-bottom: 4em;
-	  padding-top: 0.5em;
+	  padding-top: 3em;
 }
 #product-img{
 	background-color:white;
 	width:100%;
 	vertical-align: middle;
 	text-align:center;
+	
+	  padding-top: 3em;
 }
 .show-product-img{
 	width:20em;
